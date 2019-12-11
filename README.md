@@ -39,8 +39,8 @@ Field introduction:
 * contributors: the module contributors, this is a list in yaml format, for example ['tuteng', 'jia'].
 * language: the module language.
 * document: the document of the module, support HTTP link or markdown file.
-* source: Source of module, support HTTP link, link to code repository.
-* license: License of module, support HTTP link or markdown file.
+* source: source of module, support HTTP link, link to code repository.
+* license: license of module, support HTTP link or markdown file.
 * tags: keywords for the module, this is a list in yaml format.
 * alias: alias of module, fields for display, such as the alias of debezium-mysql is `Debezium MySQL Source`.
 * features: features of modules in each version.
