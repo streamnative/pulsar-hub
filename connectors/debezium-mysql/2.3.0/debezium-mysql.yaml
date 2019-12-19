@@ -8,8 +8,7 @@ source: "https://github.com/apache/pulsar/tree/branch-2.3/pulsar-io/debezium/src
 license: Apache 2.0
 tags: ["Pulsar IO", "Debezium", "MySQL", "Source"]
 alias: Debezium MySQL Source
-features:
-  feature1: "Use debezium to sync MySQL data to pulsar"
+features: ["Use debezium to sync MySQL data to Pulsar"]
 icon: https://debezium.io/images/color_white_debezium_type_600px.svg
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-kafka-connect-adaptor-2.3.0.nar"
 support: Apache community

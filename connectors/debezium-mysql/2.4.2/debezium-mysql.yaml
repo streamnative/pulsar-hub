@@ -8,8 +8,7 @@ source: "https://github.com/apache/pulsar/tree/branch-2.4/pulsar-io/debezium/mys
 license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "MySQL", "Source"]
 alias: Debezium MySQL Source
-features:
-  feature1: "Use debezium to sync MySQL data to Pulsar"
+features: ["Use debezium to sync MySQL data to Pulsar", "Use debezium to sync MySQL data to Pulsar"]
 icon: https://debezium.io/images/color_white_debezium_type_600px.svg
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-debezium-mysql-2.4.2.nar"
 support: Apache community
