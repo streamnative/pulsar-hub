@@ -1,5 +1,4 @@
 ---
-name: debezium-mysql
 description: The Debezium source connector pulls messages from MySQL to Pulsar topics.
 author: ["jiazhai"]
 contributors: ["jiazhai", "sijie"]
