@@ -13,7 +13,6 @@ The following takes adding a module to the connector component as an example.
 3. Add a yaml file, the sample content is as follows:
 
 ```yaml
-name: debezium-mysql
 description: The Debezium source connector pulls messages from MySQL to Pulsar topics.
 author: ["jiazhai"]
 contributors: ["jiazhai", "sijie"]
@@ -29,11 +28,12 @@ icon: https://debezium.io/images/color_white_debezium_type_600px.svg
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-kafka-connect-adaptor-2.3.0.nar"
 support: Apache community
 dockerfile: ""
+id: "debezium-mysql"
 ```
 
 Field introduction:
 
-* name: the module name.
+* id: the module name.
 * description: the module description.
 * author: the module author, this is a list in yaml format, for example ['tuteng', 'jia'].
 * contributors: the module contributors, this is a list in yaml format, for example ['tuteng', 'jia'].
