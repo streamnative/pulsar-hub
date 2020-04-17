@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/branch-2.3/pulsar-io/aerospike/src/main/java/org/apache/pulsar/io/aerospike"
+source: "https://github.com/apache/pulsar/tree/v2.3.0/pulsar-io/aerospike/src/main/java/org/apache/pulsar/io/aerospike"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Aerospike", "Sink"]
 alias: Aerospike Sink
