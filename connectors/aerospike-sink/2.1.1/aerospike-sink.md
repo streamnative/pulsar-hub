@@ -1,7 +1,7 @@
 ---
 description: The Aerospike sink connector pulls messages from Pulsar topics to Aerospike clusters
-author: ["aahmed-se", "merlimat"]
-contributors: ["aahmed-se", "merlimat", "rdhabalia", "lucperkins", "sijie", "joefk"]
+author: ["ASF"]
+contributors: ["ASF"]
 language: Java
 document: 
 source: "https://github.com/apache/pulsar/tree/branch-2.1/pulsar-io/aerospike/src/main/java/org/apache/pulsar/io/aerospike"
@@ -9,7 +9,7 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Aerospike", "Sink"]
 alias: Aerospike Sink
 features: ["Use Aerospike sink connector to sync data from Pulsar"]
-icon: 
+icon: https://www.aerospike.com/wp-content/uploads/2018/02/aerospike_logo_horizontal_newsite.png
 download: "https://archive.apache.org/dist/incubator/pulsar/pulsar-2.1.1-incubating/apache-pulsar-io-connectors-2.1.1-incubating-bin.tar.gz"
 support: Apache community
 dockerfile: 
