@@ -16,11 +16,11 @@ dockerfile:
 id: "debezium-postgres-source"
 ---
 
-The Debezium source connector pulls messages from MySQL or PostgreSQL to Pulsar topics.
+The Debezium source connector pulls messages from PostgreSQL and persists the messages to Pulsar topics.
 
 # Configuration 
 
-The configuration of the Debezium source connector has the following properties.
+The configuration of Debezium source connector has the following properties.
 
 | Name | Required | Default | Description |
 |------|----------|---------|-------------|
@@ -39,145 +39,6 @@ The configuration of the Debezium source connector has the following properties.
 | `database.history.pulsar.service.url` | true | null | Pulsar cluster service URL for history topic. |
 | `pulsar.service.url` | true | null | Pulsar cluster service URL. |
 | `offset.storage.topic` | true | null | Record the last committed offsets that the connector successfully completes. |
-
-# Example of MySQL
-
-You need to create a configuration file before using the Pulsar Debezium connector.
-
-## Configuration 
-
-You can use one of the following methods to create a configuration file.
-
-* JSON 
-
-    ```json
-    {
-        "database.hostname": "localhost",
-        "database.port": "3306",
-        "database.user": "debezium",
-        "database.password": "dbz",
-        "database.server.id": "184054",
-        "database.server.name": "dbserver1",
-        "database.whitelist": "inventory",
-        "database.history": "org.apache.pulsar.io.debezium.PulsarDatabaseHistory",
-        "database.history.pulsar.topic": "history-topic",
-        "database.history.pulsar.service.url": "pulsar://127.0.0.1:6650",
-        "key.converter": "org.apache.kafka.connect.json.JsonConverter",
-        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-        "pulsar.service.url": "pulsar://127.0.0.1:6650",
-        "offset.storage.topic": "offset-topic"
-    }
-    ```
-
-* YAML 
-
-    You can create a `debezium-mysql-source-config.yaml` file and copy the [contents](https://github.com/apache/pulsar/blob/master/pulsar-io/debezium/mysql/src/main/resources/debezium-mysql-source-config.yaml) below to the `debezium-mysql-source-config.yaml` file.
-
-    ```yaml
-    tenant: "public"
-    namespace: "default"
-    name: "debezium-mysql-source"
-    topicName: "debezium-mysql-topic"
-    archive: "connectors/pulsar-io-debezium-mysql-{{pulsar:version}}.nar"
-    parallelism: 1
-
-    configs:
-
-        ## config for mysql, docker image: debezium/example-mysql:0.8
-        database.hostname: "localhost"
-        database.port: "3306"
-        database.user: "debezium"
-        database.password: "dbz"
-        database.server.id: "184054"
-        database.server.name: "dbserver1"
-        database.whitelist: "inventory"
-        database.history: "org.apache.pulsar.io.debezium.PulsarDatabaseHistory"
-        database.history.pulsar.topic: "history-topic"
-        database.history.pulsar.service.url: "pulsar://127.0.0.1:6650"
-
-        ## KEY_CONVERTER_CLASS_CONFIG, VALUE_CONVERTER_CLASS_CONFIG
-        key.converter: "org.apache.kafka.connect.json.JsonConverter"
-        value.converter: "org.apache.kafka.connect.json.JsonConverter"
-
-        ## PULSAR_SERVICE_URL_CONFIG
-        pulsar.service.url: "pulsar://127.0.0.1:6650"
-
-        ## OFFSET_STORAGE_TOPIC_CONFIG
-        offset.storage.topic: "offset-topic"
-    ```
-
-## Usage
-
-This example shows how to change the data of a MySQL table using the Pulsar Debezium connector.
-
-1. Start a MySQL server with a database from which Debezium can capture changes.
-
-    ```bash
-    $ docker run -it --rm \
-    --name mysql \
-    -p 3306:3306 \
-    -e MYSQL_ROOT_PASSWORD=debezium \
-    -e MYSQL_USER=mysqluser \
-    -e MYSQL_PASSWORD=mysqlpw debezium/example-mysql:0.8
-    ```
-
-2. Start a Pulsar service locally in standalone mode.
-
-    ```bash
-    $ bin/pulsar standalone
-    ```
-
-3. Start the Pulsar Debezium connector in local run mode using one of the following methods.
-
-     * Use the **JSON** configuration file as shown previously. 
-   
-        Make sure the nar file is available at `connectors/pulsar-io-debezium-mysql-{{pulsar:version}}.nar`.
-
-        ```bash
-        $ bin/pulsar-admin source localrun \
-        --archive connectors/pulsar-io-debezium-mysql-{{pulsar:version}}.nar \
-        --name debezium-mysql-source --destination-topic-name debezium-mysql-topic \
-        --tenant public \
-        --namespace default \
-        --source-config '{"database.hostname": "localhost","database.port": "3306","database.user": "debezium","database.password": "dbz","database.server.id": "184054","database.server.name": "dbserver1","database.whitelist": "inventory","database.history": "org.apache.pulsar.io.debezium.PulsarDatabaseHistory","database.history.pulsar.topic": "history-topic","database.history.pulsar.service.url": "pulsar://127.0.0.1:6650","key.converter": "org.apache.kafka.connect.json.JsonConverter","value.converter": "org.apache.kafka.connect.json.JsonConverter","pulsar.service.url": "pulsar://127.0.0.1:6650","offset.storage.topic": "offset-topic"}'
-        ```
-
-    * Use the **YAML** configuration file as shown previously.
-  
-        ```bash
-        $ bin/pulsar-admin source localrun \
-        --source-config-file debezium-mysql-source-config.yaml
-        ```
-
-4. Subscribe the topic _sub-products_ for the table _inventory.products_.
-
-    ```bash
-    $ bin/pulsar-client consume -s "sub-products" public/default/dbserver1.inventory.products -n 0
-    ```
-
-5. Start a MySQL client in docker.
-
-    ```bash
-    $ docker run -it --rm \
-    --name mysqlterm \
-    --link mysql \
-    --rm mysql:5.7 sh \
-    -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
-    ```
-
-6. A MySQL client pops out. 
-   
-   Use the following commands to change the data of the table _products_.
-
-    ```
-    mysql> use inventory;
-    mysql> show tables;
-    mysql> SELECT * FROM  products;
-    mysql> UPDATE products SET name='1111111111' WHERE id=101;
-    mysql> UPDATE products SET name='1111111111' WHERE id=107;
-    ```
-
-    In the terminal window of subscribing topic, you can find the data changes have been kept in the _sub-products_ topic.
 
 # Example of PostgreSQL
 
@@ -282,7 +143,7 @@ This example shows how to change the data of a PostgreSQL table using the Pulsar
     $ docker exec -it pulsar-postgresql /bin/bash
     ```
 
-6. A MySQL client pops out. 
+6. A PostgreSQL client pops out. 
    
    Use the following commands to change the data of the table _products_.
 
@@ -318,7 +179,7 @@ This example shows how to change the data of a PostgreSQL table using the Pulsar
     ```
 
 # FAQ
- 
+
 ## Debezium postgres connector will hang when create snap
 
 ```$xslt
