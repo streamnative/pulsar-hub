@@ -18,7 +18,7 @@ id: "debezium-postgres-source"
 
 The Debezium source connector pulls messages from MySQL or PostgreSQL to Pulsar topics.
 
-## Configuration 
+# Configuration 
 
 The configuration of the Debezium source connector has the following properties.
 
@@ -40,11 +40,11 @@ The configuration of the Debezium source connector has the following properties.
 | `pulsar.service.url` | true | null | Pulsar cluster service URL. |
 | `offset.storage.topic` | true | null | Record the last committed offsets that the connector successfully completes. |
 
-## Example of MySQL
+# Example of MySQL
 
 You need to create a configuration file before using the Pulsar Debezium connector.
 
-### Configuration 
+## Configuration 
 
 You can use one of the following methods to create a configuration file.
 
@@ -106,7 +106,7 @@ You can use one of the following methods to create a configuration file.
         offset.storage.topic: "offset-topic"
     ```
 
-### Usage
+## Usage
 
 This example shows how to change the data of a MySQL table using the Pulsar Debezium connector.
 
@@ -179,11 +179,11 @@ This example shows how to change the data of a MySQL table using the Pulsar Debe
 
     In the terminal window of subscribing topic, you can find the data changes have been kept in the _sub-products_ topic.
 
-## Example of PostgreSQL
+# Example of PostgreSQL
 
 You need to create a configuration file before using the Pulsar Debezium connector.
 
-### Configuration
+## Configuration
 
 You can use one of the following methods to create a configuration file.
 
@@ -229,7 +229,7 @@ You can use one of the following methods to create a configuration file.
         pulsar.service.url: "pulsar://127.0.0.1:6650"
     ```
 
-### Usage
+## Usage
 
 This example shows how to change the data of a PostgreSQL table using the Pulsar Debezium connector.
 
@@ -317,9 +317,9 @@ This example shows how to change the data of a PostgreSQL table using the Pulsar
     {"schema":{"type":"struct","fields":[{"type":"int32","optional":false,"field":"id"}],"optional":false,"name":"dbserver1.inventory.products.Key"},"payload":{"id":107}}�{"schema":{"type":"struct","fields":[{"type":"struct","fields":[{"type":"int32","optional":false,"field":"id"},{"type":"string","optional":false,"field":"name"},{"type":"string","optional":true,"field":"description"},{"type":"double","optional":true,"field":"weight"}],"optional":true,"name":"dbserver1.inventory.products.Value","field":"before"},{"type":"struct","fields":[{"type":"int32","optional":false,"field":"id"},{"type":"string","optional":false,"field":"name"},{"type":"string","optional":true,"field":"description"},{"type":"double","optional":true,"field":"weight"}],"optional":true,"name":"dbserver1.inventory.products.Value","field":"after"},{"type":"struct","fields":[{"type":"string","optional":true,"field":"version"},{"type":"string","optional":true,"field":"connector"},{"type":"string","optional":false,"field":"name"},{"type":"string","optional":false,"field":"db"},{"type":"int64","optional":true,"field":"ts_usec"},{"type":"int64","optional":true,"field":"txId"},{"type":"int64","optional":true,"field":"lsn"},{"type":"string","optional":true,"field":"schema"},{"type":"string","optional":true,"field":"table"},{"type":"boolean","optional":true,"default":false,"field":"snapshot"},{"type":"boolean","optional":true,"field":"last_snapshot_record"}],"optional":false,"name":"io.debezium.connector.postgresql.Source","field":"source"},{"type":"string","optional":false,"field":"op"},{"type":"int64","optional":true,"field":"ts_ms"}],"optional":false,"name":"dbserver1.inventory.products.Envelope"},"payload":{"before":{"id":107,"name":"rocks","description":"box of assorted rocks","weight":5.3},"after":{"id":107,"name":"1111111111","description":"box of assorted rocks","weight":5.3},"source":{"version":"0.9.2.Final","connector":"postgresql","name":"dbserver1","db":"postgres","ts_usec":1559208957661080,"txId":577,"lsn":23862872,"schema":"inventory","table":"products","snapshot":false,"last_snapshot_record":null},"op":"u","ts_ms":1559208957692}}
     ```
 
-## FAQ
+# FAQ
  
-### Debezium postgres connector will hang when create snap
+## Debezium postgres connector will hang when create snap
 
 ```$xslt
 #18 prio=5 os_prio=31 tid=0x00007fd83096f800 nid=0xa403 waiting on condition [0x000070000f534000]
