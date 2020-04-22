@@ -26,7 +26,6 @@ jobs:
       - name: checking the pull request
         run: |
           export PATH=${PATH}:${PWD}/actions/scripts/pulsar-registry-metadata
-          ls ${PWD}/actions/scripts/pulsar-registry-metadata
           install-dependencies.sh
           pushd prm
           check.sh
