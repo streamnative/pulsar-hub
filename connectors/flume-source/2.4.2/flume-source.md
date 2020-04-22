@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/flume/src/main/java/org/apache/pulsar/io/flume/source"
+source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/flume/src/main/java/org/apache/pulsar/io/flume/source"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Flume", "Source"]
 alias: Flume Source
 features: ["Use Flume source connector to sync data to Pulsar"]
 icon: https://flume.apache.org/_static/flume-logo.png
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-flume-2.5.0.nar"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-flume-2.4.2.nar"
 support: Apache community
 dockerfile: 
 id: "flume-source"
