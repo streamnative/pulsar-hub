@@ -1,5 +1,5 @@
 ---
-description: The Debezium source connector pulls messages from MySQL or PostgreSQL to Pulsar topics
+description: The Debezium source connector pulls messages from PostgreSQL and persists the messages to Pulsar topics.
 author: ["ASF"]
 contributors: ["ASF"]
 language: Java
