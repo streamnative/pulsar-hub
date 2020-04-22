@@ -1,5 +1,5 @@
 ---
-description: The Canal source connector pulls messages from MySQL to Pulsar topics
+description: The Canal source connector pulls messages from MySQL to Pulsar topics.
 author: ["ASF"]
 contributors: ["ASF"]
 language: Java
