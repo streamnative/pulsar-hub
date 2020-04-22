@@ -4,9 +4,9 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/branch-2.5/pulsar-io/canal/src/main/java/org/apache/pulsar/io/canal"
+source: "https://github.com/apache/pulsar/tree/v2.3.1/pulsar-io/canal/src/main/java/org/apache/pulsar/io/canal"
 license: Apache License 2.0
-tags: ["Pulsar IO", "Canal", "Source", "MySQL]
+tags: ["Pulsar IO", "Canal", "Source", "MySQL"]
 alias: Canal Source
 features: ["Use Canal source connector to sync data to Pulsar"]
 icon: 
