@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Kinesis", "Sink"]
 alias: Kinesis Sink
 features: ["Use Kinesis sink connector to sync data from Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-kinesis-2.3.0.nar"
 support: Apache community
 dockerfile: 
 id: "kinesis-sink"
