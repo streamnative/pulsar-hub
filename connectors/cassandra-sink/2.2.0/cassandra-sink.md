@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Cassandra", "Sink"]
 alias: Cassandra Sink
 features: ["Use Cassandra sink connector to sync data from Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/incubator/pulsar/pulsar-2.1.1-incubating/apache-pulsar-io-connectors-2.1.0-incubating-bin.tar.gz"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.2.0/apache-pulsar-io-connectors-2.2.0-bin.tar.gz"
 support: Apache community
 dockerfile: 
 id: "cassandra-sink"
