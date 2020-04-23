@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Flume", "Source"]
 alias: Flume Source
 features: ["Use Flume source connector to sync data to Pulsar"]
 icon: https://flume.apache.org/_static/flume-logo.png
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-flume-2.4.2.nar"
 support: Apache community
 dockerfile: 
 id: "flume-source"
