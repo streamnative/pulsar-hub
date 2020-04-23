@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/jdbc/src/main/java/org/apache/pulsar/io/jdbc"
+source: "https://github.com/apache/pulsar/tree/v2.4.1/pulsar-io/jdbc/src/main/java/org/apache/pulsar/io/jdbc"
 license: Apache License 2.0
 tags: ["Pulsar IO", "JDBC", "Sink"]
 alias: JDBC Sink
 features: ["Use JDBC sink connector to sync data from Pulsar"]
 icon: https://www.javatpoint.com/images/logo/jtp_logo.png
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors/pulsar-io-jdbc-2.4.1.nar"
 support: Apache community
 dockerfile: 
 id: "jdbc-sink"
