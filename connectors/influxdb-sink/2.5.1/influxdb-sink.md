@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.4.0/pulsar-io/influxdb/src/main/java/org/apache/pulsar/io/influxdb"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/influxdb/src/main/java/org/apache/pulsar/io/influxdb"
 license: Apache License 2.0
 tags: ["Pulsar IO", "InfluxDB", "Sink"]
 alias: InfluxDB Sink
 features: ["Use InfluxDB sink connector to sync data from Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-influxdb-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "influxdb-sink"
