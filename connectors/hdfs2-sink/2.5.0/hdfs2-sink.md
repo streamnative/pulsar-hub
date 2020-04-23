@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "HDFS2", "Sink"]
 alias: HDFS2 Sink
 features: ["Use HDFS2 sink connector to sync data from Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-hdfs2-2.5.0.nar"
 support: Apache community
 dockerfile: 
 id: "hdfs2-sink"

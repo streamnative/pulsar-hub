@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Flume", "Sink"]
 alias: Flume Sink
 features: ["Use Flume sink connector to sync data from Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-flume-2.4.2.nar"
 support: Apache community
 dockerfile: 
 id: "flume-sink"

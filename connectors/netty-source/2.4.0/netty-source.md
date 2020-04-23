@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Netty", "Source"]
 alias: Netty source
 features: ["Use Netty source connector to sync data to Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar-io-netty-2.4.0.nar"
 support: Apache community
 dockerfile: 
 id: "netty-source"

@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "RabbitMQ", "Source"]
 alias: RabbitMQ source
 features: ["Use RabbitMQ source connector to sync data to Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors/"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors/pulsar-io-rabbitmq-2.3.1.nar"
 support: Apache community
 dockerfile: 
 id: "rabbitmq-source"
