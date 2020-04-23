@@ -3,14 +3,14 @@ description: The Flume source connector pulls messages from logs to Pulsar topic
 author: ["ASF"]
 contributors: ["ASF"]
 language: Java
-document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/flume/src/main/java/org/apache/pulsar/io/flume/source"
+document:
+source: "https://github.com/apache/pulsar/tree/v2.4.0/pulsar-io/flume/src/main/java/org/apache/pulsar/io/flume/source"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Flume", "Source"]
 alias: Flume Source
 features: ["Use Flume source connector to sync data to Pulsar"]
 icon: https://flume.apache.org/_static/flume-logo.png
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/"
+download:
 support: Apache community
 dockerfile: 
 id: "flume-source"
