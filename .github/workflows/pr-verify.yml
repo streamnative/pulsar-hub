@@ -1,0 +1,33 @@
+name: Check connector files
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: streamnative/streamnative-ci
+          token: ${{ secrets.BOT }}
+          path: actions
+
+      - uses: actions/checkout@v2
+        with:
+          repository: streamnative/pulsar-registry-metadata
+          token: ${{ secrets.BOT }}
+          ref: ${{ github.ref }}
+          path: prm
+
+      - name: checking the pull request
+        run: |
+          export PATH=${PATH}:${PWD}/actions/scripts/pulsar-registry-metadata
+          install-dependencies.sh
+          pushd prm
+          check.sh
+          popd
+
+
