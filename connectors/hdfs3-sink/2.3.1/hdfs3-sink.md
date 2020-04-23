@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "HDFS3", "Sink"]
 alias: HDFS3 Sink
 features: ["Use HDFS3 sink connector to sync data from Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors/pulsar-io-hdfs3-2.3.1.nar"
 support: Apache community
 dockerfile: 
 id: "hdfs3-sink"

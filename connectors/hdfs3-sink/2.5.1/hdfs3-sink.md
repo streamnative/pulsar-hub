@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/hdfs3/src/main/java/org/apache/pulsar/io/hdfs3"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/hdfs3/src/main/java/org/apache/pulsar/io/hdfs3"
 license: Apache License 2.0
 tags: ["Pulsar IO", "HDFS3", "Sink"]
 alias: HDFS3 Sink
 features: ["Use HDFS3 sink connector to sync data from Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-hdfs3-2.5.0.nar"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-hdfs3-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "hdfs3-sink"
