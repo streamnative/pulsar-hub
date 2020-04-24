@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.3.1/pulsar-io/mongo/src/main/java/org/apache/pulsar/io/mongodb"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/mongo/src/main/java/org/apache/pulsar/io/mongodb"
 license: Apache License 2.0
 tags: ["Pulsar IO", "MongoDB", "Sink"]
 alias: MongoDB Sink
 features: ["Use MongoDB sink connector to sync data from Pulsar"]
 icon: https://webassets.mongodb.com/_com_assets/cms/mongodb_atlas-h0ai1yctwo.svg
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors/pulsar-io-mongo-2.3.1.nar"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-mongo-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "mongodb-sink"

@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.0/pulsar-io/solr/src/main/java/org/apache/pulsar/io/solr"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/solr/src/main/java/org/apache/pulsar/io/solr"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Solr", "Sink"]
 alias: Solr Sink
 features: ["Use Solr sink connector to sync data from Pulsar"]
 icon: https://lucene.apache.org/theme/images/solr/logo.svg
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-solr-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "solr-sink"

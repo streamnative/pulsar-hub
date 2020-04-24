@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.4.0/pulsar-io/redis/src/main/java/org/apache/pulsar/io/redis"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/redis/src/main/java/org/apache/pulsar/io/redis"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Redis", "Sink"]
 alias: Redis Sink
 features: ["Use Redis sink connector to sync data from Pulsar"]
 icon: https://redis.io/images/redis-white.png
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-redis-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "redis-sink"
