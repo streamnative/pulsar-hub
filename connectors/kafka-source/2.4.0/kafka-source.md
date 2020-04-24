@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Kafka", "Source"]
 alias: Kafka Source
 features: ["Use Kafka source connector to sync data to Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors"
+download: "download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar-io-kafka-2.4.0.nar"
 support: Apache community
 dockerfile: 
 id: "kafka-source"
@@ -20,11 +20,11 @@ The Kafka source connector pulls messages from Kafka topics and persists the mes
 
 This guide explains how to configure and use the Kafka source connector.
 
-## Configuration
+# Configuration
 
 The configuration of the Kafka source connector has the following properties.
 
-### Property
+## Property
 
 | Name | Type| Required | Default | Description 
 |------|----------|---------|-------------|-------------|
@@ -41,7 +41,7 @@ The configuration of the Kafka source connector has the following properties.
 | `valueDeserializationClass` | String|false | org.apache.kafka.common.serialization.ByteArrayDeserializer | The deserializer class for Kafka consumers to deserialize values.
 
 
-### Example
+## Example
 
 Before using the Kafka source connector, you need to create a configuration file through one of the following methods.
 
@@ -68,7 +68,7 @@ Before using the Kafka source connector, you need to create a configuration file
         autoCommitEnabled: false
     ```
 
-## Usage
+# Usage
 
 Here is an example of using the Kafka source connecter with the configuration file as shown previously.
 
