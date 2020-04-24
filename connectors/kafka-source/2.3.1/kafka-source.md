@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Kafka", "Source"]
 alias: Kafka Source
 features: ["Use Kafka source connector to sync data to Pulsar"]
 icon: 
-download: "download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors/pulsar-io-kafka-2.3.1.nar"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors/pulsar-io-kafka-2.3.1.nar"
 support: Apache community
 dockerfile: 
 id: "kafka-source"
