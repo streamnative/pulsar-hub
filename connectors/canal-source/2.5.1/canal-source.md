@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.1/pulsar-io/canal/src/main/java/org/apache/pulsar/io/canal"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/canal/src/main/java/org/apache/pulsar/io/canal"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Canal", "Source", "MySQL"]
 alias: Canal Source
 features: ["Use Canal source connector to sync data to Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors/pulsar-io-canal-2.4.1.nar"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-canal-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "canal-source"
