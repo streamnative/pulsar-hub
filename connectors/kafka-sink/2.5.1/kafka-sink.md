@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.1.1-incubating/pulsar-io/kafka/src/main/java/org/apache/pulsar/io/kafka"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/kafka/src/main/java/org/apache/pulsar/io/kafka"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Kafka", "Sink"]
 alias: Kafka Sink
 features: ["Use Kafka sink connector to sync data from Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/incubator/pulsar/pulsar-2.1.1-incubating/apache-pulsar-io-connectors-2.1.1-incubating-bin.tar.gz"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-kafka-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "kafka-sink"
