@@ -1,0 +1,8 @@
+# IDE generated files
+.idea/
+
+# Mac swap file
+*.DS_Store
+
+# Linux swap file
+*.swp
