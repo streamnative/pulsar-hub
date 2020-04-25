@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Twitter", "Source"]
 alias: Twitter Source
 features: ["Use twitter source connector to sync data to Pulsar"]
 icon: ""
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/apache-pulsar-2.4.1-bin.tar.gz"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors/pulsar-io-twitter-2.4.1.nar"
 support: Apache community
 dockerfile: ""
 id: "twitter-source"

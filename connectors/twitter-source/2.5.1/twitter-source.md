@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: ""
-source: "https://github.com/apache/pulsar/tree/v2.1.0-incubating/pulsar-io/twitter/src/main/java/org/apache/pulsar/io/twitter"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/twitter/src/main/java/org/apache/pulsar/io/twitter"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Twitter", "Source"]
 alias: Twitter Source
 features: ["Use twitter source connector to sync data to Pulsar"]
 icon: ""
-download: "https://archive.apache.org/dist/incubator/pulsar/pulsar-2.1.0-incubating/apache-pulsar-2.1.0-incubating-bin.tar.gz"
+download: https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-twitter-2.5.1.nar
 support: Apache community
 dockerfile: ""
 id: "twitter-source"
