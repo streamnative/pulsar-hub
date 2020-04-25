@@ -9,7 +9,7 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Twitter", "Source"]
 alias: Twitter Source
 features: ["Use twitter source connector to sync data to Pulsar"]
-icon: ""
+icon: https://img.icons8.com/color/48/000000/twitter.png
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-twitter-2.4.2.nar"
 support: Apache community
 dockerfile: ""
