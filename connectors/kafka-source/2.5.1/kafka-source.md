@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.1.0-incubating/pulsar-io/kafka/src/main/java/org/apache/pulsar/io/kafka"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/kafka/src/main/java/org/apache/pulsar/io/kafka"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Kafka", "Source"]
 alias: Kafka Source
 features: ["Use Kafka source connector to sync data to Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/incubator/pulsar/pulsar-2.1.0-incubating/apache-pulsar-io-connectors-2.1.0-incubating-bin.tar.gz"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-kafka-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "kafka-source"
@@ -20,11 +20,11 @@ The Kafka source connector pulls messages from Kafka topics and persists the mes
 
 This guide explains how to configure and use the Kafka source connector.
 
-## Configuration
+# Configuration
 
 The configuration of the Kafka source connector has the following properties.
 
-### Property
+## Property
 
 | Name | Type| Required | Default | Description 
 |------|----------|---------|-------------|-------------|
@@ -41,7 +41,7 @@ The configuration of the Kafka source connector has the following properties.
 | `valueDeserializationClass` | String|false | org.apache.kafka.common.serialization.ByteArrayDeserializer | The deserializer class for Kafka consumers to deserialize values.
 
 
-### Example
+## Example
 
 Before using the Kafka source connector, you need to create a configuration file through one of the following methods.
 
@@ -68,7 +68,7 @@ Before using the Kafka source connector, you need to create a configuration file
         autoCommitEnabled: false
     ```
 
-## Usage
+# Usage
 
 Here is an example of using the Kafka source connecter with the configuration file as shown previously.
 
