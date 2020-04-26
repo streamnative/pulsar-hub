@@ -13,7 +13,7 @@ icon:
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-debezium-mongodb-2.5.1.nar"
 support: Apache community
 dockerfile: 
-id: "debezium-sink"
+id: "debezium-mongodb-source"
 ---
 
 The Debezium source connector pulls messages from MongDB and persists the messages to Pulsar topics.
