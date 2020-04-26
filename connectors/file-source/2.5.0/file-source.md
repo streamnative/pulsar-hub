@@ -145,4 +145,3 @@ Here is an example of using the File source connecter.
     ----- got message -----
     hello world!
     ```
-
