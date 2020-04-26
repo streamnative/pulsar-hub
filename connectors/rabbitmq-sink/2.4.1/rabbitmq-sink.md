@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "RabbitMQ", "Sink"]
 alias: RabbitMQ Sink
 features: ["Use RabbitMQ sink connector to sync data from Pulsar"]
 icon: https://www.rabbitmq.com/img/RabbitMQ-logo.svg
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors/pulsar-io-rabbitmq-2.4.1.nar"
 support: Apache community
 dockerfile: 
 id: "rabbitmq-sink"

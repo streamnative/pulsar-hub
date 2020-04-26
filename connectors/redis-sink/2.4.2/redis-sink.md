@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Redis", "Sink"]
 alias: Redis Sink
 features: ["Use Redis sink connector to sync data from Pulsar"]
 icon: https://redis.io/images/redis-white.png
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-redis-2.4.2.nar"
 support: Apache community
 dockerfile: 
 id: "redis-sink"
