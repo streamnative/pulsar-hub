@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Solr", "Sink"]
 alias: Solr Sink
 features: ["Use Solr sink connector to sync data from Pulsar"]
 icon: https://lucene.apache.org/theme/images/solr/logo.svg
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-solr-2.5.0.nar"
 support: Apache community
 dockerfile: 
 id: "solr-sink"
