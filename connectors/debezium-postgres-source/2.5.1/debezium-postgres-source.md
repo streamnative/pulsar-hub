@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.1/pulsar-io/debezium/postgres/src/main/java/org/apache/pulsar/io/debezium/postgres"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/debezium/postgres/src/main/java/org/apache/pulsar/io/debezium/postgres"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "PostgreSQL", "Postgres"]
 alias: Debezium PostgreSQL Source
 features: ["Use Debezium PostgreSQL source connector to sync data to Pulsar"]
 icon: https://debezium.io/images/color_white_debezium_type_600px.svg
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors/pulsar-io-debezium-postgres-2.4.1.nar"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-debezium-postgres-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "debezium-postgres-source"
