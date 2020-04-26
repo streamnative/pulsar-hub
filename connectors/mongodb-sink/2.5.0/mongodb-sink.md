@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "MongoDB", "Sink"]
 alias: MongoDB Sink
 features: ["Use MongoDB sink connector to sync data from Pulsar"]
 icon: https://webassets.mongodb.com/_com_assets/cms/mongodb_atlas-h0ai1yctwo.svg
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-mongo-2.5.0.nar"
 support: Apache community
 dockerfile: 
 id: "mongodb-sink"

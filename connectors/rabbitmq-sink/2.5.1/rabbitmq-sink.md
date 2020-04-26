@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.1.0-incubating/pulsar-io/rabbitmq/src/main/java/org/apache/pulsar/io/rabbitmq"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/rabbitmq/src/main/java/org/apache/pulsar/io/rabbitmq"
 license: Apache License 2.0
 tags: ["Pulsar IO", "RabbitMQ", "Sink"]
 alias: RabbitMQ Sink
 features: ["Use RabbitMQ sink connector to sync data from Pulsar"]
 icon: https://www.rabbitmq.com/img/RabbitMQ-logo.svg
-download: "https://archive.apache.org/dist/incubator/pulsar/pulsar-2.1.0-incubating/apache-pulsar-2.1.0-incubating-bin.tar.gz"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-rabbitmq-2.5.1.nar"
 support: Apache community
 dockerfile: 
 id: "rabbitmq-sink"
