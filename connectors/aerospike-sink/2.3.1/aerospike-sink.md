@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Aerospike", "Sink"]
 alias: Aerospike Sink
 features: ["Use Aerospike sink connector to sync data from Pulsar"]
 icon: https://www.aerospike.com/wp-content/uploads/2018/02/aerospike_logo_horizontal_newsite.png
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors/pulsar-io-aerospike-2.3.1.nar"
 support: Apache community
 dockerfile: 
 id: "aerospike-sink"
