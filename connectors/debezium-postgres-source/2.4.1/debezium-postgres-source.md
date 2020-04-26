@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Debezium", "PostgreSQL", "Postgres"]
 alias: Debezium PostgreSQL Source
 features: ["Use Debezium PostgreSQL source connector to sync data to Pulsar"]
 icon: https://debezium.io/images/color_white_debezium_type_600px.svg
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors/pulsar-io-debezium-postgres-2.4.1.nar"
 support: Apache community
 dockerfile: 
 id: "debezium-postgres-source"
