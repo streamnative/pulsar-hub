@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Canal", "Source", "MySQL"]
 alias: Canal Source
 features: ["Use Canal source connector to sync data to Pulsar"]
 icon: 
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-canal-2.3.0.nar"
 support: Apache community
 dockerfile: 
 id: "canal-source"
