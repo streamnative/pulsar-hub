@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Canal", "Source", "MySQL"]
 alias: Canal Source
 features: ["Use Canal source connector to sync data to Pulsar"]
-icon: 
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/apache.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-canal-2.3.0.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "canal-source"
 ---

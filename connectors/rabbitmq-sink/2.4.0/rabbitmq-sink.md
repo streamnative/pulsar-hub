@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "RabbitMQ", "Sink"]
 alias: RabbitMQ Sink
 features: ["Use RabbitMQ sink connector to sync data from Pulsar"]
-icon: https://www.rabbitmq.com/img/RabbitMQ-logo.svg
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/rabbitmq.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar-io-rabbitmq-2.4.0.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "rabbitmq-sink"
 ---

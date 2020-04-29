@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "InfluxDB", "Sink"]
 alias: InfluxDB Sink
 features: ["Use InfluxDB sink connector to sync data from Pulsar"]
-icon: 
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/influxdb.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-influxdb-2.5.0.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "influxdb-sink"
 ---

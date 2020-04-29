@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "PostgreSQL", "Postgres"]
 alias: Debezium PostgreSQL Source
 features: ["Use Debezium PostgreSQL source connector to sync data to Pulsar"]
-icon: https://debezium.io/images/color_white_debezium_type_600px.svg
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/debezium.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar-io-debezium-postgres-2.4.0.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "debezium-postgres-source"
 ---
