@@ -16,7 +16,7 @@ support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
 dockerfile: ""
-id: "twitter-source"
+id: "twitter-firehose-source"
 ---
 
 The Twitter Firehose source connector receives tweets from Twitter Firehose and writes the tweets to Pulsar topics.

@@ -4,19 +4,19 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: ""
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/twitter/src/main/java/org/apache/pulsar/io/twitter"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/twitter/src/main/java/org/apache/pulsar/io/twitter"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Twitter", "Source"]
 alias: Twitter Source
 features: ["Use twitter source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/twitter.jpg"
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-twitter-2.5.0.nar"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-twitter-2.5.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
 dockerfile: ""
-id: "twitter-source"
+id: "twitter-firehose-source"
 ---
 
 The Twitter Firehose source connector receives tweets from Twitter Firehose and writes the tweets to Pulsar topics.
