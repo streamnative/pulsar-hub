@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "MySQL"]
 alias: Debezium MySQL Source
 features: ["Use Debezium MySQL source connector to sync data to Pulsar"]
-icon: https://debezium.io/images/color_white_debezium_type_600px.svg
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/debezium.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-debezium-mysql-2.4.2.nar"
 support: Apache community
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "debezium-mysql"
 ---
