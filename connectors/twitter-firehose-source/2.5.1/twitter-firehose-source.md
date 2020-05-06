@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Twitter", "Source"]
 alias: Twitter Source
 features: ["Use twitter source connector to sync data to Pulsar"]
-icon: https://img.icons8.com/color/48/000000/twitter.png
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/twitter.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-twitter-2.5.1.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: ""
 id: "twitter-firehose-source"
 ---

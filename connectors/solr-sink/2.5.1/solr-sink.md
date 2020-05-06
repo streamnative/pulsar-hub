@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Solr", "Sink"]
 alias: Solr Sink
 features: ["Use Solr sink connector to sync data from Pulsar"]
-icon: https://lucene.apache.org/theme/images/solr/logo.svg
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/solr.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-solr-2.5.1.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "solr-sink"
 ---

@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Kinesis", "Sink"]
 alias: Kinesis Sink
 features: ["Use Kinesis sink connector to sync data from Pulsar"]
-icon: 
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/apache.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-kinesis-2.5.1.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "kinesis-sink"
 ---

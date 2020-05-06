@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Redis", "Sink"]
 alias: Redis Sink
 features: ["Use Redis sink connector to sync data from Pulsar"]
-icon: https://redis.io/images/redis-white.png
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/redis.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-redis-2.5.1.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "redis-sink"
 ---

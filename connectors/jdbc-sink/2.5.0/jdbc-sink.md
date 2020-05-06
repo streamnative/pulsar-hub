@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "JDBC", "Sink"]
 alias: JDBC Sink
 features: ["Use JDBC sink connector to sync data from Pulsar"]
-icon: https://www.javatpoint.com/images/logo/jtp_logo.png
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/apache.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-jdbc-2.5.0.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "jdbc-sink"
 ---

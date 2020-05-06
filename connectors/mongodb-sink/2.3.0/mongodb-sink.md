@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "MongoDB", "Sink"]
 alias: MongoDB Sink
 features: ["Use MongoDB sink connector to sync data from Pulsar"]
-icon: https://webassets.mongodb.com/_com_assets/cms/mongodb_atlas-h0ai1yctwo.svg
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/mongodb.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-mongo-2.3.0.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "mongodb-sink"
 ---

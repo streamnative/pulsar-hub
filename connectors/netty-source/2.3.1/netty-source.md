@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Netty", "Source"]
 alias: Netty source
 features: ["Use Netty source connector to sync data to Pulsar"]
-icon: 
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/netty.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors/pulsar-io-netty-2.3.1.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "netty-source"
 ---

@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Aerospike", "Sink"]
 alias: Aerospike Sink
 features: ["Use Aerospike sink connector to sync data from Pulsar"]
-icon: https://www.aerospike.com/wp-content/uploads/2018/02/aerospike_logo_horizontal_newsite.png
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/aerospike-sink.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-aerospike-2.5.0.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "aerospike-sink"
 ---

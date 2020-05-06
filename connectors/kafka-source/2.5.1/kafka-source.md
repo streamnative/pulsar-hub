@@ -9,9 +9,12 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Kafka", "Source"]
 alias: Kafka Source
 features: ["Use Kafka source connector to sync data to Pulsar"]
-icon: 
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/kafka.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-kafka-2.5.1.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "kafka-source"
 ---

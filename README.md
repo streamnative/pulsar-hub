@@ -20,13 +20,16 @@ language: Java
 document: "http://pulsar.apache.org/docs/en/2.3.0/io-cdc-debezium/"
 source: "https://github.com/apache/pulsar/tree/branch-2.3/pulsar-io/debezium/src/main/java/org/apache/pulsar/io/debezium"
 license: Apache 2.0
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar IO", "Debezium", "MySQL", "Source"]
 alias: Debezium MySQL Source
 features:
   feature1: "Use debezium to sync MySQL data to pulsar"
-icon: https://debezium.io/images/color_white_debezium_type_600px.svg
+icon: /images/connectors/debezium.png
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-kafka-connect-adaptor-2.3.0.nar"
-support: Apache community
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: ""
 id: "debezium-mysql"
 ```
@@ -41,10 +44,13 @@ Field introduction:
 * document: the document of the module, support HTTP link or markdown file.
 * source: source of module, support HTTP link, link to code repository.
 * license: license of module, support HTTP link or markdown file.
+* license_link: link of license.
 * tags: keywords for the module, this is a list in yaml format.
 * alias: alias of module, fields for display, such as the alias of debezium-mysql is `Debezium MySQL Source`.
 * features: features of modules in each version.
 * icon: the icon of the module.
 * download: download link of the module.
 * support: community of the module.
+* support_link: link of support organization.
+* support_img: image logo of support organization.
 * dockerfile: the dockerfile of current version, to test in the future
