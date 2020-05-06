@@ -14,6 +14,7 @@ icon: "/images/connectors/mongodb.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-mongo-2.3.0.nar"
 support: StreamNative
 support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 id: "mongodb-sink"
 ---
