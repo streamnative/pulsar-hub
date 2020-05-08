@@ -89,7 +89,7 @@ Consumer<String> consumer = client.newConsumer(Schema.STRING)
 Message<String> message = consumer.receive();
 ```
 
-### Extract span context from messages
+## Extract span context from messages
 
 This example extracts span context from messages using OpenTracing Pulsar Client.
 
@@ -98,7 +98,7 @@ This example extracts span context from messages using OpenTracing Pulsar Client
 SpanContext spanContext = TracingPulsarUtils.extractSpanContext(message, tracer);
 ```
 
-### Inject parent span for messages
+## Inject parent span for messages
 
 This example injects parent span for messages using OpenTracing Pulsar Client.
 
