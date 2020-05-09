@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "JDBC", "Sink"]
 alias: JDBC Sink
 features: ["Use JDBC sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/apache.jpg"
+icon: "/images/pulsar-registry.svg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.2/connectors/pulsar-io-jdbc-2.3.2.nar"
 support: StreamNative
 support_link: https://streamnative.io
