@@ -9,11 +9,11 @@ license: Apache License 2.0
 tags: ["OpenTracing", "Pulsar"]
 alias: OpenTracing Pulsar Client
 features: ["Trace Pulsar messages using OpenTracing Pulsar Client"]
-icon: 
+icon: "/images/monitoring/aerospike-sink.jpg"
 download: " "
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/connectors/opentracing-logo.png"
 dockerfile: 
 id: "opentracing-pulsar-client"
 ---
