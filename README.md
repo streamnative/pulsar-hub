@@ -102,11 +102,11 @@ In general, the body text of a plugin document includes the following sections:
 
 - Overview
 - Installation
-- Prerequisites
-- Procedures
+  - Prerequisites
+  - Procedures
 - Configuration
-  - XXX configuration
-  - Configure XXX
+  - XXX configuration (XXX refers to the plugin name.)
+  - Configure XXX (XXX refers to the plugin name.)
 - Usage
 - Monitoring (Optional)
 - Security (Optional)
@@ -128,17 +128,21 @@ In general, the body text of a plugin document includes the following sections:
 
 > List prerequisite used for installing the plugin, if any.
 
+#### Procedures
+
+> Lists how to instal the plugin.
+
 ### Configuration
 
 > List some configuration examples to describe what the plugin can be used to do.
 
-#### XXX configurations
+#### XXX configuration
 
-> List configuration items available for the plugin.
+> List configuration items available for the plugin. XXX refers to the plugin name.
 
-#### Configure XXX 
+#### Configure XXX
 
-> How to configure XXX plugin through Json or Yaml file.
+> How to configure the plugin through Json or Yaml file. XXX refers to the plugin name.
 
 ### Usage
 
