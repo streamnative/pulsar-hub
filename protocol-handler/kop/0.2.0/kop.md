@@ -11,7 +11,7 @@ alias: KoP
 features: ["KoP brings the native Kafka protocol support to Pulsar by introducing a Kafka protocol handler on Pulsar brokers"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/protocol-handler/kafka-logo.png"
-download: "https://github.com/streamnative/kop/releases/download/v0.2.0/pulsar-protocol-handler-kafka-0.2.0.nar"
+download: "https://github.com/streamnative/kop/releases/download/v0.2.0/pulsar-kop-0.2.0-bin.tar.gz"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
