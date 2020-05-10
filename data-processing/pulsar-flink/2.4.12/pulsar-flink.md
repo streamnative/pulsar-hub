@@ -11,7 +11,7 @@ alias: Pulsar Flink Connector
 features: ["Pulsar Flink Connector allows Flink reading data from Pulsar and writing data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/data-processing/flink-logo.png"
-download: "https://github.com/streamnative/pulsar-flink/archive/release-2.4.8.zip"
+download: "https://bintray.com/streamnative/maven/io.streamnative.pulsar-flink/2.4.12"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
