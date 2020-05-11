@@ -7,7 +7,7 @@ document:
 source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/netty/src/main/java/org/apache/pulsar/io/netty"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Netty", "Source"]
-alias: Netty source
+alias: Netty Source
 features: ["Use Netty source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/netty.jpg"
