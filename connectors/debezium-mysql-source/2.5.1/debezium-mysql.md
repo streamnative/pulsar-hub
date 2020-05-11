@@ -43,6 +43,17 @@ The configuration of Debezium source connector has the following properties.
 | `pulsar.service.url` | true | null | Pulsar cluster service URL. |
 | `offset.storage.topic` | true | null | Record the last committed offsets that the connector successfully completes. |
 
+## Converter options
+
+1. org.apache.kafka.connect.json.JsonConverter
+
+    The`json-with-envelope` config is valid only for the JsonConverter. By default, the value is set to false. When the `json-with-envelope` value is set to false, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message only consists of the payload.
+    When the `json-with-envelope` value is set to true, the consumer uses the schema `Schema.KeyValue(Schema.BYTES, Schema.BYTES`, and the message consists of the schema and the payload.
+
+2. org.apache.pulsar.kafka.shade.io.confluent.connect.avro.AvroConverter
+
+    If you select the AvroConverter, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message consists of the payload.
+
 # Example of MySQL
 
 You need to create a configuration file before using the Pulsar Debezium connector.
