@@ -6,9 +6,9 @@ language: Java
 document: 
 source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/debezium/mongodb/src/main/java/org/apache/pulsar/io/debezium/mongodb"
 license: Apache License 2.0
-tags: ["Pulsar IO", "Debezium", "Sink"]
-alias: Debezium Sink
-features: ["Use Debezium sink connector to sync data from Pulsar"]
+tags: ["Pulsar IO", "Debezium", "Source"]
+alias: Debezium Mongo Source
+features: ["Use Debezium source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/debezium.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-debezium-mongodb-2.5.1.nar"
