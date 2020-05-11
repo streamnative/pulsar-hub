@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Beat output", "Logging"]
 alias: Pulsar Beat output
 features: ["Use Pulsar Beat output to capture all sorts of operational data"]
 license_link: "https://pulsar.apache.org/license/LICENSE-2.0"
-icon: https://aws1.discourse-cdn.com/elastic/original/3X/1/8/18a14d80f0e626d44a1b531df11869baea5c9cf4.png
+icon: "/images/connectors/elasticsearch.jpg"
 download: ""
 support: StreamNative
 support_link: https://streamnative.io
@@ -144,7 +144,7 @@ Install the Docker. For details about how to install the Docker, see [here](http
     ./filebeat -c filebeat.yml -e
     ```
 
-6. Open another terminal window, execute the following command to get information collected from the Filebeat.
+6. Open another terminal window, execute the following commands to get information collected from the Filebeat.
 
     ```
     docker cp pulsar-client.py pulsar-beat-standalone:/pulsar

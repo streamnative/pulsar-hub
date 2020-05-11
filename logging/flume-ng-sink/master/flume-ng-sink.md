@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Flume NG", "Logging"]
 alias: Flume NG Sink
 features: ["Use Flume NG sink connector to sync data from Pulsar"]
 license_link: "https://pulsar.apache.org/license/LICENSE-2.0"
-icon: https://flume.apache.org/_static/flume-logo.png
+icon: "/images/connectors/flume.jpg"
 download: ""
 support: StreamNative
 support_link: https://streamnative.io
@@ -35,7 +35,7 @@ Install the following tools before installing the Flume NG sink connector.
 
 ## Build Flume NG sink from Source
 
-1. Use the following command to clone the project from Github.
+1. Use the following command to clone the project from GitHub.
 
     ```bash
     git clone https://github.com/streamnative/flume-ng-pulsar-sink.git
@@ -48,7 +48,7 @@ Install the following tools before installing the Flume NG sink connector.
     mvn clean package
     ```
 
-    Once it is built successfully, you will find a jar `flume-ng-pulsar-sink-<version>.jar` generated under the `target` directory.
+    Once it is built successfully, you can find a jar `flume-ng-pulsar-sink-<version>.jar` generated under the `target` directory.
     You can drop the built jar at your flume installation under the `lib` directory.
 
 # Usage
@@ -88,7 +88,7 @@ To publish data to a Pulsar topic through the Flume NG sink connector, follow th
 
    1. Prepare the build environment.
 
-        Open a new terminal to start a docker instance `flume` of `maven:3.6-jdk-8` in the same network as `pulsar-flume-standalone` that we started at the previous step. Use this `flume` docker instance to install the Flume and the Flume NG sink connector.
+        Open a new terminal to start a Docker instance `flume` of `maven:3.6-jdk-8` in the same network as `pulsar-flume-standalone` that we started at the previous step. Use this `flume` Docker instance to install the Flume and the Flume NG sink connector.
 
         ```$xslt
         docker pull maven:3.6-jdk-8
@@ -97,13 +97,13 @@ To publish data to a Pulsar topic through the Flume NG sink connector, follow th
 
    2. Install the Flume.
 
-        1. Go to the docker instance `flume`.
+        1. Go to the Docker instance `flume`.
 
             ```$xslt
             docker exec -it flume /bin/bash
             ```
 
-        2. At the docker instance `flume`, use the following command to decompress the Flume package.
+        2. At the docker instance `flume`, use the following commands to decompress the Flume package.
 
             ```
             wget http://apache.01link.hk/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz
@@ -112,12 +112,12 @@ To publish data to a Pulsar topic through the Flume NG sink connector, follow th
 
    3. Install the Flume NG sink.
    
-       1. Go to the docker instance `flume`.
+       1. Go to the Docker instance `flume`.
 
             ```$xslt
             docker exec -it flume /bin/bash
             ```
-       2. At the docker instance `flume`, use the following command to install the Flume NG sink.
+       2. At the Docker instance `flume`, use the following commands to install the Flume NG sink.
    
             ```$xslt
             git clone https://github.com/streamnative/flume-ng-pulsar-sink
@@ -135,7 +135,7 @@ To publish data to a Pulsar topic through the Flume NG sink connector, follow th
            - [flume-example.conf](https://github.com/streamnative/pulsar-flume-ng-sink/blob/master/src/test/resources/flume-example.conf)
            - [flume-env.sh](https://github.com/streamnative/pulsar-flume-ng-sink/blob/master/src/test/resources/flume-env.sh)
 
-      2. Use the following command to configure the Flume.
+      2. Use the following commands to configure the Flume.
    
             ```$xslt
             docker cp src/test/resources/flume-example.conf flume:/apache-flume-1.9.0-bin/conf/
@@ -144,13 +144,13 @@ To publish data to a Pulsar topic through the Flume NG sink connector, follow th
 
    5. Start the Flume NG agent.
    
-      1. Go to the docker instance `flume`.
+      1. Go to the Docker instance `flume`.
 
             ```$xslt
             docker exec -it flume /bin/bash
             ```
 
-      2. At the docker instance `flume`, use the following command to start the Flume NG agent.
+      2. At the Docker instance `flume`, use the following command to start the Flume NG agent.
 
             ```$xslt
             apache-flume-1.9.0-bin/bin/flume-ng agent --conf apache-flume-1.9.0-bin/conf/ -f apache-flume-1.9.0-bin/conf/flume-example.conf -n a1
@@ -171,7 +171,7 @@ To publish data to a Pulsar topic through the Flume NG sink connector, follow th
         OK
         ```
 
-    2. At the terminal window, run `pulsar-consumer.py` and you can see the following output:
+    2. At the terminal window, run the script `pulsar-consumer.py` and you can see the following output:
 
         ```$xslt
         'eceived message: 'hello
