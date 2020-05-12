@@ -6,10 +6,10 @@ language: Java
 document: 
 source: "https://github.com/streamnative/pulsar-spark/tree/release-2.4.5/src/main"
 license: Apache License 2.0
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "Spark", "Connector"]
 alias: Pulsar Spark Connector
 features: ["Pulsar Spark Connector allows Spark reading data from Pulsar and writing data to Pulsar"]
-license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/data-processing/spark-logo.png"
 download: "https://bintray.com/streamnative/maven/io.streamnative.pulsar-spark/2.4.5"
 support: StreamNative
