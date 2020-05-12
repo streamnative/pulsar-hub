@@ -10,7 +10,7 @@ tags: ["OpenTracing", "Pulsar"]
 alias: OpenTracing Pulsar Client
 features: ["Trace Pulsar messages using OpenTracing Pulsar Client"]
 icon: "/images/monitoring/opentracing-logo.png"
-download: " "
+download: "https://bintray.com/streamnative/maven/io.streamnative.pulsar-tracing/0.1.0"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
@@ -19,14 +19,18 @@ id: "opentracing-pulsar-client"
 ---
 
 OpenTracing Pulsar Client integrates Pulsar client with [OpenTracing](https://opentracing.io/) [APIs](https://javadoc.io/doc/io.opentracing/opentracing-api/latest/index.html) to trace Pulsar messages. 
+  
+# Installation
 
-# Prerequisite
+Before install OpenTracing Pulsar Client, make sure you meet the following requirements.
+
+## Prerequisite
 
 - Java 8
   
 - Pulsar client 2.5.1
-  
-# Installation
+
+## Step
 
 You can install OpenTracing Pulsar Client by adding the following dependencies.
 
