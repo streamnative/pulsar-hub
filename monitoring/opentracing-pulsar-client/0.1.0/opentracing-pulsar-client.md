@@ -4,8 +4,9 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document:
-source: "https://github.com/streamnative/pulsar-tracing/tree/master/opentracing-pulsar-client/src/main/java/io/streamnative/pulsar/tracing"
+source: "https://github.com/streamnative/pulsar-tracing/tree/master/opentracing-pulsar-client"
 license: Apache License 2.0
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["OpenTracing", "Pulsar"]
 alias: OpenTracing Pulsar Client
 features: ["Trace Pulsar messages using OpenTracing Pulsar Client"]
