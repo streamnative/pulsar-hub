@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Kinesis", "Sink"]
 alias: Kinesis Sink
 features: ["Use Kinesis sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/apache.jpg"
+icon: "/images/pulsar-registry.svg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar-io-kinesis-2.4.0.nar"
 support: StreamNative
 support_link: https://streamnative.io

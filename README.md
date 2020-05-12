@@ -1,56 +1,177 @@
-# pulsar-registry-metadata
-The canonical source of pulsar-registry.org
+# Submit PLugin
 
+This document introduces a workflow for adding a plugin and gives a document template for the plugin.
 
-### Workflow of adding a module to the repository
+## Workflow for adding plugin
 
-The following takes adding a module to the connector component as an example.
+If a new plugin is introduced, you should upload the plugin to the target category. Currently, the StreamNative supports the following categories for the plugin.
 
-1. Add a folder under the connector component, such as debezium-mysql.
+- Connector
+- Data processing
+- Logging
+- Monitoring
+- Authentication
+- Deployment
+- Handler
+- Offloader
 
-2. Add a folder named by version number, such as 2.2.1, 2.3.0 etc.
+If a new category is required, you can create it. For details about how to create a new category, see [create new category](#create-new-category).
 
-3. Add a yaml file, the sample content is as follows:
+## Prepare for uploading plugin
+
+This section describes operations to be performed before creating a PR (Pull Request) for a plugin.
+
+- Clone the [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) repository to the local.
+- Create a sub-folder under the cloned [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) repository and put the document in this sub-folder. The sub-folder name is set to the version of the plugin to be submitted, such as `2.5.1`.
+- Put the plugin image in the `image` folder under the cloned [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) repository.
+
+## Create new category
+
+To create a new category, follow these steps:
+
+1. Create a branch based on the latest [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) master repository.
+2. Create a sub-folder under the `pulsar-registry-metadata` folder in the local. Set the name of the sub-folder to the category name with lower cases. If the category name consists of multiple words, use the hyphen (-) between these words, such as `data-processing`.
+
+## Create plugin document
+
+To create a document for a new plugin, follow these steps:
+
+1. Create a branch based on the latest [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) master repository.
+2. Create a document in the target folder for the plugin. For the document template about the plugin, see [plugin document template](#pulgin-document-template).
+3. Commit your updates, create a PR, and then publish the PR to the [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) master repository.
+4. Update comments, if any.
+5. If no more comment, ask reviewers to approve the PR and merge the PR to the master.
+
+# Pulgin document template
+
+This section describes a plugin document structure, including the following two parts:
+- Metadata
+- Body text
+
+## Metadata
+
+The metadata of a plugin consists of the following fields:
 
 ```yaml
-description: The Debezium source connector pulls messages from MySQL to Pulsar topics.
-author: ["jiazhai"]
-contributors: ["jiazhai", "sijie"]
-language: Java
-document: "http://pulsar.apache.org/docs/en/2.3.0/io-cdc-debezium/"
-source: "https://github.com/apache/pulsar/tree/branch-2.3/pulsar-io/debezium/src/main/java/org/apache/pulsar/io/debezium"
-license: Apache 2.0
-license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-tags: ["Pulsar IO", "Debezium", "MySQL", "Source"]
-alias: Debezium MySQL Source
+description:
+author: 
+contributors: 
+language: 
+document:
+source: 
+license: 
+tags: 
+alias: 
 features:
-  feature1: "Use debezium to sync MySQL data to pulsar"
-icon: /images/connectors/debezium.png
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-kafka-connect-adaptor-2.3.0.nar"
-support: StreamNative
-support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
-dockerfile: ""
-id: "debezium-mysql"
+license_link: 
+icon: 
+download: 
+support:
+support_link:
+support_image:
+dockerfile:
+id: 
 ```
 
-Field introduction:
+The following table describes tags covered in the metadata of a plugin.
 
-* id: the module name.
-* description: the module description.
-* author: the module author, this is a list in yaml format, for example ['tuteng', 'jia'].
-* contributors: the module contributors, this is a list in yaml format, for example ['tuteng', 'jia'].
-* language: the module language.
-* document: the document of the module, support HTTP link or markdown file.
-* source: source of module, support HTTP link, link to code repository.
-* license: license of module, support HTTP link or markdown file.
-* license_link: link of license.
-* tags: keywords for the module, this is a list in yaml format.
-* alias: alias of module, fields for display, such as the alias of debezium-mysql is `Debezium MySQL Source`.
-* features: features of modules in each version.
-* icon: the icon of the module.
-* download: download link of the module.
-* support: community of the module.
-* support_link: link of support organization.
-* support_img: image logo of support organization.
-* dockerfile: the dockerfile of current version, to test in the future
+| Item | Description |
+|----|----|
+| description | It is a short description about the plugin.|
+| author | Set the name of the author for the plugin. <li> Use square brackets ([]) and double quotation marks ("") to wrap the author name, such as ["ASF"]. <li> If there are multiple authors, use a comma to separate them, such as ["StreamNative", "Huanli Meng"].
+| contributors | Set the name of the contributor for the plugin. <li> Use square brackets ([]) and double quotation marks ("") to wrap the contributor name, such as ["ASF"]. <li> If there are multiple contributors, use a comma to separate them, such as ["StreamNative", "Huanli Meng"]. |
+| language | Set the language used by the plugin.|
+| document | At present, leave this blank.|
+| source | Set the link address for the source code of the plugin. Use double quotation marks ("") to wrap the link address of the source. |
+| license | By default, it is set to Apache License 2.0.
+| tags | Set keywords for this document. <li> Use square brackets ([]) and double quotation marks ("") to wrap the keywords. <li> If there are multiple keywords, use a comma to separate them, such as  ["OpenTracing", "Jaeger", "Monitoring"]. |
+| alias | It is the name displayed on the StreamNative website. The alias is case sensitive. |
+| features | Describe what the plugin is used to do. Use double quotation marks ("") to wrap the download link of the NAR package of the plugin.|
+| license_link | Set the license link of the plugin. Use double quotation marks ("") to wrap the license link of the plugin. |
+| icon | Set the image link for the plugin. If there is no image available, leave this blank. |
+| download | Set the download link for a NAR package of the plugin. Use double quotation marks ("") to wrap the download link of the NAR package of the plugin.
+| support | Set the support organization of the plugin. |
+| support_link | Set the link of the support organization. |
+| support_image | Set the image logo of support organization. |
+| dockerfile | At present, leave this blank. |
+| id | By default, it is set to the file name of the plugin (without extension). <li> Use lower cases. Use double quotation marks ("") to wrap the ID. <li> Use hyphens (-) between words if the ID consists of multiple words, such as "open-tracing-client". |
+
+## Body text
+
+In general, the body text of a plugin document includes the following sections:
+
+- Overview
+- Installation
+  - Prerequisites
+  - Procedures
+- Configuration
+  - XXX configuration (XXX refers to the plugin name.)
+  - Configure XXX (XXX refers to the plugin name.)
+- Usage
+- Monitoring (Optional)
+- Security (Optional)
+- Metrics (Optional)
+- How it works (Optional)
+- Reference (Optional)
+- Troubleshooting (Optional)
+- Tutorial (Optional)
+
+### Overview
+
+> Describe what the plugin is used for.
+
+### Installation
+
+> Describe how to install or load the plugin.
+
+#### Prerequisites
+
+> List prerequisite used for installing the plugin, if any.
+
+#### Procedures
+
+> Lists how to instal the plugin.
+
+### Configuration
+
+> List some configuration examples to describe what the plugin can be used to do.
+
+#### XXX configuration
+
+> List configuration items available for the plugin. XXX refers to the plugin name.
+
+#### Configure XXX
+
+> How to configure the plugin through Json or Yaml file. XXX refers to the plugin name.
+
+### Usage
+
+> Provide an example to describe what the connector can be used to do.
+
+### Monitoring (Optional)
+
+> Describe how to monitor the plugin.
+
+### Security (Optional)
+
+> List security configurations required to be configured and how to configure it.
+
+### Metrics (Optional)
+
+> List metrics available for the plugin.
+
+### How it works (Optional)
+
+> List basic principles for the plugin to work.
+
+### Reference (Optional)
+
+> List additional external references, if any.
+
+### Troubleshooting (Optional)
+
+> List FAQs and how to troubleshoot the bugs, if any.
+
+### Tutorial (Optional)
+
+> List a step-by-step for the whole process.
