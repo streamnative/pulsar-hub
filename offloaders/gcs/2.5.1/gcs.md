@@ -116,7 +116,7 @@ To generate service account credentials or view the public credentials that you'
 6. You can get the following information and set this in `broker.conf`.
    
     ```conf
-    gcsManagedLedgerOffloadServiceAccountKeyFile="/Users/hello/Downloads/project-804d5e6a6f33.json"
+    gcsManagedLedgerOffloadServiceAccountKeyFile="/Users/user-name/Downloads/project-804d5e6a6f33.json"
     ```
 
     > #### Tip
@@ -203,6 +203,11 @@ For individual topics, you can trigger GCS offload manually using the following 
 
     ```bash
     bin/pulsarctl topic offload-status -w persistent://my-tenant/my-namespace/topic1
+    ```
+
+    **Output**
+
+    ```
     Offload was a success
     ```
 
@@ -241,7 +246,7 @@ gcsManagedLedgerOffloadBucket=pulsar-topic-offload-1
 gcsManagedLedgerOffloadRegion=europe-west3
 
 gcsManagedLedgerOffloadServiceAccountKeyFile=/Users/user-name/Downloads/affable-ray-226821-6251d04987e9.json
-# Configure this after [Step 3: create GCS service account] as shown below
+# Configure this property after [Step 3: create GCS service account] as shown below
 
 offloadersDirectory=offloaders
 
@@ -289,7 +294,9 @@ managedLedgerMaxEntriesPerLedger=5000
 
 	![](/images/offloaders/gcs/create-service-account.png)
 
-3. Name your service account, then the service account ID is automatically generated.
+3. Name your service account.
+   
+   The service account ID is automatically generated.
 
     ![](/images/offloaders/gcs/create-1.png)
 
@@ -297,7 +304,9 @@ managedLedgerMaxEntriesPerLedger=5000
 
 5. Grant privilege to your service account.
 
-	This tutorial skips this task here and completes it in [Step 4](#step-4). Click **Continue**.
+	This tutorial skips this task here and completes it in [Step 4](#step-4). 
+    
+    Click **Continue**.
 
 6. Click **CREATE KEY**.
 
@@ -309,7 +318,7 @@ managedLedgerMaxEntriesPerLedger=5000
 
     ![](/images/offloaders/gcs/create-key-2.png)
 
-8. Copy the key ID in the JSON file to the **key ID** field and click **Finish**.
+8. Copy the key ID in the JSON file to the **key ID** field and click **Done**.
 
     ![](/images/offloaders/gcs/key-id.png)
 
@@ -429,9 +438,10 @@ managedLedgerMaxEntriesPerLedger=5000
 
 Pulsar's **segment oriented architecture** allows for topic backlogs to effectively grow very large without limit. However, this can become expensive over time. One way to alleviate this cost is to use **tiered storage**. With tiered storage, older messages in the backlog can be moved from BookKeeper to a cheaper storage mechanism, such as GCS, while still allowing clients to access the backlog as if nothing had changed.
 
-Currently, StreamNative Platform supports AWS S3, GCS, and filesystem for long term storage. Offloading to long term storage can be triggered via Rest API or CLI tools. You can pass as many as topics you want to retain on BookKeeper and brokers copy the backlog data to long term storage. The original data is deleted from BookKeeper after a configured delay.
+Currently, StreamNative Platform supports **AWS S3**, **GCS**, and **filesystem** for long term storage. Offloading to long term storage can be triggered via REST API or CLI tools. You can pass as many as topics you want to retain on BookKeeper and brokers copy the backlog data to long term storage. The original data is deleted from BookKeeper after a configured delay.
 
-A topic in StreamNative Platform is backed by a log, known as a managed ledger. This log is composed of an ordered list of segments. StreamNative Platform only writes to the final segment of the log. All previous segments are sealed. The data within the segment is immutable. This is known as a segment oriented architecture.
+A topic in StreamNative Platform is backed by a log, known as a managed **ledger**. This log is composed of an ordered list of segments. StreamNative Platform **only** writes to the final segment of the log. All previous segments are sealed. The data within the segment is immutable. This is known as a segment oriented architecture.
+
 The tiered storage offloading mechanism takes advantage of this segment oriented architecture. When offloading is requested, the segments of the log are copied, one-by-one, to tiered storage. All segments of the log, apart from the segment currently being written to, can be offloaded.
 
 ![](/images/offloaders/gcs/pulsar-tiered-storage.png)
