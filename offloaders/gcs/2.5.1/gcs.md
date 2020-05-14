@@ -236,7 +236,7 @@ This tutorial provides step-by-step instructions on how to use GCS with Pulsar.
 
 ## Step 1: configure GCS offload driver
 
-As indicated in the [configuration chapter](#configuration), before using GCS offload, you need to configure some properties for the GCS offload driver. This tutorial assumes that you have configured the GCS offload driver in `broker.conf` as below and run Pulsar in **standalone** mode.
+As indicated in the [configuration chapter](#configuration), before using GCS offload, you need to configure some properties for the GCS offload driver. This tutorial assumes that you have configured the GCS offload driver in `standalone.conf` as below and run Pulsar in **standalone** mode.
 
 ```conf
 managedLedgerOffloadDriver=google-cloud-storage
@@ -256,7 +256,7 @@ managedLedgerMaxEntriesPerLedger=5000
 
 ## Step 2: create GCS bucket 
 
-1. Navigate to [Google Cloud Console](https://console.cloud.google.com/), select **Storage** at left navigation panel.
+1. Navigate to [Google Cloud Console](https://console.cloud.google.com/), select **Storage** at the left navigation panel.
 
     ![](/images/offloaders/gcs/start.png)
 
@@ -284,7 +284,7 @@ managedLedgerMaxEntriesPerLedger=5000
 
 ## Step 3: create GCS service account
 
-1. Navigate to [Google Cloud Console](https://console.cloud.google.com/), select **IAM & Admin** at left navigation panel.
+1. Navigate to [Google Cloud Console](https://console.cloud.google.com/), select **IAM & Admin** at the left navigation panel.
 
     ![](/images/offloaders/gcs/start-2.png)
 
