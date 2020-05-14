@@ -246,7 +246,6 @@ gcsManagedLedgerOffloadBucket=pulsar-topic-offload-1
 gcsManagedLedgerOffloadRegion=europe-west3
 
 gcsManagedLedgerOffloadServiceAccountKeyFile=/Users/user-name/Downloads/affable-ray-226821-6251d04987e9.json
-# Configure this property after [Step 3: create GCS service account] as shown below
 
 offloadersDirectory=offloaders
 
