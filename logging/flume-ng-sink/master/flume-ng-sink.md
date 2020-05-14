@@ -11,7 +11,7 @@ alias: Flume NG Sink
 features: ["Use Flume NG sink connector to sync data from Pulsar"]
 license_link: "https://pulsar.apache.org/license/LICENSE-2.0"
 icon: "/images/connectors/flume.jpg"
-download: ""
+download: "https://github.com/streamnative/pulsar-flume-ng-sink"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"

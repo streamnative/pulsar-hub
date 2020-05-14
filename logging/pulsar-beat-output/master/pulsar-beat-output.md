@@ -11,7 +11,7 @@ alias: Pulsar Beat output
 features: ["Use Pulsar Beat output to capture all sorts of operational data"]
 license_link: "https://pulsar.apache.org/license/LICENSE-2.0"
 icon: "/images/connectors/elasticsearch.jpg"
-download: ""
+download: "https://github.com/streamnative/pulsar-beat-output"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
