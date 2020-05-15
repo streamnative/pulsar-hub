@@ -143,7 +143,7 @@ Threshold value|Action
 0|It causes a broker to offload data as soon as possible.
 Negative value|It disables automatic offloading.
 
-Automatic offload runs when a new segment is added to a topic log. If you set the threshold on a namespace, but few messages are being produced to the topic, offload does not work until the current segment is full.
+Automatic offloading runs when a new segment is added to a topic log. If you set the threshold on a namespace, but few messages are being produced to the topic, offload does not work until the current segment is full.
 
 You can configure the threshold size using CLI tools, such as [pulsarctl](https://streamnative.io/docs/v1.0.0/manage-and-monitor/pulsarctl/overview/) or puslar-admin.
 
@@ -167,7 +167,7 @@ For individual topics, you can trigger GCS offload manually using the following 
 
 - Use CLI tools (such as pulsarctl or pulsar-admin). 
 
-    To trigger via CLI tools, you need to specify the maximum amount of data (threshold) that should be retained on a Pulsar cluster for a topic. If the size of the topic data on the Pulsar cluster exceeds this threshold, segments from the topic are moved to GCS until the threshold is no longer exceeded. Older segments are moved first.
+    To trigger the GCS offload via CLI tools, you need to specify the maximum amount of data (threshold) that should be retained on a Pulsar cluster for a topic. If the size of the topic data on the Pulsar cluster exceeds this threshold, segments from the topic are moved to GCS until the threshold is no longer exceeded. Older segments are moved first.
 
 ### Example
 
@@ -256,7 +256,7 @@ managedLedgerMaxEntriesPerLedger=5000
 
 ## Step 2: create GCS bucket 
 
-1. Navigate to [Google Cloud Console](https://console.cloud.google.com/), select **Storage** at the left navigation panel.
+1. Navigate to [Google Cloud Console](https://console.cloud.google.com/), and select **Storage** at the left navigation panel.
 
     ![](/images/offloaders/gcs/start.png)
 
