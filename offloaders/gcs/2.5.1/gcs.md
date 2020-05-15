@@ -21,7 +21,7 @@ id: "gcs"
 
 # Overview
 
-To deliver an event streaming service, StreamNative Platform must manage large numbers of messages and data in real-time, and this requires keeping large amounts of data on the platform, or readily accessible. As the data amount increases, it becomes significantly more expensive to store, manage, and retrieve, so administrators and developers look to external stores for long-term storage. 
+To deliver an event streaming service, StreamNative Platform must manage large numbers of messages and data in real-time, and this requires keeping large amounts of data on the platform, or readily accessible. As the data amount increases, it becomes significantly more expensive to store, manage, and retrieve data, so administrators and developers look to external stores for long-term storage. 
 
 StreamNative Platform leverages a unique **tiered storage** solution that addresses some of these key challenges faced by other distributed log systems. This tiered storage solution extends the storage capabilities of StreamNative Platform by offloading data from Apache BookKeeper to scalable cloud-native storage (such as [GCS (Google Cloud Storage)](https://cloud.google.com/storage)) without the need of adding storage. Older topic data can be offloaded to long-term storage that readily scales with the volume of data. In this way, on the one hand, tiered storage is much cheaper than the storage in Pulsar clusters; on the other hand, there is no perceivable difference in consuming a topic whether data is stored on tiered storage or on Pulsar clusters, they produce and consume messages in exactly the same way.
 
@@ -451,4 +451,3 @@ StreamNative Platform uses multi-part objects to upload the segment data. It is 
 # Reference
 
 For more information about tiered storage for Pulsar topics, see [here](https://github.com/apache/pulsar/wiki/PIP-17:-Tiered-storage-for-Pulsar-topics).
-
