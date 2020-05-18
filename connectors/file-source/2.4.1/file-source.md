@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "File", "Source"]
 alias: File Source
 features: ["Use File source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/pulsar-registry.svg"
+icon: "/images/pulsar-hub.svg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors/pulsar-io-file-2.4.1.nar"
 support: Apache community
 support_link: https://streamnative.io
