@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-flume-ng-sink/tree/master/src/main/java/org/apache/flume/sink/pulsar"
+source: "https://github.com/streamnative/pulsar-flume-ng-sink"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Flume NG", "Logging"]
 alias: Flume NG Sink
