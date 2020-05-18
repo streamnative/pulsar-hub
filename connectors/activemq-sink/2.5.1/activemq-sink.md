@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-activemq/tree/v2.5.1/src/main/java/org/apache/pulsar/ecosystem/io/activemq"
+source: "https://github.com/streamnative/pulsar-io-activemq/tree/v2.5.1"
 license: Apache License 2.0
 tags: ["Pulsar IO", "ActiveMQ", "Sink"]
 alias: ActiveMQ Sink
