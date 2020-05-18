@@ -4,13 +4,13 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/master/tiered-storage/jcloud/src/main/java/org/apache/bookkeeper/mledger/offload/jcloud"
+source: "https://github.com/apache/pulsar/tree/master/tiered-storage/jcloud"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["GCS", "Offload", "Pulsar"]
-alias: GCS
+alias: GCS offloader
 features: ["Offload data from BookKeeper to GCS"]
-icon: "/images/offloaders/gcs-logo.png"
+icon: "/images/offloaders/gcs/gcs-logo.png"
 download: "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz"
 support: StreamNative
 support_link: https://streamnative.io
@@ -46,13 +46,13 @@ Additionally, StreamNative Platform is able to retain both historic and real-tim
 
 > #### Note
 > 
-> Before using GCS offload, you need to configure some properties of the GCS offload driver. 
+> Before offloading data from BookKeeper to GCS, you need to configure some properties of the GCS driver. 
 
-Besides, you can also configure the GCS offload to run automatically or trigger it manually.
+Besides, you can also configure the GCS to run automatically or trigger it manually.
 
-## Configure offload driver
+## Configure GCS driver
 
-You can configure GCS offload driver in the configuration file `broker.conf`.
+You can configure GCS driver in the configuration file `broker.conf`.
 
 - **Required** configurations are as below.
 
@@ -149,7 +149,7 @@ Configuration|Description
 `gcsManagedLedgerOffloadReadBufferSizeInBytes`|Block size for each individual read when reading back data from GCS.<br><br>The **default** value is 1 MB.
 `gcsManagedLedgerOffloadMaxBlockSizeInBytes`|Maximum size of a "part" sent during a multipart upload to GCS. <br><br>It **can not** be smaller than 5 MB. <br><br>The **default** value is 64 MB.
 
-## Configure offload to run automatically
+## Configure GCS to run automatically
 
 Namespace policy can be configured to offload data automatically once a threshold is reached. The threshold is based on the size of data that a topic has stored on a Pulsar cluster. Once the topic reaches the threshold, an offload operation is triggered automatically. 
 
@@ -160,11 +160,11 @@ Negative value|It disables automatic offloading.
 
 Automatic offloading runs when a new segment is added to a topic log. If you set the threshold on a namespace, but few messages are being produced to the topic, offload does not work until the current segment is full.
 
-You can configure the threshold size using CLI tools, such as [pulsarctl](https://streamnative.io/docs/v1.0.0/manage-and-monitor/pulsarctl/overview/) or puslar-admin.
+You can configure the threshold size using CLI tools, such as [pulsarctl](https://streamnative.io/docs/v1.0.0/manage-and-monitor/pulsarctl/overview/) or pulsar-admin.
 
 ### Example
 
-This example sets the GCS offload threshold size to 10 MB using pulsarctl.
+This example sets the GCS threshold size to 10 MB using pulsarctl.
 
 ```bash
 bin/pulsarctl namespaces set-offload-threshold --size 10M my-tenant/my-namespace
@@ -174,19 +174,19 @@ bin/pulsarctl namespaces set-offload-threshold --size 10M my-tenant/my-namespace
 >
 > For more information about the `pulsarctl namespaces set-offload-threshold options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-set-offload-threshold-em-). 
 
-## Configure offload to run manually
+## Configure GCS to run manually
 
-For individual topics, you can trigger GCS offload manually using the following methods:
+For individual topics, you can trigger GCS manually using the following methods:
 
 - Use REST endpoint 
 
 - Use CLI tools (such as pulsarctl or pulsar-admin). 
 
-    To trigger the GCS offload via CLI tools, you need to specify the maximum amount of data (threshold) that should be retained on a Pulsar cluster for a topic. If the size of the topic data on the Pulsar cluster exceeds this threshold, segments from the topic are moved to GCS until the threshold is no longer exceeded. Older segments are moved first.
+    To trigger the GCS via CLI tools, you need to specify the maximum amount of data (threshold) that should be retained on a Pulsar cluster for a topic. If the size of the topic data on the Pulsar cluster exceeds this threshold, segments from the topic are moved to GCS until the threshold is no longer exceeded. Older segments are moved first.
 
 ### Example
 
-- This example triggers GCS offload to run manually using pulsarctl with the command `pulsarctl topic offload (topic-name) (threshold)`.
+- This example triggers GCS to run manually using pulsarctl with the command `pulsarctl topic offload (topic-name) (threshold)`.
 
     ```bash
     bin/pulsarctl topic offload persistent://my-tenant/my-namespace/topic1 10M
@@ -202,7 +202,7 @@ For individual topics, you can trigger GCS offload manually using the following 
     >
     > For more information about the `pulsarctl topic offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
 
-- This example checks GCS offload status using pulsarctl with the command `pulsarctl topic offload-status options`.
+- This example checks GCS status using pulsarctl with the command `pulsarctl topic offload-status options`.
 
     ```bash
     bin/pulsarctl topic offload-status persistent://my-tenant/my-namespace/topic1
@@ -214,7 +214,7 @@ For individual topics, you can trigger GCS offload manually using the following 
     Offload is currently running
     ```
 
-    To wait for GCS offload to complete the job, add the `-w` flag.
+    To wait for GCS to complete the job, add the `-w` flag.
 
     ```bash
     bin/pulsarctl topic offload-status -w persistent://my-tenant/my-namespace/topic1
@@ -249,7 +249,7 @@ For individual topics, you can trigger GCS offload manually using the following 
 
 This tutorial provides step-by-step instructions on how to use GCS with Pulsar.
 
-## Step 1: configure GCS offload driver
+## Step 1: configure GCS driver
 
 As indicated in the [configuration chapter](#configuration), before using GCS offload, you need to configure some properties for the GCS offload driver. This tutorial assumes that you have configured the GCS offload driver in `standalone.conf` as below and run Pulsar in **standalone** mode.
 
@@ -450,18 +450,18 @@ managedLedgerMaxEntriesPerLedger=5000
 
 # How it works
 
-Pulsar's **segment oriented architecture** allows for topic backlogs to effectively grow very large without limit. However, this can become expensive over time. One way to alleviate this cost is to use **tiered storage**. With tiered storage, older messages in the backlog can be moved from BookKeeper to a cheaper storage mechanism, such as GCS, while still allowing clients to access the backlog as if nothing had changed.
+Pulsar's **segment oriented architecture** allows for topic backlogs to effectively grow very large without limit. However, this can become expensive over time. One way to alleviate this cost is to use **tiered storage**. With tiered storage, older messages in the backlog can be moved from BookKeeper to a cheaper storage mechanism, while still allowing clients to access the backlog as if nothing had changed.
 
-Currently, StreamNative Platform supports **AWS S3**, **GCS**, and **filesystem** for long term storage. Offloading to long term storage can be triggered via REST API or CLI tools. You can pass as many as topics you want to retain on BookKeeper and brokers copy the backlog data to long term storage. The original data is deleted from BookKeeper after a configured delay.
+Currently, Pulsar supports **AWS S3**, **GCS**, and **filesystem** for long term storage. Offloading to long term storage can be triggered via REST API or CLI tools. You can pass as many as topics you want to retain on BookKeeper and brokers copy the backlog data to long term storage. The original data is deleted from BookKeeper after a configured delay.
 
-A topic in StreamNative Platform is backed by a log, known as a managed **ledger**. This log is composed of an ordered list of segments. StreamNative Platform **only** writes to the final segment of the log. All previous segments are sealed. The data within the segment is immutable. This is known as a segment oriented architecture.
+A topic in Pulsar is backed by a log, known as a managed **ledger**. This log is composed of an ordered list of segments. Pulsar **only** writes to the final segment of the log. All previous segments are sealed. The data within the segment is immutable. This is known as a segment oriented architecture.
 
 The tiered storage offloading mechanism takes advantage of this segment oriented architecture. When offloading is requested, the segments of the log are copied, one-by-one, to tiered storage. All segments of the log, apart from the segment currently being written to, can be offloaded.
 
 ![](/images/offloaders/gcs/pulsar-tiered-storage.png)
 
 On the broker, you need to configure the bucket and credentials for the cloud storage service. The configured bucket must exist before attempting to offload. If it does not exist, the offload operation fails.
-StreamNative Platform uses multi-part objects to upload the segment data. It is possible that a broker could crash while uploading the data. It is recommended that you add a life cycle rule your bucket to expire incomplete multi-part upload after a day or two to avoid getting charged for incomplete uploads.
+Pulsar uses multi-part objects to upload the segment data. It is possible that a broker could crash while uploading the data. It is recommended that you add a life cycle rule your bucket to expire incomplete multi-part upload after a day or two to avoid getting charged for incomplete uploads.
 
 # Reference
 
