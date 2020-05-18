@@ -9,7 +9,7 @@ license: Apache License 2.0
 tags: ["Pulsar IO", "Beat output", "Logging"]
 alias: Pulsar Beat output
 features: ["Use Pulsar Beat output to capture all sorts of operational data"]
-license_link: "https://pulsar.apache.org/license/LICENSE-2.0"
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/elasticsearch.jpg"
 download: "https://github.com/streamnative/pulsar-beat-output"
 support: StreamNative
