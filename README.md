@@ -1,8 +1,21 @@
-# Submit PLugin
+# StreamNative Hub
 
-This document introduces a workflow for adding a plugin and gives a document template for the plugin.
+StreamNative Hub is an online service for finding, reviewing, and downloading extensions for the Apache Pulsar ecosystem.
+It highlights features, richer component descriptions, links to external resources for the components, and installation
+and support information.
 
-## Workflow for adding plugin
+The StreamNative Hub currently hosts the following extensions for Pulsar ecosystem.
+
+- Connectors (Source & Sink)
+- Offloaders
+- Protocol Handlers
+- Authentication Plugins
+- Integrations with data processing engines
+- Interceptors
+- ... and more
+
+
+## How to add your plugins
 
 If a new plugin is introduced, you should upload the plugin to the target category. Currently, the StreamNative supports the following categories for the plugin.
 
@@ -17,7 +30,7 @@ If a new plugin is introduced, you should upload the plugin to the target catego
 
 If a new category is required, you can create it. For details about how to create a new category, see [create new category](#create-new-category).
 
-## Prepare for uploading plugin
+### Prepare for uploading plugin
 
 This section describes operations to be performed before creating a PR (Pull Request) for a plugin.
 
@@ -25,14 +38,14 @@ This section describes operations to be performed before creating a PR (Pull Req
 - Create a sub-folder under the cloned [pulsar-hub](https://github.com/streamnative/pulsar-hub) repository and put the document in this sub-folder. The sub-folder name is set to the version of the plugin to be submitted, such as `2.5.1`.
 - Put the plugin image in the `image` folder under the cloned [pulsar-hub](https://github.com/streamnative/pulsar-hub) repository.
 
-## Create new category
+### Create new category
 
 To create a new category, follow these steps:
 
 1. Create a branch based on the latest [pulsar-hub](https://github.com/streamnative/pulsar-hub) master repository.
 2. Create a sub-folder under the `pulsar-hub` folder in the local. Set the name of the sub-folder to the category name with lower cases. If the category name consists of multiple words, use the hyphen (-) between these words, such as `data-processing`.
 
-## Create plugin document
+### Create plugin document
 
 To create a document for a new plugin, follow these steps:
 
@@ -42,13 +55,13 @@ To create a document for a new plugin, follow these steps:
 4. Update comments, if any.
 5. If no more comment, ask reviewers to approve the PR and merge the PR to the master.
 
-# Pulgin document template
+## Pulgin document template
 
 This section describes a plugin document structure, including the following two parts:
 - Metadata
 - Body text
 
-## Metadata
+### Metadata
 
 The metadata of a plugin consists of the following fields:
 
@@ -96,7 +109,7 @@ The following table describes tags covered in the metadata of a plugin.
 | dockerfile | At present, leave this blank. |
 | id | By default, it is set to the file name of the plugin (without extension). <li> Use lower cases. Use double quotation marks ("") to wrap the ID. <li> Use hyphens (-) between words if the ID consists of multiple words, such as "open-tracing-client". |
 
-## Body text
+### Body text
 
 In general, the body text of a plugin document includes the following sections:
 
@@ -116,6 +129,7 @@ In general, the body text of a plugin document includes the following sections:
 - Troubleshooting (Optional)
 - Tutorial (Optional)
 
+```markdown
 ### Overview
 
 > Describe what the plugin is used for.
@@ -175,3 +189,4 @@ In general, the body text of a plugin document includes the following sections:
 ### Tutorial (Optional)
 
 > List a step-by-step for the whole process.
+```
