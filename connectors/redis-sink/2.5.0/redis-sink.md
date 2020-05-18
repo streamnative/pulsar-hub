@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/redis/src/main/java/org/apache/pulsar/io/redis"
+source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/redis"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Redis", "Sink"]
 alias: Redis Sink
