@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/checkout@v2
         with:
-          repository: streamnative/pulsar-registry-metadata
+          repository: streamnative/pulsar-hub
           token: ${{ secrets.BOT }}
           ref: ${{ github.ref }}
           path: prm
