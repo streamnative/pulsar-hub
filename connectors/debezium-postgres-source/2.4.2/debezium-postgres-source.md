@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/debezium/postgres/src/main/java/org/apache/pulsar/io/debezium/postgres"
+source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/debezium/postgres"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "PostgreSQL", "Postgres"]
 alias: Debezium PostgreSQL Source

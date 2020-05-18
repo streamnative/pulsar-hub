@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.3.2/pulsar-io/kafka/src/main/java/org/apache/pulsar/io/kafka"
+source: "https://github.com/apache/pulsar/tree/v2.3.2/pulsar-io/kafka"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Kafka", "Source"]
 alias: Kafka Source

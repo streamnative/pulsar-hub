@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/influxdb/src/main/java/org/apache/pulsar/io/influxdb"
+source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/influxdb"
 license: Apache License 2.0
 tags: ["Pulsar IO", "InfluxDB", "Sink"]
 alias: InfluxDB Sink
