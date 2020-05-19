@@ -6,10 +6,10 @@ and support information.
 
 The StreamNative Hub currently hosts the following extensions for Pulsar ecosystem.
 
-- Connectors (Source & Sink)
+- Connectors (source & sink)
 - Offloaders
-- Protocol Handlers
-- Authentication Plugins
+- Protocol handlers
+- Authentication plugins
 - Integrations with data processing engines
 - Interceptors
 - ... and more
