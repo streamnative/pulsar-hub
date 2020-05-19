@@ -19,9 +19,7 @@ dockerfile:
 id: "pulsar-flink"
 ---
 
-StreamNative develops and maintains Pulsar Flink Connector, an elastic data processing with Apache Pulsar and Apache Flink, to allow Flink reading data from Pulsar and writing data to Pulsar.
-
-Pulsar Flink Connector enables you to use Flink to access Pulsar data and provides exactly-once source semantics and at-least-once sink semantics.
+Pulsar Flink Connector is an integration of [Apache Pulsar](https://pulsar.apache.org/en/) and [Apache Flink](https://flink.apache.org/) (data processing engine), which allows Flink reading data from Pulsar and writing data to Pulsar and provides exactly-once source semantics and at-least-once sink semantics.
 
 ![](/images/data-processing/pulsar-flink-connector.png)
 
