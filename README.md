@@ -84,7 +84,7 @@ support_link:
 support_image:
 dockerfile:
 owner_name:
-owner_img
+owner_img:
 id: 
 ```
 
