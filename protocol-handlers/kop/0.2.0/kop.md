@@ -19,9 +19,7 @@ dockerfile:
 id: "kop"
 ---
 
-StreamNative develops and maintains KoP (Kafka on Pulsar) to support Kafka protocol.
-
-KoP brings the native Apache Kafka protocol support to Apache Pulsar by introducing a Kafka protocol handler on Pulsar brokers. By adding the KoP protocol handler to your existing Pulsar cluster, you can now migrate your existing Kafka applications and services to Pulsar without modifying the code. This enables Kafka applications to leverage Pulsar’s powerful features, such as:
+KoP (Kafka on Pulsar) is a protocol handler bringing the native Apache Kafka protocol support to Apache Pulsar. By adding the KoP to your existing Pulsar cluster, you can migrate your existing Kafka applications and services to Pulsar without modifying the code. This enables Kafka applications to leverage Pulsar’s powerful features, such as:
 
 - Streamlined operations with enterprise-grade multi-tenancy.
 
