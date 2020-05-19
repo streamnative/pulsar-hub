@@ -14,7 +14,9 @@ icon: "/images/connectors/elasticsearch.jpg"
 download: "https://github.com/streamnative/pulsar-beat-output"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
+owner_name: "StreamNative"
+owner_img: "/images/streamnative.png"
 dockerfile: 
 id: "pulsar-beat-output"
 ---

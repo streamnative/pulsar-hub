@@ -14,7 +14,9 @@ icon: "/images/monitoring/opentracing-logo.png"
 download: "https://bintray.com/streamnative/maven/io.streamnative.pulsar-tracing/0.1.0"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
+owner_name: "StreamNative"
+owner_img: "/images/streamnative.png"
 dockerfile: 
 id: "opentracing-pulsar-client"
 ---

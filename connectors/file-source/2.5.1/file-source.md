@@ -14,7 +14,7 @@ icon: "/images/pulsar-hub.svg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-file-2.5.1.nar"
 support: Apache community
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
 dockerfile: 
 id: "file-source"
 ---

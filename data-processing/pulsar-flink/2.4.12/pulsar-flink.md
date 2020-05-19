@@ -14,7 +14,9 @@ icon: "/images/data-processing/flink-logo.png"
 download: "https://bintray.com/streamnative/maven/io.streamnative.pulsar-flink/2.4.12"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
+owner_name: "StreamNative"
+owner_img: "/images/streamnative.png"
 dockerfile: 
 id: "pulsar-flink"
 ---

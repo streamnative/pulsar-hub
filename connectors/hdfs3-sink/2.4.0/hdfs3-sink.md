@@ -14,7 +14,7 @@ icon: "/images/connectors/hadoop.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar-io-hdfs3-2.4.0.nar"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
 dockerfile: 
 id: "hdfs3-sink"
 ---

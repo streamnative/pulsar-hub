@@ -14,7 +14,7 @@ icon: "/images/connectors/debezium.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar-io-debezium-mysql-2.4.0.nar"
 support: Apache community
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
 dockerfile: 
 id: "debezium-mysql"
 ---

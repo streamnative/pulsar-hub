@@ -14,7 +14,7 @@ icon: "/images/connectors/elasticsearch.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.2/connectors/pulsar-io-elastic-search-2.3.2.nar"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
 dockerfile: 
 id: "elasticsearch-sink"
 ---
