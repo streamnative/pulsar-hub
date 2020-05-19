@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/debezium/mysql/src/main/java/org/apache/pulsar/io/debezium/mysql"
+source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/debezium/mysql"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "MySQL"]
 alias: Debezium MySQL Source

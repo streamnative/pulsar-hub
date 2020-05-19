@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.3.0/pulsar-io/hdfs3/src/main/java/org/apache/pulsar/io/hdfs3"
+source: "https://github.com/apache/pulsar/tree/v2.3.0/pulsar-io/hdfs3"
 license: Apache License 2.0
 tags: ["Pulsar IO", "HDFS3", "Sink"]
 alias: HDFS3 Sink

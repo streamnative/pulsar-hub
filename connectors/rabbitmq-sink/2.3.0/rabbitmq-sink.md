@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.3.0/pulsar-io/rabbitmq/src/main/java/org/apache/pulsar/io/rabbitmq"
+source: "https://github.com/apache/pulsar/tree/v2.3.0/pulsar-io/rabbitmq"
 license: Apache License 2.0
 tags: ["Pulsar IO", "RabbitMQ", "Sink"]
 alias: RabbitMQ Sink

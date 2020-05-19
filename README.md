@@ -21,24 +21,24 @@ If a new category is required, you can create it. For details about how to creat
 
 This section describes operations to be performed before creating a PR (Pull Request) for a plugin.
 
-- Clone the [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) repository to the local.
-- Create a sub-folder under the cloned [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) repository and put the document in this sub-folder. The sub-folder name is set to the version of the plugin to be submitted, such as `2.5.1`.
-- Put the plugin image in the `image` folder under the cloned [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) repository.
+- Clone the [pulsar-hub](https://github.com/streamnative/pulsar-hub) repository to the local.
+- Create a sub-folder under the cloned [pulsar-hub](https://github.com/streamnative/pulsar-hub) repository and put the document in this sub-folder. The sub-folder name is set to the version of the plugin to be submitted, such as `2.5.1`.
+- Put the plugin image in the `image` folder under the cloned [pulsar-hub](https://github.com/streamnative/pulsar-hub) repository.
 
 ## Create new category
 
 To create a new category, follow these steps:
 
-1. Create a branch based on the latest [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) master repository.
-2. Create a sub-folder under the `pulsar-registry-metadata` folder in the local. Set the name of the sub-folder to the category name with lower cases. If the category name consists of multiple words, use the hyphen (-) between these words, such as `data-processing`.
+1. Create a branch based on the latest [pulsar-hub](https://github.com/streamnative/pulsar-hub) master repository.
+2. Create a sub-folder under the `pulsar-hub` folder in the local. Set the name of the sub-folder to the category name with lower cases. If the category name consists of multiple words, use the hyphen (-) between these words, such as `data-processing`.
 
 ## Create plugin document
 
 To create a document for a new plugin, follow these steps:
 
-1. Create a branch based on the latest [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) master repository.
+1. Create a branch based on the latest [pulsar-hub](https://github.com/streamnative/pulsar-hub) master repository.
 2. Create a document in the target folder for the plugin. For the document template about the plugin, see [plugin document template](#pulgin-document-template).
-3. Commit your updates, create a PR, and then publish the PR to the [pulsar-registry-metadata](https://github.com/streamnative/pulsar-registry-metadata) master repository.
+3. Commit your updates, create a PR, and then publish the PR to the [pulsar-hub](https://github.com/streamnative/pulsar-hub) master repository.
 4. Update comments, if any.
 5. If no more comment, ask reviewers to approve the PR and merge the PR to the master.
 

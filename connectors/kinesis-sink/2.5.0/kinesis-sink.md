@@ -4,13 +4,13 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/kinesis/src/main/java/org/apache/pulsar/io/kinesis"
+source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/kinesis"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Kinesis", "Sink"]
 alias: Kinesis Sink
 features: ["Use Kinesis sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/pulsar-registry.svg"
+icon: "/images/pulsar-hub.svg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-kinesis-2.5.0.nar"
 support: StreamNative
 support_link: https://streamnative.io

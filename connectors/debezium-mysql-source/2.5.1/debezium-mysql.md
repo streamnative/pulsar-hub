@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/debezium/mysql/src/main/java/org/apache/pulsar/io/debezium/mysql"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/debezium/mysql"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "MySQL"]
 alias: Debezium MySQL Source
@@ -42,6 +42,17 @@ The configuration of Debezium source connector has the following properties.
 | `database.history.pulsar.service.url` | true | null | Pulsar cluster service URL for history topic. |
 | `pulsar.service.url` | true | null | Pulsar cluster service URL. |
 | `offset.storage.topic` | true | null | Record the last committed offsets that the connector successfully completes. |
+
+## Converter options
+
+- org.apache.kafka.connect.json.JsonConverter
+
+    The`json-with-envelope` config is valid only for the JsonConverter. By default, the value is set to false. When the `json-with-envelope` value is set to false, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message only consists of the payload.
+    When the `json-with-envelope` value is set to true, the consumer uses the schema `Schema.KeyValue(Schema.BYTES, Schema.BYTES`, and the message consists of the schema and the payload.
+
+- org.apache.pulsar.kafka.shade.io.confluent.connect.avro.AvroConverter
+
+    If you select the AvroConverter, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message consists of the payload.
 
 # Example of MySQL
 
