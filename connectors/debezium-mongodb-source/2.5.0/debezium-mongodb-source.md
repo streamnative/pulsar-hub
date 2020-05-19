@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/debezium/mongodb/src/main/java/org/apache/pulsar/io/debezium/mongodb"
+source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/debezium/mongodb"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "Source"]
 alias: Debezium MongoDB Source

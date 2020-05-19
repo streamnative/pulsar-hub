@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/flume/src/main/java/org/apache/pulsar/io/flume"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/flume"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Flume", "Sink"]
 alias: Flume Sink

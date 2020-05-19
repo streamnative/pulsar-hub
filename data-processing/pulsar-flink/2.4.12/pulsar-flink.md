@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-flink/tree/release-2.4.12/src/main/java/org/apache/flink/streaming/connectors/pulsar"
+source: "https://github.com/streamnative/pulsar-flink/tree/release-2.4.12"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "Flink", "Connector"]

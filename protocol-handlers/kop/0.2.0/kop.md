@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/kop/tree/v0.2.0/kafka-impl/src/main/java/io/streamnative/pulsar/handlers/kop"
+source: "https://github.com/streamnative/kop/tree/v0.2.0/kafka-impl"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "Kafka"]

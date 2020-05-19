@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.0/pulsar-io/elastic-search/src/main/java/org/apache/pulsar/io/elasticsearch"
+source: "https://github.com/apache/pulsar/tree/v2.4.0/pulsar-io/elastic-search"
 license: Apache License 2.0
 tags: ["Pulsar IO", "ElasticSearch", "Sink"]
 alias: ElasticSearch Sink
