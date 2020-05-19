@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: ""
-source: "https://github.com/apache/pulsar/tree/v2.4.1/pulsar-io/twitter/src/main/java/org/apache/pulsar/io/twitter"
+source: "https://github.com/apache/pulsar/tree/v2.4.1/pulsar-io/twitter"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Twitter", "Source"]
 alias: Twitter Source
