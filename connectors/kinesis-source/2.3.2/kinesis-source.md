@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.3.2/pulsar-io/kinesiss"
+source: "https://github.com/apache/pulsar/tree/v2.3.2/pulsar-io/kinesis"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Kinesis", "Sink"]
 alias: Kinesis Sink
