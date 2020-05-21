@@ -15,6 +15,8 @@ download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
+owner_name: ""
+owner_img: ""
 dockerfile: 
 id: "kafka-source"
 ---

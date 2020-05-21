@@ -16,6 +16,8 @@ support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
 dockerfile: 
+owner_name: ""
+owner_img: ""
 id: "aerospike-sink"
 ---
 
