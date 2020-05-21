@@ -21,9 +21,7 @@ dockerfile:
 id: "pulsar-spark"
 ---
 
-StreamNative develops and maintains Pulsar Spark Connector, a unified data processing with Apache Pulsar and Apache Spark, to allow Spark reading data from Pulsar and writing data to Pulsar.
-
-Pulsar Spark Connector enables you to use Spark structured streaming and Spark SQL to access Pulsar data and provides exactly-once source semantics and at-least-once sink semantics.
+Pulsar Spark Connector is an integration of [Apache Pulsar](https://pulsar.apache.org/en/) and [Apache Spark](https://spark.apache.org/) (data processing engine), which allows Spark reading data from Pulsar and writing data to Pulsar using Spark structured streaming and Spark SQL and provides exactly-once source semantics and at-least-once sink semantics.
 
 ![](/images/data-processing/pulsar-spark-connector.png)
 
