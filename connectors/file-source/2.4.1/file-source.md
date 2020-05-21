@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.1/pulsar-io/file/src/main/java/org/apache/pulsar/io/file"
+source: "https://github.com/apache/pulsar/tree/v2.4.1/pulsar-io/file"
 license: Apache License 2.0
 tags: ["Pulsar IO", "File", "Source"]
 alias: File Source

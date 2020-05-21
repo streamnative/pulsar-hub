@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/hbase/src/main/java/org/apache/pulsar/io/hbase"
+source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/hbase"
 license: Apache License 2.0
 tags: ["Pulsar IO", "HBase", "Sink"]
 alias: HBase Sink

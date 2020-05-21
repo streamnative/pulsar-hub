@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/solr/src/main/java/org/apache/pulsar/io/solr"
+source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/solr"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Solr", "Sink"]
 alias: Solr Sink

@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.3.1/pulsar-io/hdfs2/src/main/java/org/apache/pulsar/io/hdfs2"
+source: "https://github.com/apache/pulsar/tree/v2.3.1/pulsar-io/hdfs2"
 license: Apache License 2.0
 tags: ["Pulsar IO", "HDFS2", "Sink"]
 alias: HDFS2 Sink

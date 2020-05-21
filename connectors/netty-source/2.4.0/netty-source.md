@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.0/pulsar-io/netty/src/main/java/org/apache/pulsar/io/netty"
+source: "https://github.com/apache/pulsar/tree/v2.4.0/pulsar-io/netty"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Netty", "Source"]
 alias: Netty Source

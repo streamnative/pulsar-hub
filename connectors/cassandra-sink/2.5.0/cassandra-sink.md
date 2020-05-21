@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/cassandra/src/main/java/org/apache/pulsar/io/cassandra"
+source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/cassandra"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Cassandra", "Sink"]
 alias: Cassandra Sink
