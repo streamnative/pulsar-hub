@@ -55,7 +55,7 @@ To create a document for a new plugin, follow these steps:
 4. Update comments, if any.
 5. If no more comment, ask reviewers to approve the PR and merge the PR to the master.
 
-## Pulgin document template
+## Plugin document template
 
 This section describes a plugin document structure, including the following two parts:
 - Metadata
