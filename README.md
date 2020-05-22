@@ -109,7 +109,7 @@ The following table describes tags covered in the metadata of a plugin.
 | support_link | Set the link of the support organization. |
 | support_image | Set the image logo of support organization. |
 | dockerfile | At present, leave this blank. |
-| owner_name | Set the owner of the component, this is optional, default `Apache Software Foundation` |
+| owner_name | Set the owner of the component. This is optional. By default, it is set to `Apache Software Foundation`. |
 | owner_img | Set the picture of the component owner, this is optional, default `/images/apache-powered-by.svg` |
 | id | By default, it is set to the file name of the plugin (without extension). <li> Use lower cases. Use double quotation marks ("") to wrap the ID. <li> Use hyphens (-) between words if the ID consists of multiple words, such as "open-tracing-client". |
 
