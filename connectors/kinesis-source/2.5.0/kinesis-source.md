@@ -14,7 +14,9 @@ icon: "/images/pulsar-hub.svg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-kinesis-2.5.0.nar"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
+owner_name: ""
+owner_img: ""
 dockerfile: 
 id: "kinesis-sink"
 ---

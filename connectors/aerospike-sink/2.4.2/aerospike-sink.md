@@ -14,7 +14,9 @@ icon: "/images/connectors/aerospike-sink.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-aerospike-2.4.2.nar"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
+owner_name: ""
+owner_img: ""
 dockerfile: 
 id: "aerospike-sink"
 ---
