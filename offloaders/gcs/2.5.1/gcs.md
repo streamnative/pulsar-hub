@@ -56,7 +56,7 @@ Follow the steps below to install the GCS offloader.
 
 1. Download Pulsar tarball using one of the following ways:
 
-   * download from the [Apache mirror](https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz)
+   * download the Pulsar tarball from the [Apache mirror](https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz)
 
    * download from the Pulsar [download page](https://pulsar.apache.org/download)
 
@@ -90,7 +90,7 @@ Follow the steps below to install the GCS offloader.
 
     **Output**
 
-    As can be seen from the output, Pulsar uses [Apache jclouds](https://jclouds.apache.org) to support GCS and AWS S3 for long term storage. 
+    As shown in the output, Pulsar uses [Apache jclouds](https://jclouds.apache.org) to support GCS and AWS S3 for long term storage. 
 
 
     ```
