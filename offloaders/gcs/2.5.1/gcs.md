@@ -220,7 +220,7 @@ You can configure the threshold size using CLI tools, such as [pulsarctl](https:
 
 ### Example
 
-This example sets the GCS threshold size to 10 MB using pulsarctl.
+This example sets the GCS offloader threshold size to 10 MB using pulsarctl.
 
 ```bash
 bin/pulsarctl namespaces set-offload-threshold --size 10M my-tenant/my-namespace
@@ -307,7 +307,7 @@ This tutorial provides step-by-step instructions on how to use GCS with Pulsar.
 
 ## Step 1: configure GCS offloader driver
 
-As indicated in the [configuration chapter](#configuration), before using the GCS offloader, you need to configure some properties for the GCS offloader driver. This tutorial assumes that you have configured the GCS offloader driver in `standalone.conf` as below and run Pulsar in **standalone** mode.
+As indicated in the [configuration chapter](#configuration) before using the GCS offloader, you need to configure some properties for the GCS offloader driver. This tutorial assumes that you have configured the GCS offloader driver in `standalone.conf` as below and run Pulsar in **standalone** mode.
 
 ```conf
 managedLedgerOffloadDriver=google-cloud-storage
@@ -335,7 +335,7 @@ managedLedgerMaxEntriesPerLedger=5000
 
     > #### Note
     > 
-    > To ensure broker can access the bucket, you need to assign **Storage Object Creator** and **Storage Object Viewer** roles to your service account. For more information, see [Step 4: grant access to GCS service account](#step-4-grant-access-to-gcs-service-account).
+    > To ensure broker can access the bucket, you need to assign **Storage Object Creator** and **Storage Object Viewer** roles to your service account. For how to assign roles to your service account, see [Step 4: grant access to GCS service account](#step-4-grant-access-to-gcs-service-account).
 
     ![](/images/offloaders/gcs/create-bucket.png)
 
