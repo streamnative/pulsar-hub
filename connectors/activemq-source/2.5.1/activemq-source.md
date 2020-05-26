@@ -8,7 +8,7 @@ source: "https://github.com/streamnative/pulsar-io-activemq/tree/v2.5.1"
 license: Apache License 2.0
 tags: ["Pulsar IO", "ActiveMQ", "Source"]
 alias: ActiveMQ Source
-features: ["Use ActiveMQ source connector to receive data from Pulsar"]
+features: ["Use ActiveMQ source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/activemq_logo_white_vertical.jpg"
 download: "https://github.com/streamnative/pulsar-io-activemq/releases/download/v2.5.1/pulsar-io-activemq-2.5.1.nar"
