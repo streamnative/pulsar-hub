@@ -15,7 +15,9 @@ download: "https://github.com/streamnative/pulsar-io-activemq/releases/download/
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
-dockerfile: 
+dockerfile:
+owner_name: “Apache Software Foundation”
+owner_img: “/images/apache-powered-by.svg” 
 id: "activemq-sink"
 ---
 
