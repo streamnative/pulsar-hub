@@ -19,13 +19,13 @@ The StreamNative Hub currently hosts the following extensions for Pulsar ecosyst
 
 If a new plugin is introduced, you should upload the plugin to the target category. Currently, the StreamNative supports the following categories for the plugin.
 
+- Authentication
 - Connector
 - Data processing
-- Logging
-- Monitoring
-- Authentication
 - Deployment
 - Handler
+- Logging
+- Monitoring
 - Offloader
 
 If a new category is required, you can create it. For details about how to create a new category, see [create new category](#create-new-category).
@@ -50,7 +50,7 @@ To create a new category, follow these steps:
 To create a document for a new plugin, follow these steps:
 
 1. Create a branch based on the latest [pulsar-hub](https://github.com/streamnative/pulsar-hub) master repository.
-2. Create a document in the target folder for the plugin. For the document template about the plugin, see [plugin document template](#pulgin-document-template).
+2. Create a document in the target folder for the plugin. For the document template about the plugin, see [plugin document template](#plugin-document-template).
 3. Commit your updates, create a PR, and then publish the PR to the [pulsar-hub](https://github.com/streamnative/pulsar-hub) master repository.
 4. Update comments, if any.
 5. If no more comment, ask reviewers to approve the PR and merge the PR to the master.
@@ -97,14 +97,14 @@ The following table describes tags covered in the metadata of a plugin.
 | contributors | Set the name of the contributor for the plugin. <li> Use square brackets ([]) and double quotation marks ("") to wrap the contributor name, such as ["ASF"]. <li> If there are multiple contributors, use a comma to separate them, such as ["StreamNative", "Huanli Meng"]. |
 | language | Set the language used by the plugin.|
 | document | At present, leave this blank.|
-| source | Set the link address for the source code of the plugin. Use double quotation marks ("") to wrap the link address of the source. |
+| source | Set the source link address for the plugin. It is the root directory of the source code of the plugin. Use double quotation marks ("") to wrap the link address of the source, such as "https://github.com/apache/pulsar/tree/v2.3.2/pulsar-io/hdfs3". |
 | license | By default, it is set to Apache License 2.0.
 | tags | Set keywords for this document. <li> Use square brackets ([]) and double quotation marks ("") to wrap the keywords. <li> If there are multiple keywords, use a comma to separate them, such as  ["OpenTracing", "Jaeger", "Monitoring"]. |
 | alias | It is the name displayed on the StreamNative website. The alias is case sensitive. |
 | features | Describe what the plugin is used to do. Use double quotation marks ("") to wrap the download link of the NAR package of the plugin.|
 | license_link | Set the license link of the plugin. Use double quotation marks ("") to wrap the license link of the plugin. |
 | icon | Set the image link for the plugin. If there is no image available, leave this blank. |
-| download | Set the download link for a NAR package of the plugin. Use double quotation marks ("") to wrap the download link of the NAR package of the plugin.
+| download | Set the download link for a NAR package of the plugin. Use double quotation marks ("") to wrap the download link of the NAR package of the plugin. |
 | support | Set the support organization of the plugin. |
 | support_link | Set the link of the support organization. |
 | support_image | Set the image logo of support organization. |
