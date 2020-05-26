@@ -29,26 +29,7 @@ MQTT-on-Pulsar (aka MoP) is developed to support MQTT protocol natively on Apach
 
 To install the MoP protocol handler, follow these steps:
 
-1. Download and build the MoP protocol handler.
-   
-   1. Clone the MoP project from GitHub to your local.
-
-        ```bash
-        git clone https://github.com/streamnative/mop.git
-        cd mop
-        ```
-
-   2. Build the project.
-
-        ```bash
-        mvn clean install -DskipTests
-        ```
-
-   3. Find the NAR file at this location.
-
-        ```bash
-        ./mqtt-impl/target/pulsar-protocol-handler-mqtt-${version}.nar
-        ```
+1. Download the MoP protocol handler from [here](https://github.com/streamnative/mop/releases/download/v0.1.0/pulsar-protocol-handler-mqtt-0.1.0.nar).
 
 2. Install the MoP protocol handler.
 
