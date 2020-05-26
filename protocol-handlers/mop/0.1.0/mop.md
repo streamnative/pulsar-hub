@@ -7,7 +7,7 @@ document:
 source: "https://github.com/streamnative/mop/tree/v0.1.0/mqtt-impl"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-tags: ["Pulsar", "MQTT"]
+tags: ["Pulsar", "MQTT", "Protocol handler"]
 alias: MoP
 features: ["MoP brings the native MQTT protocol support to Pulsar by introducing a MQTT protocol handler on Pulsar brokers"]
 icon: "/images/protocol-handler/mqtt-logo.png"
