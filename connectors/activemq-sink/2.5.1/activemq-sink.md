@@ -16,8 +16,8 @@ support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
 dockerfile:
-owner_name: “Apache Software Foundation”
-owner_img: “/images/apache-powered-by.svg” 
+owner_name: “StreamNative”
+owner_img: “/images/streamnative.png” 
 id: "activemq-sink"
 ---
 
