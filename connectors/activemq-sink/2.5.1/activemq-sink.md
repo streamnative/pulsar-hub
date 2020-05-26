@@ -47,13 +47,6 @@ To install the ActiveMQ sink connector, follow these steps.
     $PULSAR_HOME/bin/pulsar-admin sink localrun --sink-config-file activemq-sink-config.yaml
     ```
 
-```Java
-git clone https://github.com/streamnative/pulsar-io-activemq.git
-cd pulsar-io-activemq/
-mvn clean install -DskipTests
-cp target/pulsar-io-activemq-0.0.1.nar $PULSAR_HOME/pulsar-io-activemq-0.0.1.nar
-```
-
 # Configuration
 
 The configuration of the ActiveMQ sink connector has the following properties.

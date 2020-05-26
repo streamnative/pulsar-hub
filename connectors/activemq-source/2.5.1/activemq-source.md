@@ -47,14 +47,6 @@ To install the ActiveMQ source connector, follow these steps.
     $PULSAR_HOME/bin/pulsar-admin source localrun --source-config-file activemq-source-config.yaml
     ```
 
-
-```Java
-git clone https://github.com/streamnative/pulsar-io-activemq.git
-cd pulsar-io-activemq/
-mvn clean install -DskipTests
-cp target/pulsar-io-activemq-0.0.1.nar $PULSAR_HOME/pulsar-io-activemq-0.0.1.nar
-```
-
 # Configuration
 
 The configuration of the ActiveMQ source connector has the following properties.
