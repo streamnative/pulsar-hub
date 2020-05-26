@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "ActiveMQ", "Sink"]
 alias: ActiveMQ Sink
 features: ["Use ActiveMQ sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "http://activemq.apache.org/assets/img/activemq_logo_black_small.png"
+icon: "/images/connectors/activemq.jpg"
 download: "https://github.com/streamnative/pulsar-io-activemq/releases/download/v2.5.1/pulsar-io-activemq-2.5.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
@@ -25,7 +25,27 @@ The ActiveMQ sink connector pulls messages from Pulsar topics and persist messag
 
 # Installation
 
-To install the ActiveMQ sink connector, execute the following commands:
+To install the ActiveMQ sink connector, follow these steps.
+
+1. Download the NAR package of the ActiveMQ sink connector from [here](https://github.com/streamnative/pulsar-io-activemq/releases/download/v2.5.1/pulsar-io-activemq-2.5.1.nar).
+
+2. Put the NAR package `pulsar-io-activemq-0.0.1.nar` in the pulsar connectors catalog.
+
+    ```
+    cp pulsar-io-activemq-0.0.1.nar $PULSAR_HOME/connectors/pulsar-io-activemq-0.0.1.nar
+    ```
+
+3. Start Pulsar in standalone mode.
+
+    ```
+    $PULSAR_HOME/bin/pulsar standalone
+    ```
+
+4. Run the ActiveMQ sink connector locally.
+
+    ```
+    $PULSAR_HOME/bin/pulsar-admin sink localrun --sink-config-file activemq-sink-config.yaml
+    ```
 
 ```Java
 git clone https://github.com/streamnative/pulsar-io-activemq.git
@@ -120,7 +140,7 @@ This section describes how to use the ActiveMQ sink connector to pull messages f
     $PULSAR_HOME/bin/pulsar standalone
     ```
 
-4. Run ActiveMQ source locally.
+4. Run ActiveMQ sink locally.
 
     ```
     $PULSAR_HOME/bin/pulsar-admin sink localrun --sink-config-file activemq-sink-config.yaml

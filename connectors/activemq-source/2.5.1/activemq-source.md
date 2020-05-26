@@ -8,9 +8,9 @@ source: "https://github.com/streamnative/pulsar-io-activemq/tree/v2.5.1"
 license: Apache License 2.0
 tags: ["Pulsar IO", "ActiveMQ", "Source"]
 alias: ActiveMQ Source
-features: ["Use ActiveMQ sink connector to sync data from Pulsar"]
+features: ["Use ActiveMQ source connector to receive data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "http://activemq.apache.org/assets/img/activemq_logo_black_small.png"
+icon: "/images/connectors/activemq.jpg"
 download: "https://github.com/streamnative/pulsar-io-activemq/releases/download/v2.5.1/pulsar-io-activemq-2.5.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
@@ -25,7 +25,28 @@ The ActiveMQ source connector receives messages from ActiveMQ clusters and write
 
 # Installation
 
-To install the ActiveMQ source connector, execute the following commands:
+To install the ActiveMQ source connector, follow these steps.
+
+1. Download the NAR package of the ActiveMQ source connector from [here](https://github.com/streamnative/pulsar-io-activemq/releases/download/v2.5.1/pulsar-io-activemq-2.5.1.nar).
+
+2. Put the NAR package `pulsar-io-activemq-0.0.1.nar` in the pulsar connectors catalog.
+
+    ```
+    cp pulsar-io-activemq-0.0.1.nar $PULSAR_HOME/connectors/pulsar-io-activemq-0.0.1.nar
+    ```
+
+3. Start Pulsar in standalone mode.
+
+    ```
+    $PULSAR_HOME/bin/pulsar standalone
+    ```
+
+4. Run the ActiveMQ source connector locally.
+
+    ```
+    $PULSAR_HOME/bin/pulsar-admin source localrun --source-config-file activemq-source-config.yaml
+    ```
+
 
 ```Java
 git clone https://github.com/streamnative/pulsar-io-activemq.git
