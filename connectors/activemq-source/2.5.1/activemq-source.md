@@ -8,9 +8,9 @@ source: "https://github.com/streamnative/pulsar-io-activemq/tree/v2.5.1"
 license: Apache License 2.0
 tags: ["Pulsar IO", "ActiveMQ", "Source"]
 alias: ActiveMQ Source
-features: ["Use ActiveMQ sink connector to sync data from Pulsar"]
+features: ["Use ActiveMQ source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "http://activemq.apache.org/assets/img/activemq_logo_black_small.png"
+icon: "/images/connectors/activemq_logo_white_vertical.jpg"
 download: "https://github.com/streamnative/pulsar-io-activemq/releases/download/v2.5.1/pulsar-io-activemq-2.5.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
@@ -25,14 +25,27 @@ The ActiveMQ source connector receives messages from ActiveMQ clusters and write
 
 # Installation
 
-To install the ActiveMQ source connector, execute the following commands:
+To install the ActiveMQ source connector, follow these steps.
 
-```Java
-git clone https://github.com/streamnative/pulsar-io-activemq.git
-cd pulsar-io-activemq/
-mvn clean install -DskipTests
-cp target/pulsar-io-activemq-0.0.1.nar $PULSAR_HOME/pulsar-io-activemq-0.0.1.nar
-```
+1. Download the NAR package of the ActiveMQ source connector from [here](https://github.com/streamnative/pulsar-io-activemq/releases/download/v2.5.1/pulsar-io-activemq-2.5.1.nar).
+
+2. Put the NAR package `pulsar-io-activemq-2.5.1.nar` in the pulsar connectors catalog.
+
+    ```
+    cp pulsar-io-activemq-2.5.1.nar $PULSAR_HOME/connectors/pulsar-io-activemq-2.5.1.nar
+    ```
+
+3. Start Pulsar in standalone mode.
+
+    ```
+    $PULSAR_HOME/bin/pulsar standalone
+    ```
+
+4. Run the ActiveMQ source connector locally.
+
+    ```
+    $PULSAR_HOME/bin/pulsar-admin source localrun --source-config-file activemq-source-config.yaml
+    ```
 
 # Configuration
 
@@ -62,7 +75,7 @@ Before using the ActiveMQ source connector, you need to create a configuration f
         "namespace": "default",
         "name": "activemq-source",
         "topicName": "user-op-queue-topic",
-        "archive": "connectors/pulsar-io-activemq-0.0.1.nar",
+        "archive": "connectors/pulsar-io-activemq-2.5.1.nar",
         "parallelism": 1,
         "configs": {
             "protocol": "tcp",
@@ -82,7 +95,7 @@ Before using the ActiveMQ source connector, you need to create a configuration f
     namespace: "default"
     name: "activemq-source"
     topicName: "user-op-queue-topic"
-    archive: "connectors/pulsar-io-activemq-0.0.1.nar"
+    archive: "connectors/pulsar-io-activemq-2.5.1.nar"
     parallelism: 1
     
     configs:
@@ -105,10 +118,10 @@ This example shows how to use the ActiveMQ source connector to receive messages 
     docker run -p 61616:61616 -p 8161:8161 rmohr/activemq
     ```
 
-2. Put the `pulsar-io-activemq-0.0.1.nar` in the pulsar connectors catalog.
+2. Put the `pulsar-io-activemq-2.5.1.nar` in the pulsar connectors catalog.
 
     ```
-    cp pulsar-io-activemq-0.0.1.nar $PULSAR_HOME/connectors/pulsar-io-activemq-0.0.1.nar
+    cp pulsar-io-activemq-2.5.1.nar $PULSAR_HOME/connectors/pulsar-io-activemq-2.5.1.nar
     ```
 
 3. Start Pulsar in standalone mode.
@@ -126,7 +139,7 @@ This example shows how to use the ActiveMQ source connector to receive messages 
 5. Consume Pulsar messages.
 
     ```
-    bin/pulsar-client consume -s "sub-products" public/default/user-op-queue-topic -n 0
+    $PULSAR_HOME/bin/pulsar-client consume -s "sub-products" public/default/user-op-queue-topic -n 0
     ```
 
 6. Send ActiveMQ messages.
@@ -134,9 +147,8 @@ This example shows how to use the ActiveMQ source connector to receive messages 
     Use the test method `sendMessage` of the `class org.apache.pulsar.ecosystem.io.activemq.ActiveMQDemo` 
 to send ActiveMQ messages.
 
-    ```
-    @Test
-    private void sendMessage() throws JMSException {
+    ```java
+    public void sendMessage() throws JMSException {
     
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
     
