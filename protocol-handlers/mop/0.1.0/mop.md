@@ -62,7 +62,7 @@ To install the MoP protocol handler, follow these steps:
        advertisedAddress=127.0.0.1
        ```
 
-3. Load the MoP protocol handler. After installing the MoP protocol handler to the Pulsar broker, you can restart the the Pulsar broker to load the MoP protocol handler.
+3. Load the MoP protocol handler. After installing the MoP protocol handler on the Pulsar broker, you can restart the Pulsar broker to load the MoP protocol handler.
 
 # Configuration
 
