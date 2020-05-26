@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "ActiveMQ", "Source"]
 alias: ActiveMQ Source
 features: ["Use ActiveMQ source connector to receive data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/activemq.jpg"
+icon: "/images/connectors/activemq_logo_white_vertical.jpg"
 download: "https://github.com/streamnative/pulsar-io-activemq/releases/download/v2.5.1/pulsar-io-activemq-2.5.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
