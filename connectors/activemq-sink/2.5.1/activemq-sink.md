@@ -29,10 +29,10 @@ To install the ActiveMQ sink connector, follow these steps.
 
 1. Download the NAR package of the ActiveMQ sink connector from [here](https://github.com/streamnative/pulsar-io-activemq/releases/download/v2.5.1/pulsar-io-activemq-2.5.1.nar).
 
-2. Put the NAR package `pulsar-io-activemq-0.0.1.nar` in the pulsar connectors catalog.
+2. Put the NAR package `pulsar-io-activemq-2.5.1.nar` in the pulsar connectors catalog.
 
     ```
-    cp pulsar-io-activemq-0.0.1.nar $PULSAR_HOME/connectors/pulsar-io-activemq-0.0.1.nar
+    cp pulsar-io-activemq-2.5.1.nar $PULSAR_HOME/connectors/pulsar-io-activemq-2.5.1.nar
     ```
 
 3. Start Pulsar in standalone mode.
@@ -76,7 +76,7 @@ Before using the ActiveMQ sink connector, you need to create a configuration fil
         "namespace": "default",
         "name": "activemq-sink",
         "inputs": ["user-op-queue-topic"],
-        "archive": "connectors/pulsar-io-activemq-0.0.1.nar",
+        "archive": "connectors/pulsar-io-activemq-2.5.1.nar",
         "parallelism": 1,
         "configs":
         {
@@ -98,7 +98,7 @@ Before using the ActiveMQ sink connector, you need to create a configuration fil
     name: "activemq-sink"
     inputs: 
       - "user-op-queue-topic"
-    archive: "connectors/pulsar-io-activemq-0.0.1.nar"
+    archive: "connectors/pulsar-io-activemq-2.5.1.nar"
     parallelism: 1
     
     configs:
@@ -121,10 +121,10 @@ This section describes how to use the ActiveMQ sink connector to pull messages f
     docker run -p 61616:61616 -p 8161:8161 rmohr/activemq
     ```
 
-2. Put the `pulsar-io-activemq-0.0.1.nar` in the pulsar connectors catalog.
+2. Put the `pulsar-io-activemq-2.5.1.nar` in the pulsar connectors catalog.
 
     ```
-    cp pulsar-io-activemq-0.0.1.nar $PULSAR_HOME/connectors/pulsar-io-activemq-0.0.1.nar
+    cp pulsar-io-activemq-2.5.1.nar $PULSAR_HOME/connectors/pulsar-io-activemq-2.5.1.nar
     ```
 
 3. Start Pulsar in standalone mode.
@@ -150,36 +150,32 @@ This section describes how to use the ActiveMQ sink connector to pull messages f
     Use the test method `receiveMessage` of the class `org.apache.pulsar.ecosystem.io.activemq.ActiveMQDemo` 
 to consume ActiveMQ messages.
 
-    ```
-    @Test
-    private void receiveMessage() throws JMSException, InterruptedException {
-    
+    ```java
+    public void receiveMessage() throws JMSException, InterruptedException {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
-    
+
         @Cleanup
         Connection connection = connectionFactory.createConnection();
         connection.start();
-    
+
         @Cleanup
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-    
         Destination destination = session.createQueue("user-op-queue-pulsar");
-    
+        
         @Cleanup
         MessageConsumer consumer = session.createConsumer(destination);
-    
-        consumer.setMessageListener(new MessageListener() {
-            @Override
-            public void onMessage(Message message) {
-                if (message instanceof ActiveMQTextMessage) {
-                    try {
-                        System.out.println("get message ----------------- ");
-                        System.out.println("receive: " + ((ActiveMQTextMessage) message).getText());
-                    } catch (JMSException e) {
-                        e.printStackTrace();
-                    }
+        CountDownLatch countDownLatch = new CountDownLatch(10);
+        consumer.setMessageListener(message -> {
+            if (message instanceof ActiveMQTextMessage) {
+                try {
+                    System.out.println("get message ----------------- ");
+                    System.out.println("receive: " + ((ActiveMQTextMessage) message).getText());
+                } catch (JMSException e) {
+                    e.printStackTrace();
                 }
+                countDownLatch.countDown();
             }
         });
+        countDownLatch.await();
     }
     ```
