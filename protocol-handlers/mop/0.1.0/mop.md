@@ -15,8 +15,8 @@ download: “https://github.com/streamnative/mop/releases/download/v0.1.0/pulsar
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
-owner_name: “StreamNative”
-owner_img: “/images/streamnative.png”
+owner_name: "StreamNative"
+owner_img: "/images/streamnative.png"
 dockerfile: 
 id: "mop"
 ---
