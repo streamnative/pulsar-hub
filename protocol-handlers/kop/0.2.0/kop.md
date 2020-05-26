@@ -14,7 +14,9 @@ icon: "/images/protocol-handler/kafka-logo.png"
 download: "https://github.com/streamnative/kop/releases/download/v0.2.0/pulsar-protocol-handler-kafka-0.2.0.nar"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
+owner_name: "StreamNative"
+owner_img: "/images/streamnative.png"
 dockerfile: 
 id: "kop"
 ---

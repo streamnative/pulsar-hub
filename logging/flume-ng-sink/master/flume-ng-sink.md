@@ -14,7 +14,9 @@ icon: "/images/connectors/flume.jpg"
 download: "https://github.com/streamnative/pulsar-flume-ng-sink"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
+owner_name: "StreamNative"
+owner_img: "/images/streamnative.png"
 dockerfile: 
 id: "flume-ng-sink"
 ---

@@ -14,7 +14,9 @@ icon: "/images/connectors/netty.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.1/connectors/pulsar-io-netty-2.3.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
+owner_name: ""
+owner_img: ""
 dockerfile: 
 id: "netty-source"
 ---

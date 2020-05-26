@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document:
-source: "https://github.com/streamnative/pulsar-tracing"
+source:
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["OpenTracing", "Pulsar"]
@@ -14,7 +14,9 @@ icon: "/images/monitoring/opentracing-logo.png"
 download: "https://bintray.com/streamnative/maven/io.streamnative.pulsar-tracing/0.1.0"
 support: StreamNative
 support_link: https://streamnative.io
-support_img: "/images/connectors/streamnative.png"
+support_img: "/images/streamnative.png"
+owner_name: "StreamNative"
+owner_img: "/images/streamnative.png"
 dockerfile: 
 id: "opentracing-pulsar-client"
 ---
