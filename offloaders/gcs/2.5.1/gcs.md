@@ -114,8 +114,8 @@ You can configure GCS offloader driver in the configuration file `broker.conf`.
 
     **Required** configuration | Description | Example value
     |---|---|---
-    `managedLedgerOffloadDriver`|Offload driver name, which is case-insensitive.|google-cloud-storage
-    `offloadersDirectory`|Offload directory|offloaders
+    `managedLedgerOffloadDriver`|Offloader driver name, which is case-insensitive.|google-cloud-storage
+    `offloadersDirectory`|Offloader directory|offloaders
     `gcsManagedLedgerOffloadBucket`|Bucket|pulsar-topic-offload
     `gcsManagedLedgerOffloadRegion`|Bucket region|europe-west3
     `gcsManagedLedgerOffloadServiceAccountKeyFile`|Authentication |/Users/user-name/Downloads/project-804d5e6a6f33.json
@@ -438,7 +438,7 @@ Execute the following commands in the repository where you download Pulsar tarba
     ./bin/pulsar-perf produce -r 1000 -s 2048 test-topic
     ```
 
-4. The offloading operation starts after a ledge rollover is trigged. To ensure offload data successfully, it is recommended that you wait until several ledge rollovers are triggered. In this case, you might need to wait for a second. You can check the ledge status using pulsar-admin.
+4. The offloading operation starts after a ledge rollover is trigged. To ensure offload data successfully, it is recommended that you wait until several ledge rollovers are triggered. In this case, you might need to wait for a second. You can check the ledge status using pulsarctl.
  
     ```
     ./bin/pulsarctl topics internal-stats test-topic
