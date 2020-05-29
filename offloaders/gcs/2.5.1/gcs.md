@@ -245,7 +245,7 @@ For individual topics, you can trigger GCS offloader manually using the followin
 - This example triggers GCS offloader to run manually using pulsarctl with the command `pulsarctl topic offload (topic-name) (threshold)`.
 
     ```bash
-    bin/pulsarctl topic offload persistent://my-tenant/my-namespace/topic1 10M
+    bin/pulsarctl topics offload persistent://my-tenant/my-namespace/topic1 10M
     ``` 
 
     **Output**
@@ -256,12 +256,12 @@ For individual topics, you can trigger GCS offloader manually using the followin
 
     > #### Tip
     >
-    > For more information about the `pulsarctl topic offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
+    > For more information about the `pulsarctl topics offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
 
 - This example checks GCS offloader status using pulsarctl with the command `pulsarctl topic offload-status options`.
 
     ```bash
-    bin/pulsarctl topic offload-status persistent://my-tenant/my-namespace/topic1
+    bin/pulsarctl topics offload-status persistent://my-tenant/my-namespace/topic1
     ```
 
     **Output**
@@ -273,7 +273,7 @@ For individual topics, you can trigger GCS offloader manually using the followin
     To wait for GCS to complete the job, add the `-w` flag.
 
     ```bash
-    bin/pulsarctl topic offload-status -w persistent://my-tenant/my-namespace/topic1
+    bin/pulsarctl topics offload-status -w persistent://my-tenant/my-namespace/topic1
     ```
 
     **Output**
@@ -299,7 +299,7 @@ For individual topics, you can trigger GCS offloader manually using the followin
 
     > #### Tip
     >
-    > For more information about the `pulsarctl topic offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-status-em-). 
+    > For more information about the `pulsarctl topics offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-status-em-). 
 
 # Usage
 
@@ -477,11 +477,15 @@ Execute the following commands in the repository where you download Pulsar tarba
     }, ]
     "cursors" : {  }
     ```
+    
+    > #### Tip
+    >
+    > For more information about the `pulsarctl topics internal-stats options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-internal-stats-em-). 
 
 5. After ledger rollover, trigger the offloading operation manually.
 
     ```
-    ./bin/pulsarctl topic offload --size-threshold 10M public/default/test-topic
+    ./bin/pulsarctl topics offload --size-threshold 10M public/default/test-topic
     ```
 
     **Output**
@@ -489,11 +493,15 @@ Execute the following commands in the repository where you download Pulsar tarba
     ```
     Offload triggered for persistent://public/default/test-topic for messages before 12:0:-1
     ```
+    
+    > #### Tip
+    >
+    > For more information about the `pulsarctl topics offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
 
 6. Check the offloading status.
 
 	```
-    ./bin/pulsarctl topic offload-status -w public/default/test-topic
+    ./bin/pulsarctl topics offload-status -w public/default/test-topic
     ```
 	
 	You might need to wait for a while until the offloading operation finishes.
@@ -503,6 +511,10 @@ Execute the following commands in the repository where you download Pulsar tarba
     ```
     Offload was a success
     ```
+    
+    > #### Tip
+    >
+    > For more information about the `pulsarctl topics offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-status-em-). 
 
 	At last, you can see the data is offloaded to GCS successfully.
 
