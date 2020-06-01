@@ -68,34 +68,34 @@ Follow the steps below to install the AWS S3 offloader.
 
 2. Download and untar the Pulsar offloaders package. 
 
-```bash
-wget https://downloads.apache.org/pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz
-tar xvfz apache-pulsar-offloaders-2.5.1-bin.tar.gz
-```
+    ```bash
+    wget https://downloads.apache.org/pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz
+    tar xvfz apache-pulsar-offloaders-2.5.1-bin.tar.gz
+    ```
 
 3. Copy the Pulsar offloaders as `offloaders` in the Pulsar directory.
 
-```
-mv apache-pulsar-offloaders-2.5.1/offloaders apache-pulsar-2.5.1/offloaders
+    ```
+    mv apache-pulsar-offloaders-2.5.1/offloaders apache-pulsar-2.5.1/offloaders
 
-ls offloaders
-```
+    ls offloaders
+    ```
 
-**Output**
+    **Output**
 
-As can be seen from the output, Pulsar uses [Apache jclouds](https://jclouds.apache.org) to support [AWS S3](https://aws.amazon.com/s3/) and [GCS](https://cloud.google.com/storage/) for long term storage. 
+    As can be seen from the output, Pulsar uses [Apache jclouds](https://jclouds.apache.org) to support [AWS S3](https://aws.amazon.com/s3/) and [GCS](https://cloud.google.com/storage/) for long term storage. 
 
 
-```
-tiered-storage-file-system-2.5.1.nar
-tiered-storage-jcloud-2.5.1.nar
-```
+    ```
+    tiered-storage-file-system-2.5.1.nar
+    tiered-storage-jcloud-2.5.1.nar
+    ```
 
-> #### Note
->
-> * If you are running Pulsar in a bare metal cluster, make sure that `offloaders` tarball is unzipped in every broker's Pulsar directory.
-> 
-> * If you are running Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image instead of the `apachepulsar/pulsar` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    > #### Note
+    >
+    > * If you are running Pulsar in a bare metal cluster, make sure that `offloaders` tarball is unzipped in every broker's Pulsar directory.
+    > 
+    > * If you are running Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image instead of the `apachepulsar/pulsar` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
 
 # Configuration
 
@@ -113,19 +113,20 @@ You can configure the AWS S3 offloader driver in the configuration file `broker.
   
     Required configuration | Description | Example value
     |---|---|---
-    `managedLedgerOffloadDriver` | Offloader driver name, which is case-insensitive. <br><br>Note: there is a third driver type, s3, which is identical to aws-s3, though it requires that you specify an endpoint URL using `s3ManagedLedgerOffloadServiceEndpoint`. This is useful if using an s3 compatible data store other than AWS S3. | aws-s3
-    `offloadersDirectory` | Offloader directory. | offloaders
-    `s3ManagedLedgerOffloadBucket` | Bucket. | pulsar-topic-offload
-    `s3ManagedLedgerOffloadRegion` | Bucket region. | eu-west-3
+    `managedLedgerOffloadDriver` | Offloader driver name, which is case-insensitive. <br><br>**Note**: there is a third driver type, s3, which is identical to aws-s3, though it requires that you specify an endpoint URL using `s3ManagedLedgerOffloadServiceEndpoint`. This is useful if using an s3 compatible data store other than AWS S3. | aws-s3
+    `offloadersDirectory` | Offloader directory | offloaders
+    `s3ManagedLedgerOffloadBucket` | Bucket | pulsar-topic-offload
+
 
 - **Optional** configurations are as below.
 
     Optional | Description | Example value
     |---|---|---
-    `s3ManagedLedgerOffloadReadBufferSizeInBytes`|Size of block read.|1 MB
-    `s3ManagedLedgerOffloadMaxBlockSizeInBytes`|Size of block write.|64 MB
-    `managedLedgerMinLedgerRolloverTimeMinutes`|Minimum time between ledger rollover for a topic.<br><br>Note: it is not recommended that you set this configuration in the product environment.|2
-    `managedLedgerMaxEntriesPerLedger`|Max number of entries to append to a ledger before triggering a rollover.<br><br>Note: it is not recommended that you set this configuration in the product environment.|5000
+    `s3ManagedLedgerOffloadRegion` | Bucket region | eu-west-3
+    `s3ManagedLedgerOffloadReadBufferSizeInBytes`|Size of block read|1 MB
+    `s3ManagedLedgerOffloadMaxBlockSizeInBytes`|Size of block write|64 MB
+    `managedLedgerMinLedgerRolloverTimeMinutes`|Minimum time between ledger rollover for a topic<br><br>**Note**: it is not recommended that you set this configuration in the product environment.|2
+    `managedLedgerMaxEntriesPerLedger`|Max number of entries to append to a ledger before triggering a rollover.<br><br>**Note**: it is not recommended that you set this configuration in the product environment.|5000
 
 ### Bucket (required)
 
@@ -139,13 +140,14 @@ This example names the bucket as _pulsar-topic-offload_.
 s3ManagedLedgerOffloadBucket=pulsar-topic-offload
 ```
 
-### Bucket region (required)
+### Bucket region 
 
 Bucket region is the region where a bucket is located. If a bucket region is not specified, the **default** region (`US East (N. Virginia)`) is used.
 
 > #### Tip
 >
 > For more information about AWS regions and endpoints, see [here](https://docs.aws.amazon.com/general/latest/gr/rande.html.
+> 
 #### Example
 
 This example sets the bucket region as _europe-west-3_.
@@ -164,43 +166,43 @@ but relies on the mechanisms supported by the
 
 Once you have created a set of credentials in the AWS IAM console, you can configure credentials using the following method.
 
-1. Use ec2 instance metadata credentials
+* Use EC2 instance metadata credentials
 
-If you are on AWS instance with an instance profile that provides credentials, StreamNative uses these credentials if no other mechanism is provided
+    If you are on AWS instance with an instance profile that provides credentials, StreamNative uses these credentials if no other mechanism is provided
 
-2. Set the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in `conf/pulsar_env.s`.
+* Set the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in `conf/pulsar_env.s`.
 
-"export" is important so that the variables are made available in the environment of spawned processes.
+    "export" is important so that the variables are made available in the environment of spawned processes.
 
-```bash
-export AWS_ACCESS_KEY_ID=ABC123456789
-export AWS_SECRET_ACCESS_KEY=ded7db27a4558e2ea8bbf0bf37ae0e8521618f366c
-```
+    ```bash
+    export AWS_ACCESS_KEY_ID=ABC123456789
+    export AWS_SECRET_ACCESS_KEY=ded7db27a4558e2ea8bbf0bf37ae0e8521618f366c
+    ```
 
-3. Add the Java system properties `aws.accessKeyId` and `aws.secretKey` to `PULSAR_EXTRA_OPTS` in `conf/pulsar_env.sh`.
+* Add the Java system properties `aws.accessKeyId` and `aws.secretKey` to `PULSAR_EXTRA_OPTS` in `conf/pulsar_env.sh`.
 
-```bash
-PULSAR_EXTRA_OPTS="${PULSAR_EXTRA_OPTS} ${PULSAR_MEM} ${PULSAR_GC} -Daws.accessKeyId=ABC123456789 -Daws.secretKey=ded7db27a4558e2ea8bbf0bf37ae0e8521618f366c -Dio.netty.leakDetectionLevel=disabled -Dio.netty.recycler.maxCapacity.default=1000 -Dio.netty.recycler.linkCapacity=1024"
-```
+    ```bash
+    PULSAR_EXTRA_OPTS="${PULSAR_EXTRA_OPTS} ${PULSAR_MEM} ${PULSAR_GC} -Daws.accessKeyId=ABC123456789 -Daws.secretKey=ded7db27a4558e2ea8bbf0bf37ae0e8521618f366c -Dio.netty.leakDetectionLevel=disabled -Dio.netty.recycler.maxCapacity.default=1000 -Dio.netty.recycler.linkCapacity=1024"
+    ```
 
-4. Set the access credentials in `~/.aws/credentials`.
+* Set the access credentials in `~/.aws/credentials`.
 
-```conf
-[default]
-aws_access_key_id=ABC123456789
-aws_secret_access_key=ded7db27a4558e2ea8bbf0bf37ae0e8521618f366c
-```
+    ```conf
+    [default]
+    aws_access_key_id=ABC123456789
+    aws_secret_access_key=ded7db27a4558e2ea8bbf0bf37ae0e8521618f366c
+    ```
 
-5. Assume an IAM role.
+* Assume an IAM role.
 
-This example uses the `DefaultAWSCredentialsProviderChain` for assuming this role.
+    This example uses the `DefaultAWSCredentialsProviderChain` for assuming this role.
 
-The broker must be rebooted for credentials specified in `pulsar_env` to take effect.
+    The broker must be rebooted for credentials specified in `pulsar_env` to take effect.
 
-```conf
-s3ManagedLedgerOffloadRole=<aws role arn>
-s3ManagedLedgerOffloadRoleSessionName=pulsar-s3-offload
-```
+    ```conf
+    s3ManagedLedgerOffloadRole=<aws role arn>
+    s3ManagedLedgerOffloadRoleSessionName=pulsar-s3-offload
+    ```
 
 ### Size of block read/write
 
@@ -235,6 +237,7 @@ bin/pulsar-admin namespaces set-offload-threshold --size 10M my-tenant/my-namesp
 > #### Tip
 >
 > For more information about the `pulsar-admin namespaces set-offload-threshold options` command, including flags, descriptions, and default values, see [here](http://pulsar.apache.org/tools/pulsar-admin/2.6.0-SNAPSHOT/#-em-set-offload-threshold-em-). 
+
 ## Configure AWS S3 offloader to run manually
 
 For individual topics, you can trigger AWS S3 offloader manually using the following methods:
@@ -243,14 +246,14 @@ For individual topics, you can trigger AWS S3 offloader manually using the follo
 
 - Use CLI tools (such as [pulsarctl](https://streamnative.io/docs/v1.0.0/manage-and-monitor/pulsarctl/overview/) or pulsar-admin). 
 
-To trigger via CLI tools, you need to specify the maximum amount of data (threshold) that should be retained on a Pulsar cluster for a topic. If the size of the topic data on the Pulsar cluster exceeds this threshold, segments from the topic are moved to AWS S3 until the threshold is no longer exceeded. Older segments are moved first.
+    To trigger via CLI tools, you need to specify the maximum amount of data (threshold) that should be retained on a Pulsar cluster for a topic. If the size of the topic data on the Pulsar cluster exceeds this threshold, segments from the topic are moved to AWS S3 until the threshold is no longer exceeded. Older segments are moved first.
 
 ### Example
 
 - This example triggers AWS S3 offloader to run manually using pulsar-admin.
 
     ```bash
-    bin/pulsar-admin topics offload persistent://my-tenant/my-namespace/topic1 10M
+    bin/pulsar-admin topics offload --size-threshold 10M my-tenant/my-namespace/topic1
     ``` 
 
     **Output**
@@ -310,6 +313,7 @@ To trigger via CLI tools, you need to specify the maximum amount of data (thresh
 
 
 # Usage
+
 This tutorial provides step-by-step instructions on how to use AWS S3 offloader with Pulsar.
 
 ## Step 1: configure AWS S3 offloader driver
@@ -378,7 +382,7 @@ Buckets have configuration properties, including geographical region, access set
     ![](/images/offloaders/aws-s3/create-s3-4.png)
 
 
-## Step 3: create IAM group
+## Step 3: create a group
 
 1. Sign in to the AWS Management Console and open the [IAM console](https://console.aws.amazon.com/iam/).
 
@@ -395,7 +399,7 @@ Buckets have configuration properties, including geographical region, access set
     ![](/images/offloaders/aws-s3/create-group-3.png)
 
 
-5. Check all of the choices you made up to this point. When you are ready to proceed, choose **Create Croup**.
+5. Check all of the choices you made up to this point. When you are ready to proceed, choose **Create Group**.
 
     ![](/images/offloaders/aws-s3/create-group-4.png)
 
@@ -403,7 +407,7 @@ Buckets have configuration properties, including geographical region, access set
 
     ![](/images/offloaders/aws-s3/create-group-5.png)
 
-## Step 4: create IAM user
+## Step 4: create a user
 
 1. Sign in to the AWS Management Console and open the [IAM console](https://console.aws.amazon.com/iam/).
 
@@ -469,7 +473,7 @@ Execute the following commands in the repository where you download Pulsar tarba
     >
     > For more information about the `pulsar-admin namespaces set-retention options` command, including flags, descriptions, and default values, see [here](http://pulsar.apache.org/tools/pulsar-admin/2.6.0-SNAPSHOT/#-em-set-retention-em-). 
 
-3. To configure AWS S3 offloader, you can set offloader policy at namespace level.
+3. To configure AWS S3 offloader, you can set offloader policy at the namespace level.
 
 	```
     ./bin/pulsar-admin namespaces set-offload-policies -b test-pulsar-offload -d aws-s3 -r us-west-2 public/default
@@ -494,6 +498,8 @@ Execute the following commands in the repository where you download Pulsar tarba
     ```
 	
 6. After ledger rollover, trigger the offloading operation manually.
+
+    You can also trigger the offloading operation automatically. For more information, see [Configure AWS S3 offloader to run automatically](#configure-aws-s3-offloader-to-run-automatically)
 
     ```
     ./bin/pulsar-admin topics offload --size-threshold 10M public/default/test-topic
