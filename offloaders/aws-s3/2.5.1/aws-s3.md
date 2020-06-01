@@ -146,7 +146,7 @@ Bucket region is the region where a bucket is located. If a bucket region is not
 
 > #### Tip
 >
-> For more information about AWS regions and endpoints, see [here](https://docs.aws.amazon.com/general/latest/gr/rande.html.
+> For more information about AWS regions and endpoints, see [here](https://docs.aws.amazon.com/general/latest/gr/rande.html].
 > 
 #### Example
 
@@ -320,7 +320,7 @@ This tutorial provides step-by-step instructions on how to use AWS S3 offloader 
 
 As indicated in the [configuration chapter](#configuration), you need to configure some properties for the AWS S3 offloader driver before using it. This tutorial assumes that you have configured the AWS S3 offloader driver as below and run Pulsar in **standalone** mode.
 
-- Set these configurations in `conf/standalone.conf`.
+- Set the following configurations in `conf/standalone.conf`.
 
     ```conf
     managedLedgerOffloadDriver=aws-s3
@@ -340,7 +340,7 @@ As indicated in the [configuration chapter](#configuration), you need to configu
     managedLedgerMaxEntriesPerLedger=5000
     ```
 
-- Set these configurations in `conf/pulsar_env.sh`.
+- Set the following configurations in `conf/pulsar_env.sh`.
 
     ```conf
     export AWS_ACCESS_KEY_ID=ABCDEFG123456789
@@ -372,7 +372,7 @@ Buckets have configuration properties, including geographical region, access set
     ![](/images/offloaders/aws-s3/create-s3-2.png)
 
 
-4. In **Bucket settings for Block Public Access**, choose the Block Public Access settings that you want to apply to the bucket. 
+4. In **Bucket settings for Block Public Access**, choose the block public access settings that you want to apply to the bucket. 
 
     ![](/images/offloaders/aws-s3/create-s3-3.png)
 
@@ -417,13 +417,14 @@ Buckets have configuration properties, including geographical region, access set
 
 
 3. Type your **user name** (not case-sensitive) and select **AWS access type**. 
+   
 ![](/images/offloaders/aws-s3/create-user-2.png)
 
 
-4. Click **Next Permissions**.
+1. Click **Next Permissions**.
 
 
-5. On the **Set permissions** page, specify how you want to assign permissions to your user. 
+2. On the **Set permissions** page, specify how you want to assign permissions to your user. 
 
 ![](/images/offloaders/aws-s3/create-user-3.png)
 
@@ -435,11 +436,11 @@ Buckets have configuration properties, including geographical region, access set
 >
 > For more information about using tags in IAM, see [tagging IAM users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html).
 
-	![](/images/offloaders/aws-s3/create-user-4.png)
+![](/images/offloaders/aws-s3/create-user-4.png)
 
 8. Check all of the choices you made up to this point. When you are ready to proceed, choose **Create user**.
 
-	![](/images/offloaders/aws-s3/create-user-5.png)
+![](/images/offloaders/aws-s3/create-user-5.png)
 
 9. To view the users' access keys (`access key IDs` and `secret access keys`), click **Show** next to each password and access key that you want to see. 
 
