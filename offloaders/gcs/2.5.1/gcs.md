@@ -422,7 +422,7 @@ Execute the following commands in the repository where you download Pulsar tarba
     ./bin/pulsar standalone -a 127.0.0.1
     ```
 
-2. To make sure the data generated is not deleted immediately, it is recommended to set the [retention policy](https://pulsar.apache.org/docs/en/next/cookbooks-retention-expiry/#retention-policies), which can be either a **size** limit or a **time** limit. The larger value you set for the retention policy, the longer the data can be retained.
+2. To ensure the data generated is not deleted immediately, it is recommended to set the [retention policy](https://pulsar.apache.org/docs/en/next/cookbooks-retention-expiry/#retention-policies), which can be either a **size** limit or a **time** limit. The larger value you set for the retention policy, the longer the data can be retained.
 
     ```
     ./bin/pulsarctl namespaces set-retention public/default --size -10G --time 3d
@@ -482,7 +482,9 @@ Execute the following commands in the repository where you download Pulsar tarba
     >
     > For more information about the `pulsarctl topics internal-stats options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-internal-stats-em-). 
 
-5. After ledger rollover, trigger the offloading operation manually.
+5. After ledger rollover, trigger the offloading operation manually. 
+
+	You can also trigger the offloading operation automatically. For more information, see [Configure GCS offloader to run automatically](#configure-gcs-offloader-to-run-automatically).
 
     ```
     ./bin/pulsarctl topics offload --size-threshold 10M public/default/test-topic
@@ -498,7 +500,7 @@ Execute the following commands in the repository where you download Pulsar tarba
     >
     > For more information about the `pulsarctl topics offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
 
-6. Check the offloading status.
+6. Check the offloading operation status.
 
 	```
     ./bin/pulsarctl topics offload-status -w public/default/test-topic
