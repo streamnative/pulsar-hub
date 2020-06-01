@@ -25,7 +25,7 @@ id: "aws-s3"
 
 To deliver an event streaming service, Pulsar needs to manage large numbers of messages and data in real-time, and this requires keeping large amounts of data on the platform, or readily accessible. As the data amount increases, it becomes significantly more expensive to store, manage, and retrieve data, so administrators and developers look to external stores for long-term storage. 
 
-Pulsar leverages a unique **tiered storage** solution that addresses some of these key challenges faced by other distributed log systems. This tiered storage solution extends the storage capabilities of Pulsar by offloading data from Apache BookKeeper to scalable cloud-native storage or filesystems without adding storage. Older topic data can be offloaded to long-term storage that readily scales with the volume of data. 
+Pulsar leverages a unique **tiered storage** solution that addresses some of these key challenges faced by other distributed log systems. This tiered storage solution extends the storage capabilities of Pulsar by offloading data from Apache BookKeeper to scalable cloud-native storage or files ystems without adding storage. Older topic data can be offloaded to long-term storage that readily scales with the volume of data. 
 
 * Tiered storage uses [Apache jclouds](https://jclouds.apache.org) to support
 [AWS S3](https://aws.amazon.com/s3/) and [GCS (Google Cloud Storage)](https://cloud.google.com/storage/) for long term storage. 
@@ -83,7 +83,7 @@ Follow the steps below to install the AWS S3 offloader.
 
     **Output**
 
-    As can be seen from the output, Pulsar uses [Apache jclouds](https://jclouds.apache.org) to support [AWS S3](https://aws.amazon.com/s3/) and [GCS](https://cloud.google.com/storage/) for long term storage. 
+    As shown from the output, Pulsar uses [Apache jclouds](https://jclouds.apache.org) to support [AWS S3](https://aws.amazon.com/s3/) and [GCS](https://cloud.google.com/storage/) for long term storage. 
 
 
     ```
@@ -95,7 +95,7 @@ Follow the steps below to install the AWS S3 offloader.
     >
     > * If you are running Pulsar in a bare metal cluster, make sure that `offloaders` tarball is unzipped in every broker's Pulsar directory.
     > 
-    > * If you are running Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image instead of the `apachepulsar/pulsar` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    > * If you are running Pulsar in Docker or deploying Pulsar using a Docker image (such as K8s and DCOS), you can use the `apachepulsar/pulsar-all` image instead of the `apachepulsar/pulsar` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
 
 # Configuration
 
@@ -113,7 +113,7 @@ You can configure the AWS S3 offloader driver in the configuration file `broker.
   
     Required configuration | Description | Example value
     |---|---|---
-    `managedLedgerOffloadDriver` | Offloader driver name, which is case-insensitive. <br><br>**Note**: there is a third driver type, s3, which is identical to aws-s3, though it requires that you specify an endpoint URL using `s3ManagedLedgerOffloadServiceEndpoint`. This is useful if using an s3 compatible data store other than AWS S3. | aws-s3
+    `managedLedgerOffloadDriver` | Offloader driver name, which is case-insensitive. <br><br>**Note**: there is a third driver type, S3, which is identical to AWS S3, though S3 requires that you specify an endpoint URL using `s3ManagedLedgerOffloadServiceEndpoint`. This is useful if using an S3 compatible data store other than AWS S3. | aws-s3
     `offloadersDirectory` | Offloader directory | offloaders
     `s3ManagedLedgerOffloadBucket` | Bucket | pulsar-topic-offload
 
@@ -126,7 +126,7 @@ You can configure the AWS S3 offloader driver in the configuration file `broker.
     `s3ManagedLedgerOffloadReadBufferSizeInBytes`|Size of block read|1 MB
     `s3ManagedLedgerOffloadMaxBlockSizeInBytes`|Size of block write|64 MB
     `managedLedgerMinLedgerRolloverTimeMinutes`|Minimum time between ledger rollover for a topic<br><br>**Note**: it is not recommended that you set this configuration in the product environment.|2
-    `managedLedgerMaxEntriesPerLedger`|Max number of entries to append to a ledger before triggering a rollover.<br><br>**Note**: it is not recommended that you set this configuration in the product environment.|5000
+    `managedLedgerMaxEntriesPerLedger`|Maximum number of entries to append to a ledger before triggering a rollover.<br><br>**Note**: it is not recommended that you set this configuration in the product environment.|5000
 
 ### Bucket (required)
 
@@ -142,7 +142,7 @@ s3ManagedLedgerOffloadBucket=pulsar-topic-offload
 
 ### Bucket region 
 
-Bucket region is the region where a bucket is located. If a bucket region is not specified, the **default** region (`US East (N. Virginia)`) is used.
+A bucket region is the region where a bucket is located. If a bucket region is not specified, the **default** region (`US East (N. Virginia)`) is used.
 
 > #### Tip
 >
@@ -168,7 +168,7 @@ Once you have created a set of credentials in the AWS IAM console, you can confi
 
 * Use EC2 instance metadata credentials
 
-    If you are on AWS instance with an instance profile that provides credentials, StreamNative uses these credentials if no other mechanism is provided
+    If you are on AWS instance with an instance profile that provides credentials, StreamNative uses these credentials if no other mechanism is provided.
 
 * Set the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in `conf/pulsar_env.s`.
 
@@ -222,7 +222,7 @@ Threshold value|Action
 0|It causes a broker to offload data as soon as possible.
 Negative value|It disables automatic offloading.
 
-Automatic offload runs when a new segment is added to a topic log. If you set the threshold on a namespace, but few messages are being produced to the topic, offload does not work until the current segment is full.
+Automatic offloading runs when a new segment is added to a topic log. If you set the threshold on a namespace, but few messages are being produced to the topic, offload does not work until the current segment is full.
 
 You can configure the threshold size using CLI tools, such as [pulsarctl](https://streamnative.io/docs/v1.0.0/manage-and-monitor/pulsarctl/overview/) or pulsar-admin.
 
@@ -246,7 +246,7 @@ For individual topics, you can trigger AWS S3 offloader manually using the follo
 
 - Use CLI tools (such as [pulsarctl](https://streamnative.io/docs/v1.0.0/manage-and-monitor/pulsarctl/overview/) or pulsar-admin). 
 
-    To trigger via CLI tools, you need to specify the maximum amount of data (threshold) that should be retained on a Pulsar cluster for a topic. If the size of the topic data on the Pulsar cluster exceeds this threshold, segments from the topic are moved to AWS S3 until the threshold is no longer exceeded. Older segments are moved first.
+    To trigger it via CLI tools, you need to specify the maximum amount of data (threshold) that should be retained on a Pulsar cluster for a topic. If the size of the topic data on the Pulsar cluster exceeds this threshold, segments from the topic are moved to AWS S3 until the threshold is no longer exceeded. Older segments are moved first.
 
 ### Example
 
@@ -421,10 +421,10 @@ Buckets have configuration properties, including geographical region, access set
 ![](/images/offloaders/aws-s3/create-user-2.png)
 
 
-1. Click **Next Permissions**.
+4. Click **Next Permissions**.
 
 
-2. On the **Set permissions** page, specify how you want to assign permissions to your user. 
+5. On the **Set permissions** page, specify how you want to assign permissions to your user. 
 
 ![](/images/offloaders/aws-s3/create-user-3.png)
 
@@ -474,31 +474,19 @@ Execute the following commands in the repository where you download Pulsar tarba
     >
     > For more information about the `pulsar-admin namespaces set-retention options` command, including flags, descriptions, and default values, see [here](http://pulsar.apache.org/tools/pulsar-admin/2.6.0-SNAPSHOT/#-em-set-retention-em-). 
 
-3. To configure AWS S3 offloader, you can set offloader policy at the namespace level.
-
-	```
-    ./bin/pulsar-admin namespaces set-offload-policies -b test-pulsar-offload -d aws-s3 -r us-west-2 public/default
-    ```
-
-    > #### Tip
-    >
-    > For more information about the `pulsar-admin namespaces set-offload-policies` command, including flags, descriptions, and default values, see [here](http://pulsar.apache.org/tools/pulsar-admin/2.6.0-SNAPSHOT/#-em-set-offload-policies-em-). 
-
-	If you want to check whether you have configured the offloader successfully, you can use the command [`pulsar-admin namespaces get-offload-policies`](http://pulsar.apache.org/tools/pulsar-admin/2.6.0-SNAPSHOT/#-em-get-offload-policies-em-).
-
-4. Produce data using pulsar-perf. 
+3. Produce data using pulsar-perf. 
 
     ```
     ./bin/pulsar-perf produce -r 1000 -s 2048 test-topic
     ```
 
-5. The offloading operation starts after a ledge rollover is triggered. To ensure offload data successfully, it is recommended that you wait until several ledge rollovers are triggered. In this case, you might need to wait for a second. You can check the ledge status using pulsar-admin.
+4. The offloading operation starts after a ledge rollover is triggered. To ensure offload data successfully, it is recommended that you wait until several ledge rollovers are triggered. In this case, you might need to wait for a second. You can check the ledge status using pulsar-admin.
  
     ```
     ./bin/pulsar-admin topics stats-internal test-topic
     ```
 	
-6. After ledger rollover, trigger the offloading operation manually.
+5. After ledger rollover, trigger the offloading operation manually.
 
     You can also trigger the offloading operation automatically. For more information, see [Configure AWS S3 offloader to run automatically](#configure-aws-s3-offloader-to-run-automatically)
 
@@ -512,7 +500,7 @@ Execute the following commands in the repository where you download Pulsar tarba
     Offload triggered for persistent://public/default/test-topic for messages before 12:0:-1
     ```
 
-7. Check the offloading operation status.
+6. Check the offloading operation status.
 
 	```
     ./bin/pulsar-admin topics offload-status -w public/default/test-topic
