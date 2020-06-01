@@ -166,7 +166,7 @@ but relies on the mechanisms supported by the
 
 Once you have created a set of credentials in the AWS IAM console, you can configure credentials using the following method.
 
-* Use EC2 instance metadata credentials
+* Use EC2 instance metadata credentials.
 
     If you are on AWS instance with an instance profile that provides credentials, StreamNative uses these credentials if no other mechanism is provided.
 
