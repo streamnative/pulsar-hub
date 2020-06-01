@@ -56,15 +56,15 @@ Follow the steps below to install the AWS S3 offloader.
 
 1. Download Pulsar tarball using one of the following ways:
 
-* download from the [Apache mirror](https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz)
+   * download from the [Apache mirror](https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz)
 
-* download from the Pulsar [downloads page](https://pulsar.apache.org/download)
+   * download from the Pulsar [downloads page](https://pulsar.apache.org/download)
 
-* use [wget](https://www.gnu.org/software/wget):
+   * use [wget](https://www.gnu.org/software/wget):
 
-  ```shell
-  wget https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz
-  ```
+     ```shell
+     wget https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz
+     ```
 
 2. Download and untar the Pulsar offloaders package. 
 
