@@ -11,7 +11,7 @@ tags: ["Pulsar", "MQTT", "Protocol handler"]
 alias: MoP
 features: ["MoP brings the native MQTT protocol support to Pulsar by introducing a MQTT protocol handler on Pulsar brokers"]
 icon: "/images/protocol-handler/mqtt-logo.png"
-download: “https://github.com/streamnative/mop/releases/download/v0.1.0/pulsar-protocol-handler-mqtt-0.1.0.nar”
+download: "https://github.com/streamnative/mop/releases/download/v0.1.0/pulsar-protocol-handler-mqtt-0.1.0.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
