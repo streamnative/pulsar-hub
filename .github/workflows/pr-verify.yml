@@ -13,7 +13,7 @@ jobs:
         with:
           repository: streamnative/streamnative-ci
           token: ${{ secrets.BOT }}
-          path: actions
+          path: ci
 
       - uses: actions/checkout@v2
         with:
@@ -24,7 +24,7 @@ jobs:
 
       - name: checking the pull request
         run: |
-          export PATH=${PATH}:${PWD}/actions/scripts/pulsar-registry-metadata
+          export PATH=${PATH}:${PWD}/ci/projects/pulsar-registry-metadata
           install-dependencies.sh
           pushd prm
           check.sh

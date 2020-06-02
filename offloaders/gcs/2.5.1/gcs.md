@@ -1,13 +1,13 @@
 ---
-description: Offload data from BookKeeper to GCS
-author: ["StreamNative"]
-contributors: ["StreamNative"]
+description: Use GCS offloader with Pulsar
+author: ["ASF"]
+contributors: ["ASF"]
 language: Java
 document:
 source: "https://github.com/apache/pulsar/tree/master/tiered-storage/jcloud"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-tags: ["GCS", "Offload", "Pulsar"]
+tags: ["GCS", "Offloader", "Pulsar"]
 alias: GCS offloader
 features: ["Offload data from BookKeeper to GCS"]
 icon: "/images/offloaders/gcs/gcs-logo.png"
@@ -42,26 +42,80 @@ In this way, on the one hand, tiered storage is much cheaper than the storage in
 
 Additionally, Pulsar is able to retain both historic and real-time data and provides a unified view as infinite event streams, which can be easily reprocessed or backloaded into new systems. You can integrate Pulsar with a unified data processing engine (such as Apache Flink or Apache Spark) to unlock many new use cases stemming from infinite data retention.
 
+# Installation
 
+Follow the steps below to install the GCS offloader.
+
+## Prerequisite
+
+- Filesystem: 2.4.2 or later versions
+  
+- Apache jclouds: 2.2.0 or later versions
+
+## Step
+
+1. Download Pulsar tarball using one of the following ways:
+
+   * download the Pulsar tarball from the [Apache mirror](https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz)
+
+   * download from the Pulsar [download page](https://pulsar.apache.org/download)
+
+   * use [wget](https://www.gnu.org/software/wget)
+
+     ```shell
+     wget https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz
+     ```
+
+2. Download and untar the Pulsar offloaders package. 
+
+    ```bash
+    wget https://downloads.apache.org/pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz
+
+    tar xvfz apache-pulsar-offloaders-2.5.1-bin.tar.gz
+    ```
+
+    > #### Note
+    >
+    > * If you are running Pulsar in a bare metal cluster, make sure that `offloaders` tarball is unzipped in every broker's Pulsar directory.
+    > 
+    > * If you are running Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image instead of the `apachepulsar/pulsar` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+
+3. Copy the Pulsar offloaders as `offloaders` in the Pulsar directory.
+
+    ```
+    mv apache-pulsar-offloaders-2.5.1/offloaders apache-pulsar-2.5.1/offloaders
+
+    ls offloaders
+    ```
+
+    **Output**
+
+    As shown in the output, Pulsar uses [Apache jclouds](https://jclouds.apache.org) to support GCS and AWS S3 for long term storage. 
+
+
+    ```
+    tiered-storage-file-system-2.5.1.nar
+    tiered-storage-jcloud-2.5.1.nar
+    ```
 
 # Configuration
 
 > #### Note
 > 
-> Before offloading data from BookKeeper to GCS, you need to configure some properties of the GCS driver. 
+> Before offloading data from BookKeeper to GCS, you need to configure some properties of the GCS offloader driver. 
 
-Besides, you can also configure the GCS to run automatically or trigger it manually.
+Besides, you can also configure the GCS offloader to run automatically or trigger it manually.
 
-## Configure GCS driver
+## Configure GCS offloader driver
 
-You can configure GCS driver in the configuration file `broker.conf`.
+You can configure GCS offloader driver in the configuration file `broker.conf`.
 
 - **Required** configurations are as below.
 
     **Required** configuration | Description | Example value
     |---|---|---
-    `managedLedgerOffloadDriver`|Offload driver name, which is case-insensitive.|google-cloud-storage
-    `offloadersDirectory`|Offload directory|offloaders
+    `managedLedgerOffloadDriver`|Offloader driver name, which is case-insensitive.|google-cloud-storage
+    `offloadersDirectory`|Offloader directory|offloaders
     `gcsManagedLedgerOffloadBucket`|Bucket|pulsar-topic-offload
     `gcsManagedLedgerOffloadRegion`|Bucket region|europe-west3
     `gcsManagedLedgerOffloadServiceAccountKeyFile`|Authentication |/Users/user-name/Downloads/project-804d5e6a6f33.json
@@ -151,7 +205,7 @@ Configuration|Description
 `gcsManagedLedgerOffloadReadBufferSizeInBytes`|Block size for each individual read when reading back data from GCS.<br><br>The **default** value is 1 MB.
 `gcsManagedLedgerOffloadMaxBlockSizeInBytes`|Maximum size of a "part" sent during a multipart upload to GCS. <br><br>It **can not** be smaller than 5 MB. <br><br>The **default** value is 64 MB.
 
-## Configure GCS to run automatically
+## Configure GCS offloader to run automatically
 
 Namespace policy can be configured to offload data automatically once a threshold is reached. The threshold is based on the size of data that a topic has stored on a Pulsar cluster. Once the topic reaches the threshold, an offload operation is triggered automatically. 
 
@@ -166,7 +220,7 @@ You can configure the threshold size using CLI tools, such as [pulsarctl](https:
 
 ### Example
 
-This example sets the GCS threshold size to 10 MB using pulsarctl.
+This example sets the GCS offloader threshold size to 10 MB using pulsarctl.
 
 ```bash
 bin/pulsarctl namespaces set-offload-threshold --size 10M my-tenant/my-namespace
@@ -176,9 +230,9 @@ bin/pulsarctl namespaces set-offload-threshold --size 10M my-tenant/my-namespace
 >
 > For more information about the `pulsarctl namespaces set-offload-threshold options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-set-offload-threshold-em-). 
 
-## Configure GCS to run manually
+## Configure GCS offloader to run manually
 
-For individual topics, you can trigger GCS manually using the following methods:
+For individual topics, you can trigger GCS offloader manually using the following methods:
 
 - Use REST endpoint 
 
@@ -188,10 +242,10 @@ For individual topics, you can trigger GCS manually using the following methods:
 
 ### Example
 
-- This example triggers GCS to run manually using pulsarctl with the command `pulsarctl topic offload (topic-name) (threshold)`.
+- This example triggers GCS offloader to run manually using pulsarctl with the command `pulsarctl topic offload (topic-name) (threshold)`.
 
     ```bash
-    bin/pulsarctl topic offload persistent://my-tenant/my-namespace/topic1 10M
+    bin/pulsarctl topics offload persistent://my-tenant/my-namespace/topic1 10M
     ``` 
 
     **Output**
@@ -202,12 +256,12 @@ For individual topics, you can trigger GCS manually using the following methods:
 
     > #### Tip
     >
-    > For more information about the `pulsarctl topic offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
+    > For more information about the `pulsarctl topics offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
 
-- This example checks GCS status using pulsarctl with the command `pulsarctl topic offload-status options`.
+- This example checks GCS offloader status using pulsarctl with the command `pulsarctl topic offload-status options`.
 
     ```bash
-    bin/pulsarctl topic offload-status persistent://my-tenant/my-namespace/topic1
+    bin/pulsarctl topics offload-status persistent://my-tenant/my-namespace/topic1
     ```
 
     **Output**
@@ -219,7 +273,7 @@ For individual topics, you can trigger GCS manually using the following methods:
     To wait for GCS to complete the job, add the `-w` flag.
 
     ```bash
-    bin/pulsarctl topic offload-status -w persistent://my-tenant/my-namespace/topic1
+    bin/pulsarctl topics offload-status -w persistent://my-tenant/my-namespace/topic1
     ```
 
     **Output**
@@ -245,15 +299,15 @@ For individual topics, you can trigger GCS manually using the following methods:
 
     > #### Tip
     >
-    > For more information about the `pulsarctl topic offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-status-em-). 
+    > For more information about the `pulsarctl topics offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-status-em-). 
 
 # Usage
 
 This tutorial provides step-by-step instructions on how to use GCS with Pulsar.
 
-## Step 1: configure GCS driver
+## Step 1: configure GCS offloader driver
 
-As indicated in the [configuration chapter](#configuration), before using GCS offload, you need to configure some properties for the GCS offload driver. This tutorial assumes that you have configured the GCS offload driver in `standalone.conf` as below and run Pulsar in **standalone** mode.
+As indicated in the [configuration chapter](#configuration) before using the GCS offloader, you need to configure some properties for the GCS offloader driver. This tutorial assumes that you have configured the GCS offloader driver in `standalone.conf` as below and run Pulsar in **standalone** mode.
 
 ```conf
 managedLedgerOffloadDriver=google-cloud-storage
@@ -279,17 +333,21 @@ managedLedgerMaxEntriesPerLedger=5000
 
 2. To create a GCS bucket, click **Browser** > **CREATE BUCKET**.
 
+    > #### Note
+    > 
+    > To ensure broker can access the bucket, you need to assign **Storage Object Creator** and **Storage Object Viewer** roles to your service account. For how to assign roles to your service account, see [Step 4: grant access to GCS service account](#step-4-grant-access-to-gcs-service-account).
+
     ![](/images/offloaders/gcs/create-bucket.png)
 
 3. Name your bucket. 
 
-    The bucket name should be the same as the value of `gcsManagedLedgerOffloadBucket` that you configured in [Step 1](#step-1).
+    The bucket name should be the same as the value of `gcsManagedLedgerOffloadBucket` that you configured in [Step 1: configure GCS offloader driver](#step-1-configure-gcs-offloader-driver).
 
-![](/images/offloaders/gcs/bucket-name.png)
+    ![](/images/offloaders/gcs/bucket-name.png)
 
 4. Set your bucket region. 
 
-    The bucket region should be the same as the value of `gcsManagedLedgerOffloadRegion` that you configured in [Step 1](#step-1).
+    The bucket region should be the same as the value of `gcsManagedLedgerOffloadRegion` that you configured in [Step 1: configure GCS offloader driver](#step-1-configure-gcs-offloader-driver).
 
     ![](/images/offloaders/gcs/bucket-range.png)
 
@@ -320,7 +378,7 @@ managedLedgerMaxEntriesPerLedger=5000
 
 5. Grant privilege to your service account.
 
-	This tutorial skips this task here and completes it in [Step 4](#step-4). 
+	This tutorial skips this task here and completes it in [Step 4: grant access to GCS service account](#step-4-grant-access-to-gcs-service-account). 
     
     Click **Continue**.
 
@@ -348,9 +406,7 @@ managedLedgerMaxEntriesPerLedger=5000
 
     ![](/images/offloaders/gcs/add-1.png)
 
-3. Assign **Owner** and **Storage Admin** roles to your service account.
-
-    ![](/images/offloaders/gcs/select-1.png)
+3. Assign **Storage Object Creator** and **Storage Object Viewer** roles to your service account.
 
     ![](/images/offloaders/gcs/select-2.png)
 
@@ -358,13 +414,15 @@ managedLedgerMaxEntriesPerLedger=5000
 
 ## Step 5: offload data from BookKeeper to GCS
 
+Execute the following commands in the repository where you download Pulsar tarball. For example, `~/path/to/apache-pulsar-2.5.1`.
+
 1. Start Pulsar standalone.
 
     ```
     ./bin/pulsar standalone -a 127.0.0.1
     ```
 
-2. To make sure the data generated is not deleted immediately, it is recommended to set the [retention policy](https://pulsar.apache.org/docs/en/next/cookbooks-retention-expiry/#retention-policies), which can be either a **size** limit or a **time** limit. The larger value you set for the retention policy, the longer the data can be retained.
+2. To ensure the data generated is not deleted immediately, it is recommended to set the [retention policy](https://pulsar.apache.org/docs/en/next/cookbooks-retention-expiry/#retention-policies), which can be either a **size** limit or a **time** limit. The larger value you set for the retention policy, the longer the data can be retained.
 
     ```
     ./bin/pulsarctl namespaces set-retention public/default --size -10G --time 3d
@@ -380,10 +438,10 @@ managedLedgerMaxEntriesPerLedger=5000
     ./bin/pulsar-perf produce -r 1000 -s 2048 test-topic
     ```
 
-4. The offloading operation starts after a ledge rollover is trigged. To ensure offload data successfully, it is recommended that you wait until several ledge rollovers are triggered. In this case, you might need to wait for a second. You can check the ledge status using pulsar-admin.
+4. The offloading operation starts after a ledge rollover is trigged. To ensure offload data successfully, it is recommended that you wait until several ledge rollovers are triggered. In this case, you might need to wait for a second. You can check the ledge status using pulsarctl.
  
     ```
-    ./bin/pulsar-admin topics stats-internal test-topic
+    ./bin/pulsarctl topics internal-stats test-topic
     ```
 
 	**Output**
@@ -419,11 +477,17 @@ managedLedgerMaxEntriesPerLedger=5000
     }, ]
     "cursors" : {  }
     ```
+    
+    > #### Tip
+    >
+    > For more information about the `pulsarctl topics internal-stats options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-internal-stats-em-). 
 
-5. After ledger rollover, trigger the offloading operation manually.
+5. After ledger rollover, trigger the offloading operation manually. 
+
+	You can also trigger the offloading operation automatically. For more information, see [Configure GCS offloader to run automatically](#configure-gcs-offloader-to-run-automatically).
 
     ```
-    bin/pulsarctl topic offload --size-threshold 10M public/default/test-topic
+    ./bin/pulsarctl topics offload --size-threshold 10M public/default/test-topic
     ```
 
     **Output**
@@ -431,11 +495,15 @@ managedLedgerMaxEntriesPerLedger=5000
     ```
     Offload triggered for persistent://public/default/test-topic for messages before 12:0:-1
     ```
+    
+    > #### Tip
+    >
+    > For more information about the `pulsarctl topics offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
 
-6. Check the offloading status.
+6. Check the offloading operation status.
 
 	```
-    bin/pulsarctl topic offload-status -w public/default/test-topic
+    ./bin/pulsarctl topics offload-status -w public/default/test-topic
     ```
 	
 	You might need to wait for a while until the offloading operation finishes.
@@ -445,6 +513,10 @@ managedLedgerMaxEntriesPerLedger=5000
     ```
     Offload was a success
     ```
+    
+    > #### Tip
+    >
+    > For more information about the `pulsarctl topics offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-status-em-). 
 
 	At last, you can see the data is offloaded to GCS successfully.
 
