@@ -79,19 +79,33 @@ The following table lists configurations available for the MoP protocol handler.
 
 There are multiple MQTT clients that can be used to verify MoP, such as http://workswithweb.com/mqttbox.html or https://www.hivemq.com/mqtt-toolbox. You can choose a CLI tool or GUI tool to verify the MoP protocol handler.
 
-This example shows how to use the MoP protocol handler to publish and consume messages.
+## Verify MoP with FuseSource MQTT client
 
-```java
-MQTT mqtt = new MQTT();
-mqtt.setHost("127.0.0.1", 1883);
-BlockingConnection connection = mqtt.blockingConnection();
-connection.connect();
-Topic[] topics = { new Topic("persistent://public/default/my-topic", QoS.AT_LEAST_ONCE) };
-connection.subscribe(topics);
+This example shows how to verify the MoP protocol handler with the FuseSource MQTT client.
 
-// publish message
-connection.publish("persistent://public/default/my-topic", "Hello MOP!".getBytes(), QoS.AT_LEAST_ONCE, false);
+1. Add the following elements to update the dependency.
 
-// receive message
-Message received = connection.receive();
-```
+    ```java
+    <dependency>
+        <groupId>org.fusesource.mqtt-client</groupId>
+        <artifactId>mqtt-client</artifactId>
+        <version>1.16</version>
+    </dependency>
+    ```
+
+2. Publish and consume messages.
+
+    ```java
+    MQTT mqtt = new MQTT();
+    mqtt.setHost("127.0.0.1", 1883);
+    BlockingConnection connection = mqtt.blockingConnection();
+    connection.connect();
+    Topic[] topics = { new Topic("persistent://public/default/my-topic", QoS.AT_LEAST_ONCE) };
+    connection.subscribe(topics);
+
+    // publish message
+    connection.publish("persistent://public/default/my-topic", "Hello MOP!".getBytes(), QoS.AT_LEAST_ONCE, false);
+
+    // receive message
+    Message received = connection.receive();
+    ```
