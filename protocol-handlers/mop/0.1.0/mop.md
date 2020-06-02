@@ -83,7 +83,7 @@ There are multiple MQTT clients that can be used to verify MoP, such as http://w
 
 This example shows how to verify the MoP protocol handler with the FuseSource MQTT client.
 
-1. Add the following elements to update the dependency.
+1. Add Maven dependency.
 
     ```java
     <dependency>
