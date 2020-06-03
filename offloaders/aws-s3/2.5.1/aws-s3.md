@@ -170,7 +170,7 @@ Once you have created a set of credentials in the AWS IAM console, you can confi
 
     If you are on AWS instance with an instance profile that provides credentials, StreamNative uses these credentials if no other mechanism is provided.
 
-* Set the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in `conf/pulsar_env.s`.
+* Set the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in `conf/pulsar_env.sh`.
 
     "export" is important so that the variables are made available in the environment of spawned processes.
 
@@ -480,7 +480,7 @@ Execute the following commands in the repository where you download Pulsar tarba
     ./bin/pulsar-perf produce -r 1000 -s 2048 test-topic
     ```
 
-4. The offloading operation starts after a ledge rollover is triggered. To ensure offload data successfully, it is recommended that you wait until several ledge rollovers are triggered. In this case, you might need to wait for a second. You can check the ledge status using pulsar-admin.
+4. The offloading operation starts after a ledger rollover is triggered. To ensure offload data successfully, it is recommended that you wait until several ledger rollovers are triggered. In this case, you might need to wait for a second. You can check the ledger status using pulsar-admin.
  
     ```
     ./bin/pulsar-admin topics stats-internal test-topic
