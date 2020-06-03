@@ -438,7 +438,7 @@ Execute the following commands in the repository where you download Pulsar tarba
     ./bin/pulsar-perf produce -r 1000 -s 2048 test-topic
     ```
 
-4. The offloading operation starts after a ledge rollover is trigged. To ensure offload data successfully, it is recommended that you wait until several ledge rollovers are triggered. In this case, you might need to wait for a second. You can check the ledge status using pulsarctl.
+4. The offloading operation starts after a ledger rollover is trigged. To ensure offload data successfully, it is recommended that you wait until several ledger rollovers are triggered. In this case, you might need to wait for a second. You can check the ledger status using pulsarctl.
  
     ```
     ./bin/pulsarctl topics internal-stats test-topic
