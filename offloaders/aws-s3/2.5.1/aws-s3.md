@@ -10,7 +10,7 @@ license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["AWS S3", "Offloader", "Pulsar"]
 alias: AWS S3 offloader
 features: ["Offload data from BookKeeper to AWS S3"]
-icon: "/images/offloaders/aws-logo.png"
+icon: "/images/offloaders/aws-s3/aws-logo.png"
 download: "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz"
 support: StreamNative
 support_link: https://streamnative.io
@@ -47,8 +47,6 @@ Additionally, Pulsar is able to retain both historic and real-time data and prov
 Follow the steps below to install the AWS S3 offloader.
 
 ## Prerequisite
-
-- Filesystem: 2.4.2 or later versions
   
 - Apache jclouds: 2.2.0 or later versions
 
