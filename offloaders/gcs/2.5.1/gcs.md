@@ -47,8 +47,6 @@ Additionally, Pulsar is able to retain both historic and real-time data and prov
 Follow the steps below to install the GCS offloader.
 
 ## Prerequisite
-
-- Filesystem: 2.4.2 or later versions
   
 - Apache jclouds: 2.2.0 or later versions
 
@@ -217,6 +215,8 @@ Negative value|It disables automatic offloading.
 Automatic offloading runs when a new segment is added to a topic log. If you set the threshold on a namespace, but few messages are being produced to the topic, offload does not work until the current segment is full.
 
 You can configure the threshold size using CLI tools, such as [pulsarctl](https://streamnative.io/docs/v1.0.0/manage-and-monitor/pulsarctl/overview/) or pulsar-admin.
+
+The offload configurations in `broker.conf` and `standalone.conf` are used for the namespaces that do not have namespace level offload policies. Each namespace can have its own offload policy. If you want to set offload policy for each namespace, use the command [`pulsar-admin namespaces set-offload-policies options`](http://pulsar.apache.org/tools/pulsar-admin/2.6.0-SNAPSHOT/#-em-set-offload-policies-em-) command.
 
 ### Example
 
