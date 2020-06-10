@@ -23,7 +23,7 @@ id: "aop"
 
 # Overview
 
-AoP (AMQP on Pulsar) supports AMQP0-9-1 protocol and it is backed by Pulsar. AoP is implemented as a Pulsar [protocol handler](https://github.com/apache/pulsar/blob/master/pulsar-broker/src/main/java/org/apache/pulsar/broker/protocol/ProtocolHandler.java) with the protocol name of "amqp". The AoP protocol handler is built as a `nar` file and it is loaded when the Pulsar broker starts.
+AoP (AMQP on Pulsar) supports AMQP0-9-1 protocol and it is backed by Pulsar. AoP is implemented as a Pulsar [ProtocolHandler](https://github.com/apache/pulsar/blob/master/pulsar-broker/src/main/java/org/apache/pulsar/broker/protocol/ProtocolHandler.java) with the protocol name of "amqp". The AoP protocol handler is built as a `nar` file and it is loaded when the Pulsar broker starts.
 
 # Installation
 
