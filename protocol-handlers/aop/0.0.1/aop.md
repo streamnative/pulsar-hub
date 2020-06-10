@@ -120,7 +120,7 @@ This example shows how to use the AoP protocol handler in standalone mode.
 3. Load the AoP protocol handler. After installing the AoP protocol handler on the Pulsar broker, you can restart the Pulsar broker to load the AoP protocol handler.
 
     ```
-    $PULSAR_HOME/bin/pulsar standalone
+    $PULSAR_HOME/bin/pulsar-daemon start standalone
     ```
 
 4. Add the namespace for vhost.
