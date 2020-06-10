@@ -127,7 +127,7 @@ This example shows how to use the AoP protocol handler in standalone mode.
 
     ```
     # for example, the vhost name is `vhost`
-    bin/pulsar-admin namespaces create public/vhost1
+    bin/pulsar-admin namespaces create public/vhost1 -b 1
     # set retention for the namespace
     bin/pulsar-admin namespaces set-retention -s 100M -t 2d public/vhost1
     ```
