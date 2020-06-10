@@ -71,7 +71,7 @@ The following table lists configurations available for the AoP protocol handler.
 
 | Item | Description | Default value |
 |---|---|---|
-| amqpTenant | Set the AMQP on the Pulsar broker tenant. | public|
+| amqpTenant | Set the AMQP on the Pulsar broker tenant. | public |
 | amqpListeners | Set the AMQP service port. | amqp://127.0.0.1:5672 |
 | maxNoOfChannels | Set the maximum number of channels available concurrently on a connection. | 64 |
 | maxFrameSize | Set the maximum frame size on a connection. | 4 MB |
