@@ -74,7 +74,7 @@ The following table lists configurations available for the AoP protocol handler.
 | amqpTenant | Set the AMQP on the Pulsar broker tenant. | public |
 | amqpListeners | Set the AMQP service port. | amqp://127.0.0.1:5672 |
 | amqpMaxNoOfChannels | Set the maximum number of channels available concurrently on a connection. | 64 |
-| maxFrameSize | Set the maximum frame size on a connection. | 4 MB |
+| amqpMaxFrameSize | Set the maximum frame size on a connection. | 4194304 (4MB) |
 | amqpHeartBeat | Set the default heartbeat timeout on the Pulsar broker. | 60 (s) |
 | amqpProxyPort | Set the AMQP proxy service port. | Port 5682 |
 | amqpProxyEnable | Enable/Disable the proxy service. | false |
