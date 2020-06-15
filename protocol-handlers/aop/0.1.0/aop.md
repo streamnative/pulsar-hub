@@ -4,14 +4,14 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: ""
+source: "https://github.com/streamnative/aop/tree/v0.1.0"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "AMQP", "Protocol handler"]
 alias: AoP
 features: ["AoP brings the native AMQP protocol support to Pulsar by introducing an AMQP protocol handler on Pulsar brokers"]
 icon: "/images/protocol-handler/amqp-logo.png"
-download: ""
+download: "https://github.com/streamnative/aop/releases/download/v0.1.0/pulsar-protocol-handler-amqp-0.1.0-SNAPSHOT.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
@@ -29,7 +29,7 @@ AoP (AMQP on Pulsar) supports AMQP0-9-1 protocol and it is backed by Pulsar. AoP
 
 To install the AoP protocol handler, follow these steps:
 
-1. Download the NAR package of the AoP protocol handler from [here](TBD).
+1. Download the NAR package of the AoP protocol handler from [here](https://github.com/streamnative/aop/releases/download/v0.1.0/pulsar-protocol-handler-amqp-0.1.0-SNAPSHOT.nar).
 
 2. Install the AoP protocol handler.
 
@@ -83,7 +83,7 @@ The following table lists configurations available for the AoP protocol handler.
 
 This example shows how to use the AoP protocol handler in standalone mode.
 
-1. Download the NAR package of the AoP protocol handler from [here](TBD).
+1. Download the NAR package of the AoP protocol handler from [here](https://github.com/streamnative/aop/releases/download/v0.1.0/pulsar-protocol-handler-amqp-0.1.0-SNAPSHOT.nar).
 
 2. Install the AoP protocol handler.
 
