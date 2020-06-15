@@ -40,7 +40,7 @@ To install the AoP protocol handler, follow these steps:
        Property | Recommended value | Default value
        |---|---|---
        `messagingProtocols` | amqp | null
-       `protocolHandlerDirectory`| Location of AoP NAR file | ./protocols
+       `protocolHandlerDirectory`| ./protocols | null
        
        **Example**
 
