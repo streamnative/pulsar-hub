@@ -7,8 +7,8 @@ document:
 source: "https://github.com/streamnative/aop/tree/v0.1.0"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-tags: ["Pulsar", "AMQP", "Protocol handler"]
-alias: AoP
+tags: ["Pulsar", "AMQP", "AoP", "Protocol handler"]
+alias: AoPs
 features: ["AoP brings the native AMQP protocol support to Pulsar by introducing an AMQP protocol handler on Pulsar brokers"]
 icon: "/images/protocol-handler/amqp-logo.png"
 download: "https://github.com/streamnative/aop/releases/download/v0.1.0/pulsar-protocol-handler-amqp-0.1.0-SNAPSHOT.nar"
@@ -77,7 +77,7 @@ The following table lists configurations available for the AoP protocol handler.
 | maxFrameSize | Set the maximum frame size on a connection. | 4 MB |
 | heartBeat | Set the default heartbeat timeout on the Pulsar broker. | 60 s |
 | amqpProxyPort | Set the AMQP proxy service port. | Port 5682 |
-| useProxy | Enable/Disable the proxy service. | false |
+| amqpProxyEnable | Enable/Disable the proxy service. | false |
 
 # Usage
 
