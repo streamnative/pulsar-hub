@@ -8,7 +8,7 @@ source: "https://github.com/streamnative/aop/tree/v0.1.0"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "AMQP", "AoP", "Protocol handler"]
-alias: AoPs
+alias: AoP
 features: ["AoP brings the native AMQP protocol support to Pulsar by introducing an AMQP protocol handler on Pulsar brokers"]
 icon: "/images/protocol-handler/amqp-logo.png"
 download: "https://github.com/streamnative/aop/releases/download/v0.1.0/pulsar-protocol-handler-amqp-0.1.0-SNAPSHOT.nar"
