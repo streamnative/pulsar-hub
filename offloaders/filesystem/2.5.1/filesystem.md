@@ -361,9 +361,9 @@ This tutorial sets up a Hadoop single node cluster and uses Hadoop 3.2.1.
 
     ![](/images/offloaders/filesystem/FileSystem-2.png)
 
-7. Click **HTTP Address** to get more detailed information about DataNode.
+7. Click **HTTP Address** to get more detailed information about localhost:9866.
 
-    As can be seen from the image below, the size of **Capacity Used** is 4 KB, which is the initial value.
+    As can be seen below, the size of **Capacity Used** is 4 KB, which is the initial value.
 
     ![](/images/offloaders/filesystem/FileSystem-3.png)
 
