@@ -95,13 +95,19 @@ Follow the steps below to install the filesystem offloader.
     tiered-storage-jcloud-2.5.1.nar
     ```
 
+    > #### Note
+    >
+    > * If you are running Pulsar in a bare metal cluster, make sure that `offloaders` tarball is unzipped in every broker's Pulsar directory.
+    > 
+    > * If you are running Pulsar in Docker or deploying Pulsar using a Docker image (such as K8s and DCOS), you can use the `apachepulsar/pulsar-all` image instead of the `apachepulsar/pulsar` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+
 # Configuration
 
 > #### Note
 > 
 > Before offloading data from BookKeeper to filesystem, you need to configure some properties of the filesystem offloader driver. 
 
-Besides, you can also configure the filesystem offloader to run automatically or trigger it manually.
+Besides, you can also configure the filesystem offloader to run it automatically or trigger it manually.
 
 ## Configure filesystem offloader driver
 
@@ -127,7 +133,7 @@ You can configure filesystem offloader driver in the configuration file `broker.
 
 Offloader driver name, which is case-insensitive.
 
-This example sets the offloader driver as _filesystem_.
+This example sets the offloader driver name as _filesystem_.
 
 ```conf
 managedLedgerOffloadDriver=filesystem
@@ -135,7 +141,7 @@ managedLedgerOffloadDriver=filesystem
 
 ### Connection address (required)
 
-Connection address is the URI to access the default Hadoop distributed file system. You can configure the connection address in the `broker.conf` file.
+Connection address is the URI to access the default Hadoop distributed file system. 
 
 #### Example
 
@@ -525,7 +531,7 @@ Execute the following commands in the repository where you download Pulsar tarba
     }
     ```
 
-    And the **Capacity Used** of DataNode is changed from 4 KB to 116.46 KB.
+    And the **Capacity Used** is changed from 4 KB to 116.46 KB.
 
     ![](/images/offloaders/filesystem/FileSystem-8.png)
 

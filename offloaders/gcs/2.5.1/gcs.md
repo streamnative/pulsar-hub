@@ -102,7 +102,7 @@ Follow the steps below to install the GCS offloader.
 > 
 > Before offloading data from BookKeeper to GCS, you need to configure some properties of the GCS offloader driver. 
 
-Besides, you can also configure the GCS offloader to run automatically or trigger it manually.
+Besides, you can also configure the GCS offloader to run it automatically or trigger it manually.
 
 ## Configure GCS offloader driver
 
