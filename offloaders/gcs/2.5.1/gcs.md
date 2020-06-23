@@ -106,7 +106,7 @@ Besides, you can also configure the GCS offloader to run automatically or trigge
 
 ## Configure GCS offloader driver
 
-You can configure GCS offloader driver in the configuration file `broker.conf`.
+You can configure GCS offloader driver in the configuration file `broker.conf` or `standalone.conf`.
 
 - **Required** configurations are as below.
 
@@ -209,8 +209,9 @@ Namespace policy can be configured to offload data automatically once a threshol
 
 Threshold value|Action
 |---|---
-0|It causes a broker to offload data as soon as possible.
-Negative value|It disables automatic offloading.
+> 0 | It triggers the offloading operation if the topic storage reaches its threshold.
+= 0|It causes a broker to offload data as soon as possible.
+< 0 |It disables automatic offloading operation.
 
 Automatic offloading runs when a new segment is added to a topic log. If you set the threshold on a namespace, but few messages are being produced to the topic, offload does not work until the current segment is full.
 
@@ -425,7 +426,7 @@ Execute the following commands in the repository where you download Pulsar tarba
 2. To ensure the data generated is not deleted immediately, it is recommended to set the [retention policy](https://pulsar.apache.org/docs/en/next/cookbooks-retention-expiry/#retention-policies), which can be either a **size** limit or a **time** limit. The larger value you set for the retention policy, the longer the data can be retained.
 
     ```
-    ./bin/pulsarctl namespaces set-retention public/default --size -10G --time 3d
+    ./bin/pulsarctl namespaces set-retention public/default --size 10G --time 3d
     ```
 
     > #### Tip

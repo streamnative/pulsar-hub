@@ -105,7 +105,7 @@ Besides, you can also configure the AWS S3 offloader to run automatically or tri
 
 ## Configure AWS S3 offloader driver
 
-You can configure the AWS S3 offloader driver in the configuration file `broker.conf`.
+You can configure the AWS S3 offloader driver in the configuration file `broker.conf` or `standalone.conf`.
 
 - **Required** configurations are as below.
   
@@ -217,8 +217,9 @@ Namespace policy can be configured to offload data automatically once a threshol
 
 Threshold value|Action
 |---|---
-0|It causes a broker to offload data as soon as possible.
-Negative value|It disables automatic offloading.
+> 0 | It triggers the offloading operation if the topic storage reaches its threshold.
+= 0|It causes a broker to offload data as soon as possible.
+< 0 |It disables automatic offloading operation.
 
 Automatic offloading runs when a new segment is added to a topic log. If you set the threshold on a namespace, but few messages are being produced to the topic, offload does not work until the current segment is full.
 
