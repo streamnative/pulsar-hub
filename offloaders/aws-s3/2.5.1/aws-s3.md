@@ -11,7 +11,7 @@ tags: ["AWS S3", "Offloader", "Pulsar"]
 alias: AWS S3 offloader
 features: ["Offload data from BookKeeper to AWS S3"]
 icon: "/images/offloaders/aws-s3/aws-logo.png"
-download: "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
