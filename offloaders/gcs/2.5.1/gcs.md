@@ -11,7 +11,7 @@ tags: ["GCS", "Offloader", "Pulsar"]
 alias: GCS offloader
 features: ["Offload data from BookKeeper to GCS"]
 icon: "/images/offloaders/gcs/gcs-logo.png"
-download: "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
@@ -102,7 +102,7 @@ Follow the steps below to install the GCS offloader.
 > 
 > Before offloading data from BookKeeper to GCS, you need to configure some properties of the GCS offloader driver. 
 
-Besides, you can also configure the GCS offloader to run automatically or trigger it manually.
+Besides, you can also configure the GCS offloader to run it automatically or trigger it manually.
 
 ## Configure GCS offloader driver
 
