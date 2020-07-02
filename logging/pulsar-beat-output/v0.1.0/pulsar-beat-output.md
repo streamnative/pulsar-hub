@@ -1,5 +1,5 @@
 ---
-description: The Pulsar Beat output plugin is a lightweight data shipper, written in Go, that you install on your servers to capture all sorts of operational data.
+description: Use Pulsar Beat output plugin to capture all sorts of operational data.
 author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Go
@@ -28,10 +28,10 @@ The Pulsar Beat output plugin is a lightweight data shipper, written in Go, that
 
 This section describes how to install the Pulsar Beat output plugin.
 
-Download the Pulsar Beat output from [here](https://github.com/streamnative/pulsar-beat-output/releases/tag/v0.1.0).
+Download the Pulsar Beat output plugin from [here](https://github.com/streamnative/pulsar-beat-output/releases/tag/v0.1.0).
 
 
-# Usage by self build
+# Usage
 
 This section gives an example about how to use the Pulsar Beat output to capture information about the Filebeat.
 
@@ -86,7 +86,7 @@ Install the Docker. For details about how to install the Docker, see [here](http
     ./filebeat -c filebeat.yml -e
     ```
 
-6. Open another terminal window, execute the following commands to get information collected from the Filebeat.
+6. Open another terminal window, execute the following commands to collect information from the Filebeat.
 
     ```
     docker cp pulsar-client.py pulsar-beat-standalone:/pulsar
