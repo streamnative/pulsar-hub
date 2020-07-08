@@ -81,6 +81,9 @@ The following table lists configurations available for the AoP protocol handler.
 
 # Usage
 
+#### Note
+> AoP is supported on Pulsar 2.6.0 or later releases.
+
 This example shows how to use the AoP protocol handler in standalone mode.
 
 1. Download the NAR package of the AoP protocol handler from [here](https://github.com/streamnative/aop/releases/download/v0.1.0/pulsar-protocol-handler-amqp-0.1.0-SNAPSHOT.nar).
@@ -94,7 +97,7 @@ This example shows how to use the AoP protocol handler in standalone mode.
        Property | Recommended value | Default value
        |---|---|---
        `messagingProtocols` | amqp | null
-       `protocolHandlerDirectory`| Location of AoP NAR file | ./protocols
+       `protocolHandlerDirectory`| Location of the AoP NAR file | ./protocols
        
        **Example**
 
