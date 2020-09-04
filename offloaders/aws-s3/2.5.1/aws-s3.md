@@ -10,8 +10,8 @@ license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["AWS S3", "Offloader", "Pulsar"]
 alias: AWS S3 offloader
 features: ["Offload data from BookKeeper to AWS S3"]
-icon: "/images/offloaders/aws-logo.png"
-download: "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz"
+icon: "/images/offloaders/aws-s3/aws-logo.png"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-offloaders-2.5.1-bin.tar.gz"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
@@ -47,8 +47,6 @@ Additionally, Pulsar is able to retain both historic and real-time data and prov
 Follow the steps below to install the AWS S3 offloader.
 
 ## Prerequisite
-
-- Filesystem: 2.4.2 or later versions
   
 - Apache jclouds: 2.2.0 or later versions
 
@@ -103,11 +101,11 @@ Follow the steps below to install the AWS S3 offloader.
 > 
 > Before offloading data from BookKeeper to AWS S3, you need to configure some properties of the AWS S3 offload driver.
 
-Besides, you can also configure the AWS S3 offloader to run automatically or trigger it manually.
+Besides, you can also configure the AWS S3 offloader to run it automatically or trigger it manually.
 
 ## Configure AWS S3 offloader driver
 
-You can configure the AWS S3 offloader driver in the configuration file `broker.conf`.
+You can configure the AWS S3 offloader driver in the configuration file `broker.conf` or `standalone.conf`.
 
 - **Required** configurations are as below.
   
@@ -146,7 +144,7 @@ A bucket region is the region where a bucket is located. If a bucket region is n
 
 > #### Tip
 >
-> For more information about AWS regions and endpoints, see [here](https://docs.aws.amazon.com/general/latest/gr/rande.html].
+> For more information about AWS regions and endpoints, see [here](https://docs.aws.amazon.com/general/latest/gr/rande.html).
 > 
 #### Example
 
@@ -170,7 +168,7 @@ Once you have created a set of credentials in the AWS IAM console, you can confi
 
     If you are on AWS instance with an instance profile that provides credentials, StreamNative uses these credentials if no other mechanism is provided.
 
-* Set the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in `conf/pulsar_env.s`.
+* Set the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in `conf/pulsar_env.sh`.
 
     "export" is important so that the variables are made available in the environment of spawned processes.
 
@@ -219,13 +217,16 @@ Namespace policy can be configured to offload data automatically once a threshol
 
 Threshold value|Action
 |---|---
-0|It causes a broker to offload data as soon as possible.
-Negative value|It disables automatic offloading.
+> 0 | It triggers the offloading operation if the topic storage reaches its threshold.
+= 0|It causes a broker to offload data as soon as possible.
+< 0 |It disables automatic offloading operation.
 
 Automatic offloading runs when a new segment is added to a topic log. If you set the threshold on a namespace, but few messages are being produced to the topic, offload does not work until the current segment is full.
 
 You can configure the threshold size using CLI tools, such as [pulsarctl](https://streamnative.io/docs/v1.0.0/manage-and-monitor/pulsarctl/overview/) or pulsar-admin.
 
+The offload configurations in `broker.conf` and `standalone.conf` are used for the namespaces that do not have namespace level offload policies. Each namespace can have its own offload policy. If you want to set offload policy for each namespace, use the command [`pulsar-admin namespaces set-offload-policies options`](http://pulsar.apache.org/tools/pulsar-admin/2.6.0-SNAPSHOT/#-em-set-offload-policies-em-) command.
+ 
 ### Example
 
 This example sets the AWS S3 offloader threshold size to 10 MB using pulsar-admin.
@@ -480,7 +481,7 @@ Execute the following commands in the repository where you download Pulsar tarba
     ./bin/pulsar-perf produce -r 1000 -s 2048 test-topic
     ```
 
-4. The offloading operation starts after a ledge rollover is triggered. To ensure offload data successfully, it is recommended that you wait until several ledge rollovers are triggered. In this case, you might need to wait for a second. You can check the ledge status using pulsar-admin.
+4. The offloading operation starts after a ledger rollover is triggered. To ensure offload data successfully, it is recommended that you wait until several ledger rollovers are triggered. In this case, you might need to wait for a second. You can check the ledger status using pulsar-admin.
  
     ```
     ./bin/pulsar-admin topics stats-internal test-topic
