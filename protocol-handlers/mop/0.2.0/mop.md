@@ -4,14 +4,14 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/mop/tree/v0.1.0/mqtt-impl"
+source: "https://github.com/streamnative/mop/tree/v0.2.0/mqtt-impl"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "MQTT", "Protocol handler"]
 alias: MoP
 features: ["MoP brings the native MQTT protocol support to Pulsar by introducing a MQTT protocol handler on Pulsar brokers"]
 icon: "/images/protocol-handler/mqtt-logo.png"
-download: "https://github.com/streamnative/mop/releases/download/v0.1.0/pulsar-protocol-handler-mqtt-0.1.0.nar"
+download: "https://github.com/streamnative/mop/releases/download/v0.2.0/pulsar-protocol-handler-mqtt-0.2.0.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
@@ -29,7 +29,7 @@ MQTT-on-Pulsar (aka MoP) is developed to support MQTT protocol natively on Apach
 
 To install the MoP protocol handler, follow these steps:
 
-1. Download the NAR package of the MoP protocol handler from [here](https://github.com/streamnative/mop/releases/download/v0.1.0/pulsar-protocol-handler-mqtt-0.1.0.nar).
+1. Download the NAR package of the MoP protocol handler from [here](https://github.com/streamnative/mop/releases/download/v0.2.0/pulsar-protocol-handler-mqtt-0.2.0.nar).
 
 2. Install the MoP protocol handler.
 
@@ -71,7 +71,7 @@ The following table lists configurations available for the MoP protocol handler.
 | Property | Recommended value | Default value |
 |---|---|---|
 | `messagingProtocols` | mqtt | N/A |
-| `protocolHandlerDirectory`| Location of MoP NAR file | ./protocols| 
+| `protocolHandlerDirectory`| Location of MoP NAR file | ./protocols|
 | `mqttListeners` | mqtt://127.0.0.1:1883 | N/A |
 | `advertisedAddress` | 127.0.0.1 | N/A |
 
