@@ -75,7 +75,9 @@ The following table lists configurations available for the MoP protocol handler.
 | `mqttListeners` | mqtt://127.0.0.1:1883 | N/A |
 | `advertisedAddress` | 127.0.0.1 | N/A |
 
-# How to use Pulsar Proxy
+# Usage
+
+# Use Pulsar Proxy
 
 To use the Pulsar Proxy, follow these steps. For detailed steps, refer to [Deploy a cluster on bare metal](http://pulsar.apache.org/docs/en/deploy-bare-metal/).
 
@@ -102,13 +104,11 @@ To use the Pulsar Proxy, follow these steps. For detailed steps, refer to [Deplo
     mqttProxyPort=5682
     ```
 
-# Usage
-
-There are multiple MQTT clients that can be used to verify MoP, such as http://workswithweb.com/mqttbox.html or https://www.hivemq.com/mqtt-toolbox. You can choose a CLI tool or GUI tool to verify the MoP protocol handler.
-
 ## Verify MoP with FuseSource MQTT client
 
-This example shows how to verify the MoP protocol handler with the FuseSource MQTT client.
+There are many MQTT client that can be used to verify the MoP protocol handler, such as [MQTTBox](http://workswithweb.com/mqttbox.html), [MQTT Toolbox](https://www.hivemq.com/mqtt-toolbox). You can choose a CLI tool or interface tool to verify the MoP protocol handler.
+
+The following example shows how to verify the MoP protocol handler with FuseSource MqttClient.
 
 1. Add Maven dependency.
 
