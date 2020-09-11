@@ -75,6 +75,33 @@ The following table lists configurations available for the MoP protocol handler.
 | `mqttListeners` | mqtt://127.0.0.1:1883 | N/A |
 | `advertisedAddress` | 127.0.0.1 | N/A |
 
+# How to use Pulsar Proxy
+
+To use the Pulsar Proxy, follow these steps. For detailed steps, refer to [Deploy a cluster on bare metal](http://pulsar.apache.org/docs/en/deploy-bare-metal/).
+
+1. Prepare a ZooKeeper cluster.
+
+2. Initialize the cluster metadata.
+
+3. Prepare a BookKeeper cluster.
+
+4. Copy the `pulsar-protocol-handler-mqtt-${version}.nar` to the `$PULSAR_HOME/protocols` directory.
+
+5. Start the Pulsar broker.
+
+   Here is an example of the Pulsar broker configuration.
+
+    ```yaml
+    messagingProtocols=mqtt
+    protocolHandlerDirectory=./protocols
+    brokerServicePort=6651
+    mqttListeners=mqtt://127.0.0.1:1883
+    advertisedAddress=127.0.0.1
+    
+    mqttProxyEnable=true
+    mqttProxyPort=5682
+    ```
+
 # Usage
 
 There are multiple MQTT clients that can be used to verify MoP, such as http://workswithweb.com/mqttbox.html or https://www.hivemq.com/mqtt-toolbox. You can choose a CLI tool or GUI tool to verify the MoP protocol handler.
