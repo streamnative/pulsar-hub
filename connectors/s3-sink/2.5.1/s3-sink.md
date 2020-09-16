@@ -1,5 +1,5 @@
 ---
-description: The S3 sink connector pulls messages from Pulsar topics and persist messages to S3.
+description: The S3 sink connector pulls messages from Pulsar topics and persists messages to S3.
 author: ["ASF"]
 contributors: ["ASF"]
 language: Java
@@ -8,7 +8,7 @@ source: "https://github.com/streamnative/pulsar-io-S3/tree/v2.5.1/src/main/java/
 license: Apache License 2.0
 tags: ["Pulsar IO", "S3", "Sink"]
 alias: S3 Sink
-features: ["Use S3 sink connector to sync data from Pulsar"]
+features: ["Use the S3 sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_179x109.png"
 download: "https://github.com/streamnative/pulsar-io-s3/releases/download/v2.5.1/pulsar-io-S3-2.5.1.nar"
@@ -21,7 +21,7 @@ owner_img: ""
 id: "io-S3-sink"
 ---
 
-The S3 sink connector pulls messages from Pulsar topics and persist messages to S3.
+The S3 sink connector pulls messages from Pulsar topics and persists messages to S3.
 
 # Installation
 
@@ -34,24 +34,24 @@ cp target/pulsar-io-s3-0.0.1.nar $PULSAR_HOME/pulsar-io-s3-0.0.1.nar
 
 # Configuration 
 
-The configuration of the S3 sink connector has the following properties.
+The S3 sink connector supports the following properties.
 
 ## S3 sink connector configuration
 
 | Name | Type|Required | Default | Description |
 |------|----------|----------|---------|-------------|
-| `accessKeyId` |String| true | " " (empty string) | The s3 accessKeyId. |
-| `secretAccessKey` | String| true | " " (empty string) | Thes3 secretAccessKey. |
-| `role` | String |false | " " (empty string) | Thes3 role. |
-| `roleSessionName` | String|false | " " (empty string) | Thes3 role. |
-| `bucket` | String|true | " " (empty string) | Thes3 bucket. |
-| `endpoint` | String|false | " " (empty string) | Thes3 endpoint. |
-| `formatType` | String|false | "json" | Save format type, json, avro, parquet, default json |
-| `partitionerType` | String|false |"partition" | Partition type, by partition, by time, partition is used by default. |
-| `timePartitionPattern` | String|false |"yyyy-MM-dd" | Format pattern by time partition, refer to java DateTimeFormat. |
-| `timePartitionDuration` | String|false |"1d" | Time interval divided by time, such as 1d, 1h. |
-| `batchSize` | int |false |10 | Number of records submitted in batch. |
-| `batchTimeMs` | long |false |1000 | Interval for batch submission. |
+| `accessKeyId` |String| True | " " (empty string) | The S3 access Key ID. |
+| `secretAccessKey` | String| True | " " (empty string) | The S3 secret access Key. |
+| `role` | String |False | " " (empty string) | The S3 role. |
+| `roleSessionName` | String| False | " " (empty string) | The S3 role. |
+| `bucket` | String| True | " " (empty string) | The S3 bucket. |
+| `endpoint` | String| False | " " (empty string) | The S3 endpoint. |
+| `formatType` | String| False | "json" | The data format type: JSON, Avro, or Parquet. By default, it is set to JSON. |
+| `partitionerType` | String| False |"partition" | The partition type. It can be configured by partition or time. By default, the partition type is configured by partition. |
+| `timePartitionPattern` | String| False |"yyyy-MM-dd" | The format pattern of the time partition. For details, refer to the Java date and time format. |
+| `timePartitionDuration` | String| False |"1d" | The time interval divided by time, such as 1d, or 1h. |
+| `batchSize` | int | False |10 | The number of records submitted in batch. |
+| `batchTimeMs` | long | False |1000 | The interval for batch submission. |
 
 ## Configure S3 sink connector
 
@@ -118,37 +118,34 @@ Before using the S3 sink connector, you need to create a configuration file thro
 
 # Usage
 
-1. Prepare S3 service.
+1. Prepare the AWS S3 service. In this example, we use `s3mock` as an example.
 
-    Please prepare the aws-s3 service you use.Test can use s3mock
 
     ```
     docker pull apachepulsar/s3mock:latest
     docker run -p 9090:9090 -e initialBuckets=pulsar-integtest apachepulsar/s3mock:latest
     ```
 
-2. Put the `pulsar-io-s3-2.5.1.nar` in the pulsar connectors catalog.
+2. Put the `pulsar-io-s3-2.5.1.nar` in the Pulsar connector catalog.
 
     ```
     cp pulsar-io-s3-2.5.1.nar $PULSAR_HOME/connectors/pulsar-io-s3-2.5.1.nar
     ```
 
-3. Start Pulsar in standalone mode.
+3. Start Pulsar in the standalone mode.
 
     ```
     $PULSAR_HOME/bin/pulsar standalone
     ```
 
-4. Run S3 sink locally.
+4. Run the S3 sink connector locally.
 
     ```
     $PULSAR_HOME/bin/pulsar-admin sink localrun --sink-config-file s3-sink-config.yaml
     ```
 
-5. Send Pulsar messages.
+5. Send Pulsar messages. In this example, the schema of the topic only supports `avro` or `json`.
 
-    *The topic schema can only use `avro` or `json`.*
-    Java example:
     ```java
      try (
                 PulsarClient pulsarClient = PulsarClient.builder()
