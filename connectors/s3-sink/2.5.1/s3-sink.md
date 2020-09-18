@@ -65,7 +65,6 @@ Before using the S3 sink connector, you need to create a configuration file thro
        "namespace": "default",
        "name": "s3-sink",
        "inputs": [
-          "user-json-topic",
           "user-avro-topic"
        ],
        "archive": "connectors/pulsar-io-s3-0.0.1.nar",
@@ -87,7 +86,7 @@ Before using the S3 sink connector, you need to create a configuration file thro
        }
     }
     ```
-
+    
 * YAML
 
     ```yaml
@@ -95,7 +94,6 @@ Before using the S3 sink connector, you need to create a configuration file thro
     namespace: "default"
     name: "s3-sink"
     inputs: 
-      - "user-json-topic"
       - "user-avro-topic"
     archive: "connectors/pulsar-io-s3-0.0.1.nar"
     parallelism: 1
@@ -146,7 +144,7 @@ Before using the S3 sink connector, you need to create a configuration file thro
 
 5. Send Pulsar messages. In this example, the schema of the topic only supports `avro` or `json`.
 
-    ```java
+   ```java
      try (
                 PulsarClient pulsarClient = PulsarClient.builder()
                         .serviceUrl("pulsar://localhost:6650")
@@ -163,18 +161,64 @@ Before using the S3 sink connector, you need to create a configuration file thro
                     producer.send(record);
                 }
             }
-    ```
+   ```
 
 6. Valid S3 data.
 
-    example: 
-    use topic:  persistent://public/default/s3-topic
-
-    The saved path consists of `basepath` and `partition`，
     
-    - basepath: `public/default/s3-topic`
-    - path by time Partition: `${basepath}/${timePartitionPattern}/${messageRecordSequenceId}.${formatType}`
-        example: `public/default/s3-topic/2020-09-14/123456.parquet`
-       
-    - path by partition Partition: `${basepath}/partition-${partitionId}/${messageRecordSequenceId}.${formatType}`
-        example: `public/default/s3-topic/partition-0/123456.parquet`
+
+    Refer to the above configuration, you can find the sink data in your `testBucket` Bucket.
+
+    Path `public/default/test-parquet-avro/2020-09-14/1234.parquet`
+
+    
+
+    The path is composed of three parts, the basic part of the topic, partition information, and format suffix.
+
+    
+
+    1. The basic part of topic `public/default/test-parquet-avro/`
+
+        This part consists of the tenant, namespace, and topic name of the input topic
+        
+        
+
+    2. Partition information `2020-09-14/${messageSequenceId}`
+
+        This part is generated according to different strategies, by a partition or by time.
+
+        - By time `${timePartitionPattern}/${messageRecordSequenceId}`
+
+        - By partition `partition-${partitionId}/${messageRecordSequenceId}`
+        
+        `${messageSequenceId}` 可以使用`FunctionCommon.getSequenceId(message.getMessageId())`生成。
+    
+
+    3. Format suffix `.parquet`
+
+        This part is controlled by the `formatType` in the configuration.
+    
+      
+    
+    Know the path, you can use [jclould](https://jclouds.apache.org/start/install/) to verify the file.
+        
+
+```java
+Properties overrides = new Properties();
+overrides.put("jclouds.s3.virtual-host-buckets", "false");
+
+BlobStoreContext blobStoreContext = ContextBuilder.newBuilder("aws-s3")
+        .credentials(
+                 "accessKeyId",
+                 "secretAccessKey"
+        )
+        .endpoint("http://localhost:9090") // repace to s3mock url
+        .overrides(overrides)
+        .buildView(BlobStoreContext.class);
+BlobStore blobStore = blobStoreContext.getBlobStore();
+        
+final long sequenceId = FunctionCommon.getSequenceId(message.getMessageId());
+final String path = "public/default/test-parquet-avro" + File.separator + "2020-09-14" + File.separator + sequenceId + ".parquet";
+final boolean blobExists = blobStore.blobExists("testBucket", path);
+Assert.assertTrue("the sink record does not exist", blobExists);
+```
