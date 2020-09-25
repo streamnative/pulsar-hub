@@ -40,10 +40,10 @@ The S3 sink connector supports the following properties.
 
 | Name | Type|Required | Default | Description |
 |------|----------|----------|---------|-------------|
-| `accessKeyId` |String| True | " " (empty string) | The S3 access Key ID. |
-| `secretAccessKey` | String| True | " " (empty string) | The S3 secret access Key. |
+| `accessKeyId` |String| True | " " (empty string) | The S3 access key ID. |
+| `secretAccessKey` | String| True | " " (empty string) | The S3 secret access key. |
 | `role` | String |False | " " (empty string) | The S3 role. |
-| `roleSessionName` | String| False | " " (empty string) | The S3 role. |
+| `roleSessionName` | String| False | " " (empty string) | The S3 role session name. |
 | `bucket` | String| True | " " (empty string) | The S3 bucket. |
 | `endpoint` | String| False | " " (empty string) | The S3 endpoint. |
 | `formatType` | String| False | "json" | The data format type: JSON, Avro, or Parquet. By default, it is set to JSON. |
@@ -182,7 +182,7 @@ Before using the S3 sink connector, you need to create a configuration file thro
     final boolean blobExists = blobStore.blobExists(“testBucket”, path);
     Assert.assertTrue(“the sink record does not exist”, blobExists);
     ```
-    You can find the sink data in your `testBucket` Bucket. The path is something like this `public/default/test-parquet-avro/2020-09-14/1234.parquet`.
+    You can find the sink data in your `testBucket` Bucket. The path is something like `public/default/test-parquet-avro/2020-09-14/1234.parquet`.
     The path consists of three parts, the basic part of the topic, partition information, and format suffix.
     - Basic part of topic: `public/default/test-parquet-avro/`
         This part consists of the tenant, namespace, and topic name of the input topic.
