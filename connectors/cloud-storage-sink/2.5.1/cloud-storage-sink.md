@@ -1,51 +1,51 @@
 ---
-description: The S3 sink connector pulls messages from Pulsar topics and persists messages to S3.
+description: The Cloud Storage sink connector pulls messages from Pulsar topics and persists messages to Cloud Storage.
 author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-s3/tree/v2.5.1/src/main/java/org/apache/pulsar/io/s3"
+source: "https://github.com/streamnative/pulsar-io-cloud-storage/tree/v2.5.1/src/main/java/org/apache/pulsar/io/jcloud"
 license: Apache License 2.0
-tags: ["Pulsar IO", "S3", "Sink"]
-alias: S3 Sink
-features: ["Use the S3 sink connector to sync data from Pulsar"]
+tags: ["Pulsar IO", "Cloud Storage", "Sink"]
+alias: Cloud Storage Sink
+features: ["Use the Cloud Storage sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_179x109.png"
-download: "https://github.com/streamnative/pulsar-io-s3/releases/download/v2.5.1/pulsar-io-s3-2.5.1.nar"
+download: "https://github.com/streamnative/pulsar-io-cloud-storage/releases/download/v2.5.1/pulsar-io-cloud-storage-2.5.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 owner_name: ""
 owner_img: ""
-id: "io-S3-sink"
+id: "io-cloud-storage-sink"
 ---
 
-The S3 sink connector pulls messages from Pulsar topics and persists messages to S3.
+The Cloud Storage sink connector pulls messages from Pulsar topics and persists messages to Cloud Storage.
 
 # Installation
 
 ```
-git clone https://github.com/streamnative/pulsar-io-s3.git
-cd pulsar-io-s3/
+git clone https://github.com/streamnative/pulsar-io-cloud-storage.git
+cd pulsar-io-cloud-storage/
 mvn clean install -DskipTests
-cp target/pulsar-io-s3-0.0.1.nar $PULSAR_HOME/pulsar-io-s3-0.0.1.nar
+cp target/pulsar-io-cloud-storage-0.0.1.nar $PULSAR_HOME/pulsar-io-cloud-storage-0.0.1.nar
 ```
 
 # Configuration 
 
-The S3 sink connector supports the following properties.
+The Cloud Storage sink connector supports the following properties.
 
-## S3 sink connector configuration
+## Cloud Storage sink connector configuration
 
 | Name | Type|Required | Default | Description |
 |------|----------|----------|---------|-------------|
-| `accessKeyId` |String| True | " " (empty string) | The S3 access key ID. |
-| `secretAccessKey` | String| True | " " (empty string) | The S3 secret access key. |
-| `role` | String |False | " " (empty string) | The S3 role. |
-| `roleSessionName` | String| False | " " (empty string) | The S3 role session name. |
-| `bucket` | String| True | " " (empty string) | The S3 bucket. |
-| `endpoint` | String| False | " " (empty string) | The S3 endpoint. |
+| `accessKeyId` |String| True | " " (empty string) | The Cloud Storage access key ID. |
+| `secretAccessKey` | String| True | " " (empty string) | The Cloud Storage secret access key. |
+| `role` | String |False | " " (empty string) | The Cloud Storage role. |
+| `roleSessionName` | String| False | " " (empty string) | The Cloud Storage role session name. |
+| `bucket` | String| True | " " (empty string) | The Cloud Storage bucket. |
+| `endpoint` | String| False | " " (empty string) | The Cloud Storage endpoint. |
 | `formatType` | String| False | "json" | The data format type: JSON, Avro, or Parquet. By default, it is set to JSON. |
 | `partitionerType` | String| False |"partition" | The partition type. It can be configured by partition or time. By default, the partition type is configured by partition. |
 | `timePartitionPattern` | String| False |"yyyy-MM-dd" | The format pattern of the time partition. For details, refer to the Java date and time format. |
@@ -53,9 +53,9 @@ The S3 sink connector supports the following properties.
 | `batchSize` | int | False |10 | The number of records submitted in batch. |
 | `batchTimeMs` | long | False |1000 | The interval for batch submission. |
 
-## Configure S3 sink connector
+## Configure Cloud Storage sink connector
 
-Before using the S3 sink connector, you need to create a configuration file through one of the following methods.
+Before using the Cloud Storage sink connector, you need to create a configuration file through one of the following methods.
 
 * JSON 
 
@@ -63,11 +63,11 @@ Before using the S3 sink connector, you need to create a configuration file thro
     {
        "tenant": "public",
        "namespace": "default",
-       "name": "s3-sink",
+       "name": "cloud-storage-sink",
        "inputs": [
           "user-avro-topic"
        ],
-       "archive": "connectors/pulsar-io-s3-0.0.1.nar",
+       "archive": "connectors/pulsar-io-cloud-storage-0.0.1.nar",
        "parallelism": 1,
        "configs": {
           "accessKeyId": "accessKeyId",
@@ -92,10 +92,10 @@ Before using the S3 sink connector, you need to create a configuration file thro
     ```yaml
     tenant: "public"
     namespace: "default"
-    name: "s3-sink"
+    name: "cloud-storage-sink"
     inputs: 
       - "user-avro-topic"
-    archive: "connectors/pulsar-io-s3-0.0.1.nar"
+    archive: "connectors/pulsar-io-cloud-storage-0.0.1.nar"
     parallelism: 1
     
     configs:
@@ -116,7 +116,7 @@ Before using the S3 sink connector, you need to create a configuration file thro
 
 # Usage
 
-1. Prepare the AWS S3 service. In this example, we use `s3mock` as an example.
+1. Prepare the AWS Cloud Storage service. In this example, we use `s3mock` as an example.
 
 
     ```
@@ -124,10 +124,10 @@ Before using the S3 sink connector, you need to create a configuration file thro
     docker run -p 9090:9090 -e initialBuckets=pulsar-integtest apachepulsar/s3mock:latest
     ```
 
-2. Put the `pulsar-io-s3-2.5.1.nar` in the Pulsar connector catalog.
+2. Put the `pulsar-io-cloud-storage-2.5.1.nar` in the Pulsar connector catalog.
 
     ```
-    cp pulsar-io-s3-2.5.1.nar $PULSAR_HOME/connectors/pulsar-io-s3-2.5.1.nar
+    cp pulsar-io-cloud-storage-2.5.1.nar $PULSAR_HOME/connectors/pulsar-io-cloud-storage-2.5.1.nar
     ```
 
 3. Start Pulsar in the standalone mode.
@@ -136,10 +136,10 @@ Before using the S3 sink connector, you need to create a configuration file thro
     $PULSAR_HOME/bin/pulsar standalone
     ```
 
-4. Run the S3 sink connector locally.
+4. Run the Cloud Storage sink connector locally.
 
     ```
-    $PULSAR_HOME/bin/pulsar-admin sink localrun --sink-config-file s3-sink-config.yaml
+    $PULSAR_HOME/bin/pulsar-admin sink localrun --sink-config-file cloud-storage-sink-config.yaml
     ```
 
 5. Send Pulsar messages. In this example, the schema of the topic only supports `avro` or `json`.
@@ -163,7 +163,7 @@ Before using the S3 sink connector, you need to create a configuration file thro
             }
    ```
 
-6. Validate S3 data.
+6. Validate Cloud Storage data.
     To get the path, you can use the [jclould](https://jclouds.apache.org/start/install/) to verify the file, as shown below.
     ```java
     Properties overrides = new Properties();
