@@ -116,7 +116,7 @@ Before using the Cloud Storage sink connector, you need to create a configuratio
 
 # Usage
 
-1. Prepare the AWS Cloud Storage service. In this example, we use `s3mock` as an example.
+1. Prepare the Cloud Storage service. In this example, we use `s3mock` as an example.
 
 
     ```
