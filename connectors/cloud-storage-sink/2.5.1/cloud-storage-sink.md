@@ -54,7 +54,7 @@ The Cloud Storage sink connector supports the following properties.
 
 | Name | Type|Required | Default | Description |
 |------|----------|----------|---------|-------------|
-| `provider` |String| True | " " (empty string) | The Cloud Storage type. for example, `aws-s3`,`gcs`|
+| `provider` |String| True | " " (empty string) | The Cloud Storage type, such as `aws-s3`,`gcs`.|
 | `accessKeyId` |String| True | " " (empty string) | The Cloud Storage access key ID. |
 | `secretAccessKey` | String| True | " " (empty string) | The Cloud Storage secret access key. |
 | `role` | String |False | " " (empty string) | The Cloud Storage role. |
