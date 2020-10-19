@@ -158,7 +158,7 @@ Before using the Cloud Storage sink connector, you need to create a configuratio
     $PULSAR_HOME/bin/pulsar-admin sink localrun --sink-config-file cloud-storage-sink-config.yaml
     ```
 
-5. Send Pulsar messages. In this example, the schema of the topic only supports `avro` or `json`.
+5. Send Pulsar messages. Currently, only Avro or JSON schema is supported.
 
    ```java
      try (
