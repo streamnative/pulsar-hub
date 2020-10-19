@@ -198,7 +198,7 @@ Before using the Cloud Storage sink connector, you need to create a configuratio
     final boolean blobExists = blobStore.blobExists(“testBucket”, path);
     Assert.assertTrue(“the sink record does not exist”, blobExists);
     ```
-    You can find the sink data in your `testBucket` Bucket. The path is something like `public/default/test-parquet-avro/2020-09-14/1234.parquet`.
+    You can find the data in your `testBucket` Bucket. The path is something like `public/default/test-parquet-avro/2020-09-14/1234.parquet`.
     The path consists of three parts, the basic part of the topic, partition information, and format suffix.
     - Basic part of topic: `public/default/test-parquet-avro/`
         This part consists of the tenant, namespace, and topic name of the input topic.
