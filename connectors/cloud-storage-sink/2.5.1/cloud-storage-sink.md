@@ -61,7 +61,7 @@ The Cloud Storage sink connector supports the following properties.
 | `roleSessionName` | String| False | " " (empty string) | The Cloud Storage role session name. |
 | `bucket` | String| True | " " (empty string) | The Cloud Storage bucket. |
 | `endpoint` | String| False | " " (empty string) | The Cloud Storage endpoint. |
-| `formatType` | String| False | "json" | The data format type: JSON, Avro, or Parquet. By default, it is set to JSON. |
+| `formatType` | String| False | "json" | The data format type. Available options are JSON, Avro, or Parquet. By default, it is set to JSON. |
 | `partitionerType` | String| False |"partition" | The partition type. It can be configured by partition or time. By default, the partition type is configured by partition. |
 | `timePartitionPattern` | String| False |"yyyy-MM-dd" | The format pattern of the time-based partitioning. For details, refer to the Java date and time format. |
 | `timePartitionDuration` | String| False |"1d" | The time interval for time-based partitioning, such as 1d, or 1h. |
