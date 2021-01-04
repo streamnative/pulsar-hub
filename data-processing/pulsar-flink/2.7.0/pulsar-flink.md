@@ -48,7 +48,7 @@ Currently, the following Flink versions are supported.
 - Flink 1.12: it is maintained in the [`master` branch](https://github.com/streamnative/pulsar-flink/tree/master).
 
 > **Note**  
-> Since Flink's API has changed greatly, we mainly work on new features in the `master` branch and fix bugs in other branches.
+> Since Flink's API has changed greatly, new features are covered in the `master` branch while bug fixes are in other branches.
 
 The JAR package is located in the [Bintray Maven repository of StreamNative](https://dl.bintray.com/streamnative/maven).
 
@@ -160,7 +160,7 @@ apply plugin: 'java'
 
 # Advanced features
 
-This section describes advanced features supported by Pulsar Flink connector.
+This section describes advanced features supported by the Pulsar Flink connector.
 
 ## Pulsar primitive types
 
@@ -188,9 +188,9 @@ Based on these requirements, we support Upsert Pulsar. With this feature, users 
 
 In the SQL DDL definition, you can set the connector to `upsert-pulsar` to use the Upsert Pulsar connector.
 
-In terms of configuration, the primary key of the Table must be specified, and `key.fields` cannot be used.
+In terms of configuration, the primary key of the table must be specified, and the `key.fields` cannot be used.
 
-As a source, the Upsert Pulsar connector produces changelog streams, where each data record represents an update or deletion event. More precisely, the value in a data record is interpreted as a UPDATE of the last value of the same key, if this key exists (If the corresponding key does not exist, the UPDATE is considered as an INSERT.). Using the table analogy, data records in the changelog stream are interpreted as UPSERT, also known as INSERT/UPDATE, because any existing row with the same key is overwritten. Also, a message with a null value is treated as a DELETE message.
+As a source, the Upsert Pulsar connector produces changelog streams, where each data record represents an update or deletion event. More precisely, the value in a data record is interpreted as an UPDATE of the last value of the same key, if this key exists (If the corresponding key does not exist, the UPDATE is considered as an INSERT.). Using the table analogy, data records in the changelog stream are interpreted as UPSERT, also known as INSERT/UPDATE, because any existing row with the same key is overwritten. Also, a message with a null value is treated as a DELETE message.
 
 As a sink, the Upsert Pulsar connector can consume changelog streams. It writes INSERT/UPDATE_AFTER data as normal Pulsar messages and writes DELETE data as Pulsar messages with null value (It indicates that key of the message is deleted). Flink partitions the data based on the value of the primary key so that the messages on the primary key are ordered. And, UPDATE/DELETE messages with the same primary key fall in the same partition.
 
@@ -198,7 +198,7 @@ As a sink, the Upsert Pulsar connector can consume changelog streams. It writes 
 
 In some scenarios, users need messages to be strictly guaranteed message order to ensure correct business processing. Usually, in the case of strictly order-preserving messages, only one consumer can consume messages at the same time to guarantee the order. This results in a significant reduction in message throughput. Pulsar designs the Key-Shared subscription mode for such scenarios by adding keys to messages and routing messages with the same Key Hash to the same messenger, which ensures message order and improves throughput.
 
-Pulsar Flink connector supports this feature the as well. This feature can be enabled by configuring the `enable-key-hash-range=true` parameter. When enabled, the range of Key Hash processed by each consumer is divided based on the parallelism of the task.
+Pulsar Flink connector supports this feature as well. This feature can be enabled by configuring the `enable-key-hash-range=true` parameter. When enabled, the range of Key Hash processed by each consumer is divided based on the parallelism of the task.
 
 ## Configuration parameters
 
@@ -359,7 +359,7 @@ see.execute();
 
 ### Sink
 
-The Pulsar producer uses the `FlinkPulsarSink` instance. It allows to write record streams to one or more Pulsar topics.
+The Pulsar producer uses the `FlinkPulsarSink` instance. It allows writing record streams to one or more Pulsar topics.
 
 **Example**
 
