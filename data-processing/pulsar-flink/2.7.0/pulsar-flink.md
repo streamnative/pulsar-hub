@@ -246,7 +246,7 @@ For `FlinkPulsarSource` and `FlinkPulsarSink`, you can use one of the following 
 
   ```java
   props.setProperty(PulsarOptions.AUTH_PLUGIN_CLASSNAME_KEY, "org.apache.pulsar.client.impl.auth.AuthenticationToken");
-  props.setProperty(PulsarOptions.AUTH_PARAMS_KEY, "token:abcdefghijklmn");
+  props.setProperty(PulsarOptions.AUTH_PARAMS_KEY, "token:");
   ```
 
 - Set the `ClientConfigurationData` parameter, which has a higher priority than the `Properties` parameter.
