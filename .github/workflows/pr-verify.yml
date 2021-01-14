@@ -10,15 +10,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+	    if: github.event.pull_request.head.repo.full_name == github.repository
         with:
           repository: streamnative/streamnative-ci
           token: ${{ secrets.BOT }}
           path: ci
 
       - uses: actions/checkout@v2
+	    if: github.event.pull_request.head.repo.full_name == github.repository
         with:
           repository: streamnative/pulsar-hub
           token: ${{ secrets.BOT }}
+          ref: ${{ github.ref }}
+          path: prm
+
+      - uses: actions/checkout@v2
+	    if: github.event.pull_request.head.repo.full_name != github.repository
+        with:
+          repository: streamnative/streamnative-ci
+          path: ci
+
+      - uses: actions/checkout@v2
+	    if: github.event.pull_request.head.repo.full_name != github.repository
+        with:
+          repository: streamnative/pulsar-hub
           ref: ${{ github.ref }}
           path: prm
 
