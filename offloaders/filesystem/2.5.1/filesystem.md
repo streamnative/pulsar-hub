@@ -15,8 +15,8 @@ download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-off
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
-owner_name: "StreamNative"
-owner_img: "/images/streamnative.png"
+owner_name: ""
+owner_img: ""
 dockerfile: 
 id: "filesystem"
 ---
