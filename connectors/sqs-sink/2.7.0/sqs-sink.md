@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-sqs/releases/tag/v2.7.0"
+source: "https://github.com/streamnative/pulsar-io-sqs/tree/branch-2.7.0/src/main/java/org/apache/pulsar/ecosystem/io/sqs"
 license: Apache License 2.0
 tags: ["Pulsar IO", "SQS", "Sink"]
 alias: SQS Sink
