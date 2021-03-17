@@ -175,7 +175,7 @@ This example describes how to use the SQS sink connector to pull data from Pulsa
 
     Now you can see the messages containing "Hello From Pulsar" from AWS SQS CLI.
 
-### On-premise cluster
+### On-premises cluster
 
 This example explains how to create an SQS sink connector in an on-premises cluster.
 
