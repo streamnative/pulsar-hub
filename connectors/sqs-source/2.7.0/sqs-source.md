@@ -195,7 +195,7 @@ This example explains how to create an SQS source connector in an on-premises cl
 4. Create an SQS source connector on a Pulsar cluster using the [`pulsar-admin sources create`](http://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--14) command.
 
     ```
-    $PULSAR_HOME/bin/pulsar-admin sources create \
+    PULSAR_HOME/bin/pulsar-admin sources create \
     --source-type sqs \
     --source-config-file sqs-source-config.yaml \
     --name sqs-source
