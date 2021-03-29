@@ -19,7 +19,7 @@ dockerfile: 
 id: "amqp-1-0-sink"
 ---
 
-The AMQP1_0 source connector receives messages from [AMQP 1.0](https://www.amqp.org/) and writes messages to Pulsar topics.
+The AMQP1_0 sink connector pulls messages from Pulsar topics and persists messages to [AMQP 1.0](https://www.amqp.org/).
 
 ![](/images/connectors/amqp-1-0-sink.png)
 

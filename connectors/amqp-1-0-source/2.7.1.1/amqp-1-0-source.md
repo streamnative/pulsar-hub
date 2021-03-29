@@ -73,22 +73,22 @@ You can create a configuration file (JSON or YAML) to set the following properti
 * JSON 
 
     ```json
-        {
-            "tenant": "public",
-            "namespace": "default",
-            "name": "amqp1_0-source",
-            "topicName": "user-op-queue-topic",
-            "archive": "connectors/pulsar-io-amqp1_0-{version}.nar",
-            "parallelism": 1,
-            "configs": {
-                "protocol": "amqp",
-                "host": "localhost",
-                "port": "5672",
-                "username": "guest",
-                "password": "guest",
-                "queue": "user-op-queue"
-            }
-        }
+    {
+        "tenant": "public",
+        "namespace": "default",
+        "name": "amqp1_0-source",
+        "topicName": "user-op-queue-topic",
+        "archive": "connectors/pulsar-io-amqp1_0-{version}.nar",
+        "parallelism": 1,
+        "configs": {
+            "protocol": "amqp",
+            "host": "localhost",
+            "port": "5672",
+            "username": "guest",
+            "password": "guest",
+            "queue": "user-op-queue"
+        }
+    }
     ```
 
 * YAML
