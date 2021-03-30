@@ -23,6 +23,8 @@ jobs:
           path: prm
 
       - name: checking the pull request
+        env:
+          SNBOT_GITHUB_TOKEN: ${{ secrets.BOT }}
         run: |
           export PATH=${PATH}:${PWD}/ci/projects/pulsar-registry-metadata
           install-dependencies.sh
