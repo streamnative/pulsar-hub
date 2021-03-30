@@ -66,7 +66,7 @@ You can create a configuration file (JSON or YAML) to set the following properti
 | `password` | String|false | " " (empty string) | The password used to authenticate to AMQP1_0. |
 | `queue` | String|false | " " (empty string) | The queue name that messages should be read from or written to. |
 | `topic` | String|false | " " (empty string) | The topic name that messages should be read from or written to. |
-| `onlyTextMessage` | boolean | false | false | If set to `true`, it requires that the AMQP message type is `TextMessage`. Pulsar consumer can consume the messages with schema ByteBuffer. |
+| `onlyTextMessage` | boolean | false | false | If it is set to `true`, the AMQP message type must be set to `TextMessage`. Pulsar consumers can consume the messages with schema ByteBuffer. |
 
 **Example**
 
@@ -304,7 +304,7 @@ You can make the AMQP1_0 source connector as a built-in connector and use it on 
 
 ### On-premise cluster
 
-This example explains how to create an AMQP1_0 source connector in an on-premises cluster.
+This example explains how to create an AMQP1_0 source connector on an on-premises cluster.
 
 1. Copy the NAR package of the AMQP1_0 connector to the Pulsar connectors directory.
 

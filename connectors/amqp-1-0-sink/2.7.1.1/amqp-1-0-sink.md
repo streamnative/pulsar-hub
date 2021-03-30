@@ -66,7 +66,7 @@ You can create a configuration file (JSON or YAML) to set the following properti
 | `queue` | String|false | " " (empty string) | The queue name that messages should be read from or written to. |
 | `topic` | String|false | " " (empty string) | The topic name that messages should be read from or written to. |
 | `activeMessageType` | String|false |0 | The ActiveMQ message simple class name. |
-| `onlyTextMessage` | boolean | false | false | If set to `true`, it requires that the AMQP message type is `TextMessage`. Pulsar consumer can consume the messages with schema ByteBuffer. |
+| `onlyTextMessage` | boolean | false | false | If it is set to `true`, the AMQP message type must be set to `TextMessage`. Pulsar consumers can consume the messages with schema ByteBuffer. |
 
 **Example**
 
@@ -311,7 +311,7 @@ You can make the AMQP1_0 sink connector as a built-in connector and use it on st
 
 ### On-premises cluster
 
-This example explains how to create an AMQP1_0 sink connector in an on-premises cluster.
+This example explains how to create an AMQP1_0 sink connector on an on-premises cluster.
 
 1. Copy the NAR package of the AMQP1_0 connector to the Pulsar connectors directory.
 
