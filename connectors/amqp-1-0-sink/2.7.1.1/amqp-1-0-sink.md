@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-amqp-1-0/tree/branch-2.7.1/src/main/java/org/apache/pulsar/ecosystem/io/random"
+source: "https://github.com/streamnative/pulsar-io-amqp-1-0/tree/branch-2.7.1/io-amqp1_0-impl/src/main/java/org/apache/pulsar/ecosystem/io/amqp"
 license: Apache License 2.0
 tags: ["Pulsar IO", "AMQP", "Qpid", "JMS", "Sink"]
 alias: AMQP1_0 sink
