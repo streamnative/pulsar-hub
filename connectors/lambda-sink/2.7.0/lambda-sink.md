@@ -23,7 +23,7 @@ id: "lambda-sink"
 
 The [AWS Lambda](https://aws.amazon.com/lambda/) sink connector is a [Pulsar IO connector](http://pulsar.apache.org/docs/en/next/io-overview/) for pulling data from Pulsar topics and persists data to AWS Lambda to invoke Lambda functions.
 
-![](/docs/lambda-sink.png)
+![](/images/connectors/lambda-sink.png)
 
 # How to get 
 
