@@ -21,7 +21,7 @@ owner_img: "/images/streamnative.png"
 id: "lambda-sink"
 ---
 
-The [AWS Lambda](https://aws.amazon.com/lambda/) sink connector is a [Pulsar IO connector](http://pulsar.apache.org/docs/en/next/io-overview/) for pulling data from Pulsar topics and persists data to AWS Lambda to invoke Lambda functions.
+The [AWS Lambda](https://aws.amazon.com/lambda/) sink connector is a [Pulsar IO connector](http://pulsar.apache.org/docs/en/next/io-overview/) for pulling messages from Pulsar topics to AWS Lambda to invoke Lambda functions. 
 
 ![](/images/connectors/lambda-sink.png)
 
