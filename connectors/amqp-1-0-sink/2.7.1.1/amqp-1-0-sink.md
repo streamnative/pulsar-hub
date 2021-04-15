@@ -21,8 +21,6 @@ owner_img: "/images/streamnative.png"
 id: "amqp-1-0-sink"
 ---
 
-# AMQP1_0 sink connector
-
 The AMQP1_0 sink connector pulls messages from Pulsar topics and persists messages to [AMQP 1.0](https://www.amqp.org/).
 
 ![](/images/connectors/amqp-1-0-sink.png)
