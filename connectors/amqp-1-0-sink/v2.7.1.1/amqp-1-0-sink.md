@@ -25,7 +25,7 @@ id: "amqp-1-0-sink"
 
 The AMQP1_0 sink connector pulls messages from Pulsar topics and persists messages to [AMQP 1.0](https://www.amqp.org/).
 
-![](/docs/amqp-1-0-sink.png)
+![](/images/connectors/amqp-1-0-sink.png)
 
 # How to get 
 
