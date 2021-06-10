@@ -18,7 +18,7 @@ support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
 dockerfile: 
-id: "kinesis-sink"
+id: "kinesis-source"
 ---
 
 The Kinesis source connector pulls data from Amazon Kinesis and persists data into Pulsar.
