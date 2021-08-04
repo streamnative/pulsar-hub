@@ -11,7 +11,7 @@ tags: ["Pulsar", "Flink", "Connector"]
 alias: Pulsar Flink Connector
 features: ["Pulsar Flink Connector allows Flink to read data from Pulsar and to write data to Pulsar"]
 icon: "/images/data-processing/flink-logo.png"
-download: "https://bintray.com/streamnative/maven/io.streamnative.pulsar-flink/2.7.0"
+download: "https://mvnrepository.com/artifact/io.streamnative.connectors/pulsar-flink-connector_2.11/1.12.4.3"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
@@ -24,8 +24,6 @@ id: "pulsar-flink"
 Pulsar Flink Connector is an integration of [Apache Pulsar](https://pulsar.apache.org/en/) and [Apache Flink](https://flink.apache.org/) (data processing engine), which allows Flink to read data from Pulsar and write data to Pulsar and provides exactly-once source semantics and at-least-once sink semantics.
 
 ![](/images/data-processing/pulsar-flink-connector.png)
-
-For more information about how to use Pulsar Flink Connector, see [here](https://streamnative.io/docs/v1.0.0/process/pulsar-flink-connector/link/).
 
 # Prerequisites
 
