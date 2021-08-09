@@ -6,9 +6,9 @@ language: Java
 document: 
 source: "https://github.com/apache/pulsar/tree/v2.3.0/pulsar-io/kinesis"
 license: Apache License 2.0
-tags: ["Pulsar IO", "Kinesis", "Sink"]
-alias: Kinesis Sink
-features: ["Use Kinesis sink connector to sync data from Pulsar"]
+tags: ["Pulsar IO", "Kinesis", "Source"]
+alias: Kinesis Source
+features: ["Use Kinesis source connector to pull data from Amazon Kinesis and persists data into Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/pulsar-hub.svg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.3.0/connectors/pulsar-io-kinesis-2.3.0.nar"
