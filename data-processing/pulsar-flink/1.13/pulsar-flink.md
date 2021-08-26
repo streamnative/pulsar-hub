@@ -29,7 +29,7 @@ Pulsar Flink Connector is an integration of [Apache Pulsar](https://pulsar.apach
 
 - Java 8 or higher version
 - Flink 1.9.0 or higher version
-- Pulsar 2.5.0 or higher version
+- Pulsar 2.7.0 or higher version
 
 # Basic information
 
