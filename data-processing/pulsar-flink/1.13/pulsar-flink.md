@@ -37,7 +37,7 @@ This section describes basic information about the Pulsar Flink connector.
 
 ## Client
 
-The following table lists version mapping relationship of the Flink, Pulsar client, and the Flink connector.
+The following table lists the version mapping relationships of the Flink, Pulsar client, and the Flink connector.
 
 | Flink version | Pulsar client version (or higher) | Connector branch                                                                 |
 |:--------------|:---------------------------------|:---------------------------------------------------------------------------------|
@@ -194,7 +194,7 @@ If you have already built a JAR package with dependencies using the above shade 
 
 ## Scala REPL
 
-The Scala REPL is a tool (scala) for evaluating expressions in Scala. Use the `bin/start-scala-shell.sh` command to deploy Pulsar Flink connector on Scala client. You can use the `--addclasspath` to add `pulsar-flink-connector_{{SCALA_BINARY_VERSION}}-{{PULSAR_FLINK_VERSION}}.jar` package.
+The Scala REPL is a tool (scala) for evaluating expressions in Scala. Use the `bin/start-scala-shell.sh` command to deploy the Pulsar Flink connector on Scala client. You can use the `--addclasspath` to add `pulsar-flink-connector_{{SCALA_BINARY_VERSION}}-{{PULSAR_FLINK_VERSION}}.jar` package.
 
 **Example**
 
@@ -385,7 +385,7 @@ SQL supports configuring physical fields, calculated columns, watermark, METADAT
 | scan.startup.mode             | latest        | Configure the Source's startup mode. Available options are `earliest`, `latest`, `external-subscription`, and `specific-offsets`. | No       |
 | scan.startup.specific-offsets | null          | This parameter is required when the `specific-offsets` parameter is specified. | No       |
 | scan.startup.sub-name         | null          | This parameter is required when the `external-subscription` parameter is specified. | No       |
-| discovery topic interval      | null          | Set the time interval for partition discovery, in unit of milliseconds.         | No       |
+| discovery topic interval      | null          | Set the time interval for partition discovery (in milliseconds).         | No       |
 | sink.message-router           | key-hash      | Set the routing method for writing messages to the Pulsar partition. Available options are `key-hash`, `round-robin`, and `custom MessageRouter`. | No       |
 | sink.semantic                 | at-least-once | The Sink writes the assurance level of the message. Available options are `at-least-once`, `exactly-once`, and `none`. | No       |
 | properties                    | empty         | Set Pulsar's optional configurations, in a format of `properties.key='value'`. For details, see [Configuration parameters](#configuration-parameters). | No       |
@@ -474,7 +474,7 @@ There is an increasing demand for Upsert mode message queues for three main reas
 
 - Interpret the Pulsar topic as a changelog stream, which interprets records with keys as Upsert events.
 - As part of the real-time pipeline, multiple streams are connected for enrichment and the results are stored in the Pulsar topic for further computation. However, the results may contain updated events.
-- As part of the real-time pipeline, the data stream is aggregated and the results are stored in Pulsar Topic for further computation. However, the results may contain updated events.
+- As part of the real-time pipeline, the data stream is aggregated and the results are stored in Pulsar topics for further computation. However, the results may contain updated events.
   
 Based on these requirements, we support Upsert Pulsar. With this feature, users can read data from and write data to Pulsar topics in an Upsert fashion.
 
@@ -482,7 +482,7 @@ In the SQL DDL definition, you can set the connector to `upsert-pulsar` to use t
 
 In terms of configuration, the primary key of the Table must be specified, and `key.fields` cannot be used.
 
-As a source, the Upsert Pulsar connector produces changelog streams, where each data record represents an update or deletion event. More precisely, the value in a data record is interpreted as a UPDATE of the last value of the same key, if this key exists (If the corresponding key does not exist, the UPDATE is considered as an INSERT.). Using the table analogy, data records in the changelog stream are interpreted as UPSERT, also known as INSERT/UPDATE, because any existing row with the same key is overwritten. Also, a message with a null value is treated as a DELETE message.
+As a source, the Upsert Pulsar connector produces changelog streams, where each data record represents an update or deletion event. More precisely, the value in a data record is interpreted as an UPDATE of the last value of the same key, if this key exists (If the corresponding key does not exist, the UPDATE is considered as an INSERT.). Using the table analogy, data records in the changelog stream are interpreted as UPSERT, also known as INSERT/UPDATE, because any existing row with the same key is overwritten. Also, a message with a null value is treated as a DELETE message.
 
 As a sink, the Upsert Pulsar connector can consume changelog streams. It writes INSERT/UPDATE_AFTER data as normal Pulsar messages and writes DELETE data as Pulsar messages with null value (It indicates that key of the message is deleted). Flink partitions the data based on the value of the primary key so that the messages on the primary key are ordered. And, UPDATE/DELETE messages with the same primary key fall in the same partition.
 
@@ -490,7 +490,7 @@ As a sink, the Upsert Pulsar connector can consume changelog streams. It writes 
 
 In some scenarios, users need messages to be strictly guaranteed message order to ensure correct business processing. Usually, in the case of strictly order-preserving messages, only one consumer can consume messages at the same time to guarantee the order. This results in a significant reduction in message throughput. Pulsar designs the Key-Shared subscription mode for such scenarios by adding keys to messages and routing messages with the same Key Hash to the same messenger, which ensures message order and improves throughput.
 
-Pulsar Flink connector supports this feature the as well. This feature can be enabled by configuring the `enable-key-hash-range=true` parameter. When enabled, the range of Key Hash processed by each consumer is divided based on the parallelism of the task.
+Pulsar Flink connector supports this feature as well. This feature can be enabled by configuring the `enable-key-hash-range=true` parameter. When enabled, the range of Key Hash processed by each consumer is divided based on the parallelism of the task.
 
 ## Fault tolerance
 
@@ -537,20 +537,20 @@ Before setting `exactly_once` semantic for a sink, you need to make the followin
 
 ## Configuration parameters
 
-This parameter corresponds to the `FlinkPulsarSource` in StreamAPI, the Properties object in the FlinkPulsarSink construction parameter, and the configuration properties parameter in Table mode.
+This parameter corresponds to the `FlinkPulsarSource` in StreamAPI, the Properties object in the `FlinkPulsarSink` construction parameter and the configuration properties parameter in Table mode.
 
 | Parameter | Default value | Description | Effective range |
 | --------- | -------- | ---------------------- | ------------ |
 | topic | null | Pulsar topic | source |
 | topics | null | Multiple Pulsar topics connected by half-width commas | source |
 | topicspattern | null | Multiple Pulsar topics with more Java regular matching | source |
-| partition.discovery.interval-millis | -1 | Automatically discover added or removed topics, in unit of milliseconds. If the value is set to -1, it indicates that means not open. | source |
+| partition.discovery.interval-millis | -1 | Automatically discover added or removed topics (in milliseconds). If the value is set to -1, it indicates that means not open. | source |
 | clientcachesize | 100 | Set the number of cached Pulsar clients. | source, sink |
 | auth-params | null | Set the authentication parameters for Pulsar clients. | source, sink |
 | auth-plugin-classname | null | Set the authentication class name for Pulsar clients.  | source, sink |
 | flushoncheckpoint | true | Write a message to Pulsar topics. | sink |
 | failonwrite | false | When sink error occurs, continue to confirm the message. | sink |
-| polltimeoutms | 120000 | Set the timeout for waiting to get the next message, in unit of milliseconds. | source |
+| polltimeoutms | 120000 | Set the timeout for waiting to get the next message (in milliseconds). | source |
 | pulsar.reader.fail-on-data-loss | true | When data is lost, the operation fails. | source |
 | pulsar.reader.use-earliest-when-data-loss | false | When data is lost, use earliest reset offset. | source |
 | commitmaxretries | 3 | Set the maximum number of retries when an offset is set for Pulsar messages. | source |
@@ -561,7 +561,7 @@ This parameter corresponds to the `FlinkPulsarSource` in StreamAPI, the Properti
 | pulsar.reader.subscriptionRolePrefix | flink-pulsar- | When no subscriber is specified, the prefix of the subscriber name is automatically created. | source |
 | pulsar.reader.receiverQueueSize | 1000 | Set the receive queue size. | source |
 | pulsar.producer.* | | For details about Pulsar producer configurations, see [Pulsar producer](https://pulsar.apache.org/docs/en/client-libraries-java/#producer). | Sink |
-| pulsar.producer.sendTimeoutMs | 30000 | Set the timeout for sending a message, in unit of milliseconds. | Sink |
+| pulsar.producer.sendTimeoutMs | 30000 | Set the timeout for sending a message (in milliseconds). | Sink |
 | pulsar.producer.blockIfQueueFull | false | The Pulsar producer writes messages. When the queue is full, the method is blocked instead of an exception is thrown. | Sink |
 
 `pulsar.reader.*` and `pulsar.producer.*` specify more detailed configuration of the Pulsar behavior. The asterisk sign (*) is replaced by the configuration name in Pulsar. For details, see [Pulsar reader](https://pulsar.apache.org/docs/en/client-libraries-java/#reader) and [Pulsar producer](https://pulsar.apache.org/docs/en/client-libraries-java/#producer).
