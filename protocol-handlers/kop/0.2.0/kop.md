@@ -21,6 +21,7 @@ dockerfile:
 id: "kop"
 ---
 
+
 KoP (Kafka on Pulsar) is a protocol handler bringing the native Apache Kafka protocol support to Apache Pulsar. By adding the KoP to your existing Pulsar cluster, you can migrate your existing Kafka applications and services to Pulsar without modifying the code. This enables Kafka applications to leverage Pulsar’s powerful features, such as:
 
 - Streamlined operations with enterprise-grade multi-tenancy.
