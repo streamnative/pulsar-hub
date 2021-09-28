@@ -1,7 +1,26 @@
 ---
-download: "https://github.com/streamnative/kop/releases/download/v2.8.0.11/pulsar-protocol-handler-kafka-2.8.0.11.nar"
+description: Kafka-on-Pulsar - A protocol handler that brings native Kafka protocol to Apache Pulsar
+author: BewareMyPower,jiazhai,dockerzhang,hangc0276
+contributors: BewareMyPower,jiazhai,dockerzhang,hangc0276
+language: Java,Dockerfile,Python,Go
+document:
+source: "https://github.com/streamnative/kop"
+license: Apache License 2.0
+license_link: "https://github.com/streamnative/kop/blob/v2.8.0.11/LICENSE"
+tags: apache-pulsar,apache-kafka,pubsub,event-streaming,kafka-on-pulsar,kop,pub-sub,dotnet,pulsar,kafka
 alias: KoP - Kafka on Pulsar
+features: ["Kafka-on-Pulsar - A protocol handler that brings native Kafka protocol to Apache Pulsar"]
+icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+download: "https://api.github.com/repos/streamnative/kop/tarball/refs/tags/v2.8.0.11"
+support: streamnative
+support_link: https://github.com/streamnative/kop
+support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
+owner_name: "streamnative"
+owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
+dockerfile: ""
+id: "kop"
 ---
+
 
 KoP (Kafka on Pulsar) brings the native Apache Kafka protocol support to Apache Pulsar by introducing a Kafka protocol handler on Pulsar brokers. By adding the KoP protocol handler to your existing Pulsar cluster, you can migrate your existing Kafka applications and services to Pulsar without modifying the code. This enables Kafka applications to leverage Pulsar’s powerful features, such as:
 
@@ -146,3 +165,5 @@ The followings are important information when you configure and use KoP.
 
 ## Upgrade
 If you want to upgrade your KoP version, you must first [upgrade your Pulsar version](https://pulsar.apache.org/docs/en/next/administration-upgrade/) accordingly, and then configure offset management.
+
+

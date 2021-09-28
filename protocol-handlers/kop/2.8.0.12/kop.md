@@ -6,18 +6,18 @@ language: Java,Dockerfile,Python,Go
 document:
 source: "https://github.com/streamnative/kop"
 license: Apache License 2.0
-license_link: "https://github.com/streamnative/kop/blob/v2.8.0.1/LICENSE"
+license_link: "https://github.com/streamnative/kop/blob/v2.8.0.12/LICENSE"
 tags: apache-pulsar,apache-kafka,pubsub,event-streaming,kafka-on-pulsar,kop,pub-sub,dotnet,pulsar,kafka
 alias: KoP - Kafka on Pulsar
 features: ["Kafka-on-Pulsar - A protocol handler that brings native Kafka protocol to Apache Pulsar"]
 icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
-download: "https://api.github.com/repos/streamnative/kop/tarball/refs/tags/v2.8.0.1"
+download: "https://api.github.com/repos/streamnative/kop/tarball/refs/tags/v2.8.0.12"
 support: streamnative
 support_link: https://github.com/streamnative/kop
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: "https://github.com/streamnative/kop/releases/download/v2.8.0-rc-202105291235//pulsar-protocol-handler-kafka-2.8.0-rc-202105291235.nar"
+dockerfile: ""
 id: "kop"
 ---
 
@@ -40,7 +40,7 @@ The following figure illustrates how the Kafka-on-Pulsar protocol handler is imp
 # Get Started with KoP
 
 If you have an Apache Pulsar cluster, you can enable Kafka-on-Pulsar on your existing Pulsar cluster by downloading and installing the KoP protocol handler to Pulsar brokers directly. It takes three steps:
-1. Download KoP protocol handler, or build the `./kafka-impl/target/pulsar-protocol-handler-kafka-2.8.0.1.nar` file, and then copy it to your Pulsar `protocols` directory.
+1. Download KoP protocol handler, or build the `./kafka-impl/target/pulsar-protocol-handler-kafka-2.8.0.12.nar` file, and then copy it to your Pulsar `protocols` directory.
 2. Set the configuration of the KoP protocol handler in Pulsar `broker.conf` or `standalone.conf` files.
 3. Restart Pulsar brokers to load KoP protocol handler.
 
@@ -73,7 +73,7 @@ To build the KoP protocol handler from the source, follow thse steps.
 3. Get the `.nar` file in the following directory and copy it your Pulsar `protocols` directory. You need to create the `protocols` folder in Pulsar if it's the first time you use protocol handlers.
 
     ```bash
-    ./kafka-impl/target/pulsar-protocol-handler-kafka-2.8.0.1.nar
+    ./kafka-impl/target/pulsar-protocol-handler-kafka-2.8.0.12.nar
     ```
 
 ## Set configuration for KoP
@@ -152,10 +152,10 @@ After you have installed the KoP protocol handler to Pulsar broker, you can rest
 
 # How to use KoP
 You can configure and manage KoP based on your requirements. Check the following guides for more details.
-- [Configure KoP](https://github.com/streamnative/kop/blob/v2.8.0.1/docs/configuration.md)
-- [Secure KoP](https://github.com/streamnative/kop/blob/v2.8.0.1/docs/security.md)
-- [Manage KoP with the Envoy proxy](https://github.com/streamnative/kop/blob/v2.8.0.1/docs/envoy-proxy.md)
-- [Implementation: How to converse Pulsar and Kafka](https://github.com/streamnative/kop/blob/v2.8.0.1/docs/implementation.md)
+- [Configure KoP](https://github.com/streamnative/kop/blob/v2.8.0.12/docs/configuration.md)
+- [Secure KoP](https://github.com/streamnative/kop/blob/v2.8.0.12/docs/security.md)
+- [Manage KoP with the Envoy proxy](https://github.com/streamnative/kop/blob/v2.8.0.12/docs/envoy-proxy.md)
+- [Implementation: How to converse Pulsar and Kafka](https://github.com/streamnative/kop/blob/v2.8.0.12/docs/implementation.md)
 
 The followings are important information when you configure and use KoP.
 
