@@ -284,244 +284,109 @@ To trigger via CLI tools, you need to specify the maximum amount of data (thresh
 
 This section provides step-by-step instructions on how to use the filesystem offloader to move data from Pulsar to Hadoop Distributed File System (HDFS) or Network File system (NFS).
 
-## Offload data to HDFS
+::: tabs
+
+@@@ HDFS
 
 To move data from Pulsar to HDFS, follow these steps.
 
-1. Prepare the HDFS environment.
+## Step1: Prepare the HDFS environment
 
-    This tutorial sets up a Hadoop single node cluster and uses Hadoop 3.2.1.
+This tutorial sets up a Hadoop single node cluster and uses Hadoop 3.2.1.
 
-    > **Tip**
-    >
-    > For more information about setting up a Hadoop single node cluster, see [here](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html).
+> **Tip**
+>
+> For more information about setting up a Hadoop single node cluster, see [here](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html).
 
-    1. Download and uncompress Hadoop 3.2.1. 
-
-        ```
-        wget https://mirrors.bfsu.edu.cn/apache/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz  
-
-        tar -zxvf hadoop-3.2.1.tar.gz -C $HADOOP_HOME
-        ```
-
-    2. Configure Hadoop.
-
-        ```
-        # $HADOOP_HOME/etc/hadoop/core-site.xml
-        <configuration>
-            <property>
-                <name>fs.defaultFS</name>
-                <value>hdfs://localhost:9000</value>
-            </property>
-        </configuration>
-
-        # $HADOOP_HOME/etc/hadoop/hdfs-site.xml
-        <configuration>
-            <property>
-                <name>dfs.replication</name>
-                <value>1</value>
-            </property>
-        </configuration>
-        ```
-
-    3. Set passphraseless ssh.
-
-        ```
-        # Now check that you can ssh to the localhost without a passphrase:
-        $ ssh localhost
-        # If you cannot ssh to localhost without a passphrase, execute the following commands
-        $ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-        $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-        $ chmod 0600 ~/.ssh/authorized_keys
-        ```
-
-    4. Start HDFS.
-
-        ```
-        # don't execute this command repeatedly, repeat execute will cauld the clusterId of the datanode is not consistent with namenode
-        $HADOOP_HOME/bin/hadoop namenode -format
-        $HADOOP_HOME/sbin/start-dfs.sh
-        ```
-
-    5. Navigate to the [HDFS website](http://localhost:9870/).
-    
-        You can see the **Overview** page.
-
-        ![](/images/offloaders/filesystem/FileSystem-1.png)
-
-        1. At the top navigation bar, click **Datanodes** to check DataNode information.
-
-        ![](/images/offloaders/filesystem/FileSystem-2.png)
-
-        2. Click **HTTP Address** to get more detailed information about localhost:9866.
-
-        As can be seen below, the size of **Capacity Used** is 4 KB, which is the initial value.
-
-        ![](/images/offloaders/filesystem/FileSystem-3.png)
-
-2. Configure the filesystem offloader.
-
-    As indicated in the [configuration](#configuration) section, you need to configure some properties for the filesystem offloader driver before using it. This tutorial assumes that you have configured the filesystem offloader driver as below and run Pulsar in **standalone** mode.
-
-    Set the following configurations in the `conf/standalone.conf` file.
-
-    ```conf
-    managedLedgerOffloadDriver=filesystem
-
-    fileSystemURI=hdfs://127.0.0.1:9000
-
-    fileSystemProfilePath=../conf/filesystem_offload_core_site.xml
-    ```
-
-    > **Note**
-    >
-    > For testing purposes, you can set the following two configurations to speed up ledger rollover, but it is not recommended that you set them in the production environment.
+1. Download and uncompress Hadoop 3.2.1. 
 
     ```
-    managedLedgerMinLedgerRolloverTimeMinutes=1
+    wget https://mirrors.bfsu.edu.cn/apache/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz  
 
-    managedLedgerMaxEntriesPerLedger=100
+    tar -zxvf hadoop-3.2.1.tar.gz -C $HADOOP_HOME
     ```
 
-2. Offload data from BookKeeper to filesystem.
+2. Configure Hadoop.
 
-    Execute the following commands in the repository where you download Pulsar tarball. For example, `~/path/to/apache-pulsar-2.5.1`.
+    ```
+    # $HADOOP_HOME/etc/hadoop/core-site.xml
+    <configuration>
+        <property>
+            <name>fs.defaultFS</name>
+            <value>hdfs://localhost:9000</value>
+        </property>
+    </configuration>
 
-    1. Start Pulsar standalone.
+    # $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+    <configuration>
+        <property>
+            <name>dfs.replication</name>
+            <value>1</value>
+        </property>
+    </configuration>
+    ```
 
-        ```
-        ./bin/pulsar standalone -a 127.0.0.1
-        ```
+3. Set passphraseless ssh.
 
-    2. To ensure the data generated is not deleted immediately, it is recommended to set the [retention policy](https://pulsar.apache.org/docs/en/next/cookbooks-retention-expiry/#retention-policies), which can be either a **size** limit or a **time** limit. The larger value you set for the retention policy, the longer the data can be retained.
+    ```
+    # Now check that you can ssh to the localhost without a passphrase:
+    $ ssh localhost
+    # If you cannot ssh to localhost without a passphrase, execute the following commands
+    $ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+    $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    $ chmod 0600 ~/.ssh/authorized_keys
+    ```
 
-        ```
-        ./bin/pulsarctl namespaces set-retention public/default --size 100M --time 2d
-        ```
+4. Start HDFS.
 
-        > **Tip**
-        >
-        > For more information about the `pulsarctl namespaces set-retention options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-retention-em-). 
+    ```
+    # don't execute this command repeatedly, repeat execute will cauld the clusterId of the datanode is not consistent with namenode
+    $HADOOP_HOME/bin/hadoop namenode -format
+    $HADOOP_HOME/sbin/start-dfs.sh
+    ```
 
-    3. Produce data using pulsar-client.
+5. Navigate to the [HDFS website](http://localhost:9870/).
 
-        ```
-        ./bin/pulsar-client produce -m "Hello FileSystem Offloader" -n 1000 public/default/fs-test
-        ```
+    You can see the **Overview** page.
 
-    4. The offloading operation starts after a ledger rollover is triggered. To ensure offload data successfully, it is recommended that you wait until several ledger rollovers are triggered. In this case, you might need to wait for a second. You can check the ledger status using pulsarctl.
+    ![](/images/offloaders/filesystem/FileSystem-1.png)
 
-        ```
-        ./bin/pulsarctl topics internal-stats public/default/fs-test
-        ```
+    1. At the top navigation bar, click **Datanodes** to check DataNode information.
 
-        **Output**
+    ![](/images/offloaders/filesystem/FileSystem-2.png)
 
-        The data of the ledger 696 is not offloaded.
+    1. Click **HTTP Address** to get more detailed information about localhost:9866.
 
-        ```
-        {
-        "version": 1,
-        "creationDate": "2020-06-16T21:46:25.807+08:00",
-        "modificationDate": "2020-06-16T21:46:25.821+08:00",
-        "ledgers": [
-        {
-            "ledgerId": 696,
-            "isOffloaded": false
-        }
-        ],
-        "cursors": {}
-        }
-        ```
+    As can be seen below, the size of **Capacity Used** is 4 KB, which is the initial value.
 
-    5. Wait a second and send more messages to the topic.
+    ![](/images/offloaders/filesystem/FileSystem-3.png)
 
-        ```
-        ./bin/pulsar-client produce -m "Hello FileSystem Offloader" -n 1000 public/default/fs-test
-        ```
+## Step 2: Install the filesystem offloader
 
-    6. Check the ledger status using pulsarctl.
+For details, see [installation](#installation).
 
-        ```
-        ./bin/pulsarctl topics internal-stats public/default/fs-test
-        ```
+## Step 3: Configure the filesystem offloader
 
-        **Output**
+As indicated in the [configuration](#configuration) section, you need to configure some properties for the filesystem offloader driver before using it. This tutorial assumes that you have configured the filesystem offloader driver as below and run Pulsar in **standalone** mode.
 
-        The ledger 696 is rollovered.
+Set the following configurations in the `conf/standalone.conf` file.
 
-        ```
-        {
-        "version": 2,
-        "creationDate": "2020-06-16T21:46:25.807+08:00",
-        "modificationDate": "2020-06-16T21:48:52.288+08:00",
-        "ledgers": [
-        {
-            "ledgerId": 696,
-            "entries": 1001,
-            "size": 81695,
-            "isOffloaded": false
-        },
-        {
-            "ledgerId": 697,
-            "isOffloaded": false
-        }
-        ],
-        "cursors": {}
-        }
-        ```
+```conf
+managedLedgerOffloadDriver=filesystem
+fileSystemURI=hdfs://127.0.0.1:9000
+fileSystemProfilePath=../conf/filesystem_offload_core_site.xml
+```
 
-    7. Trigger the offloading operation manually using pulsarctl.
-    
-        ```
-        ./bin/pulsarctl topic offload -s 0 public/default/fs-test
-        ```
+> **Note**
+>
+> For testing purposes, you can set the following two configurations to speed up ledger rollover, but it is not recommended that you set them in the production environment.
 
-        **Output**
+```
+managedLedgerMinLedgerRolloverTimeMinutes=1
+managedLedgerMaxEntriesPerLedger=100
+```
 
-        Data in ledgers before the ledge 697 is offloaded.
-
-        ```
-        # offload info, the ledgers before 697 will be offloaded
-        Offload triggered for persistent://public/default/fs-test3 for messages before 697:0:-1
-        ```
-
-    8.  Check the ledger status using pulsarctl.
-
-        ```
-        ./bin/pulsarctl topic internal-info public/default/fs-test
-        ```
-
-        **Output**
-
-        The data of the ledger 696 is offloaded.
-
-        ```
-        {
-        "version": 4,
-        "creationDate": "2020-06-16T21:46:25.807+08:00",
-        "modificationDate": "2020-06-16T21:52:13.25+08:00",
-        "ledgers": [
-        {
-            "ledgerId": 696,
-            "entries": 1001,
-            "size": 81695,
-            "isOffloaded": true
-        },
-        {
-            "ledgerId": 697,
-            "isOffloaded": false
-        }
-        ],
-        "cursors": {}
-        }
-        ```
-
-        And the **Capacity Used** is changed from 4 KB to 116.46 KB.
-
-        ![](/images/offloaders/filesystem/FileSystem-8.png)
-
-## Offload data to NFS
+@@@ NFS
 
 > **Note**
 >
@@ -529,9 +394,11 @@ To move data from Pulsar to HDFS, follow these steps.
 
 To offload data to NFS, follow these steps.
 
-1. Install the filesystem offloader. For details, see [installation](#installation).
+## Step1: Install the filesystem offloader
 
-2. Mont your NFS to your local filesystem.
+For details, see [installation](#installation).
+
+## Step2: Mont your NFS to your local filesystem
 
     This example mounts mounts */Users/pulsar_nfs* to */Users/test*.
 
@@ -539,21 +406,19 @@ To offload data to NFS, follow these steps.
     mount -e 192.168.0.103:/Users/test/Users/pulsar_nfs
     ```
 
-3. Configure the filesystem offloader driver.
+## Step 3: Configure the filesystem offloader driver
 
-    As indicated in the [configuration](#configuration) section, you need to configure some properties for the filesystem offloader driver before using it. This tutorial assumes that you have configured the filesystem offloader driver as below and run Pulsar in **standalone** mode.
+As indicated in the [configuration](#configuration) section, you need to configure some properties for the filesystem offloader driver before using it. This tutorial assumes that you have configured the filesystem offloader driver as below and run Pulsar in **standalone** mode.
 
-    Set the following configurations in the `conf/standalone.conf` file.
+1. Set the following configurations in the `conf/standalone.conf` file.
 
     ```conf
     managedLedgerOffloadDriver=filesystem
-
     fileSystemURI=192.168.0.103:/Users/test/Users/pulsar_nfs
-
     fileSystemProfilePath=../conf/filesystem_offload_core_site.xml
     ```
 
-4. Modify the *filesystem_offload_core_site.xml* as follows.
+2. Modify the *filesystem_offload_core_site.xml* as follows.
 
     ```
     <property>
@@ -587,9 +452,147 @@ To offload data to NFS, follow these steps.
     </property>
     ```
 
-5. Trigger the filesystem offloader to offload data to NFS. For details, see [run filesystem offloader manually](#run-filesystem-offloader-manually).
+@@@
 
-    You can see that topic data are offloaded to NFS. You can also query the offload status, as described in [run filesystem offloader manually](#run-filesystem-offloader-manually).
+:::
+
+## Step 4: Offload data from BookKeeper to filesystem
+
+Execute the following commands in the repository where you download Pulsar tarball. For example, `~/path/to/apache-pulsar-2.5.1`.
+
+1. Start Pulsar standalone.
+
+    ```
+    ./bin/pulsar standalone -a 127.0.0.1
+    ```
+
+2. To ensure the data generated is not deleted immediately, it is recommended to set the [retention policy](https://pulsar.apache.org/docs/en/next/cookbooks-retention-expiry/#retention-policies), which can be either a **size** limit or a **time** limit. The larger value you set for the retention policy, the longer the data can be retained.
+
+    ```
+    ./bin/pulsarctl namespaces set-retention public/default --size 100M --time 2d
+    ```
+
+    > **Tip**
+    >
+    > For more information about the `pulsarctl namespaces set-retention options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-retention-em-). 
+
+3. Produce data using pulsar-client.
+
+    ```
+    ./bin/pulsar-client produce -m "Hello FileSystem Offloader" -n 1000 public/default/fs-test
+    ```
+
+4. The offloading operation starts after a ledger rollover is triggered. To ensure offload data successfully, it is recommended that you wait until several ledger rollovers are triggered. In this case, you might need to wait for a second. You can check the ledger status using pulsarctl.
+
+    ```
+    ./bin/pulsarctl topics internal-stats public/default/fs-test
+    ```
+
+    **Output**
+
+    The data of the ledger 696 is not offloaded.
+
+    ```
+    {
+    "version": 1,
+    "creationDate": "2020-06-16T21:46:25.807+08:00",
+    "modificationDate": "2020-06-16T21:46:25.821+08:00",
+    "ledgers": [
+    {
+        "ledgerId": 696,
+        "isOffloaded": false
+    }
+    ],
+    "cursors": {}
+    }
+    ```
+
+5. Wait a second and send more messages to the topic.
+
+    ```
+    ./bin/pulsar-client produce -m "Hello FileSystem Offloader" -n 1000 public/default/fs-test
+    ```
+
+6. Check the ledger status using pulsarctl.
+
+    ```
+    ./bin/pulsarctl topics internal-stats public/default/fs-test
+    ```
+
+    **Output**
+
+    The ledger 696 is rollovered.
+
+    ```
+    {
+    "version": 2,
+    "creationDate": "2020-06-16T21:46:25.807+08:00",
+    "modificationDate": "2020-06-16T21:48:52.288+08:00",
+    "ledgers": [
+    {
+        "ledgerId": 696,
+        "entries": 1001,
+        "size": 81695,
+        "isOffloaded": false
+    },
+    {
+        "ledgerId": 697,
+        "isOffloaded": false
+    }
+    ],
+    "cursors": {}
+    }
+    ```
+
+7. Trigger the offloading operation manually using pulsarctl.
+
+    ```
+    ./bin/pulsarctl topic offload -s 0 public/default/fs-test
+    ```
+
+    **Output**
+
+    Data in ledgers before the ledge 697 is offloaded.
+
+    ```
+    # offload info, the ledgers before 697 will be offloaded
+    Offload triggered for persistent://public/default/fs-test3 for messages before 697:0:-1
+    ```
+
+8.  Check the ledger status using pulsarctl.
+
+    ```
+    ./bin/pulsarctl topic internal-info public/default/fs-test
+    ```
+
+    **Output**
+
+    The data of the ledger 696 is offloaded.
+
+    ```
+    {
+    "version": 4,
+    "creationDate": "2020-06-16T21:46:25.807+08:00",
+    "modificationDate": "2020-06-16T21:52:13.25+08:00",
+    "ledgers": [
+    {
+        "ledgerId": 696,
+        "entries": 1001,
+        "size": 81695,
+        "isOffloaded": true
+    },
+    {
+        "ledgerId": 697,
+        "isOffloaded": false
+    }
+    ],
+    "cursors": {}
+    }
+    ```
+
+    And the **Capacity Used** is changed from 4 KB to 116.46 KB.
+
+    ![](/images/offloaders/filesystem/FileSystem-8.png)
 
 # Reference
 
