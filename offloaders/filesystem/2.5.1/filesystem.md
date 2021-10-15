@@ -75,13 +75,13 @@ This section describes how to install the filesystem offloader.
 
    * Download the Pulsar tarball from the Pulsar [download page](https://pulsar.apache.org/download).
 
-   * Use the [wget](https://www.gnu.org/software/wget) command to download the Pulsar tarball.
+   * Download the Pulsar tarball using the [wget](https://www.gnu.org/software/wget) command.
 
         This example downloads Pulsar 2.5.1.
 
-     ```shell
-     wget https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz
-     ```
+        ```shell
+        wget https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-bin.tar.gz
+        ```
 
 2. Download and untar the Pulsar offloaders package.
 
@@ -95,9 +95,9 @@ This section describes how to install the filesystem offloader.
 
     > **Note**
     >
-    > * If you are running Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
+    > * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
     > 
-    > * If you are running Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image instead of the `apachepulsar/pulsar` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    > * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image. The `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
 
 3. Copy the Pulsar offloaders as `offloaders` in the Pulsar directory.
 
@@ -116,21 +116,19 @@ This section describes how to install the filesystem offloader.
 
     > **Note**
     >
-    > * If you are running Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
+    > * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
     > 
-    > * If you are running Pulsar in Docker or deploying Pulsar using a Docker image (such as K8s and DCOS), you can use the `apachepulsar/pulsar-all` image instead of the `apachepulsar/pulsar` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    > * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8s and DCOS), you can use the `apachepulsar/pulsar-all` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
 
 # Configuration
 
-> **Note**
-> 
-> Before offloading data from BookKeeper to filesystem, you need to configure some properties of the filesystem offloader driver. 
+Before offloading data from BookKeeper to filesystem, you need to configure some properties of the filesystem offloader driver.
 
 Besides, you can also configure the filesystem offloader to run it automatically or trigger it manually.
 
 ## Configure filesystem offloader driver
 
-You can configure the filesystem offloader driver in the configuration file `broker.conf` or `standalone.conf`.
+You can configure the filesystem offloader driver in the `broker.conf` or `standalone.conf` configuration file.
 
 - **Required** configurations are as below.
   
@@ -144,7 +142,7 @@ You can configure the filesystem offloader driver in the configuration file `bro
 
     Parameter| Description | Example value
     |---|---|---
-    `managedLedgerMinLedgerRolloverTimeMinutes`|Minimum time between ledger rollover for a topic<br><br>**Note**: it is not recommended to set this parameter in the production environment.|2
+    `managedLedgerMinLedgerRolloverTimeMinutes`|Minimum time between ledger rollover for a topic. <br><br>**Note**: it is not recommended to set this parameter in the production environment.|2
     `managedLedgerMaxEntriesPerLedger`|Maximum number of entries to append to a ledger before triggering a rollover.<br><br>**Note**: it is not recommended to set this parameter in the production environment.|5000
 
 You can set the following configurations in the _filesystem_offload_core_site.xml_ file.
