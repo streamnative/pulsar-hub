@@ -53,7 +53,9 @@ The tiered storage offloading mechanism takes advantage of this segment oriented
 
 ![](/images/offloaders/gcs/pulsar-tiered-storage.png)
 
-On the broker, you need to configure the bucket and credentials for the cloud storage service. The configured bucket must exist before attempting to offload. If it does not exist, the offload operation fails.
+To offload data to cloud storge, you need to configure the bucket and credentials for the cloud storage service on the broker. The configured bucket must exist before attempting to offload. Otherwise, the offload operation fails.
+
+To offload data to filesystem, you need to configure some required parameters. FOr details, see [configuration](#configuration).
 
 Pulsar uses multi-part objects to upload the segment data. It is possible that a broker could crash while uploading the data. It is recommended that you add a life cycle rule for your bucket to expire incomplete multi-part upload after a day or two to avoid getting charged for incomplete uploads.
 
@@ -63,9 +65,7 @@ This section describes how to install the filesystem offloader.
 
 ## Prerequisite
 
-- Pulsar: 2.4.2 or later versions
-
-- Hadoop: 3.x.x
+- Pulsar 2.4.2 or later versions
 
 ## Step
 
@@ -131,12 +131,29 @@ Besides, you can also configure the filesystem offloader to run it automatically
 You can configure the filesystem offloader driver in the `broker.conf` or `standalone.conf` configuration file.
 
 - **Required** configurations are as below.
-  
+
+    ::: tabs
+
+    @@@ HDFS
+
     Parameter | Description | Example value
     |---|---|---
     `managedLedgerOffloadDriver` | Offloader driver name, which is case-insensitive. | filesystem
     `fileSystemURI` | Connection address, which is the URI to access the default Hadoop distributed file system. | hdfs://127.0.0.1:9000
     `offloadersDirectory` | Hadoop profile path. The configuration file is stored in the Hadoop profile path. It contains various settings for Hadoop performance tuning. | ../conf/filesystem_offload_core_site.xml
+
+    @@@
+
+    @@@ NFS
+  
+    Parameter | Description | Example value
+    |---|---|---
+    `managedLedgerOffloadDriver` | Offloader driver name, which is case-insensitive. | filesystem
+    `offloadersDirectory` | Offloader directory. The configuration file is stored in the offloader directory. It contains various settings for performance tuning. | ../conf/filesystem_offload_core_site.xml
+
+    @@@
+
+    :::
 
 - **Optional** configurations are as below.
 
@@ -145,43 +162,6 @@ You can configure the filesystem offloader driver in the `broker.conf` or `stand
     `managedLedgerMinLedgerRolloverTimeMinutes`|Minimum time between ledger rollover for a topic. <br><br>**Note**: it is not recommended to set this parameter in the production environment.|2
     `managedLedgerMaxEntriesPerLedger`|Maximum number of entries to append to a ledger before triggering a rollover.<br><br>**Note**: it is not recommended to set this parameter in the production environment.|5000
 
-You can set the following configurations in the _filesystem_offload_core_site.xml_ file.
-
-```
-<property>
-    <name>fs.defaultFS</name>
-    <value></value>
-</property>
-
-<property>
-    <name>hadoop.tmp.dir</name>
-    <value>pulsar</value>
-</property>
-
-<property>
-    <name>io.file.buffer.size</name>
-    <value>4096</value>
-</property>
-
-<property>
-    <name>io.seqfile.compress.blocksize</name>
-    <value>1000000</value>
-</property>
-<property>
-
-    <name>io.seqfile.compression.type</name>
-    <value>BLOCK</value>
-</property>
-
-<property>
-    <name>io.map.index.interval</name>
-    <value>128</value>
-</property>
-```
-
-> **Tip**
->
-> For more information about the Hadoop HDFS, see [here](https://hadoop.apache.org/docs/current/).
 
 ## Run filesystem offloader automatically
 
@@ -386,6 +366,8 @@ managedLedgerMinLedgerRolloverTimeMinutes=1
 managedLedgerMaxEntriesPerLedger=100
 ```
 
+@@@
+
 @@@ NFS
 
 > **Note**
@@ -394,11 +376,11 @@ managedLedgerMaxEntriesPerLedger=100
 
 To offload data to NFS, follow these steps.
 
-## Step1: Install the filesystem offloader
+## Step 1: Install the filesystem offloader
 
 For details, see [installation](#installation).
 
-## Step2: Mont your NFS to your local filesystem
+## Step 2: Mont your NFS to your local filesystem
 
     This example mounts mounts */Users/pulsar_nfs* to */Users/test*.
 
@@ -414,7 +396,6 @@ As indicated in the [configuration](#configuration) section, you need to configu
 
     ```conf
     managedLedgerOffloadDriver=filesystem
-    fileSystemURI=192.168.0.103:/Users/test/Users/pulsar_nfs
     fileSystemProfilePath=../conf/filesystem_offload_core_site.xml
     ```
 
