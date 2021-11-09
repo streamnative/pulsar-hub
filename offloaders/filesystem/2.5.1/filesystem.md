@@ -55,7 +55,7 @@ The tiered storage offloading mechanism takes advantage of this segment oriented
 
 To offload data to cloud storge, you need to configure the bucket and credentials for the cloud storage service on the broker. The configured bucket must exist before attempting to offload. Otherwise, the offload operation fails.
 
-To offload data to filesystem, you need to configure some required parameters. FOr details, see [configuration](#configuration).
+To offload data to filesystem, you need to configure some required parameters. For details, see [configuration](#configuration).
 
 Pulsar uses multi-part objects to upload the segment data. It is possible that a broker could crash while uploading the data. It is recommended that you add a life cycle rule for your bucket to expire incomplete multi-part upload after a day or two to avoid getting charged for incomplete uploads.
 
