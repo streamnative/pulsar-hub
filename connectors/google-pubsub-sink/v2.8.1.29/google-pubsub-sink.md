@@ -27,10 +27,11 @@ The [Google Cloud Pub/Sub](https://cloud.google.com/pubsub) sink connector pulls
 
 # How to get
 
+This section describes how to get the Google Cloud Pub/Sub sink connector.
+
 ::: tabs
 
 @@@ Function Worker
-
 You can get the Google Cloud Pub/Sub sink connector using one of the following methods if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
 
 - Download the NAR package from [the download page](https://github.com/streamnative/pulsar-io-google-pubsub/releases/download/v{{connector:version}}/pulsar-io-google-pubsub-{{connector:version}}.nar).
@@ -57,13 +58,10 @@ To build the Google Cloud Pub/Sub sink connector from the source code, follow th
      ls target
      pulsar-io-google-pubsub-{{connector:version}}.nar
      ```
-
 @@@
 
 @@@ Function Mesh
-
 You can pull the Google Cloud Pub/Sub sink connector Docker image from the [Docker Hub](https://hub.docker.com/r/streamnative/pulsar-io-google-pubsub) if you use [Function Mesh](https://functionmesh.io/docs/connectors/run-connector) to run the connector.
-
 @@@
 
 :::
