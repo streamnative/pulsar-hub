@@ -27,14 +27,15 @@ The [Google Cloud Pub/Sub](https://cloud.google.com/pubsub) source connector fee
 
 # How to get
 
-::: tabs
+This section describes how to build the Google Cloud Pub/Sub source connector.
 
-@@@ Function Worker
+## Work with Function Worker
 
 You can get the Google Cloud Pub/Sub source connector using one of the following methods if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
 
-Download the NAR package of the connector from the [download page](https://github.com/streamnative/pulsar-io-google-pubsub/releases/download/v{{connector:version}}/pulsar-io-google-pubsub-{{connector:version}}.nar).
-Build the connector from the source code.
+- Download the NAR package of the connector from the [download page](https://github.com/streamnative/pulsar-io-google-pubsub/releases/download/v2.8.2.1/pulsar-io-google-pubsub-2.8.2.1.nar).
+
+- Build the connector from the source code.
 
 To build the Google Cloud Pub/Sub source connector from the source code, follow these steps.
 
@@ -54,18 +55,12 @@ To build the Google Cloud Pub/Sub source connector from the source code, follow 
 
      ```bash
      ls target
-     pulsar-io-google-pubsub-{{connector:version}}.nar
+     pulsar-io-google-pubsub-2.8.2.1.nar
      ```
 
-@@@
-
-@@@ Function Mesh
+## Work with Function Mesh
 
 You can pull the Google Cloud Pub/Sub source connector Docker image from [the Docker Hub](https://hub.docker.com/r/streamnative/pulsar-io-google-pubsub) if you use [Function Mesh](https://functionmesh.io/docs/connectors/run-connector) to run the connector.
-
-@@@
-
-:::
 
 # How to configure
 
@@ -93,9 +88,7 @@ Before using the Google Cloud Pub/Sub source connector, you need to configure it
 > 
 > For more information about Google Cloud Pub/Sub API permissions, see [Google Cloud Pub/Sub API permissions: Access control](https://cloud.google.com/pubsub/docs/access-control).
 
-::: tabs
-
-@@@ Function Worker
+## Work with Function Worker
 
 You can create a configuration file (JSON or YAML) to set the properties if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
 
@@ -109,7 +102,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "namespace": "default",
         "name": "google-pubsub-source",
         "topicName": "test-google-pubsub-pulsar",
-        "archive": "connectors/pulsar-io-google-pubsub-{{connector:version}}.nar",
+        "archive": "connectors/pulsar-io-google-pubsub-2.8.2.1.nar",
         "parallelism": 1,
         "configs":
         {
@@ -126,16 +119,14 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
     namespace: default
     name: google-pubsub-source
     topicName: test-google-pubsub-pulsar
-    archive: connectors/pulsar-io-google-pubsub-{{connector:version}}.nar
+    archive: connectors/pulsar-io-google-pubsub-2.8.2.1.nar
     parallelism: 1
     configs:
       pubsubProjectId: pulsar-io-google-pubsub
       pubsubTopicId: test-pubsub-source
     ```
 
-@@@
-
-@@@ Function Mesh
+## Work with Function Mesh
 
 You can create a [CustomResourceDefinitions (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) to create a Google Cloud Pub/Sub source connector. Using CRD makes Function Mesh naturally integrate with the Kubernetes ecosystem. For more information about Pulsar source CRD configurations, see [source CRD configurations](https://functionmesh.io/docs/connectors/io-crd-config/source-crd-config).
 
@@ -147,7 +138,7 @@ kind: Source
 metadata:
   name: google-pubsub-source-sample
 spec:
-  image: streamnative/pulsar-io-google-pubsub:{{connector:version}}
+  image: streamnative/pulsar-io-google-pubsub:2.8.2.1
   className: org.apache.pulsar.ecosystem.io.pubsub.PubsubSource
   replicas: 1
   maxReplicas: 1
@@ -168,13 +159,9 @@ spec:
       cpu: "0.1"
       memory: 1G
   java:
-    jar: connectors/pulsar-io-google-pubsub-{{connector:version}}.nar
+    jar: connectors/pulsar-io-google-pubsub-2.8.2.1.nar
   clusterName: test-pulsar
 ```
-
-@@@
-
-:::
 
 # How to use
 
@@ -221,7 +208,7 @@ This example describes how to use the Google Cloud Pub/Sub source connector to f
 2. Copy the NAR package to the Pulsar connectors directory.
 
     ```
-    cp pulsar-io-google-pubsub-{{connector:version}}.nar PULSAR_HOME/connectors/pulsar-io-google-pubsub-{{connector:version}}.nar
+    cp pulsar-io-google-pubsub-2.8.2.1.nar PULSAR_HOME/connectors/pulsar-io-google-pubsub-2.8.2.1.nar
     ```
 
 3. Start Pulsar in standalone mode.
@@ -260,7 +247,7 @@ This example explains how to create a Google Cloud Pub/Sub source connector in a
 1. Copy the NAR package of the Google Cloud Pub/Sub connector to the Pulsar connectors directory.
 
     ```
-    cp pulsar-io-google-pubsub-{{connector:version}}.nar $PULSAR_HOME/connectors/pulsar-io-google-pubsub-{{connector:version}}.nar
+    cp pulsar-io-google-pubsub-2.8.2.1.nar $PULSAR_HOME/connectors/pulsar-io-google-pubsub-2.8.2.1.nar
     ```
 
 2. Reload all [built-in connectors](https://pulsar.apache.org/docs/en/next/io-connectors/).
@@ -312,7 +299,7 @@ This example describes how to create a Google Cloud Pub/Sub source connector for
     metadata:
       name: google-pubsub-source-sample
     spec:
-      image: streamnative/pulsar-io-google-pubsub:{{connector:version}}
+      image: streamnative/pulsar-io-google-pubsub:2.8.2.1
       className: org.apache.pulsar.ecosystem.io.pubsub.PubsubSource
       replicas: 1
       maxReplicas: 1
@@ -333,7 +320,7 @@ This example describes how to create a Google Cloud Pub/Sub source connector for
           cpu: "0.1"
           memory: 1G
       java:
-        jar: connectors/pulsar-io-google-pubsub-{{connector:version}}.nar
+        jar: connectors/pulsar-io-google-pubsub-2.8.2.1.nar
       clusterName: test-pulsar
     ```
 
