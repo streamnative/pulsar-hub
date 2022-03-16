@@ -24,5 +24,3 @@ id: "pulsar-spark"
 Pulsar Spark Connector is an integration of [Apache Pulsar](https://pulsar.apache.org/en/) and [Apache Spark](https://spark.apache.org/) (data processing engine), which allows Spark reading data from Pulsar and writing data to Pulsar using Spark structured streaming and Spark SQL and provides exactly-once source semantics and at-least-once sink semantics.
 
 ![](/images/data-processing/pulsar-spark-connector.png)
-
-For more information about how to use Pulsar Spark Connector, see [here](https://streamnative.io/docs/v1.0.0/process/pulsar-spark-connector/link/).
