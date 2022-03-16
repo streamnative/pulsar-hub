@@ -11,7 +11,7 @@ tags: ["Pulsar", "Spark", "Connector"]
 alias: Pulsar Spark Connector
 features: ["Pulsar Spark Connector allows Spark reading data from Pulsar and writing data to Pulsar"]
 icon: "/images/data-processing/spark-logo.png"
-download: "https://bintray.com/streamnative/maven/io.streamnative.pulsar-spark/2.4.5"
+download: "https://github.com/streamnative/pulsar-spark/releases/tag/release-2.4.5"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
