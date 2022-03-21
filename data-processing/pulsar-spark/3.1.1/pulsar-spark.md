@@ -72,7 +72,7 @@ are loaded to a `value` column with the corresponding Pulsar schema type.
 `allowDifferentTopicSchemas` to `true` allows the Pulsar Spark source to read this content in a raw form. In this case, it is the responsibility of the pipeline to apply the schema
 on this content, which is loaded to the `value` column. 
 
-Besides, each row in the Pulsar Spark source has the following metadata fields.
+In addition to the above points, each row in the Pulsar Spark source has the following metadata fields.
 
 | Column | Type |
 | --- | --- |
