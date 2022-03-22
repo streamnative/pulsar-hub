@@ -31,13 +31,13 @@ This illustration shows how the Pulsar Spark source connector transfers data fro
 
 ![](/images/data-processing/pulsar-spark-how-it-works-1.png)
 
-As you can see from the above illustration, each Pulsar topic partition is mapped into a `PulsarSourceRDD` partition. When a Spark job executes a new microbatch, the Pulsar Spark connector requests new data from Pulsar for each `PulsarSourceRDD` partition. In the Spark cluster, the data request tasks are assigned to available executors. All the available data for each partition since last consumption are read from the Pulsar topic partition. And the Spark continuously creates new microbatches in a user-defined triggering interval and processes the fetched data accordingly. This process repeats until the Spark job is canceled. Once the data is fetched, you can do any operations, including shuffling.
+As you can see from the above illustration, each Pulsar topic partition is mapped into a `PulsarSourceRDD` partition. When a Spark job executes a new microbatch, the Pulsar Spark connector requests new data from Pulsar for each `PulsarSourceRDD` partition. In the Spark cluster, the data request tasks are assigned to available executors. All of the available data for each partition since the last consumption are read from the Pulsar topic partition. And, the Spark job continuously creates new microbatches in a user-defined triggering interval and processes the fetched data accordingly. This process repeats until the Spark job is canceled. Once the data is fetched, you can do any operations, including shuffling.
 
-Once a microbatch is successfully delivered, the offset is committed. Therefore, the next microbatch starts with newly incoming data since the last offset.
+After a microbatch, the offset is committed. Therefore, the next microbatch starts with newly incoming data since the last offset.
 
 For failure recovery, the offsets of each partition are stored into the Spark’s checkpoint. And each time a Spark job is launched, it first tries to restore reading offsets from the state store. If there are offsets saved for this job, the Spark job reads data from the saved offsets. Otherwise, the Spark job reads data from a user-defined position of the topic.
 
-The whole life-cycle of a structured streaming job looks as follows. As time goes by, each interval yields a new microbatch of data that is then processed by the Spark job.
+The whole life-cycle of a structured streaming job is illustrated in the figure below. As time goes by, each interval yields a new microbatch of data that is then processed by the Spark job.
 
 ![](/images/data-processing/pulsar-spark-how-it-works-2.png)
 
@@ -220,8 +220,8 @@ df.selectExpr("CAST(__key AS STRING)", "CAST(value AS STRING)")
 
 You can use one of the following methods to use the Pulsar Spark connector and you need to configure it before using the connector.
 
-- [Client library](#client-library): you can use all features of Pulsar Spark connector (Java and Scala). 
-- [CLI](#cli): you can use all features of Pulsar Spark connector in interactive mode (Scala).
+- [Client library](#client-library): you can use all the features of Pulsar Spark connector (Java and Scala). 
+- [CLI](#cli): you can use all the features of Pulsar Spark connector in interactive mode (Scala).
 
 ## Client library
 
@@ -446,6 +446,6 @@ producer.newMessage().key(__key).value(avro_encoded_fields).eventTime(__eventTim
     .save()
   ```
 
-> **LImitations**
+> **Limitations**
 >
 > Currently, we provide at-least-once semantics. Therefore, when writing either streaming queries or batch queries to Pulsar, some records may be duplicated. A possible solution to remove duplicates could be to introduce a primary (unique) key that can be used to perform deduplication when reading data.
