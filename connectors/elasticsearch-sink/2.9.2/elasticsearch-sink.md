@@ -1,14 +1,14 @@
 ---
-description: The ElasticSearch sink connector pulls messages from Pulsar topics and persists the messages to indexes
+description: The Elasticsearch sink connector pulls messages from Pulsar topics and persists the messages to indexes
 author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
 source: "https://github.com/apache/pulsar/tree/v2.9.2/pulsar-io/elastic-search"
 license: Apache License 2.0
-tags: ["Pulsar IO", "ElasticSearch", "Sink"]
+tags: ["Pulsar IO", "Elasticsearch", "Sink"]
 alias: Elasticsearch Sink Connector
-features: ["Use ElasticSearch sink connector to sync data from Pulsar"]
+features: ["Use Elasticsearch sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/elasticsearch.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.9.2/connectors/pulsar-io-elastic-search-2.9.2.nar"
