@@ -183,7 +183,7 @@ This example describes how to use the Elasticsearch sink connector to pull messa
 
 #### Prerequisites
 
-- Install [Docker](https://docs.docker.com/get-docker/)(Community Edition). 
+- Install [Docker](https://docs.docker.com/get-docker/) (Community Edition). 
 
 #### Steps
 
