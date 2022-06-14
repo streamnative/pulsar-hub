@@ -4,18 +4,18 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: ""
+source: "https://github.com/streamnative/pulsar-io-lakehouse/tree/v2.8.3.4/src/main/java/org/apache/pulsar/ecosystem/io/lakehouse"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Lakehouse", "Source"]
 alias: Lakehouse Source
 features: ["Use Lakehouse source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/streamnative.png"
-download: ""
+icon: "/images/connectors/lakehouse-logo.png"
+download: "https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v2.8.3.4/pulsar-io-lakehouse-2.8.3.4.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
-dockerfile: ""
+dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-lakehouse"
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
 id: "lakehouse-source"
@@ -23,7 +23,7 @@ id: "lakehouse-source"
 
 The Lakehouse source connector (currently only including the [Delta Lake](https://delta.io/) source connector) fetches the Lakehouse table's changelog and saves changelogs into a Pulsar topic.
 
-![](/images/connectors/lakehouse-source.png)
+![](/docs/lakehouse-source.png)
 
 # How to get
 
@@ -34,7 +34,7 @@ You can get the Lakehouse source connector using one of the following methods:
 - Download the NAR package from [the download page](https://github.com/streamnative/pulsar-io-lakehouse/releases).
 - Build it from the source code.
 
-To build the Lakehouse source connector from the source code, follow these steps.◊
+To build the Lakehouse source connector from the source code, follow these steps.
 
 1. Clone the source code to your machine.
 
@@ -158,6 +158,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 ## Data format types
 
 Currently, The Lakehouse source connector only supports reading Delta table changelogs, which adopt a `parquet` storage format.
+
 
 # How to use
 
