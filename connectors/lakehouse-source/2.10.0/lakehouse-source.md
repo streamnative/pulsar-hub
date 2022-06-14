@@ -4,14 +4,14 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-lakehouse/tree/v2.9.1.2/src/main/java/org/apache/pulsar/ecosystem/io/pubsub"
+source: "https://github.com/streamnative/pulsar-io-lakehouse/tree/v2.10.0.5/src/main/java/org/apache/pulsar/ecosystem/io/lakehouse"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Lakehouse", "Source"]
 alias: Lakehouse Source
 features: ["Use Lakehouse source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/lakehouse-logo.png"
-download: "https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v2.9.1.2/pulsar-io-lakehouse-2.9.1.2.nar"
+download: "https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v2.10.0.5/pulsar-io-lakehouse-2.10.0.5.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
@@ -104,24 +104,24 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
 ```json
 {
-    "tenant":"public",
-    "namespace":"default",
-    "name":"delta_source",
-    "parallelism":1,
-    "topicName": "delta_source",
-    "processingGuarantees":"ATLEAST_ONCE",
-    "archive": "connectors/pulsar-io-lakehouse-{{connector:version}}.nar",
-    "configs":{
-        "type":"delta",
-        "checkpointInterval": 180,
-        "queueSize": 10000,
-        "fatchHistoryData": false,
-        "startSnapshotVersion": -1,
-        "tablePath": "file:///tmp/data/delta-source",
-        "parquetParseThreads": 3,
-        "maxReadBytesSizeOneRound": 134217728,
-        "maxReadRowCountOneRound": 100000
-    }
+  "tenant":"public",
+  "namespace":"default",
+  "name":"delta_source",
+  "parallelism":1,
+  "topicName": "delta_source",
+  "processingGuarantees":"ATLEAST_ONCE",
+  "archive": "connectors/pulsar-io-lakehouse-{{connector:version}}.nar",
+  "configs":{
+    "type":"delta",
+    "checkpointInterval": 180,
+    "queueSize": 10000,
+    "fatchHistoryData": false,
+    "startSnapshotVersion": -1,
+    "tablePath": "file:///tmp/data/delta-source",
+    "parquetParseThreads": 3,
+    "maxReadBytesSizeOneRound": 134217728,
+    "maxReadRowCountOneRound": 100000
+  }
 }
 ```
 
@@ -129,25 +129,25 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
 ```json
 {
-    "tenant":"public",
-    "namespace":"default",
-    "name":"delta_source",
-    "parallelism":1,
-    "topicName": "delta_source",
-    "processingGuarantees":"ATLEAST_ONCE",
-    "archive": "connectors/pulsar-io-lakehouse-{{connector:version}}.nar",
-    "configs":{
-        "type":"delta",
-        "checkpointInterval": 180,
-        "queueSize": 10000,
-        "fatchHistoryData": false,
-        "startSnapshotVersion": -1,
-        "tablePath": "s3a://test-dev-us-west-2/lakehouse/delta_source",
-        "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
-        "parquetParseThreads": 3,
-        "maxReadBytesSizeOneRound": 134217728,
-        "maxReadRowCountOneRound": 100000
-    }
+  "tenant":"public",
+  "namespace":"default",
+  "name":"delta_source",
+  "parallelism":1,
+  "topicName": "delta_source",
+  "processingGuarantees":"ATLEAST_ONCE",
+  "archive": "connectors/pulsar-io-lakehouse-{{connector:version}}.nar",
+  "configs":{
+    "type":"delta",
+    "checkpointInterval": 180,
+    "queueSize": 10000,
+    "fatchHistoryData": false,
+    "startSnapshotVersion": -1,
+    "tablePath": "s3a://test-dev-us-west-2/lakehouse/delta_source",
+    "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
+    "parquetParseThreads": 3,
+    "maxReadBytesSizeOneRound": 134217728,
+    "maxReadRowCountOneRound": 100000
+  }
 }
 ```
 
