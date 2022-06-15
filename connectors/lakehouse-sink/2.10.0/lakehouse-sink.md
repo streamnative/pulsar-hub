@@ -23,7 +23,7 @@ id: "lakehouse-sink"
 
 The Lakehouse sink connector (including the [Hudi](https://hudi.apache.org), [Iceberg](https://iceberg.apache.org/), and [Delta Lake](https://delta.io/) sink connectors) fetches data from a Pulsar topic and saves data to the Lakehouse tables.
 
-![](/docs/lakehouse-sink.png)
+![](/images/connectors/lakehouse-sink.png)
 
 # How to get
 
