@@ -4,14 +4,14 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-lakehouse/tree/v2.9.2.20/src/main/java/org/apache/pulsar/ecosystem/io/lakehouse"
+source: "https://github.com/streamnative/pulsar-io-lakehouse/tree/v2.9.2.22/src/main/java/org/apache/pulsar/ecosystem/io/lakehouse"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Lakehouse", "Sink"]
 alias: Lakehouse Sink
 features: ["Use Lakehouse sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/streamnative.png"
-download: "https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v2.9.2.20/pulsar-io-lakehouse-2.9.2.20.nar"
+download: "https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v2.9.2.22/pulsar-io-lakehouse-2.9.2.22.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
