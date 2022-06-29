@@ -415,3 +415,15 @@ This example explains how to create a Lakehouse sink connector in an on-premises
 @@@
 
 :::
+
+# Demos
+
+This table lists demos that show how to run the [Delta Lake](https://delta.io/), [Hudi](https://hudi.apache.org), and [Iceberg](https://iceberg.apache.org/) sink connectors with other external systems.
+
+Currently, only the demo on the Delta Lake sink connector is available. 
+
+| Connector  | Link                                                                                                                             |
+|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Delta Lake | For details, see the [Delta Lake demo](https://github.com/streamnative/pulsar-io-lakehouse/blob/master/docs/delta-lake-demo.md). |
+| Hudi       |                                                                                                                                  |
+| Iceberg    |                                                                                                                                  |
