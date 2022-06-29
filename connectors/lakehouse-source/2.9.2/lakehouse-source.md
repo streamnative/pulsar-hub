@@ -84,21 +84,9 @@ Before using the Lakehouse source connector, you need to configure it. This tabl
 | `maxReadBytesSizeOneRound` | long | false | Total memory * 0.2	| The maximum read bytes size from Parquet files in one fetch round. By default, it is set to 20% of the heap memory. |
 | `maxReadRowCountOneRound` | int | false | 100_000 | The maximum read number of rows processed in one round. By default, it is set to `1_000_000`. |
 
-@@@
-
-:::
-
-> **Note**
->
-> The Lakehouse source connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
-
 You can create a configuration file (JSON or YAML) to set the properties if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
 
 **Example**
-
-::: tabs
-
-@@@ Delta Lake
 
 - The Delta table that is stored in the file system
 
@@ -154,6 +142,10 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 @@@
 
 :::
+
+> **Note**
+>
+> The Lakehouse source connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
 
 ## Data format types
 
