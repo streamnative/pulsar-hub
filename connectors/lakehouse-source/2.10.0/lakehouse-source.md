@@ -70,7 +70,6 @@ Before using the Lakehouse source connector, you need to configure it. This tabl
 ::: tabs
 
 @@@ Delta Lake
-
 | Name                                 | Type     | Required | Default | Description
 |--------------------------------------|----------|----------|---|-------------------------------------------------------------|
 | `type` | String | true | N/A | The type of the Lakehouse source connector. Available values: `delta`. |
@@ -138,7 +137,6 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
   }
 }
 ```
-
 @@@
 
 :::
@@ -159,7 +157,6 @@ You can use the Lakehouse source connector with Function Worker. You can use the
 ::: tabs
 
 @@@ Use it as a non built-in connector
-
 If you already have a Pulsar cluster, you can use the Lakehouse source connector as a non built-in connector directly.
 
 This example shows how to create a Lakehouse source connector on a Pulsar cluster using the [`pulsar-admin sources create`](https://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--14) command.
@@ -168,11 +165,9 @@ This example shows how to create a Lakehouse source connector on a Pulsar cluste
 PULSAR_HOME/bin/pulsar-admin sources create \
 --source-config-file <lakehouse-source-config.yaml>
 ```
-
 @@@
 
 @@@ Use it as a built-in connector
-
 You can make the Lakehouse source connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
 ## Standalone cluster
@@ -240,7 +235,6 @@ This example explains how to create a Lakehouse source connector in an on-premis
     PULSAR_HOME/bin/pulsar-admin sources create \
     --source-config-file <lakehouse-source-config.yaml>
     ```
-
 @@@
 
 :::

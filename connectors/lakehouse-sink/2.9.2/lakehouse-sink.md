@@ -70,7 +70,6 @@ Before using the Lakehouse sink connector, you need to configure it. This table 
 ::: tabs
 
 @@@ Hudi
-
 For a list of Hudi configurations, see [Write Client Configs](https://hudi.apache.org/docs/configurations#WRITE_CLIENT).
 
 | Name                                 | Type     | Required | Default | Description
@@ -138,11 +137,9 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
       }
     }
     ```
-
 @@@
 
 @@@ Iceberg
-
 | Name                                 | Type     | Required | Default | Description                                                 
 |--------------------------------------|----------|----------|---|-------------------------------------------------------------|
 | `type` | String | true | N/A | The type of the Lakehouse source connector. Available values: `hudi`, `iceberg`, and `delta`.         |
@@ -218,11 +215,9 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
       }
     }
     ```
-
 @@@
 
 @@@ Delta Lake
-
 | Name                                 | Type     | Required | Default | Description                                                 
 |--------------------------------------|----------|----------|---|-------------------------------------------------------------|
 | `type` | String | true | N/A | The type of the Lakehouse source connector. Available values: `hudi`, `iceberg`, and `delta`.         |
@@ -285,7 +280,6 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
       }
     }
     ```
-
 @@@
 
 :::
@@ -320,7 +314,6 @@ You can use the Lakehouse sink connector with Function Worker. You can use the L
 ::: tabs
 
 @@@ Use it as a non built-in connector
-
 If you already have a Pulsar cluster, you can use the Lakehouse sink connector as a non built-in connector directly.
 
 This example shows how to create a Lakehouse sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](http://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--24) command.
@@ -329,11 +322,9 @@ This example shows how to create a Lakehouse sink connector on a Pulsar cluster 
 PULSAR_HOME/bin/pulsar-admin sinks create \
 --sink-config-file <lakehouse-sink-config.yaml>
 ```
-
 @@@
 
 @@@ Use it as a built-in connector
-
 You can make the Lakehouse sink connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
 ## Standalone cluster
@@ -403,7 +394,6 @@ This example explains how to create a Lakehouse sink connector in an on-premises
     PULSAR_HOME/bin/pulsar-admin sinks create \
     --sink-config-file <lakehouse-sink-config.yaml>
     ```
-
 @@@
 
 :::
