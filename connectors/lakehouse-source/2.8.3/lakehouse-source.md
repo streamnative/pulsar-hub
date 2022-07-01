@@ -80,7 +80,7 @@ Before using the Lakehouse source connector, you need to configure it. This tabl
 | `startTimestamp` | long | false | N/A | The Delta snapshot timestamp (in units of seconds) to start capturing data change. The `startSnapshotVersion` and `startTimestamp` are mutually exclusive. |
 | `tablePath` | String | true | N/A | The path of the Delta table. |
 | `parquetParseThreads` | int | false | Runtime.getRuntime().availableProcessors() | The parallelism of paring Delta Parquet files. By default, it is set to `Runtime.getRuntime().availableProcessors()`. |
-| `maxReadBytesSizeOneRound` | long | false | Total memory * 0.2	| The maximum read bytes size from Parquet files in one fetch round. By default, it is set to 20% of the heap memory. |
+| `maxReadBytesSizeOneRound` | long | false | Total memory * 0.2 | The maximum read bytes size from Parquet files in one fetch round. By default, it is set to 20% of the heap memory. |
 | `maxReadRowCountOneRound` | int | false | 100_000 | The maximum read number of rows processed in one round. By default, it is set to `1_000_000`. |
 @@@
 
