@@ -86,10 +86,54 @@ For a list of Hudi configurations, see [Write Client Configs](https://hudi.apach
 | `hoodie.base.path`                   | String   | true     | N/A | The base path of the lake storage where all table data is stored. It always has a specific prefix with the storage scheme (for example, hdfs://, s3:// etc). Hudi stores all the main metadata about commits, savepoints, cleaning audit logs etc in the `.hoodie` directory. |
 | `hoodie.datasource.write.recordkey.field` | String | false     | UUID | The record key field. It is used as the `recordKey` component of `HoodieKey`. You can obtain the value by invoking `.toString()` on the field value. You can use the dot notation for nested fields such as a.b.c. |
 | `hoodie.datasource.write.partitionpath.field` | String   | true     | N/A | The partition path field. It is used as the `partitionPath` component of the `HoodieKey`.  You can obtain the value by invoking `.toString()`. |
+@@@
+
+@@@ Iceberg
+| Name                                 | Type     | Required | Default | Description                                                 
+|--------------------------------------|----------|----------|---|-------------------------------------------------------------|
+| `type` | String | true | N/A | The type of the Lakehouse source connector. Available values: `hudi`, `iceberg`, and `delta`.         |
+| `maxCommitInterval` | Integer | false | 120 | The maximum flush interval (in units of seconds) for each batch. By default, it is set to 120s.                            |
+| `maxRecordsPerCommit` | Integer | false | 10_000_000 | The maximum number of records for each batch to commit. By default, it is set to `10_000_000`.                       |
+| `maxCommitFailedTimes` | Integer | false | 5 | The maximum commit failure times until failing the process. By default, it is set to `5`.                            |
+| `sinkConnectorQueueSize` | Integer | false | 10_000 | The maximum queue size of the Lakehouse sink connector to buffer records before writing to Lakehouse tables. |
+| `partitionColumns` | List<String> | false | Collections.empytList() | The partition columns for Lakehouse tables. |                                                   |
+| `processingGuarantees` | Int | true | " " (empty string) | The processing guarantees. Currently the Lakehouse connector only supports `EFFECTIVELY_ONCE`. |
+| `catalogProperties` | Map<String, String> | true | N/A |  The properties of the Iceberg catalog. For details, see  [Iceberg catalog properties](https://iceberg.apache.org/docs/latest/configuration/#catalog-properties). `catalog-impl` and `warehouse` configurations are required. Currently, Iceberg catalogs only support `hadoopCatalog` and `hiveCatalog`. |
+| `tableProperties` | Map<String, String> | false | N/A | The properties of the Iceberg table. For details, see [Iceberg  table properties](https://iceberg.apache.org/docs/latest/configuration/#table-properties). |
+| `catalogName` | String | false | icebergSinkConnector | The name of the Iceberg catalog. |
+| `tableNamespace` | String | true | N/A | The namespace of the Iceberg table. |
+| `tableName` | String | true | N/A | The name of the Iceberg table. |
+@@@
+
+@@@ Delta Lake
+| Name                                 | Type     | Required | Default | Description                                                 
+|--------------------------------------|----------|----------|---|-------------------------------------------------------------|
+| `type` | String | true | N/A | The type of the Lakehouse source connector. Available values: `hudi`, `iceberg`, and `delta`.         |
+| `maxCommitInterval` | Integer | false | 120 | The maximum flush interval (in units of seconds) for each batch. By default, it is set to 120s.                            |
+| `maxRecordsPerCommit` | Integer | false | 10_000_000 | The maximum number of records for each batch to commit. By default, it is set to `10_000_000`.                       |
+| `maxCommitFailedTimes` | Integer | false | 5 | The maximum commit failure times until failing the process. By default, it is set to `5`.                            |
+| `sinkConnectorQueueSize` | Integer | false | 10_000 | The maximum queue size of the Lakehouse sink connector to buffer records before writing to Lakehouse tables. |
+| `partitionColumns` | List<String> | false | Collections.empytList() | The partition columns for Lakehouse tables. |                                                   |
+| `processingGuarantees` | Int | true | " " (empty string) | The processing guarantees. Currently the Lakehouse connector only supports `EFFECTIVELY_ONCE`. |
+| `tablePath` | String | true | N/A | The path of the Delta table. |
+| `compression` | String | false | SNAPPY | The compression type of the Delta Parquet file. compression type. By default, it is set to `SNAPPY`. |
+| `deltaFileType` | String | false | parquet | The type of the Delta file. By default, it is set to `parquet`. |
+| `appId` | String | false | pulsar-delta-sink-connector | The Delta APP ID. By default, it is set to `pulsar-delta-sink-connector`. |
+@@@
+
+:::
+
+> **Note**
+>
+> The Lakehouse sink connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
+
+## Examples
 
 You can create a configuration file (JSON or YAML) to set the properties if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
 
-**Example**
+::: tabs
+
+@@@ Hudi
 
 - The Hudi table that is stored in the file system
 
@@ -140,25 +184,6 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 @@@
 
 @@@ Iceberg
-| Name                                 | Type     | Required | Default | Description                                                 
-|--------------------------------------|----------|----------|---|-------------------------------------------------------------|
-| `type` | String | true | N/A | The type of the Lakehouse source connector. Available values: `hudi`, `iceberg`, and `delta`.         |
-| `maxCommitInterval` | Integer | false | 120 | The maximum flush interval (in units of seconds) for each batch. By default, it is set to 120s.                            |
-| `maxRecordsPerCommit` | Integer | false | 10_000_000 | The maximum number of records for each batch to commit. By default, it is set to `10_000_000`.                       |
-| `maxCommitFailedTimes` | Integer | false | 5 | The maximum commit failure times until failing the process. By default, it is set to `5`.                            |
-| `sinkConnectorQueueSize` | Integer | false | 10_000 | The maximum queue size of the Lakehouse sink connector to buffer records before writing to Lakehouse tables. |
-| `partitionColumns` | List<String> | false | Collections.empytList() | The partition columns for Lakehouse tables. |                                                   |
-| `processingGuarantees` | Int | true | " " (empty string) | The processing guarantees. Currently the Lakehouse connector only supports `EFFECTIVELY_ONCE`. |
-| `catalogProperties` | Map<String, String> | true | N/A |  The properties of the Iceberg catalog. For details, see  [Iceberg catalog properties](https://iceberg.apache.org/docs/latest/configuration/#catalog-properties). `catalog-impl` and `warehouse` configurations are required. Currently, Iceberg catalogs only support `hadoopCatalog` and `hiveCatalog`. |
-| `tableProperties` | Map<String, String> | false | N/A | The properties of the Iceberg table. For details, see [Iceberg  table properties](https://iceberg.apache.org/docs/latest/configuration/#table-properties). |
-| `catalogName` | String | false | icebergSinkConnector | The name of the Iceberg catalog. |
-| `tableNamespace` | String | true | N/A | The namespace of the Iceberg table. |
-| `tableName` | String | true | N/A | The name of the Iceberg table. |
-
-You can create a configuration file (JSON or YAML) to set the properties if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
-
-**Example**
-
 - The Iceberg table that is stored in the file system
 
     ```json
@@ -218,24 +243,6 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 @@@
 
 @@@ Delta Lake
-| Name                                 | Type     | Required | Default | Description                                                 
-|--------------------------------------|----------|----------|---|-------------------------------------------------------------|
-| `type` | String | true | N/A | The type of the Lakehouse source connector. Available values: `hudi`, `iceberg`, and `delta`.         |
-| `maxCommitInterval` | Integer | false | 120 | The maximum flush interval (in units of seconds) for each batch. By default, it is set to 120s.                            |
-| `maxRecordsPerCommit` | Integer | false | 10_000_000 | The maximum number of records for each batch to commit. By default, it is set to `10_000_000`.                       |
-| `maxCommitFailedTimes` | Integer | false | 5 | The maximum commit failure times until failing the process. By default, it is set to `5`.                            |
-| `sinkConnectorQueueSize` | Integer | false | 10_000 | The maximum queue size of the Lakehouse sink connector to buffer records before writing to Lakehouse tables. |
-| `partitionColumns` | List<String> | false | Collections.empytList() | The partition columns for Lakehouse tables. |                                                   |
-| `processingGuarantees` | Int | true | " " (empty string) | The processing guarantees. Currently the Lakehouse connector only supports `EFFECTIVELY_ONCE`. |
-| `tablePath` | String | true | N/A | The path of the Delta table. |
-| `compression` | String | false | SNAPPY | The compression type of the Delta Parquet file. compression type. By default, it is set to `SNAPPY`. |
-| `deltaFileType` | String | false | parquet | The type of the Delta file. By default, it is set to `parquet`. |
-| `appId` | String | false | pulsar-delta-sink-connector | The Delta APP ID. By default, it is set to `pulsar-delta-sink-connector`. |
-
-You can create a configuration file (JSON or YAML) to set the properties if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
-
-**Example**
-
 - The Delta table that is stored in the file system
 
     ```json
@@ -283,10 +290,6 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 @@@
 
 :::
-
-> **Note**
->
-> The Lakehouse sink connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
 
 ## Data format types
 
