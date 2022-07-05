@@ -137,50 +137,50 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
 - The Hudi table that is stored in the file system
 
-    ```json
+   ```json
     {
-      "tenant": "public",
-      "namespace": "default",
-      "name": "hudi-sink",
-      "inputs":[
-        "test-hudi-pulsar"
-      ],
-      "archive": "connectors/pulsar-io-hudi-2.10.0.nar",
-      "parallelism": 1,
-      "configs":{
-        "type": "hudi",
-        "hoodie.table.name": "hudi-connector-test",
-        "hoodie.table.type": "COPY_ON_WRITE",
-        "hoodie.base.path": "file:///tmp/data/hudi-sink",
-        "hoodie.datasource.write.recordkey.field": "id",
-        "hoodie.datasource.write.partitionpath.field": "id",
-      }
+        "tenant": "public",
+        "namespace": "default",
+        "name": "hudi-sink",
+        "inputs": [
+          "test-hudi-pulsar"
+        ],
+        "archive": "connectors/pulsar-io-hudi-2.10.0.7.nar",
+        "parallelism": 1,
+        "configs":   {
+            "type": "hudi",
+            "hoodie.table.name": "hudi-connector-test",
+            "hoodie.table.type": "COPY_ON_WRITE",
+            "hoodie.base.path": "file:///tmp/data/hudi-sink",
+            "hoodie.datasource.write.recordkey.field": "id",
+            "hoodie.datasource.write.partitionpath.field": "id",
+        }
     }
-    ```
+   ```
 
 - The Hudi table that is stored in the AWS S3
 
-    ```json
+   ```json
     {
-      "tenant": "public",
-      "namespace": "default",
-      "name": "hudi-sink",
-      "inputs":[
-        "test-hudi-pulsar"
-      ],
-      "archive": "connectors/pulsar-io-hudi-2.10.0.nar",
-      "parallelism": 1,
-      "configs":{
-        "type": "hudi",
-        "hoodie.table.name": "hudi-connector-test",
-        "hoodie.table.type": "COPY_ON_WRITE",
-        "hoodie.base.path": "s3a://bucket/path/to/hudi",
-        "hoodie.datasource.write.recordkey.field": "id",
-        "hoodie.datasource.write.partitionpath.field": "id",
-        "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain"
-      }
+        "tenant": "public",
+        "namespace": "default",
+        "name": "hudi-sink",
+        "inputs": [
+          "test-hudi-pulsar"
+        ],
+        "archive": "connectors/pulsar-io-hudi-2.10.0.7.nar",
+        "parallelism": 1,
+        "configs":   {
+            "type": "hudi",
+            "hoodie.table.name": "hudi-connector-test",
+            "hoodie.table.type": "COPY_ON_WRITE",
+            "hoodie.base.path": "s3a://bucket/path/to/hudi",
+            "hoodie.datasource.write.recordkey.field": "id",
+            "hoodie.datasource.write.partitionpath.field": "id",
+            "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain"
+        }
     }
-    ```
+   ```
 @@@
 
 @@@ Iceberg
@@ -188,27 +188,27 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
     ```json
     {
-      "tenant":"public",
-      "namespace":"default",
-      "name":"iceberg_sink",
-      "parallelism":2,
-      "inputs":[
-        "test-iceberg-pulsar"
-      ],
-      "archive": "connectors/pulsar-io-lakehouse-2.10.0.nar",
-      "processingGuarantees":"EFFECTIVELY_ONCE",
-      "configs":{
-        "type":"iceberg",
-        "maxCommitInterval":120,
-        "maxRecordsPerCommit":10000000,
-        "catalogName":"test_v1",
-        "tableNamespace":"iceberg_sink_test",
-        "tableName":"ice_sink_person",
-        "catalogProperties":{
-          "warehouse":"file:///tmp/data/iceberg-sink",
-          "catalog-impl":"hadoopCatalog"
+        "tenant":"public",
+        "namespace":"default",
+        "name":"iceberg_sink",
+        "parallelism":2,
+        "inputs": [
+          "test-iceberg-pulsar"
+        ],
+        "archive": "connectors/pulsar-io-lakehouse-2.10.0.7.nar",
+        "processingGuarantees":"EFFECTIVELY_ONCE",
+        "configs":{
+            "type":"iceberg",
+            "maxCommitInterval":120,
+            "maxRecordsPerCommit":10000000,
+            "catalogName":"test_v1",
+            "tableNamespace":"iceberg_sink_test",
+            "tableName":"ice_sink_person",
+            "catalogProperties":{
+                "warehouse":"file:///tmp/data/iceberg-sink",
+                "catalog-impl":"hadoopCatalog"
+            }
         }
-      }
     }
     ```
 
@@ -216,28 +216,28 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
     ```json
     {
-      "tenant":"public",
-      "namespace":"default",
-      "name":"iceberg_sink",
-      "parallelism":2,
-      "inputs":[
-        "test-iceberg-pulsar"
-      ],
-      "archive": "connectors/pulsar-io-lakehouse-2.10.0.nar",
-      "processingGuarantees":"EFFECTIVELY_ONCE",
-      "configs":{
-        "type":"iceberg",
-        "maxCommitInterval":120,
-        "maxRecordsPerCommit":10000000,
-        "catalogName":"test_v1",
-        "tableNamespace":"iceberg_sink_test",
-        "tableName":"ice_sink_person",
-        "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
-        "catalogProperties":{
-          "warehouse":"s3a://test-dev-us-west-2/lakehouse/iceberg_sink",
-          "catalog-impl":"hadoopCatalog"
+        "tenant":"public",
+        "namespace":"default",
+        "name":"iceberg_sink",
+        "parallelism":2,
+        "inputs": [
+          "test-iceberg-pulsar"
+        ],
+        "archive": "connectors/pulsar-io-lakehouse-2.10.0.7.nar",
+        "processingGuarantees":"EFFECTIVELY_ONCE",
+        "configs":{
+            "type":"iceberg",
+            "maxCommitInterval":120,
+            "maxRecordsPerCommit":10000000,
+            "catalogName":"test_v1",
+            "tableNamespace":"iceberg_sink_test",
+            "tableName":"ice_sink_person",
+            "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
+            "catalogProperties":{
+                "warehouse":"s3a://test-dev-us-west-2/lakehouse/iceberg_sink",
+                "catalog-impl":"hadoopCatalog"
+            }
         }
-      }
     }
     ```
 @@@
@@ -247,21 +247,21 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
     ```json
     {
-      "tenant":"public",
-      "namespace":"default",
-      "name":"delta_sink",
-      "parallelism":1,
-      "inputs":[
-        "test-delta-pulsar"
-      ],
-      "archive": "connectors/pulsar-io-lakehouse-2.10.0.nar",
-      "processingGuarantees":"EFFECTIVELY_ONCE",
-      "configs":{
-        "type":"delta",
-        "maxCommitInterval":120,
-        "maxRecordsPerCommit":10000000,
-        "tablePath": "file:///tmp/data/delta-sink"
-      }
+        "tenant":"public",
+        "namespace":"default",
+        "name":"delta_sink",
+        "parallelism":1,
+        "inputs": [
+          "test-delta-pulsar"
+        ],
+        "archive": "connectors/pulsar-io-lakehouse-2.10.0.7.nar",
+        "processingGuarantees":"EFFECTIVELY_ONCE",
+        "configs":{
+            "type":"delta",
+            "maxCommitInterval":120,
+            "maxRecordsPerCommit":10000000,
+            "tablePath": "file:///tmp/data/delta-sink"
+        }
     }
     ```
 
@@ -269,22 +269,22 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
     ```json
     {
-      "tenant":"public",
-      "namespace":"default",
-      "name":"delta_sink",
-      "parallelism":1,
-      "inputs":[
-        "test-delta-pulsar"
-      ],
-      "archive": "connectors/pulsar-io-lakehouse-2.10.0.nar",
-      "processingGuarantees":"EFFECTIVELY_ONCE",
-      "configs":{
-        "type":"delta",
-        "maxCommitInterval":120,
-        "maxRecordsPerCommit":10000000,
-        "tablePath":"s3a://test-dev-us-west-2/lakehouse/delta_sink",
-        "hadoop.fs.s3a.aws.credentials.provider":"com.amazonaws.auth.DefaultAWSCredentialsProviderChain"
-      }
+        "tenant":"public",
+        "namespace":"default",
+        "name":"delta_sink",
+        "parallelism":1,
+        "inputs": [
+          "test-delta-pulsar"
+        ],
+        "archive": "connectors/pulsar-io-lakehouse-2.10.0.7.nar",
+        "processingGuarantees":"EFFECTIVELY_ONCE",
+        "configs":{
+            "type":"delta",
+            "maxCommitInterval":120,
+            "maxRecordsPerCommit":10000000,
+            "tablePath": "s3a://test-dev-us-west-2/lakehouse/delta_sink",
+            "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain"
+        }
     }
     ```
 @@@
