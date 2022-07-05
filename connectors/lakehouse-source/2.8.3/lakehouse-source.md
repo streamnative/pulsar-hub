@@ -100,54 +100,54 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
 - The Delta table that is stored in the file system
 
-```json
-{
-  "tenant":"public",
-  "namespace":"default",
-  "name":"delta_source",
-  "parallelism":1,
-  "topicName": "delta_source",
-  "processingGuarantees":"ATLEAST_ONCE",
-  "archive": "connectors/pulsar-io-lakehouse-{{connector:version}}.nar",
-  "configs":{
-    "type":"delta",
-    "checkpointInterval": 180,
-    "queueSize": 10000,
-    "fatchHistoryData": false,
-    "startSnapshotVersion": -1,
-    "tablePath": "file:///tmp/data/delta-source",
-    "parquetParseThreads": 3,
-    "maxReadBytesSizeOneRound": 134217728,
-    "maxReadRowCountOneRound": 100000
-  }
-}
-```
+    ```json
+    {
+      "tenant":"public",
+      "namespace":"default",
+      "name":"delta_source",
+      "parallelism":1,
+      "topicName": "delta_source",
+      "processingGuarantees":"ATLEAST_ONCE",
+      "archive": "connectors/pulsar-io-lakehouse-2.8.3.nar",
+      "configs":{
+        "type":"delta",
+        "checkpointInterval": 180,
+        "queueSize": 10000,
+        "fatchHistoryData": false,
+        "startSnapshotVersion": -1,
+        "tablePath": "file:///tmp/data/delta-source",
+        "parquetParseThreads": 3,
+        "maxReadBytesSizeOneRound": 134217728,
+        "maxReadRowCountOneRound": 100000
+      }
+    }
+    ```
 
 - The Delta table that is stored in cloud storage (AWS S3, GCS, or Azure)
 
-```json
-{
-  "tenant":"public",
-  "namespace":"default",
-  "name":"delta_source",
-  "parallelism":1,
-  "topicName": "delta_source",
-  "processingGuarantees":"ATLEAST_ONCE",
-  "archive": "connectors/pulsar-io-lakehouse-{{connector:version}}.nar",
-  "configs":{
-    "type":"delta",
-    "checkpointInterval": 180,
-    "queueSize": 10000,
-    "fatchHistoryData": false,
-    "startSnapshotVersion": -1,
-    "tablePath": "s3a://test-dev-us-west-2/lakehouse/delta_source",
-    "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
-    "parquetParseThreads": 3,
-    "maxReadBytesSizeOneRound": 134217728,
-    "maxReadRowCountOneRound": 100000
-  }
-}
-```
+    ```json
+    {
+      "tenant":"public",
+      "namespace":"default",
+      "name":"delta_source",
+      "parallelism":1,
+      "topicName": "delta_source",
+      "processingGuarantees":"ATLEAST_ONCE",
+      "archive": "connectors/pulsar-io-lakehouse-2.8.3.nar",
+      "configs":{
+        "type":"delta",
+        "checkpointInterval": 180,
+        "queueSize": 10000,
+        "fatchHistoryData": false,
+        "startSnapshotVersion": -1,
+        "tablePath": "s3a://test-dev-us-west-2/lakehouse/delta_source",
+        "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
+        "parquetParseThreads": 3,
+        "maxReadBytesSizeOneRound": 134217728,
+        "maxReadRowCountOneRound": 100000
+      }
+    }
+    ```
 @@@
 
 :::
