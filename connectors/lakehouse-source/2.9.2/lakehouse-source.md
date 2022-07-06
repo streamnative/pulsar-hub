@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Lakehouse", "Source"]
 alias: Lakehouse Source
 features: ["Use Lakehouse source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/streamnative.png"
+icon: "/images/pulsar-hub.svg"
 download: "https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v2.9.2.22/pulsar-io-lakehouse-2.9.2.22.nar"
 support: StreamNative
 support_link: https://streamnative.io
@@ -60,7 +60,7 @@ To build the Lakehouse source connector from the source code, follow these steps
 
    ```bash
    ls target
-   pulsar-io-lakehouse-{{connector:version}}.nar
+   pulsar-io-lakehouse-2.9.2.22.nar
    ```
 
 # How to configure
@@ -70,7 +70,6 @@ Before using the Lakehouse source connector, you need to configure it. This tabl
 ::: tabs
 
 @@@ Delta Lake
-
 | Name                                 | Type     | Required | Default | Description
 |--------------------------------------|----------|----------|---|-------------------------------------------------------------|
 | `type` | String | true | N/A | The type of the Lakehouse source connector. Available values: `delta`. |
@@ -81,9 +80,8 @@ Before using the Lakehouse source connector, you need to configure it. This tabl
 | `startTimestamp` | long | false | N/A | The Delta snapshot timestamp (in units of seconds) to start capturing data change. The `startSnapshotVersion` and `startTimestamp` are mutually exclusive. |
 | `tablePath` | String | true | N/A | The path of the Delta table. |
 | `parquetParseThreads` | int | false | Runtime.getRuntime().availableProcessors() | The parallelism of paring Delta Parquet files. By default, it is set to `Runtime.getRuntime().availableProcessors()`. |
-| `maxReadBytesSizeOneRound` | long | false | Total memory * 0.2	| The maximum read bytes size from Parquet files in one fetch round. By default, it is set to 20% of the heap memory. |
+| `maxReadBytesSizeOneRound` | long | false | Total memory * 0.2 | The maximum read bytes size from Parquet files in one fetch round. By default, it is set to 20% of the heap memory. |
 | `maxReadRowCountOneRound` | int | false | 100_000 | The maximum read number of rows processed in one round. By default, it is set to `1_000_000`. |
-
 @@@
 
 :::
@@ -92,9 +90,9 @@ Before using the Lakehouse source connector, you need to configure it. This tabl
 >
 > The Lakehouse source connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
 
-You can create a configuration file (JSON or YAML) to set the properties if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
+## Examples
 
-**Example**
+You can create a configuration file (JSON or YAML) to set the properties if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
 
 ::: tabs
 
@@ -102,55 +100,54 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
 - The Delta table that is stored in the file system
 
-```json
-{
-  "tenant":"public",
-  "namespace":"default",
-  "name":"delta_source",
-  "parallelism":1,
-  "topicName": "delta_source",
-  "processingGuarantees":"ATLEAST_ONCE",
-  "archive": "connectors/pulsar-io-lakehouse-{{connector:version}}.nar",
-  "configs":{
-    "type":"delta",
-    "checkpointInterval": 180,
-    "queueSize": 10000,
-    "fatchHistoryData": false,
-    "startSnapshotVersion": -1,
-    "tablePath": "file:///tmp/data/delta-source",
-    "parquetParseThreads": 3,
-    "maxReadBytesSizeOneRound": 134217728,
-    "maxReadRowCountOneRound": 100000
-  }
-}
-```
+    ```json
+    {
+        "tenant":"public",
+        "namespace":"default",
+        "name":"delta_source",
+        "parallelism":1,
+        "topicName": "delta_source",
+        "processingGuarantees":"ATLEAST_ONCE",
+        "archive": "connectors/pulsar-io-lakehouse-2.9.2.22.nar",
+        "configs":{
+            "type":"delta",
+            "checkpointInterval": 180,
+            "queueSize": 10000,
+            "fatchHistoryData": false,
+            "startSnapshotVersion": -1,
+            "tablePath": "file:///tmp/data/delta-source",
+            "parquetParseThreads": 3,
+            "maxReadBytesSizeOneRound": 134217728,
+            "maxReadRowCountOneRound": 100000
+        }
+    }
+    ```
 
 - The Delta table that is stored in cloud storage (AWS S3, GCS, or Azure)
 
-```json
-{
-  "tenant":"public",
-  "namespace":"default",
-  "name":"delta_source",
-  "parallelism":1,
-  "topicName": "delta_source",
-  "processingGuarantees":"ATLEAST_ONCE",
-  "archive": "connectors/pulsar-io-lakehouse-{{connector:version}}.nar",
-  "configs":{
-    "type":"delta",
-    "checkpointInterval": 180,
-    "queueSize": 10000,
-    "fatchHistoryData": false,
-    "startSnapshotVersion": -1,
-    "tablePath": "s3a://test-dev-us-west-2/lakehouse/delta_source",
-    "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
-    "parquetParseThreads": 3,
-    "maxReadBytesSizeOneRound": 134217728,
-    "maxReadRowCountOneRound": 100000
-  }
-}
-```
-
+    ```json
+    {
+        "tenant":"public",
+        "namespace":"default",
+        "name":"delta_source",
+        "parallelism":1,
+        "topicName": "delta_source",
+        "processingGuarantees":"ATLEAST_ONCE",
+        "archive": "connectors/pulsar-io-lakehouse-2.9.2.22.nar",
+        "configs":{
+            "type":"delta",
+            "checkpointInterval": 180,
+            "queueSize": 10000,
+            "fatchHistoryData": false,
+            "startSnapshotVersion": -1,
+            "tablePath": "s3a://test-dev-us-west-2/lakehouse/delta_source",
+            "hadoop.fs.s3a.aws.credentials.provider": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
+            "parquetParseThreads": 3,
+            "maxReadBytesSizeOneRound": 134217728,
+            "maxReadRowCountOneRound": 100000
+        }
+    }
+    ```
 @@@
 
 :::
@@ -166,7 +163,6 @@ You can use the Lakehouse source connector with Function Worker. You can use the
 ::: tabs
 
 @@@ Use it as a non built-in connector
-
 If you already have a Pulsar cluster, you can use the Lakehouse source connector as a non built-in connector directly.
 
 This example shows how to create a Lakehouse source connector on a Pulsar cluster using the [`pulsar-admin sources create`](https://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--14) command.
@@ -175,11 +171,9 @@ This example shows how to create a Lakehouse source connector on a Pulsar cluste
 PULSAR_HOME/bin/pulsar-admin sources create \
 --source-config-file <lakehouse-source-config.yaml>
 ```
-
 @@@
 
 @@@ Use it as a built-in connector
-
 You can make the Lakehouse source connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
 ## Standalone cluster
@@ -195,7 +189,8 @@ This example describes how to use the Lakehouse source connector to fetch data f
 1. Copy the NAR package to the Pulsar connectors directory.
 
     ```
-    cp pulsar-io-lakehouse-{{connector:version}}.nar PULSAR_HOME/connectors/pulsar-io-lakehouse-{{connector:version}}.nar
+    cp pulsar-io-lakehouse-2.9.2.22.nar 
+    PULSAR_HOME/connectors/pulsar-io-lakehouse-2.9.2.22.nar
     ```
 
 2. Start Pulsar in standalone mode.
@@ -226,7 +221,7 @@ This example explains how to create a Lakehouse source connector in an on-premis
 1. Copy the NAR package of the Lakehouse source connector to the Pulsar connectors directory.
 
     ```
-    cp pulsar-io-lakehouse-{{connector:version}}.nar $PULSAR_HOME/connectors/pulsar-io-lakehouse-{{connector:version}}.nar
+    cp pulsar-io-lakehouse-2.9.2.22.nar $PULSAR_HOME/connectors/pulsar-io-lakehouse-2.9.2.22.nar
     ```
 
 2. Reload all [built-in connectors](https://pulsar.apache.org/docs/en/next/io-connectors/).
@@ -247,7 +242,18 @@ This example explains how to create a Lakehouse source connector in an on-premis
     PULSAR_HOME/bin/pulsar-admin sources create \
     --source-config-file <lakehouse-source-config.yaml>
     ```
-
 @@@
 
 :::
+
+# Demos
+
+This table lists demos that show how to run the [Delta Lake](https://delta.io/), [Hudi](https://hudi.apache.org), and [Iceberg](https://iceberg.apache.org/) source connectors with other external systems.
+
+Currently, only the demo on the Delta Lake source connector is available. 
+
+| Connector  | Link                                                                                                                             |
+|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Delta Lake | For details, see the [Delta Lake demo](https://github.com/streamnative/pulsar-io-lakehouse/blob/master/docs/delta-lake-demo.md). |
+| Hudi       |                                                                                                                                  |
+| Iceberg    |                                                                                                                                  |
