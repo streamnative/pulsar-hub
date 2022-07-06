@@ -60,7 +60,7 @@ To build the Lakehouse source connector from the source code, follow these steps
 
    ```bash
    ls target
-   pulsar-io-lakehouse-{{connector:version}}.nar
+   pulsar-io-lakehouse-2.8.3.5.nar
    ```
 
 # How to configure
@@ -189,7 +189,7 @@ This example describes how to use the Lakehouse source connector to fetch data f
 1. Copy the NAR package to the Pulsar connectors directory.
 
     ```
-    cp pulsar-io-lakehouse-{{connector:version}}.nar PULSAR_HOME/connectors/pulsar-io-lakehouse-{{connector:version}}.nar
+    cp pulsar-io-lakehouse-2.8.3.5.nar PULSAR_HOME/connectors/pulsar-io-lakehouse-2.8.3.5.nar
     ```
 
 2. Start Pulsar in standalone mode.
@@ -220,7 +220,7 @@ This example explains how to create a Lakehouse source connector in an on-premis
 1. Copy the NAR package of the Lakehouse source connector to the Pulsar connectors directory.
 
     ```
-    cp pulsar-io-lakehouse-{{connector:version}}.nar $PULSAR_HOME/connectors/pulsar-io-lakehouse-{{connector:version}}.nar
+    cp pulsar-io-lakehouse-2.8.3.5.nar $PULSAR_HOME/connectors/pulsar-io-lakehouse-2.8.3.5.nar
     ```
 
 2. Reload all [built-in connectors](https://pulsar.apache.org/docs/en/next/io-connectors/).
