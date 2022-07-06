@@ -293,7 +293,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
 ## Data format types
 
-The Lakehouse sink Connector provides multiple output format options, including Avro and Parquet. The default format is Parquet.
+The Lakehouse sink connector provides multiple output format options, including Avro and Parquet. The default format is Parquet.
 With the current implementation, there are some limitations for different formats:
 
 This table lists the Pulsar Schema types supported by the writers.
@@ -343,7 +343,8 @@ This example describes how to use the Lakehouse sink connector to fetch data fro
 1. Copy the NAR package to the Pulsar connectors directory.
 
     ```
-    cp pulsar-io-lakehouse-2.10.0.7.nar PULSAR_HOME/connectors/pulsar-io-lakehouse-2.10.0.7.nar
+    cp pulsar-io-lakehouse-2.10.0.7.nar 
+    PULSAR_HOME/connectors/pulsar-io-lakehouse-2.10.0.7.nar
     ```
 
 2. Start Pulsar in standalone mode.
@@ -361,13 +362,13 @@ This example describes how to use the Lakehouse sink connector to fetch data fro
 
 4. Send messages to Pulsar topics.
 
-   This example sends ten “hello” messages to the `test-lakehouse-pulsar` topic in the `default` namespace of the `public` tenant.
+   This example sends ten "hello" messages to the `test-lakehouse-pulsar` topic in the `default` namespace of the `public` tenant.
 
     ```
     PULSAR_HOME/bin/pulsar-client produce public/default/test-lakehouse-pulsar --messages hello -n 10
     ```
 
-5. Query the data from the Lakehouse table. For details, see  [Hudi Quickstart guide](https://hudi.apache.org/docs/quick-start-guide), [Iceberg Quickstart guide](https://iceberg.apache.org/docs/latest/getting-started/), and [Delta Quickstart guide](https://delta.io/learn/getting-started).
+5. Query the data from the Lakehouse table. For details, see [Hudi Quickstart guide](https://hudi.apache.org/docs/quick-start-guide), [Iceberg Quickstart guide](https://iceberg.apache.org/docs/latest/getting-started/), and [Delta Quickstart guide](https://delta.io/learn/getting-started).
 
 ## On-premises cluster
 

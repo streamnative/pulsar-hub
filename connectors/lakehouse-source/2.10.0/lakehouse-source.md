@@ -190,7 +190,8 @@ This example describes how to use the Lakehouse source connector to fetch data f
 1. Copy the NAR package to the Pulsar connectors directory.
 
     ```
-    cp pulsar-io-lakehouse-2.10.0.7.nar PULSAR_HOME/connectors/pulsar-io-lakehouse-2.10.0.7.nar
+    cp pulsar-io-lakehouse-2.10.0.7.nar 
+    PULSAR_HOME/connectors/pulsar-io-lakehouse-2.10.0.7.nar
     ```
 
 2. Start Pulsar in standalone mode.
