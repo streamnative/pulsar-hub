@@ -128,7 +128,7 @@ This section describes how to build the Google Cloud BigQuery sink connector.
 
 You can get the Google Cloud BigQuery sink connector using one of the following methods if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run the connector in a cluster.
 
-- Download the JAR package from [the download page](https://github.com/streamnative/pulsar-io-bigquery/releases/download/v2.10.1.1/pulsar-io-bigquery-2.10.1.1.jar).
+- Download the JAR package from [the download page](https://github.com/streamnative/pulsar-io-bigquery/releases).
 
 - Build it from the source code.
 
