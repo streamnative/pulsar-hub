@@ -1,5 +1,5 @@
 ---
-description: The Google Cloud BigQuery sink connector pulls data from Pulsar topics and persists data to to Google Cloud BigQuery tables.
+description: The Google Cloud BigQuery sink connector pulls data from Pulsar topics and persists data to Google Cloud BigQuery tables.
 author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
