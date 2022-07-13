@@ -4,14 +4,14 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-bigquery/tree/v2.10.1.1/src/main/java/org/apache/pulsar/ecosystem/io/bigquery"
+source: "https://github.com/streamnative/pulsar-io-bigquery/tree/v2.10.1.2/src/main/java/org/apache/pulsar/ecosystem/io/bigquery"
 license: Apache License 2.0
 tags: ["Pulsar IO", "BigQuery", "Sink"]
 alias: Google Cloud BigQuery Sink
 features: ["Use Google Cloud BigQuery sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/google-bigquery-logo.png"
-download: "https://github.com/streamnative/pulsar-io-bigquery/releases/download/v2.10.1.1/pulsar-io-bigquery-2.10.1.1.jar"
+download: "https://github.com/streamnative/pulsar-io-bigquery/releases/download/v2.10.1.2/pulsar-io-bigquery-2.10.1.2.jar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
@@ -150,7 +150,7 @@ To build the Google Cloud BigQuery sink connector from the source code, follow t
 
    ```bash
    ls target
-   pulsar-io-bigquery-2.10.1.1.jar
+   pulsar-io-bigquery-2.10.1.2.jar
    ```
 
 ## Work with Function Mesh
