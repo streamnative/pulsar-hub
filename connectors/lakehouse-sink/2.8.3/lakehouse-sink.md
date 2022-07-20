@@ -168,7 +168,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "inputs": [
           "test-hudi-pulsar"
         ],
-        "archive": "connectors/pulsar-io-hudi-2.8.3.5.nar",
+        "archive": "connectors/pulsar-io-hudi-2.8.3.5-cloud.nar",
         "parallelism": 1,
         "configs":   {
             "type": "hudi",
@@ -223,7 +223,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "inputs": [
           "test-iceberg-pulsar"
         ],
-        "archive": "connectors/pulsar-io-lakehouse-2.8.3.5.nar",
+        "archive": "connectors/pulsar-io-lakehouse-2.8.3.5-cloud.nar",
         "processingGuarantees":"EFFECTIVELY_ONCE",
         "configs":{
             "type":"iceberg",
@@ -276,7 +276,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "inputs": [
           "test-delta-pulsar"
         ],
-        "archive": "connectors/pulsar-io-lakehouse-2.8.3.5.nar",
+        "archive": "connectors/pulsar-io-lakehouse-2.8.3.5-cloud.nar",
         "processingGuarantees":"EFFECTIVELY_ONCE",
         "configs":{
             "type":"delta",
