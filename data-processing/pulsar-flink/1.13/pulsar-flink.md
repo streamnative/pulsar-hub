@@ -11,7 +11,7 @@ tags: ["Pulsar", "Flink", "Connector"]
 alias: Pulsar Flink Connector (Legacy)
 features: ["Pulsar Flink Connector allows Flink to read data from Pulsar and to write data to Pulsar"]
 icon: "/images/data-processing/flink-logo.png"
-download: "https://mvnrepository.com/artifact/io.streamnative.connectors/pulsar-flink-connector_2.12/1.13.1.3"
+download: "https://mvnrepository.com/artifact/io.streamnative.connectors/pulsar-flink-connector_2.11/1.13.1.3"
 support: StreamNativeå
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
