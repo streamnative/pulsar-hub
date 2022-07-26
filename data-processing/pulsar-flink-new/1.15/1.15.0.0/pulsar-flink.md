@@ -29,7 +29,7 @@ The Pulsar Flink connector consists of the [Pulsar DataStream connector](#pulsar
 
 # Pulsar DataStream connector
 
-The Pulsar DataStream connector is maintained as a part of the official Flink library. For details about the Pulsar DataStream connector, see [Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/connectors/datastream/pulsar/).
+The Pulsar DataStream connector is maintained as a part of the official Flink library. For details about the Pulsar DataStream connector, see [Flink's documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/connectors/datastream/pulsar/).
 
 # Pulsar SQL connector
 
@@ -75,7 +75,7 @@ This table outlines options for the Pulsar SQL connector.
 | `admin-url` | (none) | String | The Pulsar service HTTP URL for the admin endpoint. For example, `http://my-broker.example.com:8080` or `https://my-broker.example.com:8443` for TLS. |
 | `explicit` | true | Boolean | Indicate if the table is an explicit Flink table. |
 | `key.fields` |  | List&lt;String&gt; | An explicit list of physical columns from the table schema that are decoded/encoded from the key bytes of a Pulsar message. By default, this list is empty and thus a key is undefined. |
-| `key.format` | (none) | String | The format that is used to deserialize and serializekey the key bytes of Pulsar messages. The format identifier is used to discover a suitable format factory. |
+| `key.format` | (none) | String | The format that is used to deserialize and serialize the key bytes of Pulsar messages. The format identifier is used to discover a suitable format factory. |
 | `service-url` | (none) | String | The Service URL for the Pulsar service. To connect to a Pulsar cluster using a client library, you need to specify a Pulsar protocol URL. You can assign a Pulsar protocol URL to a specific cluster.<br /> -This is an example URL of the `localhost:pulsar://localhost:6650`. <br /> - If you have multiple brokers, the URL is something like `pulsar://localhost:6550,localhost:6651,localhost:6652`. <br /> - A URL for a production Pulsar cluster is something like `pulsar://pulsar.us-west.example.com:6650`. <br /> - If TLS authentication is enabled, the URL is something like `pulsar+ssl://pulsar.us-west.example.com:6651`. |
 | `sink.custom-topic-router` | (none) | String | (Optional) the custom topic router class URL that is used in the [Pulsar DataStream sink connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#pulsar-sink). If this option is provided, the `sink.topic-routing-mode` option will be ignored. |
 | `sink.message-delay-interval` | 0 ms | Duration | (Optional) the message delay delivery interval that is used in the [Pulsar DataStream sink connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#pulsar-sink). |
@@ -84,7 +84,7 @@ This table outlines options for the Pulsar SQL connector.
 | `source.start.publish-time` | (none) | Long | (Optional) the publish timestamp that is used to specify a starting point for the [Pulsar DataStream source connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#pulsar-source) to consume data. |
 | `source.subscription-name` | flink-sql-connector-pulsar | String | The subscription name of the consumer that is used by the runtime [Pulsar DataStream source connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#pulsar-source). This argument is required for constructing the consumer. |
 | `source.subscription-type` | Exclusive | Enum | The [subscription type](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#pulsar-subscriptions) that is supported by the [Pulsar DataStream source connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#pulsar-source). Currently, only `Exclusive` and `Shared` subscription types are supported. |
-| `topics` | (none) | List&lt;String&gt; | Topic name(s) from which the table reads data. It can be a single topic name or a list of topic names separated by a semicolon symbol (`;`) like `topic-1;topic-2`. |
+| `topics` | (none) | List&lt;String&gt; | Topic name(s) the table reads data from. It can be a single topic name or a list of topic names separated by a semicolon symbol (`;`) like `topic-1;topic-2`. |
 
 ## Features
 

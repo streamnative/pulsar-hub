@@ -8,7 +8,7 @@ source: "https://github.com/streamnative/pulsar-flink/tree/release-1.13"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "Flink", "Connector"]
-alias: Pulsar Flink Connector (Legacy)
+alias: Pulsar Flink Connector (Deprecated)
 features: ["Pulsar Flink Connector allows Flink to read data from Pulsar and to write data to Pulsar"]
 icon: "/images/data-processing/flink-logo.png"
 download: "https://mvnrepository.com/artifact/io.streamnative.connectors/pulsar-flink-connector_2.11/1.13.1.3"
@@ -27,7 +27,7 @@ Pulsar Flink Connector is an integration of [Apache Pulsar](https://pulsar.apach
 
 > **Note**
 >
-> This legacy Pulsar Flink connector would not be maintained further. You can try the [new Pulsar Flink connector](../../pulsar-flink-new/1.15/1.15.0.0/pulsar-flink.md).
+> This version of the Pulsar Flink connector is depreciated. For best performance and support, use the [new Pulsar Flink connector](../../pulsar-flink-new/1.15/1.15.0.0/pulsar-flink.md).
 
 # Prerequisites
 
