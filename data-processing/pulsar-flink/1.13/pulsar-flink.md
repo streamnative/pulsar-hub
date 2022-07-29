@@ -27,7 +27,7 @@ Pulsar Flink Connector is an integration of [Apache Pulsar](https://pulsar.apach
 
 > **Note**
 >
-> This version of the Pulsar Flink connector is depreciated. For best performance and support, use the [new Pulsar Flink connector](../../pulsar-flink-new/1.15/1.15.0.0/pulsar-flink.md).
+> This version of the Pulsar Flink connector is depreciated. For best performance and support, use the [new Pulsar Flink connector](/data-processing/pulsar-flink/1.15.0.0/pulsar-flink-new.md).
 
 # Prerequisites
 
