@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/flink/tree/v1.15.0.1"
+source: "https://github.com/streamnative/flink/tree/v1.15.0.0"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "Flink", "Connector"]
@@ -18,7 +18,7 @@ support_img: "/images/streamnative.png"
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png"
 dockerfile: 
-id: "pulsar-flink"
+id: "pulsar-flink-new"
 ---
 
 The Pulsar Flink connector is an integration of [Apache Pulsar](https://pulsar.apache.org/en/) and [Apache Flink](https://flink.apache.org/) (data processing engine), which allows Flink to read and write data to and from Pulsar.
@@ -53,7 +53,7 @@ This table outlines the Maven dependency that is added to the Pulsar SQL connect
 <dependency>
     <groupId>io.streamnative.connectors</groupId>
     <artifactId>flink-sql-connector-pulsar</artifactId>
-    <version>1.15.0.1</version>
+    <version>1.15.0.0</version>
 </dependency>
 ```
 
