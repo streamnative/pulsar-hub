@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/flink/tree/v1.15.0.1"
+source: "https://github.com/streamnative/flink/tree/v1.15.1.1"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "Flink", "Connector"]
@@ -53,7 +53,7 @@ This table outlines the Maven dependency that is added to the Pulsar SQL connect
 <dependency>
     <groupId>io.streamnative.connectors</groupId>
     <artifactId>flink-sql-connector-pulsar</artifactId>
-    <version>1.15.0.1</version>
+    <version>1.15.1.1</version>
 </dependency>
 ```
 
@@ -493,7 +493,7 @@ For detailed differences and recommendations, see the following sections.
 | Repository        | Release                                                  | Versioning                                                       | DataStream connector documentation                                                                                              | SQL connector documentation |
 |-------------------|----------------------------------------------------------|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
 | apache/flink      | Managed by Flink community, following Flink release process | Standard Semantic Versioning, like 1.15.0                        | Maintained on [Official Flink Website](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/) | Not available yet           |
-| streamnative/flink | Managed by StreamNative, following a monthly release process.    | Use an extra digit on top of the Flink version, such as 1.15.0.1 | Not available yet, but similar to the [Official Flink Website](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/)                                                                  | Maintained in current documentation   |
+| streamnative/flink | Managed by StreamNative, following a monthly release process.    | Use an extra digit on top of the Flink version, such as 1.15.1.1 | Not available yet, but similar to the [Official Flink Website](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/)                                                                  | Maintained in current documentation   |
 
 ### Issue and Feature tracking
 
