@@ -21,46 +21,44 @@ dockerfile:
 id: "debezium-mssql-source"
 ---
 
-The Debezium source connector pulls messages from SQL Server and persists the messages to Pulsar topics.
+The Debezium Microsoft SQL Server source connector pulls messages from the SQL Server and persists the messages to Pulsar topics.
 
 # Configuration
 
-## Debezium source connector
+## Debezium Microsoft SQL source connector
 
-The configuration of Debezium source connector has the following properties.
+The configuration of Microsoft SQL Server Debezium source connector has the following properties.
 
-| Name | Required | Default | Description |
-|------|----------|---------|-------------|
-| `task.class` | true | null | A source task class that implemented in Debezium. |
-| `database.hostname` | true | null | The address of a database server. |
-| `database.port` | true | null | The port number of a database server.|
-| `database.user` | true | null | The name of a database user that has the required privileges. |
-| `database.password` | true | null | The password for a database user that has the required privileges. |
-| `database.server.id` | true | null | The connector’s identifier that must be unique within a database cluster and similar to the database’s server-id configuration property. |
-| `database.server.name` | true | null | The logical name of a database server/cluster, which forms a namespace and it is used in all the names of Kafka topics to which the connector writes, the Kafka Connect schema names, and the namespaces of the corresponding Avro schema when the Avro Connector is used. |
-| `database.whitelist` | false | null | A list of all databases hosted by this server which is monitored by the  connector.<br/><br/> This is optional, and there are other properties for listing databases and tables to include or exclude from monitoring. |
-| `key.converter` | true | null | The converter provided by Kafka Connect to convert record key. |
-| `value.converter` | true | null | The converter provided by Kafka Connect to convert record value.  |
-| `database.history` | true | null | The name of the database history class. |
-| `database.history.pulsar.topic` | true | null | The name of the database history topic where the connector writes and recovers DDL statements. <br/><br/>**Note: this topic is for internal use only and should not be used by consumers.** |
-| `database.history.pulsar.service.url` | true | null | Pulsar cluster service URL for history topic. |
-| `pulsar.service.url` | true | null | Pulsar cluster service URL. |
-| `offset.storage.topic` | true | null | Record the last committed offsets that the connector successfully completes. |
+| Name                                  | Required | Default | Description                                                                                                                                                                                                                                                                |
+|---------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `task.class`                          | true     | null    | A source task class that is implemented in Debezium.                                                                                                                                                                                                                       |
+| `database.hostname`                   | true     | null    | The address of a database server.                                                                                                                                                                                                                                          |
+| `database.port`                       | true     | null    | The port number of a database server.                                                                                                                                                                                                                                      |
+| `database.user`                       | true     | null    | The name of a database user that has the required privileges.                                                                                                                                                                                                              |
+| `database.password`                   | true     | null    | The password for a database user that has the required privileges.                                                                                                                                                                                                         |
+| `database.server.id`                  | true     | null    | The connector’s identifier that is unique within a database cluster and is similar to the database’s server ID.                                                                                                                                                            |
+| `database.server.name`                | true     | null    | The logical name of a database server/cluster, which forms a namespace and it is used in all the names of Kafka topics to which the connector writes, the Kafka Connect schema names, and the namespaces of the corresponding Avro schema when the Avro Connector is used. |
+| `database.whitelist`                  | false    | null    | A list of all databases hosted by this server that are monitored by the connector.<br/><br/> This is optional, and there are other properties for listing databases and tables to include or exclude from monitoring.                                                      |
+| `key.converter`                       | true     | null    | The converter provided by Kafka Connect to convert the record key.                                                                                                                                                                                                         |
+| `value.converter`                     | true     | null    | The converter provided by Kafka Connect to convert the record value.                                                                                                                                                                                                       |
+| `database.history`                    | true     | null    | The name of the database history class.                                                                                                                                                                                                                                    |
+| `database.history.pulsar.topic`       | true     | null    | The name of the database history topic where the connector writes and recovers DDL statements. <br/><br/>**Note: this topic is for internal use only and should not be used by consumers.**                                                                                |
+| `database.history.pulsar.service.url` | true     | null    | The Pulsar cluster service URL for the history topic.                                                                                                                                                                                                                      |
+| `pulsar.service.url`                  | true     | null    | The Pulsar cluster service URL.                                                                                                                                                                                                                                            |
+| `offset.storage.topic`                | true     | null    | Record the last committed offsets that the connector successfully completes.                                                                                                                                                                                               |
 
 ## Converter options
 
 - org.apache.kafka.connect.json.JsonConverter
 
-    The`json-with-envelope` config is valid only for the JsonConverter. By default, the value is set to false. When the `json-with-envelope` value is set to false, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message only consists of the payload.
-    When the `json-with-envelope` value is set to true, the consumer uses the schema `Schema.KeyValue(Schema.BYTES, Schema.BYTES`, and the message consists of the schema and the payload.
+    The`json-with-envelope` configuration is valid only for the `JsonConverter`. By default, the value is set to `false`. When the `json-with-envelope` value is set to `false`, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message only consists of the payload.
+    When the `json-with-envelope` value is set to `true`, the consumer uses the `Schema.KeyValue(Schema.BYTES, Schema.BYTES)` schema, and the message consists of the schema and the payload.
 
 - org.apache.pulsar.kafka.shade.io.confluent.connect.avro.AvroConverter
 
-    If you select the AvroConverter, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message consists of the payload.
+    If you select the `AvroConverter`, the consumer uses the `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)` schema, and the message consists of the payload.
 
-# Example of MSSQL
-
-## Configuration 
+# Examples
 
 Debezium [requires](https://debezium.io/documentation/reference/1.5/connectors/sqlserver.html#sqlserver-overview) SQL Server with CDC enabled.
 This setup is outlined in the [documentation](https://debezium.io/documentation/reference/1.5/connectors/sqlserver.html#setting-up-sqlserver) and used in the [integration test](https://github.com/apache/pulsar/blob/master/tests/integration/src/test/java/org/apache/pulsar/tests/integration/io/sources/debezium/DebeziumMsSqlSourceTester.java).
