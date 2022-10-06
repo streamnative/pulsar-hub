@@ -123,3 +123,7 @@ configs:
 ```
 
 For the full list of configuration properties supported by Debezium, see [Debezium Connector for MS SQL](https://debezium.io/documentation/reference/1.5/connectors/sqlserver.html#sqlserver-connector-properties).
+
+# Performance
+
+The Debezium Microsoft SQL Server source connector supports a maximum publish throughput of 17.000 msg/s or 50 Mbit/s.
