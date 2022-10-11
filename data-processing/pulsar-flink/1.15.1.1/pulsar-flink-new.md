@@ -89,7 +89,7 @@ This table outlines options for the Pulsar SQL connector.
 | `source.stop.after-message-id` | (none)                     | String             | (Optional) message id used to specify a stop position but include the given message in the consuming result for the unbounded sql source. Pass in a message id representation in `ledgerId:entryId:partitionId`, such as `12:2:-1`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `topics`                       | (none)                     | List&lt;String&gt; | Topic name(s) the table reads data from. It can be a single topic name or a list of topic names separated by a semicolon symbol (`;`) like `topic-1;topic-2`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-However, besides these Pulsar SQL connector options, you can configure the underlying Pulsar DataStream Connector using the connector options defined in [Apache Pulsar Source Connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#source-configurable-options) and [Apache Pulsar Sink Connector]([subscription type]([Apache Pulsar Source Connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#sink-configurable-options) using `WITH` clause.
+Besides these Pulsar SQL connector options, you can configure the underlying Pulsar DataStream connector using the connector options defined in [Apache Pulsar Source Connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#source-configurable-options) and [Apache Pulsar Sink Connector]([subscription type]([Apache Pulsar Source Connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/#sink-configurable-options) using the `WITH` clause.
 
 ## Features
 
@@ -451,7 +451,7 @@ CREATE TABLE users
 
 ### Configure authentication parameters
 
-This example shows how to specify and configure the authentication parameters used by the underlying Pulsar admin client. T
+This example shows how to specify and configure the authentication parameters used by the pulsar-admin client. 
 
 ```sql
 CREATE TABLE users
@@ -471,7 +471,7 @@ CREATE TABLE users
 
 ## Relationship between the `apache/flink` repository and `streamnative/flink` repository
 
-StreamNative forks the [apache/flink](https://github.com/apache/flink) repository and maintains the project in [streamnative/flink](https://github.com/streamnative/flink). Compared with the official Flink repository, the StreamNative forked repository maintains a different Pulsar DataStream Connector and Pulsar SQL Connector.
+StreamNative forks the [apache/flink](https://github.com/apache/flink) repository and maintains the project in the [streamnative/flink](https://github.com/streamnative/flink) repository. Compared with the official Flink repository, the StreamNative forked repository maintains a different Pulsar DataStream connector and Pulsar SQL connector.
 
 Currently, the `apache/flink` repository only contains the Pulsar DataStream connector while the `streamnative/flink` repository contains both the Pulsar DataStream connector and the Pulsar SQL connector.
 
@@ -493,12 +493,12 @@ For detailed differences and recommendations, see the following sections.
 | Repository        | Release                                                  | Versioning                                                       | DataStream connector documentation                                                                                              | SQL connector documentation |
 |-------------------|----------------------------------------------------------|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
 | apache/flink      | Managed by Flink community, following Flink release process | Standard Semantic Versioning, like 1.15.0                        | Maintained on [Official Flink Website](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/) | Not available yet           |
-| streamnative/flink | Managed by StreamNative, following a monthly release process.    | Use an extra digit on top of the Flink version, such as 1.15.1.1 | Not available yet, but similar to the [Official Flink Website](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/)                                                                  | Maintained in current documentation   |
+| streamnative/flink | Managed by StreamNative, following a monthly release process.    | Use an extra digit on the top of the Flink version, such as 1.15.1.1 | Not available yet, but similar to the [Official Flink Website](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/pulsar/)                                                                  | Maintained in the current documentation   |
 
 ### Issue and Feature tracking
 
 - For the Pulsar DataStream connector, use [Flink JIRA](https://issues.apache.org/jira/projects/FLINK/issues) to submit bug reports and feature requests.
-- For the Pulsar SQL connector, since it's not merged back to the official Flink repository yet, create an [issue](https://github.com/streamnative/flink/issues) in the `streamnative/flink` repository to submit bug reports and feature requests. Once the SQL Connector is merged back to the official Flink repository, use the Flink JIRA as well.
+- For the Pulsar SQL connector, since it's not merged back to the official Flink repository yet, create an [issue](https://github.com/streamnative/flink/issues) in the `streamnative/flink` repository to submit bug reports and feature requests. Once the Pulsar SQL connector is merged back to the official Flink repository, use the Flink JIRA as well.
 
 ### Artifact locations
 
