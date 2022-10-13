@@ -6,7 +6,7 @@ language: Java
 document: 
 source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/debezium/mysql"
 license: Apache License 2.0
-tags: ["Pulsar IO", "Debezium", "MySQL"]
+tags: ["Pulsar IO", "Debezium", "MySQL", "Source"]
 alias: Debezium MySQL Source
 features: ["Use Debezium MySQL source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
