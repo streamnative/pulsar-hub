@@ -1,5 +1,5 @@
 ---
-description: The Debezium MongoDB source connector pulls messages from MongDB and persists the messages to Pulsar topics
+description: The Debezium MongoDB source connector pulls messages from MongoDB and persists the messages to Pulsar topics
 author: ["ASF"]
 contributors: ["ASF"]
 language: Java
@@ -21,7 +21,7 @@ dockerfile:
 id: "debezium-mongodb-source"
 ---
 
-The Debezium source connector pulls messages from MongDB and persists the messages to Pulsar topics.
+The Debezium source connector pulls messages from MongoDB and persists the messages to Pulsar topics.
 
 # Configuration 
 
