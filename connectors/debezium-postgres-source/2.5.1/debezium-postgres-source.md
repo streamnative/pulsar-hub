@@ -6,7 +6,7 @@ language: Java
 document: 
 source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/debezium/postgres"
 license: Apache License 2.0
-tags: ["Pulsar IO", "Debezium", "PostgreSQL", "Postgres"]
+tags: ["Pulsar IO", "Debezium", "PostgreSQL", "Postgres", "Source"]
 alias: Debezium PostgreSQL Source
 features: ["Use Debezium PostgreSQL source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
