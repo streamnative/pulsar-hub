@@ -157,50 +157,50 @@ You can create a [CustomResourceDefinitions (CRD)](https://kubernetes.io/docs/co
 
 You can define a CRD file (YAML) to set the properties as below.
 
-   ```yaml
-   apiVersion: compute.functionmesh.io/v1alpha1
-   kind: Source
-   metadata:
-      name: google-bigquery-source-sample
-   spec:
-      image: streamnative/pulsar-io-bigquery:{{connector:version}}
-      className: org.apache.pulsar.functions.source.batch.BatchSourceExecutor
-      replicas: 1
-      maxReplicas: 1
-      output:
-         producerConf:
-            maxPendingMessages: 1000
-            maxPendingMessagesAcrossPartitions: 50000
-            useThreadLocalProducers: true
-         topic: persistent://public/default/google-bigquery-pulsar-source
-      sourceConfig:
-         __BATCHSOURCECLASSNAME__: org.apache.pulsar.ecosystem.io.bigquery.BigQuerySource
-         __BATCHSOURCECONFIGS__: '{"discoveryTriggererClassName":"org.apache.pulsar.ecosystem.io.bigquery.source.BigQueryOnceTrigger"}'
-         projectId: SECRETS
-         datasetName: pulsar-io-google-bigquery
-         tableName: test-google-bigquery-source
-         credentialJsonString: SECRETS
-      pulsar:
-         pulsarConfig: "test-pulsar-source-config"
-      resources:
-         limits:
-            cpu: "0.2"
-            memory: 1.1G
-         requests:
-            cpu: "0.1"
-            memory: 1G
-      java:
-         jar: connectors/pulsar-io-bigquery-{{connector:version}}.jar
-      clusterName: pulsar
-   ---
-   apiVersion: v1
-   kind: ConfigMap
-   metadata:
-      name: test-pulsar-source-config
-   data:
-      webServiceURL: http://pulsar-broker.default.svc.cluster.local:8080
-      brokerServiceURL: pulsar://pulsar-broker.default.svc.cluster.local:6650
-   ```
+```yaml
+apiVersion: compute.functionmesh.io/v1alpha1
+kind: Source
+metadata:
+  name: google-bigquery-source-sample
+spec:
+  image: streamnative/pulsar-io-bigquery:{{connector:version}}
+  className: org.apache.pulsar.functions.source.batch.BatchSourceExecutor
+  replicas: 1
+  maxReplicas: 1
+  output:
+      producerConf:
+        maxPendingMessages: 1000
+        maxPendingMessagesAcrossPartitions: 50000
+        useThreadLocalProducers: true
+      topic: persistent://public/default/google-bigquery-pulsar-source
+  sourceConfig:
+      __BATCHSOURCECLASSNAME__: org.apache.pulsar.ecosystem.io.bigquery.BigQuerySource
+      __BATCHSOURCECONFIGS__: '{"discoveryTriggererClassName":"org.apache.pulsar.ecosystem.io.bigquery.source.BigQueryOnceTrigger"}'
+      projectId: SECRETS
+      datasetName: pulsar-io-google-bigquery
+      tableName: test-google-bigquery-source
+      credentialJsonString: SECRETS
+  pulsar:
+      pulsarConfig: "test-pulsar-source-config"
+  resources:
+      limits:
+        cpu: "0.2"
+        memory: 1.1G
+      requests:
+        cpu: "0.1"
+        memory: 1G
+  java:
+      jar: connectors/pulsar-io-bigquery-{{connector:version}}.jar
+  clusterName: pulsar
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-pulsar-source-config
+data:
+  webServiceURL: http://pulsar-broker.default.svc.cluster.local:8080
+  brokerServiceURL: pulsar://pulsar-broker.default.svc.cluster.local:6650
+```
 
 # How to use
 
@@ -210,9 +210,7 @@ You can use the Google Cloud BigQuery source connector with Function Worker or F
 
 You can use the Google Cloud BigQuery source connector as a non built-in connector or a built-in connector as below.
 
-::: tabs
-
-@@@ Use it as non built-in connector
+### Use it as non built-in connector
 
 If you already have a Pulsar cluster, you can use the Google Cloud BigQuery source connector as a non built-in connector directly.
 
@@ -224,25 +222,24 @@ PULSAR_HOME/bin/pulsar-admin sources create \
 --
 ```
 
-@@@
-
-@@@ Use it as built-in connector
+### Use it as built-in connector
 
 You can make the Google Cloud BigQuery source connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
-### Standalone cluster
+#### Standalone cluster
 
 This example describes how to use the Google Cloud BigQuery source connector to feed data from Google Cloud BigQuery and write data to Pulsar topics in the standalone mode.
 
-#### Prerequisites
+##### Prerequisites
 
 - Install the `gcloud` CLI tool. For details, see [installing Cloud SDK](https://cloud.google.com/sdk/docs/install).
 - Install Pulsar locally. For details, see [set up a standalone Pulsar locally](https://pulsar.apache.org/docs/getting-started-standalone/).
 - Prepare test data. For details, see [download the source public data file](https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq#download_the_source_public_data_file).
 
-#### Steps
+####3 Steps
 
 1. Load data to Google Cloud BigQuery table.
+
     1. Create a dataset named `babynames`.
         ```
         bq mk babynames
@@ -283,7 +280,7 @@ This example describes how to use the Google Cloud BigQuery source connector to 
    key:[null], properties:[], content:{gender=F, name=Evelyn, count=9434}
     ```
 
-### On-premises cluster
+#### On-premises cluster
 
 This example explains how to create a Google Cloud BigQuery source connector in an on-premises cluster.
 
