@@ -66,7 +66,13 @@ You can create a configuration file (JSON or YAML) to set the following properti
 | `awsCredentialPluginName` | String|false | " " (empty string) | Fully-qualified class name of implementation of `AwsCredentialProviderPlugin`. |
 | `awsCredentialPluginParam` | String|true | " " (empty string) | JSON parameter to initialize `AwsCredentialsProviderPlugin`. |
 | `queueName` | String|true | " " (empty string) | Name of the SQS queue that messages should be read from or written to. |
+| `batchSizeOfOnceReceive`   | int    | false    | 1                  | For SQS source. The maximum number of messages pull from SQS at one time. Default=1 and the value range is [1,10].                                                                                                                                                                                                                                                         |
+| `numberOfConsumers`        | int    | false    | 1                  | For SQS source. The expected numbers of consumers. You can scale message consumers horizontally to achieve high throughput. Default=1 and the value range is [1,50].                                                                                                                                                                                                       |
 
+> **Note**  
+> You have to focus the version if you use `numberOfConsumers` and `numberOfConsumers` to improve the SQS source performance.  
+> The versions that support these features are: 2.8.4.3+,2.9.4.1+,2.10.1.13+.  
+> Here is the performance test report: https://github.com/streamnative/pulsar-io-sqs/issues/486.
 
 **Example**
 
