@@ -21,7 +21,7 @@ dockerfile:
 id: "pulsar-flink-new"
 ---
 
-The Pulsar Flink connector is an integration of [Apache Pulsar](https://pulsar.apache.org/en/) and [Apache Flink](https://flink.apache.org/) (data processing engine), which allows Flink to read and write data to and from Pulsar.
+The Pulsar Flink connector is an integration of [Apache Pulsar](https://pulsar.apache.org/) and [Apache Flink](https://flink.apache.org/) (data processing engine), which allows Flink to read and write data to and from Pulsar.
 
 ![](/images/data-processing/pulsar-flink-connector.png)
 
@@ -142,7 +142,7 @@ You can serialize or deserialize the key and the value of a Pulsar message to or
 
 #### Value format
 
-If the key of a Pulsar message is absent or ignored, you should use the `format` option (a synonym for `value.format`) to designate a decoded/encoded format for the Pulsar message. For details, see the [formats documentation](https://docs.google.com/document/d/1itz4cyTYVmxf3g_iBYyh6rN092d4Se5-66X0kAP6ERo/edit#). All format options are prefixed with the format identifier, such as `json.ignore-parse-errors`.
+If the key of a Pulsar message is absent or ignored, you should use the `format` option (a synonym for `value.format`) to designate a decoded/encoded format for the Pulsar message. For details, see the [formats documentation](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/overview/). All format options are prefixed with the format identifier, such as `json.ignore-parse-errors`.
 
 ```sql
 CREATE TABLE users
