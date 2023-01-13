@@ -7,7 +7,7 @@ document:
 source: "https://github.com/streamnative/pulsar-io-snowflake/tree/branch-2.10.3.2/src/main/java/org/apache/pulsar/ecosystem/io/snowflake"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Snowflake", "Sink"]
-alias: Google Cloud BigQuery Source
+alias: Snowflake Sink
 features: ["Use Snowflake sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/snowflake-logo.png"
