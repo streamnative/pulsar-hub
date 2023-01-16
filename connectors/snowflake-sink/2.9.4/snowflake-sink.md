@@ -240,9 +240,7 @@ You can use the Snowflake sink connector with Function Worker or Function Mesh.
 
 You can use the Snowflake sink connector as a non built-in connector or a built-in connector as below.
 
-::: tabs
-
-@@@ Use it as non built-in connector
+### Use it as non built-in connector
 
 If you already have a Pulsar cluster, you can use the Snowflake sink connector as a non built-in connector directly.
 
@@ -253,13 +251,9 @@ PULSAR_HOME/bin/pulsar-admin sinks create \
 --sink-config-file <snowflake-sink-config.yaml >
 ```
 
-@@@
+### Use it as built-in connector
 
-@@@ Use it as built-in connector
-
-You can make the Snowflake sink connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
-
-### Standalone cluster
+You can make the Snowflake sink connector as a built-in connector and use it on a standalone cluster.
 
 This example describes how to use the Snowflake sink connector to fetch data from Pulsar topics and save data to Snowflake tables in standalone mode.
 
@@ -323,7 +317,7 @@ This example describes how to create a Snowflake sink connector for a Kubernetes
 
    This example shows how to publish the Snowflake sink connector to Function Mesh with a Docker image.
 
-```yaml
+  ```yaml
    apiVersion: compute.functionmesh.io/v1alpha1
    kind: Sink
    metadata:
@@ -357,7 +351,7 @@ This example describes how to create a Snowflake sink connector for a Kubernetes
        jar: connectors/pulsar-io-snowflake-{{connector:version}}.nar
      clusterName: test-pulsar
      autoAck: false
-```
+  ```
 
 2. Apply the YAML file to create the Snowflake sink connector.
 
