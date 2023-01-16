@@ -317,41 +317,41 @@ This example describes how to create a Snowflake sink connector for a Kubernetes
 
    This example shows how to publish the Snowflake sink connector to Function Mesh with a Docker image.
 
-  ```yaml
-   apiVersion: compute.functionmesh.io/v1alpha1
-   kind: Sink
-   metadata:
-     name: snowflake-sink-sample
-   spec:
-     image: streamnative/pulsar-io-snowflake:{{connector:version}}
-     className: org.apache.pulsar.ecosystem.io.snowflake.SnowflakeSinkConnector
-     replicas: 1
-     maxReplicas: 1
-     retainOrdering: true
-     input:
-       topics: 
-         - persistent://public/default/test-snowflake-pulsar
-     sinkConfig:
-        user: TEST
-        host: ry77682.us-central1.gcp.snowflakecomputing.com:443
-        schema: DEMO
-        warehouse: SNDEV
-        database: TESTDB
-        privateKey: SECRETS
-     pulsar:
-       pulsarConfig: "test-pulsar-sink-config"
-     resources:
-       limits:
-        cpu: "0.2"
-        memory: 1.1G
-       requests:
-        cpu: "0.1"
-        memory: 1G
-     java:
-       jar: connectors/pulsar-io-snowflake-{{connector:version}}.nar
-     clusterName: test-pulsar
-     autoAck: false
-  ```
+    ```yaml
+    apiVersion: compute.functionmesh.io/v1alpha1
+    kind: Sink
+    metadata:
+      name: snowflake-sink-sample
+    spec:
+      image: streamnative/pulsar-io-snowflake:{{connector:version}}
+      className: org.apache.pulsar.ecosystem.io.snowflake.SnowflakeSinkConnector
+      replicas: 1
+      maxReplicas: 1
+      retainOrdering: true
+      input:
+        topics: 
+          - persistent://public/default/test-snowflake-pulsar
+      sinkConfig:
+          user: TEST
+          host: ry77682.us-central1.gcp.snowflakecomputing.com:443
+          schema: DEMO
+          warehouse: SNDEV
+          database: TESTDB
+          privateKey: SECRETS
+      pulsar:
+        pulsarConfig: "test-pulsar-sink-config"
+      resources:
+        limits:
+          cpu: "0.2"
+          memory: 1.1G
+        requests:
+          cpu: "0.1"
+          memory: 1G
+      java:
+        jar: connectors/pulsar-io-snowflake-{{connector:version}}.nar
+      clusterName: test-pulsar
+      autoAck: false
+    ```
 
 2. Apply the YAML file to create the Snowflake sink connector.
 
