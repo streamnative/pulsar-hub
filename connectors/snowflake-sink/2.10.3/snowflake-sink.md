@@ -26,7 +26,7 @@ The [Snowflake](https://www.snowflake.com/) sink connector pulls data from Pulsa
 ![](/images/connectors/snowflake-sink.png)
 
 # Features
-This section describes features of the Snowflake sink connector. For details about how to configure these features, see [how to configure](#how-to-configure).
+This section describes the features of the Snowflake sink connector. For details about how to configure these features, see [how to configure](#how-to-configure).
 
 ## Delivery guarantees
 The Pulsar IO connector framework provides three [delivery guarantees](https://pulsar.apache.org/docs/next/functions-concepts#processing-guarantees-and-subscription-types): `at-most-once`, `at-least-once`, and `effectively-once`.
@@ -238,11 +238,11 @@ You can use the Snowflake sink connector with Function Worker or Function Mesh.
 
 ## Work with Function Worker
 
-You can use the Snowflake sink connector as a non built-in connector or a built-in connector as below.
+You can use the Snowflake sink connector as a standalone connector or a built-in connector as below.
 
-### Use it as non built-in connector
+### Use it as standalone connector
 
-If you already have a Pulsar cluster, you can use the Snowflake sink connector as a non built-in connector directly.
+If you already have a Pulsar cluster, you can use the Snowflake sink connector as a standalone connector directly.
 
 This example shows how to create a Snowflake sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](https://pulsar.apache.org/tools/pulsar-admin/2.10.0-SNAPSHOT/#-em-create-em--30) command.
 
@@ -253,7 +253,7 @@ PULSAR_HOME/bin/pulsar-admin sinks create \
 
 ### Use it as built-in connector
 
-You can make the Snowflake sink connector as a built-in connector and use it on a standalone cluster.
+You can make the Snowflake sink connector as a built-in one and use it on a standalone cluster.
 
 This example describes how to use the Snowflake sink connector to fetch data from Pulsar topics and save data to Snowflake tables in standalone mode.
 
