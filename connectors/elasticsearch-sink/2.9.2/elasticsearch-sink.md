@@ -7,7 +7,7 @@ document:
 source: "https://github.com/apache/pulsar/tree/v2.9.2/pulsar-io/elastic-search"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Elasticsearch", "Sink"]
-alias: Elasticsearch Sink Connector
+alias: Elasticsearch Sink
 features: ["Use Elasticsearch sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/elasticsearch.jpg"
