@@ -4,21 +4,21 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-aws-lambda/tree/branch-2.9.0/src/main/java/org/apache/pulsar/ecosystem/io/aws/lambda"
+source: "https://github.com/streamnative/pulsar-io-aws-lambda/tree/branch-2.10.0.1/src/main/java/org/apache/pulsar/ecosystem/io/aws/lambda"
 license: Apache License 2.0
 tags: ["Pulsar IO", "AWS Lambda", "Sink"]
 alias: AWS Lambda Sink
 features: ["Use AWS Lambda sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/lambda-logo.png"
-download: "https://github.com/streamnative/pulsar-io-aws-lambda/releases/download/v2.9.1.1/pulsar-io-aws-lambda-2.9.1.1.nar"
+download: "https://github.com/streamnative/pulsar-io-aws-lambda/releases/download/v2.10.0.1/pulsar-io-aws-lambda-2.10.0.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
-id: "lambda-sink"
+id: "aws-lambda-sink"
 ---
 
 The [AWS Lambda](https://aws.amazon.com/lambda/) sink connector is a [Pulsar IO connector](http://pulsar.apache.org/docs/en/next/io-overview/) for pulling messages from Pulsar topics to AWS Lambda to invoke Lambda functions. 
@@ -180,7 +180,7 @@ You can use the AWS Lambda sink connector as a non built-in connector or a built
 
 If you already have a Pulsar cluster, you can use the AWS Lambda sink connector as a non built-in connector directly.
 
-This example shows how to create an AWS Lambda sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](http://pulsar.apache.org/tools/pulsar-admin/2.9.0-SNAPSHOT/#-em-create-em--24) command.
+This example shows how to create an AWS Lambda sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](http://pulsar.apache.org/tools/pulsar-admin/2.10.0-SNAPSHOT/#-em-create-em--24) command.
 
 ```bash
 PULSAR_HOME/bin/pulsar-admin sinks create \
@@ -258,7 +258,7 @@ This example explains how to create an AWS Lambda sink connector in an on-premis
     PULSAR_HOME/bin/pulsar-admin sinks available-sinks
     ```
 
-4. Create an AWS Lambda sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](http://pulsar.apache.org/tools/pulsar-admin/2.9.0-SNAPSHOT/#-em-create-em--24) command.
+4. Create an AWS Lambda sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](http://pulsar.apache.org/tools/pulsar-admin/2.10.0-SNAPSHOT/#-em-create-em--24) command.
 
     ```
     PULSAR_HOME/bin/pulsar-admin sinks create \
