@@ -12,14 +12,14 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: streamnative/streamnative-ci
-          token: ${{ secrets.SNBOT_GITHUB_TOKEN }}
+          token: ${{ secrets.BOT }}
           path: ci
           ref: master
 
       - uses: actions/checkout@v3
         with:
           repository: streamnative/pulsar-hub
-          token: ${{ secrets.SNBOT_GITHUB_TOKEN }}
+          token: ${{ secrets.BOT }}
           ref: ${{ github.ref }}
           path: prm
 
