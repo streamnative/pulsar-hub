@@ -5,13 +5,12 @@ import yaml from "js-yaml";
 import axios from "axios";
 
 const yamlPatterns = ["**/*.yaml"];
-const GITHUB_HTTP_BASE =
-  "https://tuteng:" + process.env.ACCESS_TOKEN + "@api.github.com";
-const CONTENT_PREFIX =
-  "https://tuteng:" + process.env.ACCESS_TOKEN + "@raw.githubusercontent.com";
-
 const reThreeNumber = new RegExp("^v\\d+\\.\\d+.\\d+$");
 const reFourNumber = new RegExp("^v\\d+.\\d+.\\d+.\\d+$");
+
+const LINK_PREFIX = "https://tuteng:" + process.env.ACCESS_TOKEN;
+const GITHUB_HTTP_BASE = LINK_PREFIX + "@api.github.com";
+const CONTENT_PREFIX = LINK_PREFIX + "@raw.githubusercontent.com";
 
 function getLink(organization, repository, rest) {
   return (
