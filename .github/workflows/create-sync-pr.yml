@@ -9,6 +9,10 @@ on:
         description: Write a description for this docs sync
         required: false
         type: string
+
+env:
+  ACCESS_TOKEN: ${{ secrets.SNBOT_GITHUB_TOKEN }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
