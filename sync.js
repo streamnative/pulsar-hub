@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import { globby } from "globby";
-import request from "sync-request";
 import yaml from "js-yaml";
 import axios from "axios";
 
