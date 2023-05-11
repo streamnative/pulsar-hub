@@ -82,7 +82,7 @@ async function getDoc(organization, repository, version, name) {
 
 async function fetchDocs() {
   const yamlFiles = await globby(yamlPatterns);
-  for (let yamlFile of yamlFiles.slice(0, 1)) {
+  for (let yamlFile of yamlFiles) {
     const filePath = yamlFile.split("/");
     const fileName = path.basename(yamlFile, ".yaml");
     const pathPrefix = filePath.slice(0, 2).join("/");
@@ -92,7 +92,7 @@ async function fetchDocs() {
     const organization = orgRepository[1];
     const repository = orgRepository[2];
     const tags = await getTags(organization, repository);
-    for (let tag of tags.slice(0, 3)) {
+    for (let tag of tags) {
       const version = tag.name;
       const _dir = pathPrefix + "/" + version;
       const _file_path = _dir + "/" + fileName + ".md";
