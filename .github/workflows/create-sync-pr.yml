@@ -1,6 +1,8 @@
 name: Create Docs Sync PR
 
 on:
+  schedule:
+    - cron:  '30 17 * * *'
   workflow_dispatch:
     inputs:
       releaseDescription:
