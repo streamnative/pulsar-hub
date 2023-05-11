@@ -13,8 +13,6 @@ jobs:
     name: Create Docs Sync PR
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: docs-sync
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -38,8 +36,7 @@ jobs:
         with:
           pr_title: "[Docs Sync] ${{ steps.create_branch.outputs.syncDate }}"
           source_branch: sync/${{ steps.create_branch.outputs.syncBranch }}
-          destination_branch: docs-sync 
-          # destination_branch: master
+          destination_branch: master
           pr_body: |
             [Docs Sync] ${{ steps.create_branch.outputs.syncDate }}
             ${{ github.event.inputs.releaseDescription }}
