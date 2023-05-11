@@ -9,13 +9,14 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: streamnative/streamnative-ci
           token: ${{ secrets.SNBOT_GITHUB_TOKEN }}
           path: ci
+          ref: master
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: streamnative/pulsar-hub
           token: ${{ secrets.SNBOT_GITHUB_TOKEN }}
