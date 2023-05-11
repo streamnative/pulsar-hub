@@ -3,6 +3,7 @@ import path from "path";
 import { globby } from "globby";
 import request from "sync-request";
 import yaml from "js-yaml";
+import axios from "axios";
 
 const yamlPatterns = ["**/*.yaml"];
 const GITHUB_HTTP_BASE =
@@ -13,13 +14,13 @@ const CONTENT_PREFIX =
 const reThreeNumber = new RegExp("^v\\d+\\.\\d+.\\d+$");
 const reFourNumber = new RegExp("^v\\d+.\\d+.\\d+.\\d+$");
 
-function getGitHubLink(organization, repository, type) {
+function getLink(organization, repository, rest) {
   return (
-    GITHUB_HTTP_BASE + "/repos/" + organization + "/" + repository + "/" + type
+    GITHUB_HTTP_BASE + "/repos/" + organization + "/" + repository + "/" + rest
   );
 }
 
-function getGitHubContentLink(organization, repository, version, fileName) {
+function getDocLink(organization, repository, version, fileName) {
   return (
     CONTENT_PREFIX +
     "/" +
@@ -33,30 +34,11 @@ function getGitHubContentLink(organization, repository, version, fileName) {
   );
 }
 
-function getGitHubDocsContentLink(organization, repository, version, fileName) {
-  return (
-    CONTENT_PREFIX +
-    "/" +
-    organization +
-    "/" +
-    repository +
-    "/" +
-    version +
-    "/docs/" +
-    fileName
-  );
-}
-
-function getTags(organization, repository) {
-  const tagsLink = getGitHubLink(organization, repository, "git/refs/tags");
+async function getTags(organization, repository) {
+  const tagsLink = getLink(organization, repository, "git/refs/tags");
   try {
-    const res = request("GET", tagsLink, {
-      headers: {
-        "user-agent": "nodejs-client",
-      },
-    });
-    let tags = JSON.parse(res.getBody("utf8"));
-    tags = tags.map((tag) => {
+    const { data } = await axios.get(tagsLink);
+    const tags = data.map((tag) => {
       const name = tag.ref.split("/")[2];
       return {
         name,
@@ -76,35 +58,25 @@ function getTags(organization, repository) {
   }
 }
 
-function getReadme(organization, repository, version) {
-  const readmeLink = getGitHubContentLink(
-    organization,
-    repository,
-    version,
-    "README.md"
-  );
-  const res = request("GET", readmeLink, {
-    headers: {
-      "user-agent": "nodejs-client",
-    },
-  });
-  return res.getBody("utf8");
-}
-
-function getReadmeByName(organization, repository, version, name) {
-  const readmeLink = getGitHubDocsContentLink(
-    organization,
-    repository,
-    version,
-    name
-  );
+async function getDoc(organization, repository, version, name) {
   try {
-    const res = request("GET", readmeLink, {
-      headers: {
-        "user-agent": "nodejs-client",
-      },
-    });
-    return res.getBody("utf8");
+    const docLink = getDocLink(
+      organization,
+      repository,
+      version,
+      "/docs/" + name
+    );
+    let res = await axios.get(docLink);
+    if (!res || !res.data) {
+      const readmeLink = getDocLink(
+        organization,
+        repository,
+        version,
+        "README.md"
+      );
+      res = await axios.get(readmeLink);
+    }
+    return res.data;
   } catch (error) {
     return null;
   }
@@ -112,7 +84,7 @@ function getReadmeByName(organization, repository, version, name) {
 
 async function fetchDocs() {
   const yamlFiles = await globby(yamlPatterns);
-  for (let yamlFile of yamlFiles) {
+  for (let yamlFile of yamlFiles.slice(0, 1)) {
     const filePath = yamlFile.split("/");
     const fileName = path.basename(yamlFile, ".yaml");
     const pathPrefix = filePath.slice(0, 2).join("/");
@@ -121,8 +93,8 @@ async function fetchDocs() {
     const orgRepository = host.split("/");
     const organization = orgRepository[1];
     const repository = orgRepository[2];
-    const tags = getTags(organization, repository);
-    for (let tag of tags) {
+    const tags = await getTags(organization, repository);
+    for (let tag of tags.slice(0, 3)) {
       const version = tag.name;
       const _dir = pathPrefix + "/" + version;
       const _file_path = _dir + "/" + fileName + ".md";
@@ -130,21 +102,22 @@ async function fetchDocs() {
         fs.mkdirSync(_dir);
       }
       if (!fs.existsSync(_file_path)) {
-        let readme = getReadmeByName(
+        const doc = await getDoc(
           organization,
           repository,
           version,
           fileName + ".md"
         );
-        if (!readme) {
-          readme = getReadme(organization, repository, version);
+        if (!doc) {
+          console.log(`not found doc ${fileName} version: ${version}`);
+          continue;
         }
-        fs.writeFileSync(_file_path, readme, function (err) {
+        fs.writeFileSync(_file_path, doc, function (err) {
           if (err) {
             return console.error(err);
           }
         });
-        console.log("successed cached doc:", _file_path);
+        console.log("successed sync doc:", _file_path);
       }
     }
   }
