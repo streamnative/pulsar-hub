@@ -41,7 +41,7 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           pr_title: "[Docs Sync] ${{ steps.create_branch.outputs.syncDate }}"
-          source_branch: sync/${{ steps.create_branch.outputs.syncBranch }}
+          source_branch: ${{ steps.create_branch.outputs.syncBranch }}
           destination_branch: master
           pr_body: |
             [Docs Sync] ${{ steps.create_branch.outputs.syncDate }}
