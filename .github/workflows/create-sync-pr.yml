@@ -1,0 +1,49 @@
+name: Create Docs Sync PR
+
+on:
+  schedule:
+    - cron:  '30 17 * * *'
+  workflow_dispatch:
+    inputs:
+      releaseDescription:
+        description: Write a description for this docs sync
+        required: false
+        type: string
+
+env:
+  ACCESS_TOKEN: ${{ secrets.SNBOT_GITHUB_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Create Docs Sync PR
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Sync docs
+        run: |
+          npm install
+          node sync.js
+      - name: Create branch
+        id: create_branch
+        run: |
+          git config user.name "Streamnative Updater"
+          git config user.email "dev@streamnative.io"
+          git add -A .
+          DOCS_SYNC_DATE=$(date +"%Y%m%d")
+          DOCS_SYNC_BRANCH_NAME=sync/docs-sync-$DOCS_SYNC_DATE
+          echo "::set-output name=syncDate::$DOCS_SYNC_DATE"
+          git diff-index --quiet HEAD || (git commit -m "Docs sync $DOCS_SYNC_DATE" && git checkout -b $DOCS_SYNC_BRANCH_NAME && git push -q -f origin $DOCS_SYNC_BRANCH_NAME && echo "::set-output name=syncBranch::$DOCS_SYNC_BRANCH_NAME")
+      - name: Create Pull Request
+        if: ${{ steps.create_branch.outputs.syncBranch != '' }}
+        uses: repo-sync/pull-request@v2
+        with:
+          pr_title: "[Docs Sync] ${{ steps.create_branch.outputs.syncDate }}"
+          source_branch: sync/${{ steps.create_branch.outputs.syncBranch }}
+          destination_branch: master
+          pr_body: |
+            [Docs Sync] ${{ steps.create_branch.outputs.syncDate }}
+            ${{ github.event.inputs.releaseDescription }}
+          pr_label: docs-sync
