@@ -1,5 +1,5 @@
 ---
-description: Pulsar Spark Connector allows Spark reading data from Pulsar and writing data to Pulsar
+description: Pulsar Spark Connector allows Spark to read data from Pulsar and write data to Pulsar
 author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
@@ -9,7 +9,7 @@ license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "Spark", "Connector"]
 alias: Pulsar Spark Connector
-features: ["Pulsar Spark Connector allows Spark reading data from Pulsar and writing data to Pulsar"]
+features: ["Pulsar Spark Connector allows Spark to read data from Pulsar and write data to Pulsar"]
 icon: "/images/data-processing/spark-logo.png"
 download: "https://github.com/streamnative/pulsar-spark/releases/tag/release-3.1.1"
 support: StreamNative
@@ -21,7 +21,7 @@ dockerfile:
 id: "pulsar-spark"
 ---
 
-Pulsar Spark Connector is an integration of [Apache Pulsar](https://pulsar.apache.org/en/) and [Apache Spark](https://spark.apache.org/) (data processing engine), which allows Spark reading data from Pulsar and writing data to Pulsar using Spark structured streaming and Spark SQL and provides exactly-once source semantics and at-least-once sink semantics.
+Pulsar Spark Connector is an integration of [Apache Pulsar](https://pulsar.apache.org/en/) and [Apache Spark](https://spark.apache.org/) (data processing engine), which allows Spark to read data from Pulsar and write data to Pulsar using Spark structured streaming and Spark SQL and provides exactly-once source semantics and at-least-once sink semantics.
 
 ![](/images/data-processing/pulsar-spark-connector.png)
 
@@ -37,7 +37,7 @@ After a microbatch, the offset is committed. Therefore, the next microbatch star
 
 For failure recovery, the offsets of each partition are stored into the Spark’s checkpoint. And each time a Spark job is launched, it first tries to restore reading offsets from the state store. If there are offsets saved for this job, the Spark job reads data from the saved offsets. Otherwise, the Spark job reads data from a user-defined position of the topic.
 
-The whole life-cycle of a structured streaming job is illustrated in the figure below. As time goes by, each interval yields a new microbatch of data that is then processed by the Spark job.
+The whole life cycle of a structured streaming job is illustrated in the figure below. As time goes by, each interval yields a new microbatch of data that is then processed by the Spark job.
 
 ![](/images/data-processing/pulsar-spark-how-it-works-2.png)
 
