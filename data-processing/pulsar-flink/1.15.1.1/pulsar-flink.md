@@ -8,7 +8,7 @@ source: "https://github.com/streamnative/flink/tree/v1.15.1.1"
 license: Apache License 2.0
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 tags: ["Pulsar", "Flink", "Connector"]
-alias: Pulsar Flink Connector (New)
+alias: Pulsar Flink Connector
 features: ["Pulsar Flink Connector allows Flink to read data from Pulsar and to write data to Pulsar"]
 icon: "/images/data-processing/flink-logo.png"
 download: "https://repo1.maven.org/maven2/io/streamnative/connectors/flink-sql-connector-pulsar/"
