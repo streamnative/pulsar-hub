@@ -7,3 +7,6 @@
 # Linux swap file
 *.swp
 *.iml
+
+node_modules/
+package-lock.json
