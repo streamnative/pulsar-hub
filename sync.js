@@ -229,12 +229,8 @@ async function fetchDocs() {
           if (err) {
             return console.error(err);
           }
-          fs.writeFileSync(_file_path, str, function (err) {
-            if (err) {
-              return console.error(err);
-            }
-            console.log("successed sync doc:", _file_path);
-          });
+          fs.writeFileSync(_file_path, str);
+          console.log("successed sync doc:", _file_path);
         });
       }
     }
