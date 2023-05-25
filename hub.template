@@ -1,0 +1,24 @@
+---
+description: <%= description %>
+author: <%= authors %>
+contributors: <%= contributors %>
+language: <%= languages %>
+document:
+source: "<%= source %>"
+license: <%= license %>
+license_link: "<%= licenseLink %>"
+tags: <%= tags %>
+alias: <%= alias %>
+features: ["<%= features %>"]
+icon: "<%= icon %>"
+download: "<%= download %>"
+support: <%= support %>
+support_link: <%= supportLink %>
+support_img: "<%= supportImg %>"
+owner_name: "<%= ownerName %>"
+owner_img: "<%= ownerImg %>"
+dockerfile: "<%= dockerfile %>"
+id: "<%= id %>"
+---
+
+<%- content %>

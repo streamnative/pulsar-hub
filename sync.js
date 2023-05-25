@@ -3,6 +3,8 @@ import path from "path";
 import { globby } from "globby";
 import yaml from "js-yaml";
 import axios from "axios";
+import matter from "gray-matter";
+import ejs from "ejs";
 
 const yamlPatterns = ["**/*.yaml"];
 const reThreeNumber = new RegExp("^v\\d+\\.\\d+.\\d+$");
@@ -14,7 +16,12 @@ const CONTENT_PREFIX = LINK_PREFIX + "@raw.githubusercontent.com";
 
 function getLink(organization, repository, rest) {
   return (
-    GITHUB_HTTP_BASE + "/repos/" + organization + "/" + repository + "/" + rest
+    GITHUB_HTTP_BASE +
+    "/repos/" +
+    organization +
+    "/" +
+    repository +
+    (rest ? "/" + rest : "")
   );
 }
 
@@ -80,6 +87,37 @@ async function getDoc(organization, repository, version, name) {
   }
 }
 
+async function getRepository(organization, repository) {
+  const { data } = await axios.get(getLink(organization, repository));
+  return data;
+}
+
+async function getContributors(organization, repository) {
+  const { data } = await axios.get(
+    getLink(organization, repository, "contributors")
+  );
+  return data;
+}
+
+async function getLicenses(organization, repository) {
+  const { data } = await axios.get(
+    getLink(organization, repository, "license")
+  );
+  return data;
+}
+
+async function getLanguages(organization, repository) {
+  const { data } = await axios.get(
+    getLink(organization, repository, "languages")
+  );
+  return data;
+}
+
+async function getTopics(organization, repository) {
+  const { data } = await axios.get(getLink(organization, repository, "topics"));
+  return data;
+}
+
 async function fetchDocs() {
   const yamlFiles = await globby(yamlPatterns);
   for (let yamlFile of yamlFiles) {
@@ -94,12 +132,33 @@ async function fetchDocs() {
     const tags = await getTags(organization, repository);
     for (let tag of tags) {
       const version = tag.name;
+      const download = tag.tarball_url;
       const _dir = pathPrefix + "/" + version;
       const _file_path = _dir + "/" + fileName + ".md";
       if (!fs.existsSync(_dir)) {
         fs.mkdirSync(_dir);
       }
       if (!fs.existsSync(_file_path)) {
+        const repo = await getRepository(organization, repository);
+        const description = repo["description"];
+        const ownerName = repo["owner"]["login"];
+        const support = repo["owner"]["login"];
+        const ownerImg = repo["owner"]["avatar_url"];
+        const name = repo["name"];
+        const source = repo["html_url"];
+        const licenses = await getLicenses(organization, repository);
+        const license = licenses["license"]["name"];
+        const licenseLink = licenses["html_url"];
+        const languages = await getLanguages(organization, repository);
+        const languageKeys = Object.keys(languages);
+        const language = languageKeys.slice(0, 4);
+        const topics = await getTopics(organization, repository);
+        const contributors = await getContributors(organization, repository);
+        const contributorList = [];
+        for (let m = 0; m < contributors.length; m++) {
+          contributorList.push(contributors[m]["login"]);
+        }
+
         const doc = await getDoc(
           organization,
           repository,
@@ -110,12 +169,69 @@ async function fetchDocs() {
           console.log(`not found doc ${fileName} version: ${version}`);
           continue;
         }
-        fs.writeFileSync(_file_path, doc, function (err) {
+        const md = matter(doc);
+        const dockerfile = md.data.dockerfile;
+        const alias = md.data.alias || name;
+        let content = "";
+        md.content.split("\n").forEach(function (line) {
+          if (line.indexOf("![](/docs") >= 0) {
+            line = line.replace(
+              "/docs",
+              "https://raw.githubusercontent.com/" +
+                organization +
+                "/" +
+                name +
+                "/" +
+                tag.name +
+                "/docs"
+            );
+          }
+          if (line.indexOf("![](docs") >= 0) {
+            line = line.replace(
+              "docs",
+              "https://raw.githubusercontent.com/" +
+                organization +
+                "/" +
+                name +
+                "/" +
+                tag.name +
+                "/docs"
+            );
+          }
+          content += line + "\n";
+        });
+
+        const result = {
+          description: description,
+          authors: contributorList.slice(0, 4),
+          contributors: contributorList.slice(0, 4),
+          languages: language,
+          document: "",
+          source: source,
+          license: license,
+          licenseLink: licenseLink,
+          tags: topics["names"],
+          alias: alias,
+          features: description,
+          icon: ownerImg,
+          download: download,
+          support: support,
+          supportLink: source,
+          supportImg: ownerImg,
+          ownerName: ownerName,
+          ownerImg: ownerImg,
+          dockerfile: dockerfile,
+          id: fileName,
+          content: content,
+        };
+
+        ejs.renderFile("hub.template", result, (err, str) => {
           if (err) {
             return console.error(err);
           }
+          fs.writeFileSync(_file_path, str);
+          console.log("successed sync doc:", _file_path);
         });
-        console.log("successed sync doc:", _file_path);
       }
     }
   }
