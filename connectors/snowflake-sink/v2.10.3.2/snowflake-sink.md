@@ -241,9 +241,9 @@ You can use the Snowflake sink connector with Function Worker or Function Mesh.
 
 You can use the Snowflake sink connector as a non built-in connector or a built-in connector as below.
 
-::: tabs
+{% tabs %}
 
-@@@ Use it as non built-in connector
+{% tab label="Use it as non built-in connector" %}
 
 If you already have a Pulsar cluster, you can use the Snowflake sink connector as a non built-in connector directly.
 
@@ -254,9 +254,8 @@ PULSAR_HOME/bin/pulsar-admin sinks create \
 --sink-config-file <snowflake-sink-config.yaml >
 ```
 
-@@@
-
-@@@ Use it as built-in connector
+{% /tab %}
+{% tab label="Use it as built-in connector" %}
 
 You can make the Snowflake sink connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 

@@ -171,9 +171,9 @@ You can use the Google Cloud Pub/Sub source connector with Function Worker or Fu
 
 You can use the Google Cloud Pub/Sub source connector as a non built-in connector or a built-in connector as below.
 
-::: tabs
+{% tabs %}
 
-@@@ Use it as non built-in connector
+{% tab label="Use it as non built-in connector" %}
 
 If you already have a Pulsar cluster, you can use the Google Cloud Pub/Sub source connector as a non built-in connector directly.
 
@@ -184,9 +184,8 @@ PULSAR_HOME/bin/pulsar-admin sources create \
 --source-config-file <google-pubsub-source-config.yaml >
 ```
 
-@@@
-
-@@@ Use it as built-in connector
+{% /tab %}
+{% tab label="Use it as built-in connector" %}
 
 You can make the Google Cloud Pub/Sub source connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
@@ -269,9 +268,8 @@ This example explains how to create a Google Cloud Pub/Sub source connector in a
     --source-config-file <google-pubsub-source-config.yaml>
     ```
 
-@@@
-
-:::
+{% /tab %}
+{% /tabs %}
 
 ## Work with Function Mesh
 
