@@ -198,6 +198,12 @@ async function fetchDocs() {
                 "/docs"
             );
           }
+          // replace the old multi-tab syntax to new syntax
+          line = line
+            .replace(/::: tabs/g, "{% tabs %}")
+            .replace(/:::/g, "{% /tabs %}")
+            .replace(/@@@[ ]*(?<tab_name>.+)/g, '{% tab label="$<tab_name>" %}')
+            .replace(/@@@/g, "{% /tab %}");
           content += line + "\n";
         });
 
@@ -237,4 +243,8 @@ async function fetchDocs() {
   }
 }
 
-fetchDocs();
+// fetchDocs();
+
+async function fixMultiTabSyntax() {
+  
+}
