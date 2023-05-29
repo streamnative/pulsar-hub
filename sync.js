@@ -200,13 +200,13 @@ async function fetchDocs() {
           }
           // replace the old multi-tab syntax to new syntax
           line = line
-            .replace(/^\s*::: tabs/g, "{% tabs %}")
-            .replace(/^\s*:::/g, "{% /tabs %}")
+            .replace(/^([ ]*)::: tabs/g, "$1{% tabs %}")
+            .replace(/^([ ]*):::/g, "$1{% /tabs %}")
             .replace(
-              /^\s*@@@[ ]+(?<tab_name>.+)/g,
-              '{% tab label="$<tab_name>" %}'
+              /^([ ]*)@@@[ ]+(?<tab_name>.+)/g,
+              '$1{% tab label="$<tab_name>" %}'
             )
-            .replace(/^\s*@@@/g, "{% /tab %}");
+            .replace(/^([ ]*)@@@/g, "$1{% /tab %}");
           content += line + "\n";
         });
 
