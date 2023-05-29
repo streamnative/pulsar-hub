@@ -1,5 +1,6 @@
 {
   "name": "pulsar-hub",
+  "type": "module",
   "description": "StreamNative Hub is an online service for finding, reviewing, and downloading extensions for the Apache Pulsar ecosystem. It highlights features, richer component descriptions, links to external resources for the components, and installation and support information.",
   "main": "sync.js",
   "scripts": {
