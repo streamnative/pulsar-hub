@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Lakehouse", "Sink"]
 alias: Lakehouse Sink
 features: ["Use Lakehouse sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/pulsar-hub.svg"
+icon: /images/pulsar-hub.svg
 download: "https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v2.8.3.5/pulsar-io-lakehouse-2.8.3.5.nar"
 support: StreamNative
 support_link: https://streamnative.io

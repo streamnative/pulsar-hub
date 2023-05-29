@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Cloud Storage", "Sink"]
 alias: Cloud Storage Sink
 features: ["Use the Cloud Storage sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/pulsar-hub.svg"
+icon: /images/pulsar-hub.svg
 download: "https://github.com/streamnative/pulsar-io-cloud-storage/releases/download/v2.5.1/pulsar-io-cloud-storage-2.5.1.nar"
 support: StreamNative
 support_link: https://streamnative.io

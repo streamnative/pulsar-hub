@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "AWS Lambda", "Sink"]
 alias: AWS Lambda Sink
 features: ["Use AWS Lambda sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/lambda-logo.png"
+icon: /images/connectors/lambda-logo.png
 download: "https://github.com/streamnative/pulsar-io-aws-lambda/releases/download/v2.7.0/pulsar-io-aws-lambda-2.7.0.nar"
 support: StreamNative
 support_link: https://streamnative.io

@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-snowflake/blob/master/L
 tags: 
 alias: Snowflake Sink Connector
 features: [""]
-icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+icon: /images/connectors/snowflake-logo.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-snowflake/tarball/refs/tags/v2.9.4.2"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-snowflake

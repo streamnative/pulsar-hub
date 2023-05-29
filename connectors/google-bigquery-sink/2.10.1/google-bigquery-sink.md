@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "BigQuery", "Sink"]
 alias: Google Cloud BigQuery Sink
 features: ["Use Google Cloud BigQuery sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/google-bigquery-logo.png"
+icon: /images/connectors/google-bigquery-logo.png
 download: "https://github.com/streamnative/pulsar-io-bigquery/releases/download/v2.10.1.10/pulsar-io-bigquery-2.10.1.10.jar"
 support: StreamNative
 support_link: https://streamnative.io

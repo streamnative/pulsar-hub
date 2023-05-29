@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-google-pubsub/blob/mast
 tags: 
 alias: pulsar-io-google-pubsub
 features: [""]
-icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+icon: /images/connectors/google-pubsub-logo.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-google-pubsub/tarball/refs/tags/v2.9.3.5"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-google-pubsub
