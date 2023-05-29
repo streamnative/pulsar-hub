@@ -25,8 +25,8 @@ function fix(mdpath) {
   data = data
     .replace(/::: tabs/g, "{% tabs %}")
     .replace(/:::/g, "{% /tabs %}")
-    .replace(/@@@[ ]*(?<tab_name>.+)/g, '{% tab label="$<tab_name>" %}')
-    .replace(/@@@/g, "{% /tab %}");
+    .replace(/@@@[ ]+(?<tab_name>.+)/g, '{% tab label="$<tab_name>" %}')
+    .replace(/@@@\s*\n/g, "{% /tab %}\n");
   fs.writeFileSync(mdpath, data);
   console.log(mdpath + " fixed");
 }
