@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/kop/blob/master/LICENSE"
 tags: apache-pulsar,apache-kafka,pubsub,event-streaming,kafka-on-pulsar,kop,pub-sub,dotnet,pulsar,kafka
 alias: KoP - Kafka on Pulsar
 features: ["Kafka-on-Pulsar - A protocol handler that brings native Kafka protocol to Apache Pulsar"]
-icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+icon: /images/protocol-handler/kafka-logo.png
 download: "https://api.github.com/repos/streamnative/kop/tarball/refs/tags/v2.9.2.9"
 support: streamnative
 support_link: https://github.com/streamnative/kop
