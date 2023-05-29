@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "AMQP", "Qpid", "JMS", "Source"]
 alias: AMQP1_0 source
 features: ["Use AMQP1_0 source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/amqp-logo.png"
+icon: /images/connectors/amqp-logo.png
 download: "https://github.com/streamnative/pulsar-io-amqp-1-0/releases/download/v2.7.1.1/pulsar-io-amqp1_0-2.7.1.1.nar"
 support: StreamNative
 support_link: https://streamnative.io

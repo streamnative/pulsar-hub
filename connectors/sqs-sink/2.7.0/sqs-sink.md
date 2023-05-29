@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "SQS", "Sink"]
 alias: SQS Sink
 features: ["Use SQS sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/sqs-logo.png"
+icon: /images/connectors/sqs-logo.png
 download: "https://github.com/streamnative/pulsar-io-sqs/releases/download/v2.7.0/pulsar-io-sqs-2.7.0.nar"
 support: StreamNative
 support_link: https://streamnative.io

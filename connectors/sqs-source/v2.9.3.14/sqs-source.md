@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-sqs/blob/master/LICENSE
 tags: 
 alias: AWS SQS Source Connector
 features: [""]
-icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+icon: /images/connectors/sqs-logo.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-sqs/tarball/refs/tags/v2.9.3.14"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-sqs

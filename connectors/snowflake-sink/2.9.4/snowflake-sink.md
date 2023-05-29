@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Snowflake", "Sink"]
 alias: Snowflake Sink
 features: ["Use Snowflake sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/snowflake-logo.png"
+icon: /images/connectors/snowflake-logo.png
 download: "https://github.com/streamnative/pulsar-io-snowflake/releases/tag/v2.9.4.1/pulsar-io-snowflake-2.9.4.1.nar"
 support: StreamNative
 support_link: https://streamnative.io

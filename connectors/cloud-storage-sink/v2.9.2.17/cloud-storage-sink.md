@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-cloud-storage/blob/mast
 tags: 
 alias: pulsar-io-cloud-storage
 features: ["Cloud Storage Connector integrates Apache Pulsar with cloud storage."]
-icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+icon: /images/pulsar-hub.svg
 download: "https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v2.9.2.17"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-cloud-storage
