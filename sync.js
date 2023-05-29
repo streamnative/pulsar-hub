@@ -144,6 +144,7 @@ async function fetchDocs() {
         const ownerName = repo["owner"]["login"];
         const support = repo["owner"]["login"];
         const ownerImg = repo["owner"]["avatar_url"];
+        const icon = project.icon || ownerImg
         const name = repo["name"];
         const source = repo["html_url"];
         const licenses = await getLicenses(organization, repository);
@@ -213,7 +214,7 @@ async function fetchDocs() {
           tags: topics["names"],
           alias: alias,
           features: description,
-          icon: ownerImg,
+          icon: icon,
           download: download,
           support: support,
           supportLink: source,
