@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Kafka", "Source"]
 alias: Kafka Source
 features: ["Use Kafka source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/kafka.jpg"
+icon: "/images/connectors/kafka-logo.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-kafka-2.5.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
