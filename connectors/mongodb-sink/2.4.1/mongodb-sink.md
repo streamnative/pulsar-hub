@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "MongoDB", "Sink"]
 alias: MongoDB Sink
 features: ["Use MongoDB sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/mongodb.jpg"
+icon: "/images/connectors/mongodb.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.1/connectors/pulsar-io-mongo-2.4.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
