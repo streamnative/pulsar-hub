@@ -8,7 +8,7 @@ source: "https://github.com/streamnative/pulsar-io-amqp-1-0"
 license: Apache License 2.0
 license_link: "https://github.com/streamnative/pulsar-io-amqp-1-0/blob/master/LICENSE"
 tags: 
-alias: pulsar-io-amqp-1-0
+alias: AMQP1_0 Sink Connector
 features: ["support sink/source for AMQP version 1.0.0"]
 icon: /images/connectors/amqp-logo.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-amqp-1-0/tarball/refs/tags/v2.8.1.15"
