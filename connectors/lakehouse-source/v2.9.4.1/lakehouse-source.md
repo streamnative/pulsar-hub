@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-lakehouse/blob/master/L
 tags: 
 alias: Lakehouse Source Connector
 features: ["pulsar lakehouse connector"]
-icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+icon: /images/pulsar-hub.svg
 download: "https://api.github.com/repos/streamnative/pulsar-io-lakehouse/tarball/refs/tags/v2.9.4.1"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-lakehouse

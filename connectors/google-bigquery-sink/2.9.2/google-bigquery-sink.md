@@ -7,7 +7,7 @@ document:
 source: "https://github.com/streamnative/pulsar-io-bigquery/tree/v2.9.2.24/src/main/java/org/apache/pulsar/ecosystem/io/bigquery"
 license: Apache License 2.0
 tags: ["Pulsar IO", "BigQuery", "Sink"]
-alias: Google Cloud BigQuery Sink
+alias: Google Cloud BigQuery Sink Connector
 features: ["Use Google Cloud BigQuery sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: /images/connectors/google-bigquery-logo.png

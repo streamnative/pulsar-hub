@@ -8,7 +8,7 @@ source: "https://github.com/streamnative/pulsar-io-google-pubsub"
 license: Apache License 2.0
 license_link: "https://github.com/streamnative/pulsar-io-google-pubsub/blob/master/LICENSE"
 tags: 
-alias: pulsar-io-google-pubsub
+alias: Google Cloud Pub/Sub Source Connector
 features: [""]
 icon: /images/connectors/google-pubsub-logo.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-google-pubsub/tarball/refs/tags/v2.9.2.13"

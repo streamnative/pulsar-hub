@@ -8,9 +8,9 @@ source: "https://github.com/streamnative/pulsar-io-bigquery"
 license: Apache License 2.0
 license_link: "https://github.com/streamnative/pulsar-io-bigquery/blob/master/LICENSE"
 tags: 
-alias: pulsar-io-bigquery
+alias: Google Cloud BigQuery Source Connector
 features: ["BigQuery Connector integrates Apache Pulsar with Google BigQuery."]
-icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+icon: /images/connectors/google-bigquery-logo.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-bigquery/tarball/refs/tags/v2.10.0.7"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-bigquery

@@ -8,7 +8,7 @@ source: "https://github.com/streamnative/pulsar-io-cloud-storage"
 license: Apache License 2.0
 license_link: "https://github.com/streamnative/pulsar-io-cloud-storage/blob/master/LICENSE"
 tags: 
-alias: pulsar-io-cloud-storage
+alias: Cloud Storage Sink Connector
 features: ["Cloud Storage Connector integrates Apache Pulsar with cloud storage."]
 icon: /images/pulsar-hub.svg
 download: "https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v2.9.3.10"
