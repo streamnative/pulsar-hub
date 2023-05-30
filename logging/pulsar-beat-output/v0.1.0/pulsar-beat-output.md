@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Beat output", "Logging"]
 alias: Pulsar Beat output
 features: ["Use Pulsar Beat output to capture all sorts of operational data"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/elasticsearch.jpg"
+icon: /images/logging/elastic-beats.png
 download: "https://github.com/streamnative/pulsar-beat-output/releases/tag/v0.1.0"
 support: StreamNative
 support_link: https://streamnative.io
