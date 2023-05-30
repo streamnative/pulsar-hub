@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-beat-output/blob/master/LI
 tags: pulsar,filebeat,elasticbeats,apache-pulsar
 alias: pulsar-beat-output
 features: ["Elastic Beats Output to Apache Pulsar"]
-icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+icon: /images/logging/elastic-beats.png
 download: "https://api.github.com/repos/streamnative/pulsar-beat-output/tarball/refs/tags/v0.4.1"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-beat-output
