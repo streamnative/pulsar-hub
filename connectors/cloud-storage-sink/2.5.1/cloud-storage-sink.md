@@ -18,7 +18,7 @@ support_img: "/images/connectors/streamnative.png"
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png"
 dockerfile: 
-id: "io-cloud-storage-sink"
+id: "cloud-storage-sink"
 ---
 
 # Overview
