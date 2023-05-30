@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "HDFS2", "Sink"]
 alias: HDFS2 Sink
 features: ["Use HDFS2 sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/hadoop.jpg"
+icon: "/images/connectors/hadoop.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar-io-hdfs2-2.4.0.nar"
 support: StreamNative
 support_link: https://streamnative.io

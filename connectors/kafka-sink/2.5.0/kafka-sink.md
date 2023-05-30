@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Kafka", "Sink"]
 alias: Kafka Sink
 features: ["Use Kafka sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/kafka.jpg"
+icon: "/images/connectors/kafka-logo.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-kafka-2.5.0.nar"
 support: StreamNative
 support_link: https://streamnative.io

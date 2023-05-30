@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Redis", "Sink"]
 alias: Redis Sink
 features: ["Use Redis sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/redis.jpg"
+icon: "/images/connectors/redis.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-redis-2.5.1.nar"
 support: StreamNative
 support_link: https://streamnative.io
