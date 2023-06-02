@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Aerospike", "Sink"]
 alias: Aerospike Sink
 features: ["Use Aerospike sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/aerospike-sink.jpg"
+icon: "/images/connectors/aerospike-sink.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-aerospike-2.4.2.nar"
 support: StreamNative
 support_link: https://streamnative.io
