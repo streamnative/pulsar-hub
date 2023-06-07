@@ -260,9 +260,9 @@ When locating an artifact or library, the `--packages` option checks the followi
 
 The format for the coordinates should be `groupId:artifactId:version`.
 
-> **Tip**
->
-> For more information about **submitting applications with external dependencies**, see [application submission guide](https://spark.apache.org/docs/latest/submitting-applications.html).
+{% callout title="Tip" type="tip" %}
+For more information about **submitting applications with external dependencies**, see [application submission guide](https://spark.apache.org/docs/latest/submitting-applications.html).
+{% /callout %}
 
 # How to use
 
@@ -323,9 +323,9 @@ The section describes how to create a Pulsar Spark source for streaming and batc
     .as[(String, String)]
   ```
 
-> **Tip**
->
-> For more information on how to use other language bindings for Spark structured streaming, see [Structured Streaming Programming Guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html).
+{% callout title="Tip" type="tip" %}
+For more information on how to use other language bindings for Spark structured streaming, see [Structured Streaming Programming Guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html).
+{% /callout %}
 
 ### Create a Pulsar Spark source for batch queries
 

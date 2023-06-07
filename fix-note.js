@@ -21,12 +21,22 @@ function travel(dir, callback) {
 function fix(mdpath) {
   let data = fs.readFileSync(mdpath, "utf8");
   let updateData = fs.readFileSync(mdpath, "utf8");
-  const reg = /([ ]*)> \*+Note.*\n(([ ]*>\s*.*\n)*)/g;
+  let reg = /([ ]*)> \*+Note.*\n(([ ]*>\s*.*\n)*)/g;
   while ((m = reg.exec(data))) {
     updateData = updateData.replace(
       m[0],
       m[1] +
         '{% callout title="Note" type="note" %}\n' +
+        m[2].replace(/>[ \n]/g, "") +
+        m[1]+"{% /callout %}\n"
+    );
+  }
+  reg = /([ ]*)> \*+Tip.*\n(([ ]*>\s*.*\n)*)/g;
+  while ((m = reg.exec(data))) {
+    updateData = updateData.replace(
+      m[0],
+      m[1] +
+        '{% callout title="Tip" type="tip" %}\n' +
         m[2].replace(/>[ \n]/g, "") +
         m[1]+"{% /callout %}\n"
     );

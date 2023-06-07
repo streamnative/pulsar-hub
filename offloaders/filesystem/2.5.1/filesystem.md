@@ -187,9 +187,9 @@ This example sets the filesystem offloader threshold size to 10 MB using pulsarc
 bin/pulsarctl namespaces set-offload-threshold --size 10M my-tenant/my-namespace
 ```
 
-> **Tip**
->
-> For more information about the `pulsarctl namespaces set-offload-threshold options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-offload-threshold-em-). 
+{% callout title="Tip" type="tip" %}
+For more information about the `pulsarctl namespaces set-offload-threshold options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-offload-threshold-em-). 
+{% /callout %}
 
 ## Run filesystem offloader manually
 
@@ -215,9 +215,9 @@ To trigger via CLI tools, you need to specify the maximum amount of data (thresh
     Offload triggered for persistent://my-tenant/my-namespace/topic1 for messages before 2:0:-1
     ```
 
-    > **Tip**
-    >
-    > For more information about the `pulsarctl topic offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
+    {% callout title="Tip" type="tip" %}
+        For more information about the `pulsarctl topic offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
+    {% /callout %}
 
 - This example checks filesystem offloader status using pulsarctl.
 
@@ -258,9 +258,9 @@ To trigger via CLI tools, you need to specify the maximum amount of data (thresh
     Reason: Error offloading: org.apache.bookkeeper.mledger.ManagedLedgerException: java.util.concurrent.CompletionException: com.amazonaws.services.s3.model.AmazonS3Exception: Anonymous users cannot initiate multipart uploads.  Please authenticate. (Service: Amazon S3; Status Code: 403; Error Code: AccessDenied; Request ID: 798758DE3F1776DF; S3 Extended Request ID: dhBFz/lZm1oiG/oBEepeNlhrtsDlzoOhocuYMpKihQGXe6EG8puRGOkK6UwqzVrMXTWBxxHcS+g=), S3 Extended Request ID: dhBFz/lZm1oiG/oBEepeNlhrtsDlzoOhocuYMpKihQGXe6EG8puRGOkK6UwqzVrMXTWBxxHcS+g=
     ```
 
-    > **Tip**
-    >
-    > For more information about the `pulsarctl topic offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-offload-threshold-em-). 
+    {% callout title="Tip" type="tip" %}
+        For more information about the `pulsarctl topic offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-offload-threshold-em-). 
+    {% /callout %}
 
 # Usage
 
@@ -276,9 +276,9 @@ To move data from Pulsar to HDFS, follow these steps.
 
 This tutorial sets up a Hadoop single node cluster and uses Hadoop 3.2.1.
 
-> **Tip**
->
-> For more information about setting up a Hadoop single node cluster, see [here](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html).
+{% callout title="Tip" type="tip" %}
+For more information about setting up a Hadoop single node cluster, see [here](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html).
+{% /callout %}
 
 1. Download and uncompress Hadoop 3.2.1. 
 
@@ -455,9 +455,9 @@ Execute the following commands in the repository where you download Pulsar tarba
     ./bin/pulsarctl namespaces set-retention public/default --size 100M --time 2d
     ```
 
-    > **Tip**
-    >
-    > For more information about the `pulsarctl namespaces set-retention options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-retention-em-). 
+    {% callout title="Tip" type="tip" %}
+        For more information about the `pulsarctl namespaces set-retention options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-retention-em-). 
+    {% /callout %}
 
 3. Produce data using pulsar-client.
 

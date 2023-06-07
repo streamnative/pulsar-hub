@@ -229,9 +229,9 @@ This example explains how to create an AWS Lambda sink connector in an on-premis
         -f pulsar.yaml
     ```
 
-    > **Tip**
-    >
-    > For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
+    {% callout title="Tip" type="tip" %}
+        For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
+    {% /callout %}
 
 
 5. Create AWS Lambda sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](http://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--24) command.
