@@ -69,10 +69,11 @@ You can create a configuration file (JSON or YAML) to set the following properti
 | `batchSizeOfOnceReceive`   | int    | false    | 1                  | For SQS source. The maximum number of messages pull from SQS at one time. Default=1 and the value range is [1,10].                                                                                                                                                                                                                                                         |
 | `numberOfConsumers`        | int    | false    | 1                  | For SQS source. The expected numbers of consumers. You can scale message consumers horizontally to achieve high throughput. Default=1 and the value range is [1,50].                                                                                                                                                                                                       |
 
-> **Note**  
-> You have to focus the version if you use `numberOfConsumers` and `numberOfConsumers` to improve the SQS source performance.  
-> The versions that support these features are: 2.8.4.3+,2.9.4.1+,2.10.1.13+.  
-> Here is the performance test report: https://github.com/streamnative/pulsar-io-sqs/issues/486.
+{% callout title="Note" type="note" %}
+You have to focus the version if you use `numberOfConsumers` and `numberOfConsumers` to improve the SQS source performance.  
+The versions that support these features are: 2.8.4.3+,2.9.4.1+,2.10.1.13+.  
+Here is the performance test report: https://github.com/streamnative/pulsar-io-sqs/issues/486.
+{% /callout %}
 
 **Example**
 

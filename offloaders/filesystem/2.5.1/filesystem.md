@@ -93,11 +93,11 @@ This section describes how to install the filesystem offloader.
     tar xvfz apache-pulsar-offloaders-2.5.1-bin.tar.gz
     ```
 
-    > **Note**
-    >
-    > * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
-    > 
-    > * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image. The `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    {% callout title="Note" type="note" %}
+        * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
+    
+    * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image. The `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    {% /callout %}
 
 3. Copy the Pulsar offloaders as `offloaders` in the Pulsar directory.
 
@@ -114,11 +114,11 @@ This section describes how to install the filesystem offloader.
     tiered-storage-jcloud-2.5.1.nar
     ```
 
-    > **Note**
-    >
-    > * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
-    > 
-    > * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8s and DCOS), you can use the `apachepulsar/pulsar-all` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    {% callout title="Note" type="note" %}
+        * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
+    
+    * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8s and DCOS), you can use the `apachepulsar/pulsar-all` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    {% /callout %}
 
 # Configuration
 
@@ -359,9 +359,9 @@ fileSystemURI=hdfs://127.0.0.1:9000
 fileSystemProfilePath=conf/filesystem_offload_core_site.xml
 ```
 
-> **Note**
->
-> For testing purposes, you can set the following two configurations to speed up ledger rollover, but it is not recommended that you set them in the production environment.
+{% callout title="Note" type="note" %}
+For testing purposes, you can set the following two configurations to speed up ledger rollover, but it is not recommended that you set them in the production environment.
+{% /callout %}
 
 ```
 managedLedgerMinLedgerRolloverTimeMinutes=1
@@ -372,9 +372,9 @@ managedLedgerMaxEntriesPerLedger=100
 
 @@@ NFS
 
-> **Note**
->
-> In this section, it is assumed that you have enabled NFS service and set the shared path of your NFS service. In this section, `/Users/test` is used as the shared path of NFS service.
+{% callout title="Note" type="note" %}
+In this section, it is assumed that you have enabled NFS service and set the shared path of your NFS service. In this section, `/Users/test` is used as the shared path of NFS service.
+{% /callout %}
 
 To offload data to NFS, follow these steps.
 

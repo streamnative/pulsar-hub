@@ -135,9 +135,9 @@ You can maintain documentation using the same tools and processes that used to m
 
     In your root directory of connector repo, create a doc repo named `docs`.
 
-    > **Note**
-    >
-    > Name the repo with `docs` instead of other names, or else your docs are not synced to StreamNative Hub.
+    {% callout title="Note" type="note" %}
+        Name the repo with `docs` instead of other names, or else your docs are not synced to StreamNative Hub.
+    {% /callout %}
 
     <img width="589" alt="1" src="https://user-images.githubusercontent.com/50226895/119435808-85cf0300-bd4d-11eb-97b2-ab63da049d5e.png">
 
@@ -151,9 +151,9 @@ You can maintain documentation using the same tools and processes that used to m
     
     <img width="705" alt="2" src="https://user-images.githubusercontent.com/50226895/119435868-a303d180-bd4d-11eb-953b-7de91608b4e0.png">
 
-    > **Note**
-    >
-    > -  [Here](https://github.com/streamnative/pulsar-io-sqs/tree/master/docs) are examples
+    {% callout title="Note" type="note" %}
+        -  [Here](https://github.com/streamnative/pulsar-io-sqs/tree/master/docs) are examples
+    {% /callout %}
  of the SQS connector docs. It is strongly recommended to follow the doc architecture in this example, or else your docs might not be synced to StreamNative Hub.
     >
     > - The docs on these branches (master, branch-x.x.x. For example, branch-2.7.0) and tags (vx.x.x. For example, v2.7.1, v2.7.2) can be shown on the StreamNative Hub website. Or else the docs on other branches and tags are not shown on the StreamNative Hub website. Pay attention to your branch and tag names.

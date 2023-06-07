@@ -51,9 +51,9 @@ By default, the following metadata fields of Pulsar will be created as the metad
 ```
 metadataField=__message_id__,__partition__,__topic__,__event_time__
 ```
-> **Note**
->
-> Currently, the Snowflake sink connector does not support custom metadata.
+{% callout title="Note" type="note" %}
+Currently, the Snowflake sink connector does not support custom metadata.
+{% /callout %}
 
 ## Data format types
 

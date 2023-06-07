@@ -158,16 +158,16 @@ This example shows how to change the data of a MySQL table using the Pulsar Debe
         --source-config '{"database.hostname": "localhost","database.port": "3306","database.user": "debezium","database.password": "dbz","database.server.id": "184054","database.server.name": "dbserver1","database.whitelist": "inventory","database.history": "org.apache.pulsar.io.debezium.PulsarDatabaseHistory","database.history.pulsar.topic": "history-topic","database.history.pulsar.service.url": "pulsar://127.0.0.1:6650","key.converter": "org.apache.kafka.connect.json.JsonConverter","value.converter": "org.apache.kafka.connect.json.JsonConverter","pulsar.service.url": "pulsar://127.0.0.1:6650","offset.storage.topic": "offset-topic"}'
         ```
 
-        > **Note**
-        > 
-        > Currently, the destination topic (specified by the `destination-topic-name` option ) is a required configuration but it is not used for the Debezium connector to save data. The Debezium connector saves data on the following 4 types of topics:
-        > 
-        > - One topic for storing the database metadata messages. It is named with the database server name ( `database.server.name`), like `public/default/database.server.name`.
-        > - One topic (`database.history.pulsar.topic`) for storing the database history information. The connector writes and recovers DDL statements on this topic.
-        > - One topic (`offset.storage.topic`) for storing the offset metadata messages. The connector saves the last successfully-committed offsets on this topic.
-        > - One per-table topic. The connector writes change events for all operations that occur in a table to a single Pulsar topic that is specific to that table.
-        >
-        > If automatic topic creation is disabled on the Pulsar broker, you need to manually create these 4 types of topics and the destination topic.
+        {% callout title="Note" type="note" %}
+        
+        Currently, the destination topic (specified by the `destination-topic-name` option ) is a required configuration but it is not used for the Debezium connector to save data. The Debezium connector saves data on the following 4 types of topics:
+        
+        - One topic for storing the database metadata messages. It is named with the database server name ( `database.server.name`), like `public/default/database.server.name`.
+        - One topic (`database.history.pulsar.topic`) for storing the database history information. The connector writes and recovers DDL statements on this topic.
+        - One topic (`offset.storage.topic`) for storing the offset metadata messages. The connector saves the last successfully-committed offsets on this topic.
+        - One per-table topic. The connector writes change events for all operations that occur in a table to a single Pulsar topic that is specific to that table.
+                If automatic topic creation is disabled on the Pulsar broker, you need to manually create these 4 types of topics and the destination topic.
+        {% /callout %}
 
     * Use the **YAML** configuration file as shown previously.
   

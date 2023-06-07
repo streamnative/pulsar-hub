@@ -80,19 +80,17 @@ Before using the Google Cloud BigQuery source connector, you need to configure i
 | `filters`                    | String | No       | "" (empty string) | A list of clauses that can filter the result of the table.                                                                                                                                                                                                                                                                                                              |
 | `checkpointIntervalSeconds`  | int    | No       | 60                | The checkpoint interval (in units of seconds). By default, it is set to 60s.                                                                                                                                                                                                                                                                                             |
 
-> **Note**
->
-> The provided Google Cloud credentials must have permission to access Google Cloud resources. To use the Google Cloud BigQuery source connector, ensure the Google Cloud credentials have the following permissions to the Google BigQuery API:
->
-> - bigquery.jobs.create
-> - bigquery.tables.create
-> - bigquery.tables.get
-> - bigquery.tables.getData
-> - bigquery.tables.list
-> - bigquery.tables.update
-> - bigquery.tables.updateData
->
-> For more information about Google BigQuery API permissions, see [Google Cloud BigQuery API permissions: Access control](https://cloud.google.com/bigquery/docs/access-control).
+{% callout title="Note" type="note" %}
+The provided Google Cloud credentials must have permission to access Google Cloud resources. To use the Google Cloud BigQuery source connector, ensure the Google Cloud credentials have the following permissions to the Google BigQuery API:
+- bigquery.jobs.create
+- bigquery.tables.create
+- bigquery.tables.get
+- bigquery.tables.getData
+- bigquery.tables.list
+- bigquery.tables.update
+- bigquery.tables.updateData
+For more information about Google BigQuery API permissions, see [Google Cloud BigQuery API permissions: Access control](https://cloud.google.com/bigquery/docs/access-control).
+{% /callout %}
 
 ## Work with Function Worker
 

@@ -101,10 +101,10 @@ The connector metadata are the metadata specific to the external system in use. 
 
 This table outlines the Pulsar topic metadata that can be mapped by the Pulsar SQL connector to Flink table fields.
 
-> **Note**
->
-> - The `R/W` column defines whether a metadata is readable from the Pulsar topics (`R`) and/or writable to the Pulsar topics (`W`).
-> - The `R` column defines that a metadata is read-only. The read-only metadata must be declared `VIRTUAL` to exclude them during an `INSERT INTO` operation.
+{% callout title="Note" type="note" %}
+- The `R/W` column defines whether a metadata is readable from the Pulsar topics (`R`) and/or writable to the Pulsar topics (`W`).
+- The `R` column defines that a metadata is read-only. The read-only metadata must be declared `VIRTUAL` to exclude them during an `INSERT INTO` operation.
+{% /callout %}
 
 | Key           | Data Type                    | R/W |
 |:--------------|:-----------------------------|-----|
@@ -245,9 +245,9 @@ This table outlines the recommended Flink format for each Pulsar Schema. To use 
 | LOCAL_TIME      | Not supported yet |
 | LOCAL_DATE_TIME | Not supported yet |
 
-> **Note**
->
-> When Flink writes data to a Pulsar topic with the Avro format, the Pulsar consumer cannot consume data with the Avro schema.
+{% callout title="Note" type="note" %}
+When Flink writes data to a Pulsar topic with the Avro format, the Pulsar consumer cannot consume data with the Avro schema.
+{% /callout %}
 
 ## PulsarCatalog
 
@@ -305,9 +305,9 @@ This table outlines the Flink formats that are used for a native table's Pulsar 
 | INT32           | DataTypes.INT()                           | raw               | Yes         |
 | INT64           | DataTypes.BIGINT()                        | raw               | Yes         |
 
-> **Note**
->
-> Even if there are corresponding Flink data formats for the `LOCAL_DATE`, `LOCAL_TIME`, and `LOCAL_DATE_TIME` options, the `raw` format is not able to decode messages with these Pulsar schemas. In this case, the auto schema mapping will fail.
+{% callout title="Note" type="note" %}
+Even if there are corresponding Flink data formats for the `LOCAL_DATE`, `LOCAL_TIME`, and `LOCAL_DATE_TIME` options, the `raw` format is not able to decode messages with these Pulsar schemas. In this case, the auto schema mapping will fail.
+{% /callout %}
 
 #### Comparison
 
@@ -399,9 +399,9 @@ Catalog pulsarCatalog = new PulsarCatalog();
 tableEnv.registerCatalog("pulsar",pulsarCatalog);
 ```
 
-> **Note**
->
-> If you use the SQL Client and configure catalogs in `sql-clients-defaults.yaml` YAML file, make sure that this file has been removed due to [FLIP-163](https://cwiki.apache.org/confluence/display/FLINK/FLIP-163%3A+SQL+Client+Improvements) and this file is no longer available for Flink 1.15.
+{% callout title="Note" type="note" %}
+If you use the SQL Client and configure catalogs in `sql-clients-defaults.yaml` YAML file, make sure that this file has been removed due to [FLIP-163](https://cwiki.apache.org/confluence/display/FLINK/FLIP-163%3A+SQL+Client+Improvements) and this file is no longer available for Flink 1.15.
+{% /callout %}
 
 ## Examples
 

@@ -87,9 +87,9 @@ Before using the Lakehouse source connector, you need to configure it. This tabl
 
 :::
 
-> **Note**
->
-> The Lakehouse source connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
+{% callout title="Note" type="note" %}
+The Lakehouse source connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
+{% /callout %}
 
 ## Examples
 
