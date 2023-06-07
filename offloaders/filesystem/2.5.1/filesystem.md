@@ -93,11 +93,11 @@ This section describes how to install the filesystem offloader.
     tar xvfz apache-pulsar-offloaders-2.5.1-bin.tar.gz
     ```
 
-    > **Note**
-    >
-    > * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
-    > 
-    > * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image. The `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    {% callout title="Note" type="note" %}
+        * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
+    
+    * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8S and DCOS), you can use the `apachepulsar/pulsar-all` image. The `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    {% /callout %}
 
 3. Copy the Pulsar offloaders as `offloaders` in the Pulsar directory.
 
@@ -114,11 +114,11 @@ This section describes how to install the filesystem offloader.
     tiered-storage-jcloud-2.5.1.nar
     ```
 
-    > **Note**
-    >
-    > * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
-    > 
-    > * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8s and DCOS), you can use the `apachepulsar/pulsar-all` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    {% callout title="Note" type="note" %}
+        * If you run Pulsar in a bare metal cluster, make sure that the `offloaders` tarball is unzipped in each broker's Pulsar directory.
+    
+    * If you run Pulsar in Docker or deploying Pulsar using a Docker image (such as K8s and DCOS), you can use the `apachepulsar/pulsar-all` image. `apachepulsar/pulsar-all` image has already bundled tiered storage offloaders.
+    {% /callout %}
 
 # Configuration
 
@@ -187,9 +187,9 @@ This example sets the filesystem offloader threshold size to 10 MB using pulsarc
 bin/pulsarctl namespaces set-offload-threshold --size 10M my-tenant/my-namespace
 ```
 
-> **Tip**
->
-> For more information about the `pulsarctl namespaces set-offload-threshold options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-offload-threshold-em-). 
+{% callout title="Tip" type="tip" %}
+For more information about the `pulsarctl namespaces set-offload-threshold options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-offload-threshold-em-). 
+{% /callout %}
 
 ## Run filesystem offloader manually
 
@@ -215,9 +215,9 @@ To trigger via CLI tools, you need to specify the maximum amount of data (thresh
     Offload triggered for persistent://my-tenant/my-namespace/topic1 for messages before 2:0:-1
     ```
 
-    > **Tip**
-    >
-    > For more information about the `pulsarctl topic offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
+    {% callout title="Tip" type="tip" %}
+        For more information about the `pulsarctl topic offload options` command, including flags, descriptions, default values, and shorthands, see [here](https://streamnative.io/docs/pulsarctl/v0.4.0/#-em-offload-em-). 
+    {% /callout %}
 
 - This example checks filesystem offloader status using pulsarctl.
 
@@ -258,9 +258,9 @@ To trigger via CLI tools, you need to specify the maximum amount of data (thresh
     Reason: Error offloading: org.apache.bookkeeper.mledger.ManagedLedgerException: java.util.concurrent.CompletionException: com.amazonaws.services.s3.model.AmazonS3Exception: Anonymous users cannot initiate multipart uploads.  Please authenticate. (Service: Amazon S3; Status Code: 403; Error Code: AccessDenied; Request ID: 798758DE3F1776DF; S3 Extended Request ID: dhBFz/lZm1oiG/oBEepeNlhrtsDlzoOhocuYMpKihQGXe6EG8puRGOkK6UwqzVrMXTWBxxHcS+g=), S3 Extended Request ID: dhBFz/lZm1oiG/oBEepeNlhrtsDlzoOhocuYMpKihQGXe6EG8puRGOkK6UwqzVrMXTWBxxHcS+g=
     ```
 
-    > **Tip**
-    >
-    > For more information about the `pulsarctl topic offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-offload-threshold-em-). 
+    {% callout title="Tip" type="tip" %}
+        For more information about the `pulsarctl topic offload-status options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-offload-threshold-em-). 
+    {% /callout %}
 
 # Usage
 
@@ -276,9 +276,9 @@ To move data from Pulsar to HDFS, follow these steps.
 
 This tutorial sets up a Hadoop single node cluster and uses Hadoop 3.2.1.
 
-> **Tip**
->
-> For more information about setting up a Hadoop single node cluster, see [here](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html).
+{% callout title="Tip" type="tip" %}
+For more information about setting up a Hadoop single node cluster, see [here](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html).
+{% /callout %}
 
 1. Download and uncompress Hadoop 3.2.1. 
 
@@ -359,9 +359,9 @@ fileSystemURI=hdfs://127.0.0.1:9000
 fileSystemProfilePath=conf/filesystem_offload_core_site.xml
 ```
 
-> **Note**
->
-> For testing purposes, you can set the following two configurations to speed up ledger rollover, but it is not recommended that you set them in the production environment.
+{% callout title="Note" type="note" %}
+For testing purposes, you can set the following two configurations to speed up ledger rollover, but it is not recommended that you set them in the production environment.
+{% /callout %}
 
 ```
 managedLedgerMinLedgerRolloverTimeMinutes=1
@@ -372,9 +372,9 @@ managedLedgerMaxEntriesPerLedger=100
 
 @@@ NFS
 
-> **Note**
->
-> In this section, it is assumed that you have enabled NFS service and set the shared path of your NFS service. In this section, `/Users/test` is used as the shared path of NFS service.
+{% callout title="Note" type="note" %}
+In this section, it is assumed that you have enabled NFS service and set the shared path of your NFS service. In this section, `/Users/test` is used as the shared path of NFS service.
+{% /callout %}
 
 To offload data to NFS, follow these steps.
 
@@ -455,9 +455,9 @@ Execute the following commands in the repository where you download Pulsar tarba
     ./bin/pulsarctl namespaces set-retention public/default --size 100M --time 2d
     ```
 
-    > **Tip**
-    >
-    > For more information about the `pulsarctl namespaces set-retention options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-retention-em-). 
+    {% callout title="Tip" type="tip" %}
+        For more information about the `pulsarctl namespaces set-retention options` command, including flags, descriptions, default values, and shorthands, see [here](https://docs.streamnative.io/pulsarctl/v2.7.0.6/#-em-set-retention-em-). 
+    {% /callout %}
 
 3. Produce data using pulsar-client.
 

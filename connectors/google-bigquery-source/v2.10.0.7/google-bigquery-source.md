@@ -79,21 +79,20 @@ This example develops a Pulsar connector named `pulsar-io-foo`.
 
     (2) Create a package `org.apache.pulsar.ecosystem.io.foo` in `src/main/java/org/apache/pulsar/ecosystem/io` to develop your connector logic. 
 
-    > **Tip**
-    >
-    > - [Here](https://github.com/streamnative/pulsar-io-template/tree/master/src/main/java/org/apache/pulsar/ecosystem/io/random) are some code examples for developing a connector.
-    >
-    > - To ensure a consistent codebase, it is recommended to run the checkstyle and spotbugs. For more information, see [check your code](#check-your-code). 
+    {% callout title="Tip" type="tip" %}
+        - [Here](https://github.com/streamnative/pulsar-io-template/tree/master/src/main/java/org/apache/pulsar/ecosystem/io/random) are some code examples for developing a connector.
+        - To ensure a consistent codebase, it is recommended to run the checkstyle and spotbugs. For more information, see [check your code](#check-your-code). 
+    {% /callout %}
 
 3. **Test your connector**.
 
     Create a package `org.apache.pulsar.ecosystem.io.foo` in the `src/test` directory to develop your connector tests. For more information, see [how to write a unit test in Java](https://www.webucator.com/how-to/how-write-unit-test-java.cfm).
 
-    > **Tip**
-    > 
-    > - It is strongly recommended to write tests for your connector. For more information, see [test examples](https://github.com/streamnative/pulsar-io-template/tree/master/src/test/java/org/apache/pulsar/ecosystem/io/random).
-    >
-    > - To ensure a consistent codebase, it is recommended to run the checkstyle and spotbugs. For more information, see [check your code](#check-your-code). 
+    {% callout title="Tip" type="tip" %}
+    
+    - It is strongly recommended to write tests for your connector. For more information, see [test examples](https://github.com/streamnative/pulsar-io-template/tree/master/src/test/java/org/apache/pulsar/ecosystem/io/random).
+        - To ensure a consistent codebase, it is recommended to run the checkstyle and spotbugs. For more information, see [check your code](#check-your-code). 
+    {% /callout %}
 
 4. **Check your code**.
 
@@ -135,9 +134,9 @@ You can maintain documentation using the same tools and processes that used to m
 
     In your root directory of connector repo, create a doc repo named `docs`.
 
-    > **Note**
-    >
-    > Name the repo with `docs` instead of other names, or else your docs are not synced to StreamNative Hub.
+    {% callout title="Note" type="note" %}
+        Name the repo with `docs` instead of other names, or else your docs are not synced to StreamNative Hub.
+    {% /callout %}
 
     <img width="589" alt="1" src="https://user-images.githubusercontent.com/50226895/119435808-85cf0300-bd4d-11eb-97b2-ab63da049d5e.png">
 
@@ -151,9 +150,9 @@ You can maintain documentation using the same tools and processes that used to m
     
     <img width="705" alt="2" src="https://user-images.githubusercontent.com/50226895/119435868-a303d180-bd4d-11eb-953b-7de91608b4e0.png">
 
-    > **Note**
-    >
-    > -  [Here](https://github.com/streamnative/pulsar-io-sqs/tree/master/docs) are examples
+    {% callout title="Note" type="note" %}
+        -  [Here](https://github.com/streamnative/pulsar-io-sqs/tree/master/docs) are examples
+    {% /callout %}
  of the SQS connector docs. It is strongly recommended to follow the doc architecture in this example, or else your docs might not be synced to StreamNative Hub.
     >
     > - The docs on these branches (master, branch-x.x.x. For example, branch-2.7.0) and tags (vx.x.x. For example, v2.7.1, v2.7.2) can be shown on the StreamNative Hub website. Or else the docs on other branches and tags are not shown on the StreamNative Hub website. Pay attention to your branch and tag names.
@@ -161,11 +160,10 @@ You can maintain documentation using the same tools and processes that used to m
     > <img width="614" alt="4" src="https://user-images.githubusercontent.com/50226895/119435917-bc0c8280-bd4d-11eb-820c-cebb74cc6c55.png">
 
 
-    > **Tip**
-    >
-    > - To reduce maintenance costs, use a variable (for example, `2.10.0.7`) instead of writing the specific connector version. In this way, the corresponding connector version is generated and shown automatically along with each connector release. 
-    >
-    > - To ensure consistency throughout all connector documentation, it is recommended to follow the [Google Developer Documentation Style Guide](https://developers.google.com/style).
+    {% callout title="Tip" type="tip" %}
+        - To reduce maintenance costs, use a variable (for example, `2.10.0.7`) instead of writing the specific connector version. In this way, the corresponding connector version is generated and shown automatically along with each connector release. 
+        - To ensure consistency throughout all connector documentation, it is recommended to follow the [Google Developer Documentation Style Guide](https://developers.google.com/style).
+    {% /callout %}
 
 
 3. **Sync the docs** to [StreamNative Hub](https://hub.streamnative.io/).

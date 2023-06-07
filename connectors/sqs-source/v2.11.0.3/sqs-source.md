@@ -73,8 +73,9 @@ Before using the SQS source connector, you need to configure it. Below are the p
 | `batchSizeOfOnceReceive`   | int    | false    | 1                  | The maximum number of messages that are pulled from SQS at one time. By default, it is set to 1. The value ranges from 1 to 10.                                                                                                                                                                                                                                                         |
 | `numberOfConsumers`        | int    | false    | 1                  | The expected numbers of consumers. You can scale consumers horizontally to achieve high throughput. By default, it is set to 1. The value ranges from 1 to 50.                                                                                                                                                                                                       |
 
-> **Note**  
-> The `batchSizeOfOnceReceive ` and `numberOfConsumers` options are available for SQS source 2.8.4.3+, 2.9.4.1+, and 2.10.1.13+. For details about how to test AWS SQS source performance, see [Performance Test on AWS SQS Source Connector](/docs/source_performance_test.md).
+{% callout title="Note" type="note" %}
+The `batchSizeOfOnceReceive ` and `numberOfConsumers` options are available for SQS source 2.8.4.3+, 2.9.4.1+, and 2.10.1.13+. For details about how to test AWS SQS source performance, see [Performance Test on AWS SQS Source Connector](/docs/source_performance_test.md).
+{% /callout %}
 
 ### AWS Credential permissions
 
