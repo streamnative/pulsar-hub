@@ -68,9 +68,9 @@ To build the Lakehouse sink connector from the source code, follow these steps.
 
 Before using the Lakehouse sink connector, you need to configure it. This table lists the properties and the descriptions.
 
-::: tabs
+{% tabs %}
 
-@@@ Hudi
+{% tab label="Hudi" %}
 
 For a list of Hudi configurations, see [Write Client Configs](https://hudi.apache.org/docs/configurations#WRITE_CLIENT).
 
@@ -89,9 +89,8 @@ For a list of Hudi configurations, see [Write Client Configs](https://hudi.apach
 | `hoodie.datasource.write.recordkey.field` | String | false     | UUID | The record key field. It is used as the `recordKey` component of `HoodieKey`. You can obtain the value by invoking `.toString()` on the field value. You can use the dot notation for nested fields such as a.b.c. |
 | `hoodie.datasource.write.partitionpath.field` | String   | true     | N/A | The partition path field. It is used as the `partitionPath` component of the `HoodieKey`.  You can obtain the value by invoking `.toString()`. |
 
-@@@
-
-@@@ Iceberg
+{% /tab %}
+{% tab label="Iceberg" %}
 
 | Name                                 | Type     | Required | Default | Description                                                 
 |--------------------------------------|----------|----------|---|-------------------------------------------------------------|
@@ -108,9 +107,8 @@ For a list of Hudi configurations, see [Write Client Configs](https://hudi.apach
 | `tableNamespace` | String | true | N/A | The namespace of the Iceberg table. |
 | `tableName` | String | true | N/A | The name of the Iceberg table. |
 
-@@@
-
-@@@ Delta Lake
+{% /tab %}
+{% tab label="Delta Lake" %}
 
 | Name                                 | Type     | Required | Default | Description                                                 
 |--------------------------------------|----------|----------|---|-------------------------------------------------------------|
@@ -126,9 +124,8 @@ For a list of Hudi configurations, see [Write Client Configs](https://hudi.apach
 | `deltaFileType` | String | false | parquet | The type of the Delta file. By default, it is set to `parquet`. |
 | `appId` | String | false | pulsar-delta-sink-connector | The Delta APP ID. By default, it is set to `pulsar-delta-sink-connector`. |
 
-@@@
-
-:::
+{% /tab %}
+{% /tabs %}
 
 {% callout title="Note" type="note" %}
 The Lakehouse sink connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
@@ -138,9 +135,9 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 
 **Example**
 
-::: tabs
+{% tabs %}
 
-@@@ Hudi
+{% tab label="Hudi" %}
 
 - The Hudi table that is stored in the file system
 
@@ -189,9 +186,8 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
     }
    ```
 
-@@@
-
-@@@ Iceberg
+{% /tab %}
+{% tab label="Iceberg" %}
 
 - The Iceberg table that is stored in the file system
 
@@ -250,9 +246,8 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
     }
     ```
 
-@@@
-
-@@@ Delta Lake
+{% /tab %}
+{% tab label="Delta Lake" %}
 
 - The Delta table that is stored in the file system
 
@@ -299,9 +294,8 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
     }
     ```
 
-@@@
-
-:::
+{% /tab %}
+{% /tabs %}
 
 ## Data format types
 
@@ -326,9 +320,9 @@ This table lists the Pulsar Schema types supported by the writers.
 
 You can use the Lakehouse sink connector with Function Worker. You can use the Lakehouse sink connector as a non built-in connector or a built-in connector.
 
-::: tabs
+{% tabs %}
 
-@@@ Use it as a non built-in connector
+{% tab label="Use it as a non built-in connector" %}
 
 If you already have a Pulsar cluster, you can use the Lakehouse sink connector as a non built-in connector directly.
 
@@ -339,9 +333,8 @@ PULSAR_HOME/bin/pulsar-admin sinks create \
 --sink-config-file <lakehouse-sink-config.yaml>
 ```
 
-@@@
-
-@@@ Use it as a built-in connector
+{% /tab %}
+{% tab label="Use it as a built-in connector" %}
 
 You can make the Lakehouse sink connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
@@ -413,7 +406,6 @@ This example explains how to create a Lakehouse sink connector in an on-premises
     --sink-config-file <lakehouse-sink-config.yaml>
     ```
 
-@@@
-
-:::
+{% /tab %}
+{% /tabs %}
 

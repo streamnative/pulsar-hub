@@ -2,6 +2,9 @@ const fs = require("fs");
 const path = require("path");
 
 function travel(dir, callback) {
+  if (dir.includes("node_modules")) {
+    return;
+  }
   if (fs.statSync(dir).isFile()) {
     if (dir.endsWith(".md")) {
       callback(dir);
@@ -28,7 +31,8 @@ function fix(mdpath) {
       m[1] +
         '{% callout title="Note" type="note" %}\n' +
         m[2].replace(/>[ \n]/g, "") +
-        m[1]+"{% /callout %}\n"
+        m[1] +
+        "{% /callout %}\n"
     );
   }
   reg = /([ ]*)> \*+Tip.*\n(([ ]*>\s*.*\n)*)/g;
@@ -38,7 +42,8 @@ function fix(mdpath) {
       m[1] +
         '{% callout title="Tip" type="tip" %}\n' +
         m[2].replace(/>[ \n]/g, "") +
-        m[1]+"{% /callout %}\n"
+        m[1] +
+        "{% /callout %}\n"
     );
   }
   fs.writeFileSync(mdpath, updateData);

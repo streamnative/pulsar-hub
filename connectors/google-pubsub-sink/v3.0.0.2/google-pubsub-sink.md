@@ -78,15 +78,13 @@ Before using the Google Cloud Pub/Sub sink connector, you need to configure it. 
 | `pubsubSchemaEncoding` | String | false | "" (empty string) | The encoding of the schema. You must set the schema encoding when creating a schema for Google Cloud Pub/Sub topics. Currently, only the JSON format is supported. |
 | `pubsubSchemaDefinition` | String | false | "" (empty string) |  The definition of the schema. It is used to create a schema to or parse messages from Google Cloud Pub/Sub topics. |
 
-> **Note**
->
-> The provided Google Cloud credentials must have permissions to access Google Cloud resources. To use the Google Cloud Pub/Sub sink connector, ensure the Google Cloud credentials have the following permissions to Google Cloud Pub/Sub API:
->
-> - projects.topics.create
-> - projects.topics.get
-> - projects.topics.publish
->
-> For more information about Google Cloud Pub/Sub API permissions, see [Google Cloud Pub/Sub API permissions: Access control](https://cloud.google.com/pubsub/docs/access-control).
+{% callout title="Note" type="note" %}
+The provided Google Cloud credentials must have permissions to access Google Cloud resources. To use the Google Cloud Pub/Sub sink connector, ensure the Google Cloud credentials have the following permissions to Google Cloud Pub/Sub API:
+- projects.topics.create
+- projects.topics.get
+- projects.topics.publish
+For more information about Google Cloud Pub/Sub API permissions, see [Google Cloud Pub/Sub API permissions: Access control](https://cloud.google.com/pubsub/docs/access-control).
+{% /callout %}
 
 ## Work with Function Worker
 
@@ -176,9 +174,9 @@ You can use the Google Cloud Pub/Sub sink connector with Function Worker or Func
 
 You can use the Google Cloud Pub/Sub sink connector as a non built-in connector or a built-in connector.
 
-::: tabs
+{% tabs %}
 
-@@@ Use it as non built-in connector
+{% tab label="Use it as non built-in connector" %}
 
 If you already have a Pulsar cluster, you can use the Google Cloud Pub/Sub sink connector as a non built-in connector directly.
 
@@ -189,9 +187,8 @@ PULSAR_HOME/bin/pulsar-admin sinks create \
 --sink-config-file <google-pubsub-sink-config.yaml>
 ```
 
-@@@
-
-@@@ Use it as built-in connector
+{% /tab %}
+{% tab label="Use it as built-in connector" %}
 
 You can make the Google Cloud Pub/Sub sink connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
@@ -274,9 +271,8 @@ This example explains how to create a Google Cloud Pub/Sub sink connector in an 
     --sink-config-file <google-pubsub-sink-config.yaml>
     ```
 
-@@@
-
-:::
+{% /tab %}
+{% /tabs %}
 
 ## Work with Function Mesh
 

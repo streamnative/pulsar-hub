@@ -78,16 +78,16 @@ Before using the Google Cloud Pub/Sub source connector, you need to configure it
 | `pubsubSchemaEncoding` | String | false | "" (empty string) | The encoding of the schema. You must set the schema encoding when creating a schema for Google Cloud Pub/Sub topics. Currently, only the JSON format is supported.|
 | `pubsubSchemaDefinition` | String | false | "" (empty string) |  The definition of the schema. It is used to create a schema to or parse messages from Google Cloud Pub/Sub topics. |
 
-> **Note**
->
-> The provided Google Cloud credentials must have permissions to access Google Cloud resources. To use the Google Cloud Pub/Sub source connector, ensure the Google Cloud credentials have the following permissions to Google Cloud Pub/Sub API:
-> 
-> - projects.subscriptions.get
-> - projects.subscriptions.create
-> - projects.subscriptions.pull
-> - projects.subscriptions.acknowledge
-> 
-> For more information about Google Cloud Pub/Sub API permissions, see [Google Cloud Pub/Sub API permissions: Access control](https://cloud.google.com/pubsub/docs/access-control).
+{% callout title="Note" type="note" %}
+The provided Google Cloud credentials must have permissions to access Google Cloud resources. To use the Google Cloud Pub/Sub source connector, ensure the Google Cloud credentials have the following permissions to Google Cloud Pub/Sub API:
+
+- projects.subscriptions.get
+- projects.subscriptions.create
+- projects.subscriptions.pull
+- projects.subscriptions.acknowledge
+
+For more information about Google Cloud Pub/Sub API permissions, see [Google Cloud Pub/Sub API permissions: Access control](https://cloud.google.com/pubsub/docs/access-control).
+{% /callout %}
 
 ## Work with Function Worker
 
@@ -172,9 +172,9 @@ You can use the Google Cloud Pub/Sub source connector with Function Worker or Fu
 
 You can use the Google Cloud Pub/Sub source connector as a non built-in connector or a built-in connector as below.
 
-::: tabs
+{% tabs %}
 
-@@@ Use it as non built-in connector
+{% tab label="Use it as non built-in connector" %}
 
 If you already have a Pulsar cluster, you can use the Google Cloud Pub/Sub source connector as a non built-in connector directly.
 
@@ -185,9 +185,8 @@ PULSAR_HOME/bin/pulsar-admin sources create \
 --source-config-file <google-pubsub-source-config.yaml >
 ```
 
-@@@
-
-@@@ Use it as built-in connector
+{% /tab %}
+{% tab label="Use it as built-in connector" %}
 
 You can make the Google Cloud Pub/Sub source connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
