@@ -132,9 +132,9 @@ You can configure the filesystem offloader driver in the `broker.conf` or `stand
 
 - **Required** configurations are as below.
 
-    ::: tabs
+    {% tabs %}
 
-    @@@ HDFS
+    {% tab label="HDFS" %}
 
     Parameter | Description | Example value
     |---|---|---
@@ -143,9 +143,8 @@ You can configure the filesystem offloader driver in the `broker.conf` or `stand
     `offloadersDirectory` | Offloader directory | offloaders
     `fileSystemProfilePath` | Hadoop profile path. The configuration file is stored in the Hadoop profile path. It contains various settings for Hadoop performance tuning. | conf/filesystem_offload_core_site.xml
 
-    @@@
-
-    @@@ NFS
+    {% /tab %}
+    {% tab label="NFS" %}
   
     Parameter | Description | Example value
     |---|---|---
@@ -153,9 +152,8 @@ You can configure the filesystem offloader driver in the `broker.conf` or `stand
     `offloadersDirectory` | Offloader directory | offloaders
     `fileSystemProfilePath` | NFS profile path. The configuration file is stored in the NFS profile path. It contains various settings for performance tuning. | conf/filesystem_offload_core_site.xml
 
-    @@@
-
-    :::
+    {% /tab %}
+    {% /tabs %}
 
 - **Optional** configurations are as below.
 
@@ -266,9 +264,9 @@ To trigger via CLI tools, you need to specify the maximum amount of data (thresh
 
 This section provides step-by-step instructions on how to use the filesystem offloader to move data from Pulsar to Hadoop Distributed File System (HDFS) or Network File system (NFS).
 
-::: tabs
+{% tabs %}
 
-@@@ HDFS
+{% tab label="HDFS" %}
 
 To move data from Pulsar to HDFS, follow these steps.
 
@@ -368,9 +366,8 @@ managedLedgerMinLedgerRolloverTimeMinutes=1
 managedLedgerMaxEntriesPerLedger=100
 ```
 
-@@@
-
-@@@ NFS
+{% /tab %}
+{% tab label="NFS" %}
 
 {% callout title="Note" type="note" %}
 In this section, it is assumed that you have enabled NFS service and set the shared path of your NFS service. In this section, `/Users/test` is used as the shared path of NFS service.
@@ -435,9 +432,8 @@ As indicated in the [configuration](#configuration) section, you need to configu
     </property>
     ```
 
-@@@
-
-:::
+{% /tab %}
+{% /tabs %}
 
 ## Step 4: Offload data from BookKeeper to filesystem
 
