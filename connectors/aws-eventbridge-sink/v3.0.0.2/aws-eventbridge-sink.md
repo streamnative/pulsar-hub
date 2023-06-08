@@ -36,9 +36,10 @@ features, see [how to configure](#how-to-configure).
 
 The AWS EventBridge sink connector provides two delivery guarantees: **at-most-once** and **at-least-once**.
 
-> **Note:**
-> Currently, the **effectively-once** delivery guarantee is not supported, because Amazon EventBridge cannot offer the
-> support of the Sink downstream system.
+{% callout title="Note" type="note" %}
+Currently, the **effectively-once** delivery guarantee is not supported, because Amazon EventBridge cannot offer the
+support of the Sink downstream system.
+{% /callout %}
 
 ## Data convert
 
@@ -347,9 +348,9 @@ You can use the AWS EventBridge sink connector with Function Worker or Function 
 
 ## Work with Function Worker
 
-> **Note**
->
-> Currently, the AWS EventBridge sink connector cannot run as a built-in connector as it uses the JAR package.
+{% callout title="Note" type="note" %}
+Currently, the AWS EventBridge sink connector cannot run as a built-in connector as it uses the JAR package.
+{% /callout %}
 
 1. Start a Pulsar cluster in standalone mode.
     ```
