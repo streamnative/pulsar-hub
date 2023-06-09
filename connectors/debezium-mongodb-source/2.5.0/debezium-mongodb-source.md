@@ -43,7 +43,7 @@ The configuration of Debezium source connector has the following properties.
 | `value.converter` | true | null | The converter provided by Kafka Connect to convert record value.  |
 | `database.history` | true | null | The name of the database history class. |
 | `database.history.pulsar.topic` | true | null | The name of the database history topic where the connector writes and recovers DDL statements. <br/><br/>**Note: this topic is for internal use only and should not be used by consumers.** |
-| `database.history.pulsar.service.url` | false | null | The service URL of your Pulsar cluster for the history topic. If it is not set, the database history Pulsar client will use the same client settings as those of the connector, such as `client_auth_plugin` and `client_auth_params`.|
+| `database.history.pulsar.service.url` | false | null | The Pulsar cluster service URL for the history topic. ｜
 | `pulsar.service.url` | true | null | The service URL of your Pulsar cluster. |
 | `offset.storage.topic` | true | null | Record the last committed offsets that the connector successfully completes. |
 
