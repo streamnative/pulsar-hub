@@ -4,21 +4,21 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.4.0/pulsar-io/debezium/mysql"
+source: "https://github.com/apache/pulsar/tree/v2.4.2/pulsar-io/debezium/mysql"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "MySQL", "Source"]
 alias: Debezium MySQL Source
 features: ["Use Debezium MySQL source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/debezium.jpg"
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.0/connectors/pulsar-io-debezium-mysql-2.4.0.nar"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-debezium-mysql-2.4.2.nar"
 support: Apache community
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
 dockerfile: 
-id: "debezium-mysql-source"
+id: "debezium-mysql"
 ---
 
 The Debezium source connector pulls messages from MySQL and persists the messages to Pulsar topics.
