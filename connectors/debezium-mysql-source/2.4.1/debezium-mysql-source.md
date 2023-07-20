@@ -18,7 +18,7 @@ support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
 dockerfile: 
-id: "debezium-mysql"
+id: "debezium-mysql-source"
 ---
 
 The Debezium source connector pulls messages from MySQL and persists the messages to Pulsar topics.

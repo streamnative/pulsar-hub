@@ -4,21 +4,21 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document: 
-source: "https://github.com/apache/pulsar/tree/v2.5.0/pulsar-io/debezium/mysql"
+source: "https://github.com/apache/pulsar/tree/v2.5.1/pulsar-io/debezium/mysql"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Debezium", "MySQL", "Source"]
 alias: Debezium MySQL Source
 features: ["Use Debezium MySQL source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/debezium.jpg"
-download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/connectors/pulsar-io-debezium-mysql-2.5.0.nar"
+download: "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/connectors/pulsar-io-debezium-mysql-2.5.1.nar"
 support: Apache community
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
 dockerfile: 
-id: "debezium-mysql"
+id: "debezium-mysql-source"
 ---
 
 The Debezium source connector pulls messages from MySQL and persists the messages to Pulsar topics.
@@ -44,6 +44,17 @@ The configuration of Debezium source connector has the following properties.
 | `database.history.pulsar.service.url` | true | null | Pulsar cluster service URL for history topic. |
 | `pulsar.service.url` | true | null | Pulsar cluster service URL. |
 | `offset.storage.topic` | true | null | Record the last committed offsets that the connector successfully completes. |
+
+## Converter options
+
+- org.apache.kafka.connect.json.JsonConverter
+
+    The`json-with-envelope` config is valid only for the JsonConverter. By default, the value is set to false. When the `json-with-envelope` value is set to false, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message only consists of the payload.
+    When the `json-with-envelope` value is set to true, the consumer uses the schema `Schema.KeyValue(Schema.BYTES, Schema.BYTES`, and the message consists of the schema and the payload.
+
+- org.apache.pulsar.kafka.shade.io.confluent.connect.avro.AvroConverter
+
+    If you select the AvroConverter, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message consists of the payload.
 
 # Example of MySQL
 
@@ -146,6 +157,17 @@ This example shows how to change the data of a MySQL table using the Pulsar Debe
         --namespace default \
         --source-config '{"database.hostname": "localhost","database.port": "3306","database.user": "debezium","database.password": "dbz","database.server.id": "184054","database.server.name": "dbserver1","database.whitelist": "inventory","database.history": "org.apache.pulsar.io.debezium.PulsarDatabaseHistory","database.history.pulsar.topic": "history-topic","database.history.pulsar.service.url": "pulsar://127.0.0.1:6650","key.converter": "org.apache.kafka.connect.json.JsonConverter","value.converter": "org.apache.kafka.connect.json.JsonConverter","pulsar.service.url": "pulsar://127.0.0.1:6650","offset.storage.topic": "offset-topic"}'
         ```
+
+        {% callout title="Note" type="note" %}
+        
+        Currently, the destination topic (specified by the `destination-topic-name` option ) is a required configuration but it is not used for the Debezium connector to save data. The Debezium connector saves data on the following 4 types of topics:
+        
+        - One topic for storing the database metadata messages. It is named with the database server name ( `database.server.name`), like `public/default/database.server.name`.
+        - One topic (`database.history.pulsar.topic`) for storing the database history information. The connector writes and recovers DDL statements on this topic.
+        - One topic (`offset.storage.topic`) for storing the offset metadata messages. The connector saves the last successfully-committed offsets on this topic.
+        - One per-table topic. The connector writes change events for all operations that occur in a table to a single Pulsar topic that is specific to that table.
+                If automatic topic creation is disabled on the Pulsar broker, you need to manually create these 4 types of topics and the destination topic.
+        {% /callout %}
 
     * Use the **YAML** configuration file as shown previously.
   
