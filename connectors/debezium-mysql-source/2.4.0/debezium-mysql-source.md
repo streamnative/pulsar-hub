@@ -29,7 +29,7 @@ The configuration of Debezium source connector has the following properties.
 
 | Name | Required | Default | Description |
 |------|----------|---------|-------------|
-| `task.class` | false | null | A source task class that implemented in Debezium. |
+| `task.class` | true | null | A source task class that implemented in Debezium. |
 | `database.hostname` | true | null | The address of a database server. |
 | `database.port` | true | null | The port number of a database server.|
 | `database.user` | true | null | The name of a database user that has the required privileges. |
