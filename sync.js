@@ -210,7 +210,7 @@ async function fetchDocs() {
           document: "",
           source: project.source || source,
           license: project.license || license,
-          licenseLink: project.licenseLink || licenseLink,
+          licenseLink: project.license_link || licenseLink,
           tags: project.tags || topics["names"],
           alias: project.alias || alias,
           features: project.description || description,
