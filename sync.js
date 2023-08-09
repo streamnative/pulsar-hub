@@ -222,6 +222,7 @@ async function fetchDocs() {
           ownerName: project.owner_name || ownerName,
           ownerImg: project.owner_img || ownerImg,
           dockerfile: project.dockerfile || dockerfile,
+          snAvailable: project.sn_available || md.data.sn_available,
           id: fileName,
           content: content,
         };

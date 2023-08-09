@@ -18,6 +18,7 @@ support_img: "<%= supportImg %>"
 owner_name: "<%= ownerName %>"
 owner_img: "<%= ownerImg %>"
 dockerfile: "<%= dockerfile %>"
+sn_available: "<%= snAvailable %>"
 id: "<%= id %>"
 ---
 
