@@ -1,4 +1,22 @@
 ---
+description: The Kinesis sink connector pulls data from Pulsar and persists data into Amazon Kinesis.
+author: ["ASF"]
+contributors: ["ASF"]
+language: Java
+document:
+license: Apache License 2.0
+tags: ["Pulsar IO", "Kinesis", "Sink"]
+alias: Kinesis Sink
+features: ["Use Kinesis sink connector to sync data from Pulsar"]
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/pulsar-hub.svg"
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/streamnative.png"
+owner_name: ""
+owner_img: ""
+dockerfile: https://hub.docker.com/r/streamnative/pulsar-io-kinesis
+id: "kinesis-sink"
 source: "https://github.com/streamnative/pulsar/tree/v3.0.0.1/pulsar-io/kinesis"
 download: "https://github.com/streamnative/pulsar/releases/download/v3.0.0.1/pulsar-io-kinesis-3.0.0.1.nar"
 ---
