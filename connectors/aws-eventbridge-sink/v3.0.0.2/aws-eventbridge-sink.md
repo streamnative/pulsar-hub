@@ -6,11 +6,11 @@ language: Java,Shell,Dockerfile
 document:
 source: "https://github.com/streamnative/pulsar-io-aws-eventbridge"
 license: Apache License 2.0
-license_link: "https://github.com/streamnative/pulsar-io-aws-eventbridge/blob/main/LICENSE"
+license_link: "https://github.com/streamnative/pulsar-io-aws-eventbridge/blob/master/LICENSE"
 tags: 
 alias: AWS EventBridge Sink Connector
 features: [""]
-icon: "/images/connectors/lambda-logo.png"
+icon: /images/connectors/aws-eventbridge.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-aws-eventbridge/tarball/refs/tags/v3.0.0.2"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-aws-eventbridge

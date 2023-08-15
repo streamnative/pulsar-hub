@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-aws-lambda/blob/master/
 tags: 
 alias: AWS Lambda Sink
 features: [""]
-icon: "/images/connectors/lambda-logo.png"
+icon: /images/connectors/lambda-logo.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-aws-lambda/tarball/refs/tags/v3.0.0.4"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-aws-lambda

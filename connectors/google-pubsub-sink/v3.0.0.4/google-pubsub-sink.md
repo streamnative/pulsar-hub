@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-google-pubsub/blob/mast
 tags: 
 alias: Google Cloud Pub/Sub Sink Connector
 features: [""]
-icon: "https://avatars.githubusercontent.com/u/44651383?v=4"
+icon: /images/connectors/google-pubsub.svg
 download: "https://api.github.com/repos/streamnative/pulsar-io-google-pubsub/tarball/refs/tags/v3.0.0.4"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-google-pubsub
