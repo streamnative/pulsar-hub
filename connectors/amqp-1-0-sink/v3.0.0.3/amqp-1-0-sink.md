@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-amqp-1-0/blob/master/LI
 tags: 
 alias: AMQP1_0 Sink Connector
 features: ["support sink/source for AMQP version 1.0.0"]
-icon: "/images/connectors/amqp-logo.png"
+icon: /images/connectors/amqp-logo.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-amqp-1-0/tarball/refs/tags/v3.0.0.3"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-amqp-1-0

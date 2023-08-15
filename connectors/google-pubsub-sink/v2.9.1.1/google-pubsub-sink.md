@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Pub/Sub", "Sink"]
 alias: Google Cloud Pub/Sub Sink
 features: ["Use Google Cloud Pub/Sub sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/google-pubsub-logo.png"
+icon: /images/connectors/google-pubsub.svg
 download: "https://github.com/streamnative/pulsar-io-google-pubsub/releases/download/v2.9.1.1/pulsar-io-google-pubsub-2.9.1.1.nar"
 support: StreamNative
 support_link: https://streamnative.io

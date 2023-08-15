@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Kinesis", "Source"]
 alias: Kinesis Source
 features: ["Use Kinesis source connector to pull data from Amazon Kinesis and persists data into Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/pulsar-hub.svg"
+icon: /images/connectors/kinesis.svg
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.4.2/connectors/pulsar-io-kinesis-2.4.2.nar"
 support: StreamNative
 support_link: https://streamnative.io

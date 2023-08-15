@@ -1,2 +1,3 @@
 repository: https://github.com/streamnative/pulsar-io-google-pubsub
 support_img: "/images/connectors/streamnative.png"
+icon: /images/connectors/google-pubsub.svg

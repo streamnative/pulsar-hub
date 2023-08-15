@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-bigquery/blob/master/LI
 tags: 
 alias: Google Cloud BigQuery Sink Connector
 features: ["BigQuery Connector integrates Apache Pulsar with Google BigQuery."]
-icon: "/images/connectors/google-bigquery-logo.png"
+icon: /images/connectors/google-bigquery-logo.png
 download: "https://api.github.com/repos/streamnative/pulsar-io-bigquery/tarball/refs/tags/v2.11.2.1"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-bigquery

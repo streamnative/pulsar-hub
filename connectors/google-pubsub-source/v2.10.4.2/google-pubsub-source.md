@@ -10,7 +10,7 @@ license_link: "https://github.com/streamnative/pulsar-io-google-pubsub/blob/mast
 tags: 
 alias: Google Cloud Pub/Sub Source Connector
 features: [""]
-icon: /images/connectors/google-pubsub-logo.png
+icon: /images/connectors/google-pubsub.svg
 download: "https://api.github.com/repos/streamnative/pulsar-io-google-pubsub/tarball/refs/tags/v2.10.4.2"
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-google-pubsub
