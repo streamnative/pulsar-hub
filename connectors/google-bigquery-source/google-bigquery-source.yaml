@@ -1,2 +1,3 @@
 repository: https://github.com/streamnative/pulsar-io-bigquery
 icon: "/images/connectors/google-bigquery-logo.png"
+sn_available: true
