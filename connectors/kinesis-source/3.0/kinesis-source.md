@@ -1,24 +1,25 @@
 ---
-description: The Kinesis sink connector pulls data from Pulsar and persists data into Amazon Kinesis.
+description: The Kinesis source connector pulls data from Amazon Kinesis and persists data into Pulsar
 author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
 license: Apache License 2.0
-tags: ["Pulsar IO", "Kinesis", "Sink"]
-alias: Kinesis Sink
-features: ["Use Kinesis sink connector to sync data from Pulsar"]
+tags: ["Pulsar IO", "Kinesis", "Source"]
+alias: Kinesis Source
+features: ["Use Kinesis source connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/pulsar-hub.svg"
+icon: /images/connectors/kinesis.svg
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
 dockerfile: https://hub.docker.com/r/streamnative/pulsar-io-kinesis
-id: "kinesis-sink"
+id: "kinesis-source"
 source: "https://github.com/streamnative/pulsar/tree/v3.0.0.1/pulsar-io/kinesis"
 download: "https://github.com/streamnative/pulsar/releases/download/v3.0.0.1/pulsar-io-kinesis-3.0.0.1.nar"
+sn_available: true
 ---
 
 The Kinesis source connector pulls data from Amazon Kinesis and persists data into Pulsar. For more information about connectors, see [Connector Overview](https://docs.streamnative.io/docs/connector-overview).
@@ -130,12 +131,29 @@ key:[myPartitionKey], properties:[=496436655431439836134428954504397640092247887
 
 This table outlines the properties of an AWS Kinesis source connector.
 
+| Name                       | Type                    | Required | Default             | Description                                                                                                                                                                                                                                                                                                               |
+|----------------------------|-------------------------|----------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `awsKinesisStreamName`     | String                  | true     | " " (empty string)  | The Kinesis stream name.                                                                                                                                                                                                                                                                                                  |
+| `awsRegion`                | String                  | false    | " " (empty string)  | The AWS region. <br/><br/>**Example**<br/> us-west-1, us-west-2                                                                                                                                                                                                                                                           |
+| `awsCredentialPluginName`  | String                  | false    | " " (empty string)  | The fully-qualified class name of implementation of [AwsCredentialProviderPlugin](https://github.com/apache/pulsar/blob/master/pulsar-io/aws/src/main/java/org/apache/pulsar/io/aws/AwsCredentialProviderPlugin.java). Please refer to [Configure AwsCredentialProviderPlugin](###Configure AwsCredentialProviderPlugin)  |
+| `awsCredentialPluginParam` | String                  | false    | " " (empty string)  | The JSON parameter to initialize `awsCredentialsProviderPlugin`. Please refer to [Configure AwsCredentialProviderPlugin](###Configure AwsCredentialProviderPlugin)                                                                                                                                                        |
+| `awsEndpoint`              | String                  | false    | " " (empty string)  | The Kinesis end-point URL, which can be found at [here](https://docs.aws.amazon.com/general/latest/gr/rande.html).                                                                                                                                                                                                        |
+| `dynamoEndpoint`           | String                  | false    | " " (empty string)  | The Dynamo end-point URL, which can be found at [here](https://docs.aws.amazon.com/general/latest/gr/rande.html).                                                                                                                                                                                                         |
+| `cloudwatchEndpoint`       | String                  | false    | " " (empty string)  | The Cloudwatch end-point URL, which can be found at [here](https://docs.aws.amazon.com/general/latest/gr/rande.html).                                                                                                                                                                                                     |
+| `applicationName`          | String                  | false    | Pulsar IO connector | The name of the Amazon Kinesis application, will be used as the table name for DynamoDB.                                                       |
+| `initialPositionInStream`  | InitialPositionInStream | false    | LATEST              | The position where the connector starts from.<br/><br/>Below are the available options:<br/><br/><li>`AT_TIMESTAMP`: start from the record at or after the specified timestamp.<br/><br/><li>`LATEST`: start after the most recent data record.<br/><br/><li>`TRIM_HORIZON`: start from the oldest available data record. |
+| `startAtTime`              | Date                    | false    | " " (empty string)  | If set to `AT_TIMESTAMP`, it specifies the point in time to start consumption.                                                                                                                                                                                                                                            |
+| `checkpointInterval`       | long                    | false    | 60000               | The frequency of the Kinesis stream checkpoint in milliseconds.                                                                                                                                                                                                                                                           |
+| `backoffTime`              | long                    | false    | 3000                | The amount of time to delay between requests when the connector encounters a throttling exception from AWS Kinesis in milliseconds.                                                                                                                                                                                       |
+| `numRetries`               | int                     | false    | 3                   | The number of re-attempts when the connector encounters an exception while trying to set a checkpoint.                                                                                                                                                                                                                    |
+| `receiveQueueSize`         | int                     | false    | 1000                | The maximum number of AWS records that can be buffered inside the connector. <br/><br/>Once the `receiveQueueSize` is reached, the connector does not consume any messages from Kinesis until some messages in the queue are successfully consumed.                                                                       |
+| `useEnhancedFanOut`        | boolean                 | false    | true                | If set to true, it uses Kinesis enhanced fan-out.<br><br>If set to false, it uses polling.                                                                                                                                                                                                                                |
 
 ### Configure AwsCredentialProviderPlugin
 
 AWS Kinesis sink connector allows you to use three ways to connect to AWS Kinesis by configuring `awsCredentialPluginName`.
 
--  Leave `awsCredentialPluginName` empty to get the connector authenticated by passing `accessKey` and `secretKey` in `awsCredentialPluginParam`.
+- Leave `awsCredentialPluginName` empty to get the connector authenticated by passing `accessKey` and `secretKey` in `awsCredentialPluginParam`.
 
   ```json
   {"accessKey":"Your access key","secretKey":"Your secret key"}
