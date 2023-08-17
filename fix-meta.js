@@ -39,8 +39,8 @@ function fix(mdpath) {
   data = data.replace(/icon: .*/, "icon: " + ymlData.icon);
   if (ymlData.sn_available) {
     data = data.replace(
-      /(id:\s*.*\n)---\n/,
-      "$1sn_available: " + ymlData.sn_available + "\n---\n"
+      /(id:.*\n---)/,
+      "sn_available: " + ymlData.sn_available + "\n$1"
     );
   }
   fs.writeFileSync(mdpath, data);

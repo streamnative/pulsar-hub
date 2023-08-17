@@ -18,8 +18,8 @@ support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 dockerfile: ""
-id: "amqp-1-0-sink"
 sn_available: true
+id: "amqp-1-0-sink"
 ---
 
 # AMQP1_0 sink connector

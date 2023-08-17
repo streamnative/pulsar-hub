@@ -18,8 +18,8 @@ support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 dockerfile: ""
-id: "sqs-sink"
 sn_available: true
+id: "sqs-sink"
 ---
 
 ## Pulsar IO :: AWS SQS Connector
