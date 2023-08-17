@@ -19,6 +19,7 @@ dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-bigquery"
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
 id: "google-bigquery-sink"
+sn_available: true
 ---
 
 The [Google Cloud BigQuery](https://cloud.google.com/bigquery) sink connector pulls data from Pulsar topics and persists data to Google Cloud BigQuery tables.

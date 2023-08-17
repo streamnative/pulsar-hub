@@ -19,6 +19,7 @@ dockerfile:
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
 id: "amqp-1-0-sink"
+sn_available: true
 ---
 
 The AMQP1_0 sink connector pulls messages from Pulsar topics and persists messages to [AMQP 1.0](https://www.amqp.org/).

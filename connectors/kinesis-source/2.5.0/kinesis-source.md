@@ -19,6 +19,7 @@ owner_name: ""
 owner_img: ""
 dockerfile: 
 id: "kinesis-source"
+sn_available: true
 ---
 
 The Kinesis source connector pulls data from Amazon Kinesis and persists data into Pulsar.

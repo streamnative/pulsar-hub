@@ -19,6 +19,7 @@ dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-bigquery"
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png"
 id: "google-bigquery-source"
+sn_available: true
 ---
 
 The [Google Cloud BigQuery](https://cloud.google.com/bigquery) source connector feeds data from Google Cloud BigQuery tables and writes data to Pulsar topics.
