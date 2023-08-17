@@ -1,2 +1,3 @@
 repository: https://github.com/streamnative/pulsar-io-cloud-storage
 icon: "/images/pulsar-hub.svg"
+sn_available: true

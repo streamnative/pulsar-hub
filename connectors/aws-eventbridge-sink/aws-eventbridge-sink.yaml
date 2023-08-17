@@ -1,2 +1,3 @@
 repository: https://github.com/streamnative/pulsar-io-aws-eventbridge
 icon: "/images/connectors/aws-eventbridge.png"
+sn_available: true
