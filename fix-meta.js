@@ -3,6 +3,9 @@ const path = require("path");
 const yaml = require("js-yaml");
 
 function travel(dir, callback) {
+  if (dir.includes("node_modules")) {
+    return;
+  }
   if (fs.statSync(dir).isFile()) {
     if (dir.endsWith(".md")) {
       callback(dir);
@@ -33,7 +36,13 @@ function fix(mdpath) {
     return;
   }
   let data = fs.readFileSync(mdpath, "utf8");
-  data = data.replace(/icon: .*/, 'icon: ' + ymlData.icon);
+  data = data.replace(/icon: .*/, "icon: " + ymlData.icon);
+  if (ymlData.sn_available) {
+    data = data.replace(
+      /(id:\s*.*\n)---\n/,
+      "$1sn_available: " + ymlData.sn_available + "\n---\n"
+    );
+  }
   fs.writeFileSync(mdpath, data);
   console.log(mdpath + " fixed");
 }

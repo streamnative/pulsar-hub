@@ -19,6 +19,7 @@ dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-snowflake"
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png"
 id: "snowflake-sink"
+sn_available: true
 ---
 
 The [Snowflake](https://www.snowflake.com/) sink connector pulls data from Pulsar topics and persists data to Snowflake.

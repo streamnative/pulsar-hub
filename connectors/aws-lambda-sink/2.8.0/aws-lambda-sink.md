@@ -19,6 +19,7 @@ dockerfile:
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
 id: "lambda-sink"
+sn_available: true
 ---
 
 The [AWS Lambda](https://aws.amazon.com/lambda/) sink connector is a [Pulsar IO connector](http://pulsar.apache.org/docs/en/next/io-overview/) for pulling messages from Pulsar topics to AWS Lambda to invoke Lambda functions. 

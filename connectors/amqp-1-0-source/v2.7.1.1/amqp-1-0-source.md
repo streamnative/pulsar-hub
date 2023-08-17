@@ -19,6 +19,7 @@ dockerfile:
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
 id: "amqp-1-0-source"
+sn_available: true
 ---
 
 The AMQP1_0 source connector receives messages from [AMQP 1.0](https://www.amqp.org/) and writes messages to Pulsar topics.
