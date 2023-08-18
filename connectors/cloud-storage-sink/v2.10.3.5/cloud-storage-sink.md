@@ -18,8 +18,8 @@ support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-cloud-storage"
-id: "cloud-storage-sink"
 sn_available: true
+id: "cloud-storage-sink"
 ---
 
 

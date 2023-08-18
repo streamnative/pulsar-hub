@@ -18,8 +18,8 @@ support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
-id: "sqs-source"
 sn_available: true
+id: "sqs-source"
 ---
 
 The [AWS Simple Queue Service (SQS)](https://aws.amazon.com/sqs/?nc1=h_ls) source connector feeds data from Amazon AWS SQS and writes data to Pulsar topics.

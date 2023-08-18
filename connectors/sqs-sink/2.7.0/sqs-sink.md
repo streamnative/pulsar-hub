@@ -18,8 +18,8 @@ support_img: "/images/connectors/streamnative.png"
 dockerfile: 
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
-id: "sqs-sink"
 sn_available: true
+id: "sqs-sink"
 ---
 
 The [AWS Simple Queue Service (SQS)](https://aws.amazon.com/sqs/?nc1=h_ls) sink connector pulls data from Pulsar topics and persists data to AWS SQS.
