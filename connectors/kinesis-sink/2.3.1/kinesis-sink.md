@@ -17,7 +17,8 @@ support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
-dockerfile: 
+dockerfile:
+sn_available: true
 id: "kinesis-sink"
 ---
 

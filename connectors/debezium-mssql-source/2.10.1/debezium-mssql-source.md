@@ -18,6 +18,7 @@ support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
 dockerfile:
+sn_available: true
 id: "debezium-mssql-source"
 ---
 

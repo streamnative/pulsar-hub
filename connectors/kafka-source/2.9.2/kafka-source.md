@@ -18,6 +18,7 @@ support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
 dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-kafka"
+sn_available: true
 id: "kafka-source"
 ---
 
