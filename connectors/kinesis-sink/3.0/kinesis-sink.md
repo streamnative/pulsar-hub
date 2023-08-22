@@ -16,10 +16,10 @@ support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
 dockerfile: https://hub.docker.com/r/streamnative/pulsar-io-kinesis
-sn_available: true
-id: "kinesis-sink"
 source: "https://github.com/streamnative/pulsar/tree/v3.0.0.1/pulsar-io/kinesis"
 download: "https://github.com/streamnative/pulsar/releases/download/v3.0.0.1/pulsar-io-kinesis-3.0.0.1.nar"
+sn_available: true
+id: "kinesis-sink"
 ---
 
 The AWS Kinesis sink connector pulls data from Pulsar and persists data into Amazon Kinesis. For more information about connectors, see [Connector Overview](https://docs.streamnative.io/docs/connector-overview).
