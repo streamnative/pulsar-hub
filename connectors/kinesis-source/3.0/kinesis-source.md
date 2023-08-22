@@ -31,8 +31,7 @@ and uses [CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-
 
 This document introduces how to get started with creating an AWS Kinesis source connector and get it up and running.
 
-> #### Note
->
+> **Note:**
 > Currently, the Kinesis source connector only supports raw messages. If you use [AWS Key Management Service (KMS)](https://docs.aws.amazon.com/streams/latest/dev/server-side-encryption.html) encrypted messages, the encrypted messages are sent to Pulsar directly. You need to [manually decrypt](https://aws.amazon.com/blogs/big-data/encrypt-and-decrypt-amazon-kinesis-records-using-aws-kms/) the data on the consumer side of Pulsar.
 
 
@@ -96,7 +95,7 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-### 3. Show data by Pulsar client
+### 3. Show data using Pulsar client
 
 > **Note:** If your connector is created on StreamNative Cloud, you need to authenticate your clients. See [Build applications using Pulsar clients](https://docs.streamnative.io/docs/qs-connect#jumpstart-for-beginners) for more information.
 
@@ -144,8 +143,8 @@ This table outlines the properties of an AWS Kinesis source connector.
 | `applicationName`          | String                  | false    | Pulsar IO connector | The name of the Amazon Kinesis application, which will be used as the table name for DynamoDB.                                                       |
 | `initialPositionInStream`  | InitialPositionInStream | false    | LATEST              | The position where the connector starts from.<br/><br/>Below are the available options:<br/><br/><li>`AT_TIMESTAMP`: start from the record at or after the specified timestamp.<br/><br/><li>`LATEST`: start after the most recent data record.<br/><br/><li>`TRIM_HORIZON`: start from the oldest available data record. |
 | `startAtTime`              | Date                    | false    | " " (empty string)  | If set to `AT_TIMESTAMP`, it specifies the time point to start consumption.                                                                                                                                                                                                                                            |
-| `checkpointInterval`       | long                    | false    | 60000               | The frequency of the Kinesis stream checkpoint in milliseconds.                                                                                                                                                                                                                                                           |
-| `backoffTime`              | long                    | false    | 3000                | The amount of time to delay between requests when the connector encounters a throttling exception from AWS Kinesis in milliseconds.                                                                                                                                                                                       |
+| `checkpointInterval`       | Long                    | false    | 60000               | The frequency of the Kinesis stream checkpoint in milliseconds.                                                                                                                                                                                                                                                           |
+| `backoffTime`              | Long                    | false    | 3000                | The amount of time to delay between requests when the connector encounters a throttling exception from AWS Kinesis in milliseconds.                                                                                                                                                                                       |
 | `numRetries`               | int                     | false    | 3                   | The number of re-attempts when the connector encounters an exception while trying to set a checkpoint.                                                                                                                                                                                                                    |
 | `receiveQueueSize`         | int                     | false    | 1000                | The maximum number of AWS records that can be buffered inside the connector. <br/><br/>Once the `receiveQueueSize` is reached, the connector does not consume any messages from Kinesis until some messages in the queue are successfully consumed.                                                                       |
 | `useEnhancedFanOut`        | boolean                 | false    | true                | If set to true, it uses Kinesis enhanced fan-out.<br><br>If set to false, it uses polling.                                                                                                                                                                                                                                |
