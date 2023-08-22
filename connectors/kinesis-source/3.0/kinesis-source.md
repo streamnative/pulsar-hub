@@ -60,10 +60,10 @@ Using this way requires you to set the docker image. You can choose the version 
 No matter how you create an AWS Kinesis source connector, the minimum configuration contains the following parameters.
 ```yaml
 configs:
-awsRegion: "Your aws kinesis region"
-awsKinesisStreamName: "Your kinesis stream name"
-awsCredentialPluginParam: "{\"accessKey\":\"Your access key\",\"secretKey\":\"Your secret key\"}"
-applicationName: "Your application name, which will be used as the table name for DynamoDB. E.g.: pulsar-io-kinesis"
+  awsRegion: "Your aws kinesis region"
+  awsKinesisStreamName: "Your kinesis stream name"
+  awsCredentialPluginParam: "{\"accessKey\":\"Your access key\",\"secretKey\":\"Your secret key\"}"
+  applicationName: "Your application name, which will be used as the table name for DynamoDB. E.g.: pulsar-io-kinesis"
 
 ```
 > * The configuration structure varies depending on how you create the AWS Kinesis source connector.
