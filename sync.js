@@ -121,13 +121,13 @@ async function getTopics(organization, repository) {
 async function fetchDocs() {
   const yamlFiles = await globby(yamlPatterns);
   for (let yamlFile of yamlFiles) {
-    if (!project.repository) { 
-      continue
-    }
     const filePath = yamlFile.split("/");
     const fileName = path.basename(yamlFile, ".yaml");
     const pathPrefix = filePath.slice(0, 2).join("/");
     const project = yaml.load(fs.readFileSync(yamlFile, "utf8"));
+    if (!project.repository) { 
+      continue
+    }
     const host = project.repository.split("://")[1];
     const orgRepository = host.split("/");
     const organization = orgRepository[1];
