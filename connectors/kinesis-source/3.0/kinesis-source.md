@@ -31,9 +31,9 @@ and uses [CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-
 
 This document introduces how to get started with creating an AWS Kinesis source connector and get it up and running.
 
-> **Note:**
-> Currently, the Kinesis source connector only supports raw messages. If you use [AWS Key Management Service (KMS)](https://docs.aws.amazon.com/streams/latest/dev/server-side-encryption.html) encrypted messages, the encrypted messages are sent to Pulsar directly. You need to [manually decrypt](https://aws.amazon.com/blogs/big-data/encrypt-and-decrypt-amazon-kinesis-records-using-aws-kms/) the data on the consumer side of Pulsar.
-
+{% callout title="Note" type="note" %}
+Currently, the Kinesis source connector only supports raw messages. If you use [AWS Key Management Service (KMS)](https://docs.aws.amazon.com/streams/latest/dev/server-side-encryption.html) encrypted messages, the encrypted messages are sent to Pulsar directly. You need to [manually decrypt](https://aws.amazon.com/blogs/big-data/encrypt-and-decrypt-amazon-kinesis-records-using-aws-kms/) the data on the consumer side of Pulsar.
+{% /callout %}
 
 ## Quick start
 
@@ -72,7 +72,10 @@ configs:
 > * If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
 
 ### 2. Send messages to Kinesis
-> **Note:** The following example uses KPL to send data to Kinesis. For more details, see [Writing to your Kinesis Data Stream Using the KPL](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-writing.html)
+
+{% callout title="Note" type="note" %}
+The following example uses KPL to send data to Kinesis. For more details, see [Writing to your Kinesis Data Stream Using the KPL](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-writing.html)
+{% /callout %}
 
 ``` java
 public static void main(String[] args) throws Exception {
@@ -97,7 +100,9 @@ public static void main(String[] args) throws Exception {
 
 ### 3. Show data using Pulsar client
 
-> **Note:** If your connector is created on StreamNative Cloud, you need to authenticate your clients. See [Build applications using Pulsar clients](https://docs.streamnative.io/docs/qs-connect#jumpstart-for-beginners) for more information.
+{% callout title="Note" type="note" %}
+If your connector is created on StreamNative Cloud, you need to authenticate your clients. See [Build applications using Pulsar clients](https://docs.streamnative.io/docs/qs-connect#jumpstart-for-beginners) for more information.
+{% /callout %}
 
 ```
 bin/pulsar-client \
