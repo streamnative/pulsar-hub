@@ -16,8 +16,8 @@ support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
 dockerfile: https://hub.docker.com/r/streamnative/pulsar-io-kinesis
-source: "https://github.com/streamnative/pulsar/tree/v3.0.1.3/pulsar-io/kinesis"
-download: "https://github.com/streamnative/pulsar/releases/download/v3.0.1.3/pulsar-io-kinesis-3.0.1.3.nar"
+source: "https://github.com/streamnative/pulsar/tree/v3.1.0.3/pulsar-io/kinesis"
+download: "https://github.com/streamnative/pulsar/releases/download/v3.1.0.3/pulsar-io-kinesis-3.1.0.3.nar"
 sn_available: true
 id: "kinesis-source"
 ---
