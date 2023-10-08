@@ -33,13 +33,13 @@ This document introduces how to get started with creating an Elasticsearch sink 
 
 The prerequisites for connecting an Elasticsearch sink connector to external systems include:
 
-1. Create a Elasticsearch cluster. You can create a single-node Elasticsearch cluster by executing this command:
+Create a Elasticsearch cluster. You can create a single-node Elasticsearch cluster by executing this command:
 
-    ```bash
-   docker run -p 9200:9200 -p 9300:9300 \
-     -e "discovery.type=single-node" \
-     docker.elastic.co/elasticsearch/elasticsearch:7.13.3
-    ```
+```bash
+docker run -p 9200:9200 -p 9300:9300 \
+  -e "discovery.type=single-node" \
+  docker.elastic.co/elasticsearch/elasticsearch:7.13.3
+```
 
 ### 1. Create a connector
 Depending on the environment, there are several ways to create an Elasticsearch sink connector:
