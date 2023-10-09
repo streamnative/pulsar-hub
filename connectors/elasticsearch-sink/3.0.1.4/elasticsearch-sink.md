@@ -38,7 +38,8 @@ Create a Elasticsearch cluster. You can create a single-node Elasticsearch clust
 ```bash
 docker run -p 9200:9200 -p 9300:9300 \
   -e "discovery.type=single-node" \
-  docker.elastic.co/elasticsearch/elasticsearch:7.13.3
+       -e "ELASTIC_PASSWORD=ElasticPasseword" \
+  docker.elastic.co/elasticsearch/elasticsearch:7.17.13
 ```
 
 ### 1. Create a connector
@@ -55,8 +56,8 @@ No matter how you create an Elasticsearch sink connector, the minimum connector 
 configs:
   elasticSearchUrl: "http://localhost:9200"
   indexName: "my_index"
-  username: "scooby"
-  password: "doobie"
+  username: "elastic"
+  password: "ElasticPasseword"
 ```
 
 The minimum connector configuration for Elasticsearch 6.2 and previous versions contains the following parameters:
@@ -65,8 +66,8 @@ configs:
   elasticSearchUrl: "http://localhost:9200"
   indexName: "my_index"
   typeName: "doc"
-  username: "scooby"
-  password: "doobie"
+  username: "elastic"
+  password: "ElasticPasseword"
 ```
 
 Note that the `typeName` value should be set to a valid type name other than "_doc" for Elasticsearch 6.2 and previous releases, and be left to a default value for other releases.
