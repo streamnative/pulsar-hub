@@ -17,7 +17,7 @@ support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
 owner_name: ""
 owner_img: ""
-dockerfile:  https://hub.docker.com/r/streamnative/pulsar-io-kafka
+dockerfile: https://hub.docker.com/r/streamnative/pulsar-io-kafka
 id: "kafka-sink"
 ---
 
