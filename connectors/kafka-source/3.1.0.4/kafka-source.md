@@ -37,7 +37,7 @@ The prerequisites for connecting an Kafka source connector to external systems i
 Apache Kafka: Ensure you have a running Kafka instance. You can follow the official Kafka [Quickstart guide](https://kafka.apache.org/quickstart) to set up a Kafka instance if you don't have one already.
 
 ### 1. Create a connector
-Depending on the environment, there are several ways to create an Kafka source connector:
+Depending on the environment, there are several ways to create a Kafka source connector:
 
 - [Create a Connector on StreamNative Cloud](https://docs.streamnative.io/docs/connector-create).
 - [Create a Connector with Function worker](https://pulsar.apache.org/docs/io-quickstart/).
