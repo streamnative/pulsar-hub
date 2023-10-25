@@ -37,7 +37,7 @@ The prerequisites for connecting an Kafka source connector to external systems i
 Apache Kafka: Ensure you have a running Kafka instance. You can follow the official Kafka [Quickstart guide](https://kafka.apache.org/quickstart) to set up a Kafka instance if you don't have one already.
 
 ### 1. Create a connector
-Depending on the environment, there are several ways to create an Kafka sink connector:
+Depending on the environment, there are several ways to create an Kafka source connector:
 
 - [Create a Connector on StreamNative Cloud](https://docs.streamnative.io/docs/connector-create).
 - [Create a Connector with Function worker](https://pulsar.apache.org/docs/io-quickstart/).
@@ -45,7 +45,7 @@ Using this way requires you to download a **NAR** package to create a connector.
 - [Create a Connector with Function mesh](https://functionmesh.io/docs/connectors/run-connector).
 Using this way requires you to set the docker image. You can choose the version you want to launch from [here](https://hub.docker.com/r/streamnative/pulsar-io-elastic-search).
 
-No matter how you create an Kafka sink connector, the minimum connector configuration contains the following parameters:
+No matter how you create a Kafka source connector, the minimum connector configuration contains the following parameters:
 ```yaml
 configs:
     bootstrapServers: "localhost:9092"
