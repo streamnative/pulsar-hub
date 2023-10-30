@@ -4,14 +4,14 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/streamnative/pulsar/tree/v3.0.1.4/pulsar-io/kafka"
+source: "https://github.com/streamnative/pulsar/tree/v3.1.0.4/pulsar-io/kafka"
 license: Apache License 2.0
 tags: ["Pulsar IO", "Kafka", "Source"]
 alias: Kafka Source
 features: ["Use Kafka source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/kafka-logo.png"
-download: "https://github.com/streamnative/pulsar/releases/download/v3.0.1.4/pulsar-io-kafka-3.0.1.4.nar"
+download: "https://github.com/streamnative/pulsar/releases/download/v3.1.0.4/pulsar-io-kafka-3.1.0.4.nar"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
