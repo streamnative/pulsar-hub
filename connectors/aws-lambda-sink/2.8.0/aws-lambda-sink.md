@@ -5,7 +5,7 @@ contributors: ["StreamNative"]
 language: Java
 document: 
 source: "https://github.com/streamnative/pulsar-io-aws-lambda/tree/branch-2.8.0/src/main/java/org/apache/pulsar/ecosystem/io/aws/lambda"
-license: Apache License 2.0
+license: Business License  
 tags: ["Pulsar IO", "AWS Lambda", "Sink"]
 alias: AWS Lambda Sink
 features: ["Use AWS Lambda sink connector to sync data from Pulsar"]
