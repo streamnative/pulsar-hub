@@ -4,16 +4,16 @@ author: freeznet,Anonymitaet,Technoboy-,yaalsn
 contributors: freeznet,Anonymitaet,Technoboy-,yaalsn
 language: Java,Shell,Python,Dockerfile
 document:
-source: "https://github.com/streamnative/pulsar-io-aws-lambda"
-license: Apache License 2.0
-license_link: "https://github.com/streamnative/pulsar-io-aws-lambda/blob/master/LICENSE"
+source: Private source
+license: Business License  
+license_link: 
 tags: 
 alias: AWS Lambda Sink
 features: [""]
 icon: /images/connectors/lambda-logo.png
-download: "https://api.github.com/repos/streamnative/pulsar-io-aws-lambda/tarball/refs/tags/v2.11.2.2"
+download: 
 support: streamnative
-support_link: https://github.com/streamnative/pulsar-io-aws-lambda
+support_link: 
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
