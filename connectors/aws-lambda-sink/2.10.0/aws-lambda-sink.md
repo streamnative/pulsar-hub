@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-aws-lambda/tree/branch-2.10.0.1/src/main/java/org/apache/pulsar/ecosystem/io/aws/lambda"
+source: Private source
 license: Business License  
 tags: ["Pulsar IO", "AWS Lambda", "Sink"]
 alias: AWS Lambda Sink
