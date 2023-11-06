@@ -211,7 +211,7 @@ async function fetchDocs() {
           contributors: project.contributors || contributorList.slice(0, 4),
           languages: project.language || language,
           document: "",
-          source: project.private_source ? "Private Source" :  (project.source || source),
+          source: project.private_source ? "Private source" :  (project.source || source),
           license: project.private_source ? "Business License" : (project.license || license),
           licenseLink: project.license_link || licenseLink,
           tags: project.tags || topics["names"],

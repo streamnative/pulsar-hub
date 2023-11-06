@@ -4,7 +4,7 @@ author: nodece,Huanli-Meng,nicoloboschi,urfreespace
 contributors: nodece,Huanli-Meng,nicoloboschi,urfreespace
 language: Java,Shell,Python,Dockerfile
 document:
-source: Private Source
+source: Private source
 license: Business License
 license_link: "https://github.com/streamnative/pulsar-io-google-pubsub/blob/master/LICENSE"
 tags: 

@@ -4,7 +4,7 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document:
-source: Private Source
+source: Private source
 license: Business License
 tags: ["Pulsar IO", "Snowflake", "Sink"]
 alias: Snowflake Sink

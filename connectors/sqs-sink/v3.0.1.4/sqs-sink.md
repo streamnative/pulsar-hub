@@ -4,7 +4,7 @@ author: freeznet,Anonymitaet,nlu90,shibd
 contributors: freeznet,Anonymitaet,nlu90,shibd
 language: Java,Shell,Python,Dockerfile
 document:
-source: Private Source
+source: Private source
 license: Business License
 license_link: "https://github.com/streamnative/pulsar-io-sqs/blob/master/LICENSE"
 tags: 

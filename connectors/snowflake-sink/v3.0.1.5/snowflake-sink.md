@@ -4,7 +4,7 @@ author: danpi,RobertIndie,streamnativebot,yaalsn
 contributors: danpi,RobertIndie,streamnativebot,yaalsn
 language: Java,Shell,Dockerfile
 document:
-source: Private Source
+source: Private source
 license: Business License
 license_link: "https://github.com/streamnative/pulsar-io-snowflake/blob/master/LICENSE"
 tags: 
