@@ -4,20 +4,20 @@ author: nodece,Huanli-Meng,nicoloboschi,urfreespace
 contributors: nodece,Huanli-Meng,nicoloboschi,urfreespace
 language: Java,Shell,Python,Dockerfile
 document:
-source: "https://github.com/streamnative/pulsar-io-google-pubsub"
-license: Apache License 2.0
+source: Private Source
+license: Business License
 license_link: "https://github.com/streamnative/pulsar-io-google-pubsub/blob/master/LICENSE"
 tags: 
 alias: Google Cloud Pub/Sub Sink Connector
 features: [""]
 icon: /images/connectors/google-pubsub.svg
-download: "https://api.github.com/repos/streamnative/pulsar-io-google-pubsub/tarball/refs/tags/v2.9.2.5"
+download:
 support: streamnative
-support_link: https://github.com/streamnative/pulsar-io-google-pubsub
+support_link:
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: ""
+dockerfile:
 id: "google-pubsub-sink"
 ---
 

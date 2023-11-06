@@ -4,18 +4,18 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-google-pubsub/tree/v2.9.1.2/src/main/java/org/apache/pulsar/ecosystem/io/pubsub"
-license: Apache License 2.0
+source: Private Source
+license: Business License
 tags: ["Pulsar IO", "Pub/Sub", "Source"]
 alias: Google Cloud Pub/Sub Source
 features: ["Use Google Cloud Pub/Sub source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: /images/connectors/google-pubsub.svg
-download: "https://github.com/streamnative/pulsar-io-google-pubsub/releases/download/v2.9.1.2/pulsar-io-google-pubsub-2.9.1.2.nar"
+download:
 support: StreamNative
-support_link: https://streamnative.io
+support_link:
 support_img: "/images/connectors/streamnative.png"
-dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-google-pubsub"
+dockerfile:
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
 id: "google-pubsub-source"

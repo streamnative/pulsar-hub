@@ -4,18 +4,18 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document: 
-source: "https://github.com/streamnative/pulsar-io-sqs/tree/branch-2.7.0/src/main/java/org/apache/pulsar/ecosystem/io/sqs"
-license: Apache License 2.0
+source: Private Source
+license: Business License
 tags: ["Pulsar IO", "SQS", "Source"]
 alias: SQS Source
 features: ["Use SQS source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: /images/connectors/sqs-logo.png
-download: "https://github.com/streamnative/pulsar-io-sqs/releases/download/v2.7.0/pulsar-io-sqs-2.7.0.nar"
+download:
 support: StreamNative
-support_link: https://streamnative.io
+support_link:
 support_img: "/images/connectors/streamnative.png"
-dockerfile: 
+dockerfile:
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png" 
 sn_available: true

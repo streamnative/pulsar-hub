@@ -4,20 +4,20 @@ author: danpi,streamnativebot,yaalsn,RobertIndie
 contributors: danpi,streamnativebot,yaalsn,RobertIndie
 language: Java,Shell,Dockerfile
 document:
-source: "https://github.com/streamnative/pulsar-io-snowflake"
-license: Apache License 2.0
+source: Private Source
+license: Business License
 license_link: "https://github.com/streamnative/pulsar-io-snowflake/blob/master/LICENSE"
 tags: 
 alias: Snowflake Sink Connector
 features: [""]
 icon: "/images/connectors/snowflake-logo.png"
-download: "https://api.github.com/repos/streamnative/pulsar-io-snowflake/tarball/refs/tags/v3.0.1.3"
+download:
 support: streamnative
-support_link: https://github.com/streamnative/pulsar-io-snowflake
+support_link:
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-snowflake"
+dockerfile:
 sn_available: "true"
 id: "snowflake-sink"
 ---
