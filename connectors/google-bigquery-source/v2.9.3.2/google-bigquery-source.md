@@ -4,20 +4,20 @@ author: shibd,danpi,codelipenghui,streamnativebot
 contributors: shibd,danpi,codelipenghui,streamnativebot
 language: Java,Shell,Dockerfile
 document:
-source: "https://github.com/streamnative/pulsar-io-bigquery"
-license: Apache License 2.0
+source: Private source
+license: Business License
 license_link: "https://github.com/streamnative/pulsar-io-bigquery/blob/master/LICENSE"
 tags: 
 alias: Google Cloud BigQuery Source Connector
 features: ["BigQuery Connector integrates Apache Pulsar with Google BigQuery."]
 icon: /images/connectors/google-bigquery-logo.png
-download: "https://api.github.com/repos/streamnative/pulsar-io-bigquery/tarball/refs/tags/v2.9.3.2"
+download:
 support: streamnative
-support_link: https://github.com/streamnative/pulsar-io-bigquery
+support_link:
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: ""
+dockerfile:
 sn_available: true
 id: "google-bigquery-source"
 ---

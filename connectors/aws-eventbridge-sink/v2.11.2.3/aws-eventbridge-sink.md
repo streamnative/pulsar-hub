@@ -4,20 +4,20 @@ author: shibd,sijie,Anonymitaet,yaalsn
 contributors: shibd,sijie,Anonymitaet,yaalsn
 language: Java,Shell,Dockerfile
 document:
-source: "https://github.com/streamnative/pulsar-io-aws-eventbridge"
-license: Apache License 2.0
+source: Private source
+license: Business License
 license_link: "https://github.com/streamnative/pulsar-io-aws-eventbridge/blob/master/LICENSE"
 tags: 
 alias: AWS EventBridge Sink Connector
 features: [""]
 icon: "/images/connectors/aws-eventbridge.png"
-download: "https://api.github.com/repos/streamnative/pulsar-io-aws-eventbridge/tarball/refs/tags/v2.11.2.3"
+download:
 support: streamnative
-support_link: https://github.com/streamnative/pulsar-io-aws-eventbridge
+support_link:
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-aws-eventbridge"
+dockerfile:
 sn_available: "true"
 id: "aws-eventbridge-sink"
 ---

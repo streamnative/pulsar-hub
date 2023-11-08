@@ -4,18 +4,18 @@ author: ["StreamNative"]
 contributors: ["StreamNative"]
 language: Java
 document:
-source: "https://github.com/streamnative/pulsar-io-snowflake/tree/branch-2.10.3.2/src/main/java/org/apache/pulsar/ecosystem/io/snowflake"
-license: Apache License 2.0
+source: Private source
+license: Business License
 tags: ["Pulsar IO", "Snowflake", "Sink"]
 alias: Snowflake Sink
 features: ["Use Snowflake sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: /images/connectors/snowflake-logo.png
-download: "https://github.com/streamnative/pulsar-io-snowflake/releases/tag/v2.10.3.2/pulsar-io-snowflake-2.10.3.2.nar"
+download:
 support: StreamNative
-support_link: https://streamnative.io
+support_link:
 support_img: "/images/connectors/streamnative.png"
-dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-snowflake"
+dockerfile:
 owner_name: "StreamNative"
 owner_img: "/images/streamnative.png"
 sn_available: true

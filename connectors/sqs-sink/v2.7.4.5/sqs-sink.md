@@ -4,20 +4,20 @@ author: freeznet,Anonymitaet,nlu90,danpi
 contributors: freeznet,Anonymitaet,nlu90,danpi
 language: Java,Shell,Python,Dockerfile
 document:
-source: "https://github.com/streamnative/pulsar-io-sqs"
-license: Apache License 2.0
+source: Private source
+license: Business License
 license_link: "https://github.com/streamnative/pulsar-io-sqs/blob/master/LICENSE"
 tags: 
 alias: AWS SQS Sink Connector
 features: [""]
 icon: /images/connectors/sqs-logo.png
-download: "https://api.github.com/repos/streamnative/pulsar-io-sqs/tarball/refs/tags/v2.7.4.5"
+download:
 support: streamnative
-support_link: https://github.com/streamnative/pulsar-io-sqs
+support_link:
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: ""
+dockerfile:
 sn_available: true
 id: "sqs-sink"
 ---
