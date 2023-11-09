@@ -30,7 +30,7 @@ The Postgres source connector pulls messages from PostgreSQL and persists the me
 
 ### Prerequisites
 
-The prerequisites for connecting an Debezium Postgres source connector to external systems include:
+The prerequisites for connecting a Debezium Postgres source connector to external systems include:
 
 1. Create a Postgres service: This connector uses the debezium v1.9, Please refer to this [document](https://debezium.io/releases/1.9/) to see the compatible PostgreSQL versions.
 2. Prepare Postgres Database: Please refer to this [document](https://debezium.io/documentation/reference/1.9/connectors/postgresql.html#setting-up-postgresql) to complete the prepare steps on Postgres.
@@ -39,7 +39,7 @@ The prerequisites for connecting an Debezium Postgres source connector to extern
 The subsequent deployment steps detailed in this document leverage PostgreSQL 11.16 on AWS RDS, which natively supports the `pgoutput` plugin.
 {% /callout %}
 
-### 1. Create a table on Postgres 
+### 1. Create a table on Postgres
 Run the following SQL command on your PostgreSQL. If you don't require the `before` data, you can disregard the configuration of `REPLICA IDENTITY`.
 
 ```sql
@@ -77,7 +77,7 @@ configs:
     plugin.name: "pgoutput" 
 ```
 
-> * The configuration structure varies depending on how you create the AWS Kinesis sink connector.
+> * The configuration structure varies depending on how you create the Postgres source connector.
     >  For example, some are **JSON**, some are **YAML**, and some are **Kubernetes YAML**. You need to adapt the configs to the corresponding format.
 >
 > * If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
@@ -140,7 +140,7 @@ The configuration of Debezium source connector has the following properties.
 - org.apache.kafka.connect.json.JsonConverter
 
   The`json-with-envelope` config is valid only for the JsonConverter. By default, the value is set to false. When the `json-with-envelope` value is set to false, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message only consists of the payload.
-  When the `json-with-envelope` value is set to true, the consumer uses the schema `Schema.KeyValue(Schema.BYTES, Schema.BYTES`, and the message consists of the schema and the payload.
+  When the `json-with-envelope` value is set to true, the consumer uses the schema `Schema.KeyValue(Schema.BYTES, Schema.BYTES)`, and the message consists of the schema and the payload.
 
 - org.apache.pulsar.kafka.shade.io.confluent.connect.avro.AvroConverter
 
@@ -153,5 +153,5 @@ Currently, the destination topic (specified by the `destination-topic-name` opti
 - One topic for storing the database metadata messages. It is named with the database server name ( `database.server.name`), like `public/default/database.server.name`.
 - One topic (`offset.storage.topic`) for storing the offset metadata messages. The connector saves the last successfully-committed offsets on this topic.
 - (Option) One topic (`database.history.pulsar.topic`) for storing the database history information. The connector writes and recovers DDL statements on this topic.
-- One per-table topic. The connector writes change events for all operations that occur in a table to a single Pulsar topic that is specific to that table.
-        If automatic topic creation is disabled on the Pulsar broker, you need to manually create these 4 types of topics and the destination topic.
+- One per-table topic. The connector writes change events for all operations that occur in a table to a single Pulsar topic that is specific to that table. For examples: "public/default/mydbserver.public.io-test"
+  If automatic topic creation is disabled on the Pulsar broker, you need to manually create these 4 types of topics and the destination topic. 
