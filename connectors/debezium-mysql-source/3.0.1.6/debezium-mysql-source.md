@@ -41,7 +41,7 @@ If you are using AWS MySQL service, you need to use the [params group](https://d
 
 
 ### 1. Create a table on MySQL 
-Run the following SQL command on your MySQL. If you don't require the `before` data, you can disregard the configuration of `REPLICA IDENTITY`.
+Run the following SQL command on your MySQL. 
 
 ```sql
 CREATE DATABASE io_database;
