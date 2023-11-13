@@ -10,9 +10,8 @@ const yamlPatterns = ["**/*.yaml"];
 const reThreeNumber = new RegExp("^v\\d+\\.\\d+.\\d+$");
 const reFourNumber = new RegExp("^v\\d+.\\d+.\\d+.\\d+$");
 
-const LINK_PREFIX = "https://tuteng:" + process.env.ACCESS_TOKEN;
-const GITHUB_HTTP_BASE = LINK_PREFIX + "@api.github.com";
-const CONTENT_PREFIX = LINK_PREFIX + "@raw.githubusercontent.com";
+const GITHUB_HTTP_BASE = "https://api.github.com";
+const CONTENT_PREFIX = "https://raw.githubusercontent.com";
 
 function getLink(organization, repository, rest) {
   return (
@@ -42,7 +41,11 @@ function getDocLink(organization, repository, version, fileName) {
 async function getTags(organization, repository) {
   const tagsLink = getLink(organization, repository, "git/refs/tags");
   try {
-    const { data } = await axios.get(tagsLink);
+    const { data } = await axios.get(tagsLink, {
+      headers: {
+        Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+      },
+    });
     const tags = data.map((tag) => {
       const name = tag.ref.split("/")[2];
       return {
@@ -53,11 +56,12 @@ async function getTags(organization, repository) {
     return tags.filter((tag) => {
       return reThreeNumber.test(tag.name) || reFourNumber.test(tag.name);
     });
-  } catch {
+  } catch(error) {
     console.log(
-      "no tag list for reop",
-      repository,
-      `maybe it's archived, so skip this repo`
+        "no tag list for repo",
+        repository,
+        `maybe it's archived, so skip this repo`,
+        'Error:', error
     );
     return [];
   }
@@ -71,7 +75,11 @@ async function getDoc(organization, repository, version, name) {
       version,
       "/docs/" + name
     );
-    let res = await axios.get(docLink);
+    let res = await axios.get(docLink, {
+      headers: {
+        Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+      },
+    });
     if (!res || !res.data) {
       const readmeLink = getDocLink(
         organization,
@@ -79,7 +87,11 @@ async function getDoc(organization, repository, version, name) {
         version,
         "README.md"
       );
-      res = await axios.get(readmeLink);
+      res = await axios.get(readmeLink, {
+        headers: {
+          Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+        },
+      });
     }
     return res.data;
   } catch (error) {
@@ -88,33 +100,57 @@ async function getDoc(organization, repository, version, name) {
 }
 
 async function getRepository(organization, repository) {
-  const { data } = await axios.get(getLink(organization, repository));
+  const { data } = await axios.get(
+      getLink(organization, repository), {
+        headers: {
+          Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+        },
+      }
+  );
   return data;
 }
 
 async function getContributors(organization, repository) {
   const { data } = await axios.get(
-    getLink(organization, repository, "contributors")
+    getLink(organization, repository, "contributors"), {
+        headers: {
+          Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+        },
+      }
   );
   return data;
 }
 
 async function getLicenses(organization, repository) {
   const { data } = await axios.get(
-    getLink(organization, repository, "license")
+    getLink(organization, repository, "license"), {
+        headers: {
+          Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+        },
+      }
   );
   return data;
 }
 
 async function getLanguages(organization, repository) {
   const { data } = await axios.get(
-    getLink(organization, repository, "languages")
+    getLink(organization, repository, "languages"), {
+        headers: {
+          Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+        },
+      }
   );
   return data;
 }
 
 async function getTopics(organization, repository) {
-  const { data } = await axios.get(getLink(organization, repository, "topics"));
+  const { data } = await axios.get(
+      getLink(organization, repository, "topics"), {
+        headers: {
+          Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+        },
+      }
+  );
   return data;
 }
 
