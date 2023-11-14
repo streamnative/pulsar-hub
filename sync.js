@@ -342,9 +342,6 @@ function cleanupDirectories(baseDir) {
 async function fetchDocs() {
   const yamlFiles = await globby(yamlPatterns);
   for (let yamlFile of yamlFiles) {
-    if (yamlFile !== 'connectors/aws-eventbridge-sink/aws-eventbridge-sink.yaml') {
-      continue;
-    }
     const filePath = yamlFile.split("/");
     const fileName = path.basename(yamlFile, ".yaml");
     const pathPrefix = filePath.slice(0, 2).join("/");
