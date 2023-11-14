@@ -369,4 +369,4 @@ async function fetchDocs() {
   }
 }
 
-fetchDocs();
+await fetchDocs();
