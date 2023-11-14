@@ -4,20 +4,20 @@ author: <%= authors %>
 contributors: <%= contributors %>
 language: <%= languages %>
 document:
-source: "<%= source %>"
+source: <%= source %>
 license: <%= license %>
 license_link: "<%= licenseLink %>"
 tags: <%= tags %>
 alias: <%= alias %>
 features: ["<%= features %>"]
 icon: "<%= icon %>"
-download: "<%= download %>"
+download: <%= download %>
 support: <%= support %>
 support_link: <%= supportLink %>
 support_img: "<%= supportImg %>"
 owner_name: "<%= ownerName %>"
 owner_img: "<%= ownerImg %>"
-dockerfile: "<%= dockerfile %>"
+dockerfile: <%= dockerfile %>
 sn_available: "<%= snAvailable %>"
 id: "<%= id %>"
 ---
