@@ -11,13 +11,13 @@ tags:
 alias: AWS EventBridge Sink Connector
 features: [""]
 icon: "/images/connectors/aws-eventbridge.png"
-download:
+download: Business License
 support: streamnative
-support_link:
+support_link: 
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile:
+dockerfile: 
 sn_available: "true"
 id: "aws-eventbridge-sink"
 ---
