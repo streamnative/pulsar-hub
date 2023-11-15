@@ -26,6 +26,7 @@ jobs:
         run: |
           npm install
           node sync.js
+          node auto-upgrade.js
       - name: Create branch
         id: create_branch
         run: |
