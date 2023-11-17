@@ -79,7 +79,7 @@ You can also send the message using the command line:
 $ bin/pulsar-client produce pulsar-topic-name --messages "hello kafka"
 ```
 
-### 4. Check the data on kafka topic
+### 3. Check the data on kafka topic
 
 You can consume the data from the kafka topic using the command:
 ```sh
