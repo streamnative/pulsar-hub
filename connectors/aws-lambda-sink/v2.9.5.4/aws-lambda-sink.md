@@ -4,7 +4,7 @@ author: freeznet,nlu90,Anonymitaet,Technoboy-
 contributors: freeznet,nlu90,Anonymitaet,Technoboy-
 language: Java,Shell,Python,Dockerfile
 document:
-source: "Private source"
+source: Private source
 license: Business License
 license_link: 
 tags: 
