@@ -6,7 +6,7 @@ language: Java,Shell,Python,Dockerfile
 document:
 source: "Private source"
 license: Business License
-license_link: "https://github.com/streamnative/pulsar-io-aws-lambda/blob/master/LICENSE"
+license_link: ""
 tags: 
 alias: AWS Lambda Sink
 features: [""]
