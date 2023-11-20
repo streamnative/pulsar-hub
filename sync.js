@@ -287,7 +287,7 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
       alias: project.alias || alias,
       features: project.description || description,
       icon: project.icon || icon,
-      download: project.private_source ? "Business License" : (project.download || download),
+      download: project.private_source ? "" : (project.download || download),
       support: project.support || support,
       supportLink: project.private_source ? "" : (project.support_link || source),
       supportImg: project.support_img || ownerImg,
