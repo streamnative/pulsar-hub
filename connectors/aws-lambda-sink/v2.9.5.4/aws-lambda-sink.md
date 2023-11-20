@@ -11,7 +11,7 @@ tags:
 alias: AWS Lambda Sink
 features: [""]
 icon: "/images/connectors/lambda-logo.png"
-download: "Business License"
+download: 
 support: streamnative
 support_link: 
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
