@@ -4,14 +4,14 @@ author: freeznet,nlu90,Anonymitaet,Technoboy-
 contributors: freeznet,nlu90,Anonymitaet,Technoboy-
 language: Java,Shell,Python,Dockerfile
 document:
-source: "Private source"
+source: Private source
 license: Business License
-license_link: "https://github.com/streamnative/pulsar-io-aws-lambda/blob/master/LICENSE"
+license_link: 
 tags: 
 alias: AWS Lambda Sink
 features: [""]
 icon: "/images/connectors/lambda-logo.png"
-download: "Business License"
+download: 
 support: streamnative
 support_link: 
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"

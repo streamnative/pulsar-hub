@@ -6,7 +6,7 @@ language: <%= languages %>
 document:
 source: <%= source %>
 license: <%= license %>
-license_link: "<%= licenseLink %>"
+license_link: <%= licenseLink %>
 tags: <%= tags %>
 alias: <%= alias %>
 features: ["<%= features %>"]

@@ -6,7 +6,7 @@ language: Java,Shell,Dockerfile
 document:
 source: Private source
 license: Business License
-license_link: "https://github.com/streamnative/pulsar-io-aws-eventbridge/blob/master/LICENSE"
+license_link: 
 tags: 
 alias: AWS EventBridge Sink Connector
 features: [""]

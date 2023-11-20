@@ -6,7 +6,7 @@ language: Java,Shell,Dockerfile
 document:
 source: Private source
 license: Business License
-license_link: "https://github.com/streamnative/pulsar-io-bigquery/blob/master/LICENSE"
+license_link: 
 tags: 
 alias: Google Cloud BigQuery Source Connector
 features: ["BigQuery Connector integrates Apache Pulsar with Google BigQuery."]

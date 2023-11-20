@@ -6,7 +6,7 @@ language: Java,Shell,Python,Dockerfile
 document:
 source: Private source
 license: Business License
-license_link: "https://github.com/streamnative/pulsar-io-google-pubsub/blob/master/LICENSE"
+license_link: 
 tags: 
 alias: Google Cloud Pub/Sub Source Connector
 features: [""]
