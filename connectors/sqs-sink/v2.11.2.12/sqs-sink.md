@@ -6,7 +6,7 @@ language: Java,Shell,Python,Dockerfile
 document:
 source: Private source
 license: Business License
-license_link: ""
+license_link: 
 tags: 
 alias: AWS SQS Sink Connector
 features: [""]
