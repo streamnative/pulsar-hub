@@ -4,7 +4,7 @@ author: ["ASF"]
 contributors: ["ASF"]
 language: Java
 document:
-source: "https://github.com/streamnative/pulsar/tree/v2.10.5.8/pulsar-io/mongo""
+source: "https://github.com/streamnative/pulsar/tree/v2.10.5.8/pulsar-io/mongo"
 license: Apache License 2.0
 tags: ["Pulsar IO", "MongoDB", "Sink"]
 alias: MongoDB Sink
