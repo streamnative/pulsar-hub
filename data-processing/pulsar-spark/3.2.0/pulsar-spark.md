@@ -49,6 +49,7 @@ The whole life cycle of a structured streaming job is illustrated in the figure 
 
 You can set the following configurations for the Pulsar Spark connector.
 
+{% raw-html %}
 <table class="table">
 <tr><th>Option</th><th>Value</th><th>Required</th><th>Default</th><th>QueryType</th><th>Description</th></tr>
 <tr>
@@ -195,6 +196,7 @@ You can set the following configurations for the Pulsar Spark connector.
   <td> Data in Pulsar topics is actually written out using the Pulsar Producer API. Therefore, you can configure Producer-related settings by specifying the <code>pulsar.producer.*</code> option. For details, see <a href="https://pulsar.apache.org/docs/client-libraries-java/#configure-producer">Pulsar Producer Configuration</a>.</td>
 </tr>
 </table>
+{% /raw-html %}
 
 ### Schema of Pulsar Spark source
 
