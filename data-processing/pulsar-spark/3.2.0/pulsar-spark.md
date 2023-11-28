@@ -49,10 +49,11 @@ The whole life cycle of a structured streaming job is illustrated in the figure 
 
 You can set the following configurations for the Pulsar Spark connector.
 
+{% raw-html %}
 <table class="table">
 <tr><th>Option</th><th>Value</th><th>Required</th><th>Default</th><th>QueryType</th><th>Description</th></tr>
 <tr>
-  <td><code>service.url</code></code></td>
+  <td><code>service.url</code></td>
   <td>The Pulsar <code>serviceUrl</code> configuration.</td>
   <td>Yes</td>
   <td>None</td>
@@ -116,7 +117,7 @@ You can set the following configurations for the Pulsar Spark connector.
   <td>The timeout for reading messages from Pulsar, such as <code>6000</code>.</td>
 </tr>
 <tr>
-  <td><code>waitingForNonExistedTopic`</td>
+  <td><code>waitingForNonExistedTopic</code></td>
   <td>
   * <code>true</code><br>
   * <code>false</code>
@@ -152,7 +153,7 @@ You can set the following configurations for the Pulsar Spark connector.
   <td> The <code>endingOffsets</code> option specifies where a Reader stops reading data.<br />* "latest": the Reader stops reading data at the latest record.<br />* A JSON string: specifies an ending offset for each topic.<br><br><b>Note</b>:<br><br><code>MessageId.earliest ([8,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,16,-1,-1,-1,-1,-1,-1,-1,-1,-1,1])</code> is not allowed.</td>
 </tr>
 <tr>
-  <td><code>failOnDataLoss`</td>
+  <td><code>failOnDataLoss</code></td>
   <td>
   * <code>true</code><br>
   * <code>false</code>
@@ -163,7 +164,7 @@ You can set the following configurations for the Pulsar Spark connector.
   <td>Specify whether to fail a query when data is lost (For example, topics or messages are deleted because of the retention policy). This may cause a false alarm. You can set it to <code>false</code> when it does not work as you expected. A batch query always fails if it fails to read any data from the provided offsets due to data loss.</td>
 </tr>
 <tr>
-  <td><code>allowDifferentTopicSchemas`</td>
+  <td><code>allowDifferentTopicSchemas</code></td>
   <td> Boolean value </td>
   <td>No</td>
   <td><code>false</code></td>
@@ -195,6 +196,7 @@ You can set the following configurations for the Pulsar Spark connector.
   <td> Data in Pulsar topics is actually written out using the Pulsar Producer API. Therefore, you can configure Producer-related settings by specifying the <code>pulsar.producer.*</code> option. For details, see <a href="https://pulsar.apache.org/docs/client-libraries-java/#configure-producer">Pulsar Producer Configuration</a>.</td>
 </tr>
 </table>
+{% /raw-html %}
 
 ### Schema of Pulsar Spark source
 
