@@ -61,7 +61,7 @@ Depending on the environment, there are several ways to create a Debezium MySQL 
 - [Create a Connector with Function worker](https://pulsar.apache.org/docs/io-quickstart/).
   Using this way requires you to download a **NAR** package to create a connector. You can download the version you need from the `download button` at the beginning of the article.
 - [Create a Connector with Function mesh](https://functionmesh.io/docs/connectors/run-connector).
-  Using this way requires you to set the docker image. You can choose the version you want to launch from [here](https://hub.docker.com/r/streamnative/pulsar-io-elastic-search).
+  Using this way requires you to set the docker image. You can choose the version you want to launch from [here](https://hub.docker.com/r/streamnative/pulsar-io-debezium-mysql).
 
 No matter how you create a Debezium MySQL source connector, the minimum connector configuration contains the following parameters:
 ```yaml
