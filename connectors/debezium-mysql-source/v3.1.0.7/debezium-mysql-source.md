@@ -82,7 +82,7 @@ configs:
 >
 > * If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
 
-### 4. Insert and update a data to table
+### 3. Insert and update a data to table
 
 You can insert and update using the sql:
 ```sql
@@ -94,7 +94,7 @@ SET `age` = 5, `last_name` = 'sn'
 WHERE `first_name` = 'mysql-io-test' AND `last_name` = 'streamnative';
 ```
 
-### 3. Show data using Pulsar client
+### 4. Show data using Pulsar client
 
 {% callout title="Note" type="note" %}
 If your connector is created on StreamNative Cloud, you need to authenticate your clients. See [Build applications using Pulsar clients](https://docs.streamnative.io/docs/qs-connect#jumpstart-for-beginners) for more information.
