@@ -61,7 +61,7 @@ Depending on the environment, there are several ways to create a Debezium MySQL 
 - [Create a Connector with Function worker](https://pulsar.apache.org/docs/io-quickstart/).
   Using this way requires you to download a **NAR** package to create a connector. You can download the version you need from the `download button` at the beginning of the article.
 - [Create a Connector with Function mesh](https://functionmesh.io/docs/connectors/run-connector).
-  Using this way requires you to set the docker image. You can choose the version you want to launch from [here](https://hub.docker.com/r/streamnative/pulsar-io-elastic-search).
+  Using this way requires you to set the docker image. You can choose the version you want to launch from [here](https://hub.docker.com/r/streamnative/pulsar-io-debezium-mysql).
 
 No matter how you create a Debezium MySQL source connector, the minimum connector configuration contains the following parameters:
 ```yaml
@@ -82,7 +82,7 @@ configs:
 >
 > * If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
 
-### 4. Insert and update a data to table
+### 3. Insert and update a data to table
 
 You can insert and update using the sql:
 ```sql
@@ -94,7 +94,7 @@ SET `age` = 5, `last_name` = 'sn'
 WHERE `first_name` = 'mysql-io-test' AND `last_name` = 'streamnative';
 ```
 
-### 3. Show data using Pulsar client
+### 4. Show data using Pulsar client
 
 {% callout title="Note" type="note" %}
 If your connector is created on StreamNative Cloud, you need to authenticate your clients. See [Build applications using Pulsar clients](https://docs.streamnative.io/docs/qs-connect#jumpstart-for-beginners) for more information.

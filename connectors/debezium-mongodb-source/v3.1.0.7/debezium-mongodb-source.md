@@ -113,12 +113,12 @@ The configuration of Debezium Mongodb source connector has the following propert
 | `mongodb.user` | false | null | Name of the database user to be used when connecting to MongoDB. This is required only when MongoDB is configured to use authentication. |
 | `mongodb.password` | false | null | Password to be used when connecting to MongoDB. This is required only when MongoDB is configured to use authentication. |
 | `mongodb.task.id` | true | null | The taskId of the MongoDB connector that attempts to use a separate task for each replica set. |
-| `database.whitelist` | false | null | A list of all databases hosted by this server which is monitored by the  connector.<br/><br/> This is optional, and there are other properties for listing databases and tables to include or exclude from monitoring. |
+| `database.whitelist` | false | null | A list of all databases hosted by this server which is monitored by the  connector.<br/><br/> By default, all databases are monitored. |
 | `key.converter` | false | null | The converter provided by Kafka Connect to convert record key. |
 | `value.converter` | false | null | The converter provided by Kafka Connect to convert record value.  |
 | `database.history.pulsar.topic` | false | null | The name of the database history topic where the connector writes and recovers DDL statements. <br/><br/>**Note: this topic is for internal use only and should not be used by consumers.** |
 | `database.history.pulsar.service.url` | false | null | Pulsar cluster service URL for history topic. |
-| `offset.storage.topic` | false | null | Record the last committed offsets that the connector successfully completes. |
+| `offset.storage.topic` | false | null | Record the last committed offsets that the connector successfully completes. By default, it's `topicNamespace + "/" + sourceName + "-debezium-offset-topic"`. eg. `persistent://public/default/debezium-mongodb-source-debezium-offset-topic`|
 | `json-with-envelope`| false | false | The`json-with-envelope` config is valid only for the JsonConverter. By default, the value is set to false. When the `json-with-envelope` value is set to false, the consumer uses the schema `Schema.KeyValue(Schema.AUTO_CONSUME(), Schema.AUTO_CONSUME(), KeyValueEncodingType.SEPARATED)`, and the message only consists of the payload. When the `json-with-envelope` value is set to true, the consumer uses the schema `Schema.KeyValue(Schema.BYTES, Schema.BYTES)`, and the message consists of the schema and the payload. |
 
 For more configuration properties, plesae see [Debezium MongoDB connector configuration properties](https://debezium.io/documentation/reference/1.9/connectors/mongodb.html#mongodb-connector-properties)
