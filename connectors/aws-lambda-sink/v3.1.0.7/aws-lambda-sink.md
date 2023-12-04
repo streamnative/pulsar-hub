@@ -67,10 +67,10 @@ Depending on the environment, there are several ways to create an AWS Lambda sin
 - [Create Connector on StreamNative Cloud](https://docs.streamnative.io/docs/connector-create).
 - [Create Connector with Function worker](https://pulsar.apache.org/docs/3.0.x/io-quickstart/).
   Using this way requires you to download a **NAR** package to create a built-in or non-built-in connector. You can
-  download the version you need from [here](https://github.com/streamnative/pulsar-io-aws-eventbridge/releases).
+  download the version you need from [here](https://github.com/streamnative/pulsar-io-aws-lambda/releases).
 - [Create Connector with Function mesh](https://functionmesh.io/docs/connectors/run-connector).
   Using this way requires you to set the docker image. You can choose the version you want to launch
-  from [here](https://hub.docker.com/r/streamnative/pulsar-io-aws-eventbridge/tags)
+  from [here](https://hub.docker.com/r/streamnative/pulsar-io-aws-lambda/tags)
 
 No matter how you create an AWS Lambda sink connector, the minimum recommended configuration contains the following
 parameters.
