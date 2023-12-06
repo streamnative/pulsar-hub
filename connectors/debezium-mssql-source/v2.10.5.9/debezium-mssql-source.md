@@ -32,8 +32,8 @@ The MSSQL source connector pulls messages from MSSQL and persists the messages t
 
 The prerequisites for connecting a Debezium MSSQL source connector to external systems include:
 
-1. Create a MSSQL service: This connector uses the debezium v1.9, Please refer to this [document](https://debezium.io/releases/1.9/) to see the compatible SQL Server versions.
-2. Prepare SQL Server: Please refer to this [document](https://debezium.io/documentation/reference/1.9/connectors/sqlserver.html) to complete the prepare steps.
+1. Create a MSSQL service: This connector uses the debezium v1.7, Please refer to this [document](https://debezium.io/releases/1.7/) to see the compatible SQL Server versions.
+2. Prepare SQL Server: Please refer to this [document](https://debezium.io/documentation/reference/1.7/connectors/sqlserver.html) to complete the prepare steps.
 3. Enable CDC for SQL Server: Please refer to this [document](https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15)
 4. Enable SQL Server Agent: Please refer to this [document](https://learn.microsoft.com/en-us/sql/ssms/agent/start-stop-or-pause-the-sql-server-agent-service?view=sql-server-ver16)
 
@@ -102,7 +102,7 @@ bin/pulsar-client \
 consume "persistent://public/default/mssql-test.dbo.testtable" -s "test-sub" -n 0 -p Earliest
 
 ----- got message -----
-key:[eyJpZCI6MTB9], properties:[], content:{"before":null,"after":{"id":1,"name":"Zike Yang"},"source":{"version":"1.9.7.Final","connector":"sqlserver","name":"mssql-test","ts_ms":1701424975073,"snapshot":"false","db":"mydb","sequence":null,"schema":"dbo","table":"testtable","change_lsn":"00000027:000005a0:0002","commit_lsn":"00000027:000005a0:0003","event_serial_no":1},"op":"c","ts_ms":1701424977325,"transaction":null}
+key:[eyJpZCI6MTB9], properties:[], content:{"before":null,"after":{"id":1,"name":"Zike Yang"},"source":{"version":"1.7.7.Final","connector":"sqlserver","name":"mssql-test","ts_ms":1701424975073,"snapshot":"false","db":"mydb","sequence":null,"schema":"dbo","table":"testtable","change_lsn":"00000027:000005a0:0002","commit_lsn":"00000027:000005a0:0003","event_serial_no":1},"op":"c","ts_ms":1701424977325,"transaction":null}
 ```
 
 ## Configuration Properties
