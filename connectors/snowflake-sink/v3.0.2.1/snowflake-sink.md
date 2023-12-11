@@ -96,31 +96,50 @@ snowsql -a ${account_identifier} -u ${account_name} -f grant.sql
 
 ### 2. Create a connector
 
-Depending on the environment, there are several ways to create a Snowflake sink connector:
+The following command shows how to use [pulsarctl](https://github.com/streamnative/pulsarctl) to create a `builtin` connector. If you want to create a `non-builtin` connector,
+you need to replace `--sink-type snowflake` with `--archive /path/to/pulsar-io-snowflake.nar`. You can find the button to download the `nar` package at the beginning of the document.
 
-- [Create a Connector on StreamNative Cloud](https://docs.streamnative.io/docs/connector-create).
-- [Create a Connector with Function worker](https://pulsar.apache.org/docs/io-quickstart/).
-Using this way requires you to download a **NAR** package to create a connector. You can download the version you need from the `download button` at the beginning of the article.
-- [Create a Connector with Function mesh](https://functionmesh.io/docs/connectors/run-connector).
-Using this way requires you to set the docker image. You can choose the version you want to launch from [here](https://hub.docker.com/r/streamnative/pulsar-io-elastic-search).
+{% callout title="For StreamNative Cloud User" type="note" %}
+If you are a StreamNative Cloud user, you need [set up your environment](https://docs.streamnative.io/docs/connector-setup) first.
+{% /callout %}
 
-No matter how you create a Snowflake sink connector, the minimum connector configuration contains the following parameters:
-```yaml
-configs:
-    user: "SNSERVICE"
-    host: "https://<account_identifier>.snowflakecomputing.com"
-    schema: "demo"
-    database: "st_tuts"
-    privateKey: "..."
-    warehouse: "compute_wh"
-    topic2table: "input-snowflake:emp_basic"
+```bash
+pulsarctl sinks create \
+  --sink-type snowflake \
+  --name snowflake \
+  --tenant public \
+  --namespace default \
+  --inputs "Your topic name" \
+  --parallelism 1 \
+  --sink-config \
+  '{
+    "user": "SNSERVICE",
+    "host": "https://<account_identifier>.snowflakecomputing.com",
+    "schema": "demo",
+    "database": "st_tuts",
+    "privateKey": "...",
+    "warehouse": "compute_wh",
+    "topic2table": "input-snowflake:emp_basic"
+  }'
 ```
+
+The `--sink-config` is the minimum necessary configuration for starting this connector, and it is a JSON string. You need to substitute the relevant parameters with your own.
 
 You can get the private key passphrase `(MIIBIjA…)` by running the following command:
 
 ```sh
 grep -v '\-\-\-' rsa_key.p8 | tr -d '\n'
 ```
+
+If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
+
+{% callout title="Note" type="note" %}
+You can also choose to use a variety of other tools to create a connector:
+- [pulsar-admin](https://pulsar.apache.org/docs/3.1.x/io-use/): The command arguments for `pulsar-admin` are similar to those of `pulsarctl`. You can find an example for [StreamNative Cloud Doc](https://docs.streamnative.io/docs/connector-create#create-a-built-in-connector ).
+- [RestAPI](https://pulsar.apache.org/sink-rest-api/?version=3.1.1): You can find an example for [StreamNative Cloud Doc](https://docs.streamnative.io/docs/connector-create#create-a-built-in-connector).
+- [Terraform](https://github.com/hashicorp/terraform): You can find an example for [StreamNative Cloud Doc](https://docs.streamnative.io/docs/connector-create#create-a-built-in-connector).
+- [Function Mesh](https://functionmesh.io/docs/connectors/run-connector): The docker image can be found at the beginning of the document.
+{% /callout %}
 
 ### 3. Send messages to he topic
 
