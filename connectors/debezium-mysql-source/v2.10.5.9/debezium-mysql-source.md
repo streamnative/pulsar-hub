@@ -69,7 +69,6 @@ pulsarctl sources create \
   --name debezium-mysql-source \
   --tenant public \
   --namespace default \
-  --destination-topic-name "Your topic name" \
   --parallelism 1 \
   --source-config \
   '{
@@ -85,6 +84,8 @@ pulsarctl sources create \
 
 The `--source-config` is the minimum necessary configuration for starting this connector, and it is a JSON string. You need to substitute the relevant parameters with your own.
 If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
+
+You can set multiple tables for "table.whitelist", and the connector will send data from each table to a different topic of pulsar. The topic naming rule is: "{{database.server.name}}.{{table.name}}". For examples: "public/default/mydbserver.public.io-test".You can also choose to use a variety of other tools to create a connector:
 
 {% callout title="Note" type="note" %}
 You can also choose to use a variety of other tools to create a connector:
