@@ -51,7 +51,7 @@ pulsarctl sources create \
   --name kafka-source \
   --tenant public \
   --namespace default \
-  --inputs "Your topic name" \
+  --destination-topic-name "Your topic name" \
   --parallelism 1 \
   --source-config \
   '{
