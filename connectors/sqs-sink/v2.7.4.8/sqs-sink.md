@@ -234,7 +234,7 @@ This example explains how to create an SQS sink connector in an on-premises clus
 
     {% callout title="Tip" type="tip" %}
         For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
-    {% /callout %}
+  {% /callout %}
 
 
 5. Create an SQS sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](http://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--24) command.

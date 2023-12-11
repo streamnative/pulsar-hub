@@ -366,7 +366,7 @@ This example demonstrates how to create an AMQP1_0 source connector on a K8S clu
 
     {% callout title="Tip" type="tip" %}
         For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
-    {% /callout %}
+  {% /callout %}
 
 5. Create an AMQP1_0 source connector on a Pulsar cluster using the [`pulsar-admin sources create`](http://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--14) command.
 
