@@ -101,8 +101,8 @@ pulsarctl sinks create \
   --parallelism 1 \
   --sink-config \
   '{
-    "accessKeyId": "Your access access key", 
-    "secretAccessKey": "Your secret access key",
+    "accessKeyId": "Your AWS access key", 
+    "secretAccessKey": "Your AWS secret access key",
     "region": "Your event bridge region",
     "eventBusName": "Your eventbus name"
   }'
