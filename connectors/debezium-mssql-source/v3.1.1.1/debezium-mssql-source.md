@@ -64,7 +64,6 @@ pulsarctl sources create \
   --name debezium-mssql \
   --tenant public \
   --namespace default \
-  --inputs "Your topic name" \
   --parallelism 1 \
   --source-config \
   '{
