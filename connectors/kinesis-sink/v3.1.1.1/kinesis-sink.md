@@ -40,26 +40,40 @@ The prerequisites for connecting an AWS Kinesis sink connector to external syste
 - [CloudWatch:PutMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html): it is required because AWS Kinesis producer will periodically [send metrics to CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html).
 
 ### 1. Create a connector
-Depending on the environment, there are several ways to create an AWS Kinesis sink connector:
 
-- [Create a Connector on StreamNative Cloud](https://docs.streamnative.io/docs/connector-create).
-- [Create a Connector with Function worker](https://pulsar.apache.org/docs/io-quickstart/).
-Using this way requires you to download a **NAR** package to create a connector. You can download the version you need from the `download button` at the beginning of the article.
-- [Create a Connector with Function mesh](https://functionmesh.io/docs/connectors/run-connector).
-Using this way requires you to set the docker image. You can choose the version you want to launch from [here](https://hub.docker.com/r/streamnative/pulsar-io-kinesis).
+The following command shows how to use [pulsarctl](https://github.com/streamnative/pulsarctl) to create a `builtin` connector. If you want to create a `non-builtin` connector,
+you need to replace `--sink-type kinesis` with `--archive /path/to/pulsar-io-kinesis.nar`. You can find the button to download the `nar` package at the beginning of the document.
 
-No matter how you create an AWS Kinesis sink connector, the minimum configuration contains the following parameters.
-```yaml
-configs:
-  awsRegion: "Your aws kinesis region"
-  awsKinesisStreamName: "Your kinesis stream name"
-  awsCredentialPluginParam: "{\"accessKey\":\"Your access key\",\"secretKey\":\"Your secret key\"}"
+{% callout title="For StreamNative Cloud User" type="note" %}
+If you are a StreamNative Cloud user, you need [set up your environment](https://docs.streamnative.io/docs/connector-setup) first.
+{% /callout %}
+
+```bash
+pulsarctl sinks create \
+  --sink-type kinesis \
+  --name kinesis-sink \
+  --tenant public \
+  --namespace default \
+  --inputs "Your topic name" \
+  --parallelism 1 \
+  --sink-config \
+  '{
+    "awsRegion": "Your aws kinesis region", 
+    "awsKinesisStreamName": "Your kinesis stream name",
+    "awsCredentialPluginParam": "{\"accessKey\":\"Your AWS access key\",\"secretKey\":\"Your AWS secret access key\"}"
+  }'
 ```
-> * The configuration structure varies depending on how you create the AWS Kinesis sink connector.
->  For example, some are **JSON**, some are **YAML**, and some are **Kubernetes YAML**. You need to adapt the configs to the corresponding format.
->
-> * If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
 
+The `--sink-config` is the minimum necessary configuration for starting this connector, and it is a JSON string. You need to substitute the relevant parameters with your own.
+If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
+
+{% callout title="Note" type="note" %}
+You can also choose to use a variety of other tools to create a connector:
+- [pulsar-admin](https://pulsar.apache.org/docs/3.1.x/io-use/): The command arguments for `pulsar-admin` are similar to those of `pulsarctl`. You can find an example for [StreamNative Cloud Doc](https://docs.streamnative.io/docs/connector-create#create-a-built-in-connector ).
+- [RestAPI](https://pulsar.apache.org/sink-rest-api/?version=3.1.1): You can find an example for [StreamNative Cloud Doc](https://docs.streamnative.io/docs/connector-create#create-a-built-in-connector).
+- [Terraform](https://github.com/hashicorp/terraform): You can find an example for [StreamNative Cloud Doc](https://docs.streamnative.io/docs/connector-create#create-a-built-in-connector).
+- [Function Mesh](https://functionmesh.io/docs/connectors/run-connector): The docker image can be found at the beginning of the document.
+  {% /callout %}
 
 ### 2. Send messages to the topic
 
