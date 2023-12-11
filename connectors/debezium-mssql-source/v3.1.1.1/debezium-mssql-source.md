@@ -50,32 +50,47 @@ GRANT SELECT ON dbo.MyTable TO {{Your hostname of SQL Server}};
 Note that we need a primary key for CDC.
 
 ### 2. Create a connector
-Depending on the environment, there are several ways to create a Debezium MSSQL source connector:
 
-- [Create a Connector on StreamNative Cloud](https://docs.streamnative.io/docs/connector-create).
-- [Create a Connector with Function worker](https://pulsar.apache.org/docs/io-quickstart/).
-  Using this way requires you to download a **NAR** package to create a connector. You can download the version you need from the `download button` at the beginning of the article.
-- [Create a Connector with Function mesh](https://functionmesh.io/docs/connectors/run-connector).
-  Using this way requires you to set the docker image. You can choose the version you want to launch from [here](https://hub.docker.com/r/streamnative/pulsar-io-debezium-mssql).
+The following command shows how to use [pulsarctl](https://github.com/streamnative/pulsarctl) to create a `builtin` connector. If you want to create a `non-builtin` connector,
+you need to replace `--source-type debezium-mssql` with `--archive /path/to/pulsar-io-debezium-mssql.nar`. You can find the button to download the `nar` package at the beginning of the document.
 
-No matter how you create a Debezium MSSQL source connector, the minimum connector configuration contains the following parameters:
-```yaml
-configs:
-    database.hostname: {{Your hostname of SQL Server}}
-    database.port: {{Your port of SQL Server}}
-    database.user: {{Your user of SQL Server}}
-    database.password: {{Your password of SQL Server}}
-    database.dbname: {{Your dbname of SQL Server}}
-    # You can set multiple tables, and the connector will send data from each table to a different topic of pulsar, 
-    # and the topic naming role is: {{database.server.name}}.{{table.name}}. For examples: "public/default/mydbserver.public.io-test"
-    table.whitelist: "public.io-test" 
-    database.server.name: "mydbserver"
+{% callout title="For StreamNative Cloud User" type="note" %}
+If you are a StreamNative Cloud user, you need [set up your environment](https://docs.streamnative.io/docs/connector-setup) first.
+{% /callout %}
+
+```bash
+pulsarctl sources create \
+  --source-type debezium-mssql \
+  --name debezium-mssql \
+  --tenant public \
+  --namespace default \
+  --inputs "Your topic name" \
+  --parallelism 1 \
+  --source-config \
+  '{
+    "database.hostname": "Your hostname of SQL Server",
+    "database.port": "Your port of SQL Server",
+    "database.user": "Your user of SQL Server",
+    "database.password": "Your password of SQL Server",
+    "database.dbname": "Your dbname of SQL Server",
+    "table.whitelist": "public.io-test",
+    "database.server.name": "mydbserver"
+  }'
 ```
 
-> * The configuration structure varies depending on how you create the Debezium mssql source connector.
-    >  For example, some are **JSON**, some are **YAML**, and some are **Kubernetes YAML**. You need to adapt the configs to the corresponding format.
->
-> * If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
+The `--source-config` is the minimum necessary configuration for starting this connector, and it is a JSON string. You need to substitute the relevant parameters with your own.
+
+You can set multiple tables, and the connector will send data from each table to a different topic of pulsar, and the topic naming role is: "{{database.server.name}}.{{table.name}}". For examples: "public/default/mydbserver.public.io-test"
+
+If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
+
+{% callout title="Note" type="note" %}
+You can also choose to use a variety of other tools to create a connector:
+- [pulsar-admin](https://pulsar.apache.org/docs/3.1.x/io-use/): The command arguments for `pulsar-admin` are similar to those of `pulsarctl`. You can find an example for [StreamNative Cloud Doc](https://docs.streamnative.io/docs/connector-create#create-a-built-in-connector ).
+- [RestAPI](https://pulsar.apache.org/sink-rest-api/?version=3.1.1): You can find an example for [StreamNative Cloud Doc](https://docs.streamnative.io/docs/connector-create#create-a-built-in-connector).
+- [Terraform](https://github.com/hashicorp/terraform): You can find an example for [StreamNative Cloud Doc](https://docs.streamnative.io/docs/connector-create#create-a-built-in-connector).
+- [Function Mesh](https://functionmesh.io/docs/connectors/run-connector): The docker image can be found at the beginning of the document.
+{% /callout %}
 
 
 ### 3. Insert and update a data to table
