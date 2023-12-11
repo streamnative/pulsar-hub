@@ -53,7 +53,7 @@ The prerequisites for connecting an AWS EventBridge sink connector to external s
       }
     ]
 }
-````
+```
 - You can set permissions directly for this user. With this method, when you create a connector, you only need to configure `accessKey` and `secretAccessKey`.
 - Or you can use [Security Token Service](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html), this [video](https://www.youtube.com/watch?v=dqF4VJCska4) explains how to use STS on AWS.
   With this method, when you create a connector, in addition to configuring `accessKey` and `secretAccessKey`, you also need to configure `role` and `roleSessionName`.
