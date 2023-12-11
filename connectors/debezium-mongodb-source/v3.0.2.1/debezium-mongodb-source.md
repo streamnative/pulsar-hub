@@ -71,7 +71,6 @@ pulsarctl sources create \
   --name debezium-mongodb \
   --tenant public \
   --namespace default \
-  --inputs "Your topic name" \
   --parallelism 1 \
   --source-config \
   '{
