@@ -29,13 +29,13 @@ The configuration of the MongoDB sink connector has the following properties.
 
 ## Property
 
-| Name | Type|Required | Default | Description 
-|------|----------|----------|---------|-------------|
-| `mongoUri` | String| true| " " (empty string) | The MongoDB URI to which the connector connects. <br><br>For more information, see [connection string URI format](https://docs.mongodb.com/manual/reference/connection-string/). |
-| `database` | String| true| " " (empty string)| The database name to which the collection belongs. |
-| `collection` | String| true| " " (empty string)| The collection name to which the connector writes messages. |
-| `batchSize` | int|false|100 | The batch size of writing messages to collections. |
-| `batchTimeMs` |long|false|1000| The batch operation interval in milliseconds. |
+| Name          | Type   | Required | Sensitive | Default            | Description                                                                                                                                                                      |
+|---------------|--------|----------|-----------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `mongoUri`    | String | true     | true      | " " (empty string) | The MongoDB URI to which the connector connects. <br><br>For more information, see [connection string URI format](https://docs.mongodb.com/manual/reference/connection-string/). |
+| `database`    | String | true     | false     | " " (empty string) | The database name to which the collection belongs.                                                                                                                               |
+| `collection`  | String | true     | false     | " " (empty string) | The collection name to which the connector writes messages.                                                                                                                      |
+| `batchSize`   | int    | false    | false     | 100                | The batch size of writing messages to collections.                                                                                                                               |
+| `batchTimeMs` | long   | false    | false     | 1000               | The batch operation interval in milliseconds.                                                                                                                                    |
 
 
 ## Example
