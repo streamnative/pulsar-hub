@@ -19,32 +19,47 @@ jobs:
     name: Create Docs Sync PR
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.SNBOT_GITHUB_TOKEN }}
+
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+
       - name: Sync docs
         run: |
           npm install
           node sync.js
           node auto-upgrade.js
-      - name: Create branch
-        id: create_branch
+
+      - name: Set commit message
+        id: set_commit_message
         run: |
-          git config user.name "Streamnative Updater"
-          git config user.email "dev@streamnative.io"
-          git add -A .
+          # Your commands to make changes go here
           DOCS_SYNC_DATE=$(date +"%Y%m%d")
-          DOCS_SYNC_BRANCH_NAME=sync/docs-sync-$DOCS_SYNC_DATE
           echo "::set-output name=syncDate::$DOCS_SYNC_DATE"
-          git diff-index --quiet HEAD || (git commit -m "Docs sync $DOCS_SYNC_DATE" && git checkout -b $DOCS_SYNC_BRANCH_NAME && git push -q -f origin $DOCS_SYNC_BRANCH_NAME && echo "::set-output name=syncBranch::$DOCS_SYNC_BRANCH_NAME")
+
+      - name: Create new branch
+        run: |
+          git checkout -b sync/docs-sync-${{ steps.set_commit_message.outputs.syncDate }}
+          git push --set-upstream origin sync/docs-sync-${{ steps.set_commit_message.outputs.syncDate }}
+
+      - name: Commit and push if changed
+        id: commit_and_push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_user_name: Streamnative Updater
+          commit_user_email: dev@streamnative.io
+          commit_message: Docs sync ${{ steps.set_commit_message.outputs.syncDate }}
+
       - name: Create Pull Request
-        if: ${{ steps.create_branch.outputs.syncBranch != '' }}
         uses: repo-sync/pull-request@v2
         with:
-          pr_title: "[Docs Sync] ${{ steps.create_branch.outputs.syncDate }}"
-          source_branch: ${{ steps.create_branch.outputs.syncBranch }}
+          pr_title: "[Docs Sync] ${{ steps.set_commit_message.outputs.syncDate }}"
+          source_branch: sync/docs-sync-${{ steps.set_commit_message.outputs.syncDate }}
           destination_branch: master
+          github_token: ${{ secrets.SNBOT_GITHUB_TOKEN }}
           pr_body: |
-            [Docs Sync] ${{ steps.create_branch.outputs.syncDate }}
+            [Docs Sync] ${{ steps.set_commit_message.outputs.syncDate }}
             ${{ github.event.inputs.releaseDescription }}
           pr_label: docs-sync
