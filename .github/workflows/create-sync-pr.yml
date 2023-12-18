@@ -42,6 +42,7 @@ jobs:
       - name: Create new branch
         run: |
           git checkout -b sync/docs-sync-${{ steps.set_commit_message.outputs.syncDate }}
+          git push --set-upstream origin sync/docs-sync-${{ steps.set_commit_message.outputs.syncDate }}
 
       - name: Commit and push if changed
         id: commit_and_push
