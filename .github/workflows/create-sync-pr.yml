@@ -36,6 +36,7 @@ jobs:
           DOCS_SYNC_DATE=$(date +"%Y%m%d")
           DOCS_SYNC_BRANCH_NAME=sync/docs-sync-$DOCS_SYNC_DATE
           echo "::set-output name=syncDate::$DOCS_SYNC_DATE"
+          git remote set-url origin https://x-access-token:${{ secrets.SNBOT_GITHUB_TOKEN }}@github.com/streamnative/pulsar-hub.git
           git diff-index --quiet HEAD || (git commit -m "Docs sync $DOCS_SYNC_DATE" && git checkout -b $DOCS_SYNC_BRANCH_NAME && git push -q -f origin $DOCS_SYNC_BRANCH_NAME && echo "::set-output name=syncBranch::$DOCS_SYNC_BRANCH_NAME")
       - name: Create Pull Request
         if: ${{ steps.create_branch.outputs.syncBranch != '' }}
