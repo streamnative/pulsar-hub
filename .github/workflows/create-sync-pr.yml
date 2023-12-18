@@ -51,7 +51,6 @@ jobs:
           commit_user_name: Streamnative Updater
           commit_user_email: dev@streamnative.io
           commit_message: Docs sync ${{ steps.set_commit_message.outputs.syncDate }}
-          # No branch parameter here
 
       - name: Create Pull Request
         uses: repo-sync/pull-request@v2
