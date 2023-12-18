@@ -32,7 +32,7 @@ jobs:
         run: |
           git config user.name "Streamnative Updater"
           git config user.email "dev@streamnative.io"
-          git remote set-url origin https://x-access-token:${{ secrets.SNBOT_GITHUB_TOKEN }}@github.com/streamnative/pulsar-hub.git
+          git remote set-url origin https://${{ secrets.SNBOT_GITHUB_TOKEN }}@github.com/streamnative/pulsar-hub.git
           git add -A .
           DOCS_SYNC_DATE=$(date +"%Y%m%d")
           DOCS_SYNC_BRANCH_NAME=sync/docs-sync-$DOCS_SYNC_DATE
