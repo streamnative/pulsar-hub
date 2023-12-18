@@ -21,11 +21,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.SNBOT_GITHUB_TOKEN }}
-          
+
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          
+
       - name: Sync docs
         run: |
           npm install
@@ -39,6 +39,10 @@ jobs:
           DOCS_SYNC_DATE=$(date +"%Y%m%d")
           echo "::set-output name=syncDate::$DOCS_SYNC_DATE"
 
+      - name: Create new branch
+        run: |
+          git checkout -b sync/docs-sync-${{ steps.set_commit_message.outputs.syncDate }}
+
       - name: Commit and push if changed
         id: commit_and_push
         uses: stefanzweifel/git-auto-commit-action@v4
@@ -46,14 +50,13 @@ jobs:
           commit_user_name: Streamnative Updater
           commit_user_email: dev@streamnative.io
           commit_message: Docs sync ${{ steps.set_commit_message.outputs.syncDate }}
-          branch: sync/docs-sync-${{ steps.set_commit_message.outputs.syncDate }}
-          
+          # No branch parameter here
+
       - name: Create Pull Request
-        if: ${{ steps.commit_and_push.outputs.branch != '' }}
         uses: repo-sync/pull-request@v2
         with:
           pr_title: "[Docs Sync] ${{ steps.set_commit_message.outputs.syncDate }}"
-          source_branch: ${{ steps.commit_and_push.outputs.branch }}
+          source_branch: sync/docs-sync-${{ steps.set_commit_message.outputs.syncDate }}
           destination_branch: master
           github_token: ${{ secrets.SNBOT_GITHUB_TOKEN }}
           pr_body: |
