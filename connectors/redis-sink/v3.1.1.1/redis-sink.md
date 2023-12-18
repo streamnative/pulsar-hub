@@ -29,20 +29,20 @@ The configuration of the Redis sink connector has the following properties.
 
 ## Property
 
-| Name | Type|Required | Default | Description 
-|------|----------|----------|---------|-------------|
-| `redisHosts` |String|true|" " (empty string) | A comma-separated list of Redis hosts to connect to. |
-| `redisPassword` |String|false|" " (empty string) | The password used to connect to Redis. |
-| `redisDatabase` | int|true|0  | The Redis database to connect to. |
-| `clientMode` |String| false|Standalone | The client mode when interacting with Redis cluster. <br><br>Below are the available options: <br><li>Standalone<br><li>Cluster |
-| `autoReconnect` | boolean|false|true | Whether the Redis client automatically reconnect or not. |
-| `requestQueue` | int|false|2147483647 | The maximum number of queued requests to Redis. |
-| `tcpNoDelay` |boolean| false| false | Whether to enable TCP with no delay or not. |
-| `keepAlive` | boolean|false | false |Whether to enable a keepalive to Redis or not. |
-| `connectTimeout` |long| false|10000 | The time to wait before timing out when connecting in milliseconds. |
-| `operationTimeout` | long|false|10000 | The time before an operation is marked as timed out in milliseconds . |
-| `batchTimeMs` | int|false|1000 | The Redis operation time in milliseconds. |
-| `batchSize` | int|false|200 | The batch size of writing to Redis database. |
+| Name               | Type    | Required | Sensitive | Default            | Description                                                                                                                     |
+|--------------------|---------|----------|-----------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `redisHosts`       | String  | true     | false     | " " (empty string) | A comma-separated list of Redis hosts to connect to.                                                                            |
+| `redisPassword`    | String  | false    | true      | " " (empty string) | The password used to connect to Redis.                                                                                          |
+| `redisDatabase`    | int     | true     | false     | 0                  | The Redis database to connect to.                                                                                               |
+| `clientMode`       | String  | false    | false     | Standalone         | The client mode when interacting with Redis cluster. <br><br>Below are the available options: <br><li>Standalone<br><li>Cluster |
+| `autoReconnect`    | boolean | false    | false     | true               | Whether the Redis client automatically reconnect or not.                                                                        |
+| `requestQueue`     | int     | false    | false     | 2147483647         | The maximum number of queued requests to Redis.                                                                                 |
+| `tcpNoDelay`       | boolean | false    | false     | false              | Whether to enable TCP with no delay or not.                                                                                     |
+| `keepAlive`        | boolean | false    | false     | false              | Whether to enable a keepalive to Redis or not.                                                                                  |
+| `connectTimeout`   | long    | false    | false     | 10000              | The time to wait before timing out when connecting in milliseconds.                                                             |
+| `operationTimeout` | long    | false    | false     | 10000              | The time before an operation is marked as timed out in milliseconds .                                                           |
+| `batchTimeMs`      | int     | false    | false     | 1000               | The Redis operation time in milliseconds.                                                                                       |
+| `batchSize`        | int     | false    | false     | 200                | The batch size of writing to Redis database.                                                                                    |
 
 
 ## Example
