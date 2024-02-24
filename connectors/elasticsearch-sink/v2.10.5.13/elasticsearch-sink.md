@@ -38,7 +38,7 @@ Create a Elasticsearch cluster. You can create a single-node Elasticsearch clust
 ```bash
 docker run -p 9200:9200 -p 9300:9300 \
   -e "discovery.type=single-node" \
-       -e "ELASTIC_PASSWORD=ElasticPasseword" \
+       -e "ELASTIC_PASSWORD=pulsar-sink-test" \
   docker.elastic.co/elasticsearch/elasticsearch:7.17.13
 ```
 
@@ -62,10 +62,10 @@ pulsarctl sinks create \
   --sink-config \
   '{
     "elasticSearchUrl": "http://localhost:90902",
-    "indexName": "myIndex",
+    "indexName": "myindex",
     "typeName": "doc",
-    "username": "scooby",
-    "password": "doobie"
+    "username": "elastic",
+    "password": "pulsar-sink-test"
   }'
 ```
 
