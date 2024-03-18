@@ -143,14 +143,24 @@ async function getContributors(organization, repository) {
 }
 
 async function getLicenses(organization, repository) {
-  const { data } = await axios.get(
-    getLink(organization, repository, "license"), {
-        headers: {
-          Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
-        },
-      }
-  );
-  return data;
+  try {
+    const { data } = await axios.get(
+        getLink(organization, repository, "license"), {
+          headers: {
+            Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+          },
+        }
+    );
+    return data;
+  } catch (error) {
+    console.error(`Not Found License ${organization}:${repository}`);
+    return {
+      license: {
+        name: "Not Found License",
+      },
+      html_url: "",
+    };
+  }
 }
 
 async function getLanguages(organization, repository) {
@@ -219,9 +229,13 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
     const icon = project.icon || ownerImg
     const name = repo["name"];
     const source = repo["html_url"];
-    const licenses = await getLicenses(organization, repository);
-    const license = licenses["license"]["name"];
-    const licenseLink = licenses["html_url"];
+    let license;
+    let licenseLink;
+    if (!project.private_source) {
+      const licenses = await getLicenses(organization, repository);
+      license = licenses["license"]["name"];
+      licenseLink = licenses["html_url"];
+    }
     const languages = await getLanguages(organization, repository);
     const languageKeys = Object.keys(languages);
     const language = languageKeys.slice(0, 4);
@@ -281,7 +295,7 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
       languages: project.language || language,
       document: "",
       source: project.private_source ? "Private source" : (project.source || source),
-      license: project.private_source ? "Business License" : (project.license || license),
+      license: project.private_source ? "StreamNative, Inc.. All Rights Reserved" : (project.license || license),
       licenseLink: project.private_source ? "" : (project.license_link || licenseLink),
       tags: project.tags || topics["names"],
       alias: project.alias || alias,
