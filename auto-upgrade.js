@@ -128,8 +128,12 @@ async function autoUpgradeDocs() {
     const needSyncYamlDirs = new Set(needSyncYamlFiles.map(file => path.dirname(file).split(path.sep).slice(0, 2).join(path.sep)));
     const allDocMdDirs = new Set(allDocMdFiles.map(file => path.dirname(file).split(path.sep).slice(0, 2).join(path.sep)));
     const manuallyMaintainedConnectors = new Set([...allDocMdDirs].filter(dir => !needSyncYamlDirs.has(dir)));
-    const specimenVersions = getConnectorVersions(specimenConnectorPath)
+    let specimenVersions = getConnectorVersions(specimenConnectorPath);
+    // Cut the version to three digits
+    specimenVersions = specimenVersions.map(version => version.slice(0, version.lastIndexOf('.')));  
+    console.log("Manually maintained connectors: ",  manuallyMaintainedConnectors)
     console.log("Specimen versions: ",  specimenVersions)
+
     for (let dir of manuallyMaintainedConnectors) {
         const connectorVersions = getConnectorVersions(dir);
         if (!connectorVersions || connectorVersions.length === 0) {
