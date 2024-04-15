@@ -9,7 +9,7 @@ license: Proprietary
 tags: ["Pulsar IO", "Pinecone", "Sink"]
 alias: Pinecone Sink
 features: ["Use Pinecone sink connector to sync data from Pulsar"]
-license_link: ""
+license_link: "https://streamnative.io"
 icon: "/images/connectors/pinecone.png"
 download: "https://api.github.com/repos/streamnative/pulsar-io-pinecone/tarball/refs/tags/v0.0.1"
 support: StreamNative
