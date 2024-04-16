@@ -1,0 +1,4 @@
+repository: https://github.com/streamnative/pulsar-io-pinecone
+icon: "/images/connectors/pinecone-logo.png"
+sn_available: true
+private_source: true
