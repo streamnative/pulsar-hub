@@ -21,6 +21,10 @@ dockerfile:
 id: "aop"
 ---
 
+> **Note**
+>
+> The AoP plugin supports only the 0-9-1 protocol with basic produce and consume functionalities, and does not include advanced features such as transactions. It is available as an open-source plugin and is only offered as a private preview feature in the Private Cloud distribution. It is not available on StreamNative Cloud. Please use it with caution.
+
 # Overview
 
 AoP (AMQP on Pulsar) supports AMQP0-9-1 protocol and it is backed by Pulsar. AoP is implemented as a Pulsar [ProtocolHandler](https://github.com/apache/pulsar/blob/master/pulsar-broker/src/main/java/org/apache/pulsar/broker/protocol/ProtocolHandler.java) with the protocol name of "amqp". The AoP protocol handler is built as a `nar` file and it is loaded when the Pulsar broker starts.
