@@ -1,3 +1,5 @@
 repository: https://github.com/streamnative/pulsar-io-amqp-1-0
 icon: /images/connectors/amqp-logo.png
 sn_available: true
+authors:
+  - StreamNative
