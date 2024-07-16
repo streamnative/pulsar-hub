@@ -4,3 +4,4 @@ sn_available: true
 private_source: true
 authors:
   - StreamNative
+description: The Snowflake sink connector is used to write messages from Apache Pulsar topics to Snowflake tables.

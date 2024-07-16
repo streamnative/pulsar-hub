@@ -4,3 +4,4 @@ sn_available: true
 private_source: true
 authors:
   - StreamNative
+description: The AWS Lambda sink connector allows you to send messages from Apache Pulsar to AWS Lambda.
