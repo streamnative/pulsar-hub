@@ -1,3 +1,5 @@
 repository: https://github.com/streamnative/pulsar-io-google-pubsub
 icon: /images/connectors/google-pubsub.svg
 private_source: true
+authors:
+  - StreamNative

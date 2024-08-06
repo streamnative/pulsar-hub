@@ -2,3 +2,5 @@ repository: https://github.com/streamnative/pulsar-io-aws-lambda
 icon: /images/connectors/lambda-logo.png
 sn_available: true
 private_source: true
+authors:
+  - StreamNative

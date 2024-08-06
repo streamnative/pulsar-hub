@@ -2,3 +2,5 @@ repository: https://github.com/streamnative/pulsar-io-sqs
 icon: "/images/connectors/sqs-logo.png"
 sn_available: true
 private_source: true
+authors:
+  - StreamNative
