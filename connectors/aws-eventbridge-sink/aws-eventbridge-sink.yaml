@@ -4,3 +4,4 @@ sn_available: true
 private_source: true
 authors:
   - StreamNative
+description: This connector allows you to make sink connections from Pulsar to AWS EventBridge.

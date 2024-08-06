@@ -4,3 +4,4 @@ sn_available: true
 private_source: true
 authors:
   - StreamNative
+description: "The SQS source connector is used to consume messages from Pulsar topics and publish them to AWS SQS."

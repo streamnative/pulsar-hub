@@ -4,3 +4,4 @@ icon: /images/connectors/google-pubsub.svg
 private_source: true
 authors:
   - StreamNative
+description: The Google Pub/Sub sink connector is used to write messages from Apache Pulsar topics to Google Cloud Pub/Sub.
