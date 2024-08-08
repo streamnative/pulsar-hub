@@ -1,5 +1,5 @@
 repository: https://github.com/streamnative/pulsar-io-cloud-storage
-icon: "/images/pulsar-hub.svg"
+icon: "/images/connectors/azure-blob-storage-logo.png"
 sn_available: true
 authors:
   - StreamNative

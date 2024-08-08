@@ -1,5 +1,5 @@
 repository: https://github.com/streamnative/pulsar-io-cloud-storage
-icon: "/images/pulsar-hub.svg"
+icon: "/images/gcloud-storage-logo.svg"
 sn_available: true
 authors:
   - StreamNative
