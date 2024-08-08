@@ -9,7 +9,7 @@ tags: ["Pulsar IO", "Kinesis", "Source"]
 alias: Kinesis Source
 features: ["Use Kinesis source connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/kinesis.svg"
+icon: "/images/connectors/aws-kinesis.png"
 support: StreamNative
 support_link: https://streamnative.io
 support_img: "/images/streamnative.png"
