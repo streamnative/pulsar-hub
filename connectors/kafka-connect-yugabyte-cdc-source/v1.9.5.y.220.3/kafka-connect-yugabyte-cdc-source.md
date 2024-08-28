@@ -10,7 +10,7 @@ tags: ["Kafka Connect", "Source", "CDC"]
 alias: Kafka Connect YugabyteDB CDC Source
 features: ["Captures row-level changes in YugabyteDB tables"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/yugabyte.jepg"
+icon: "/images/connectors/yugabyte.jpeg"
 download: "https://github.com/yugabyte/debezium-connector-yugabytedb/releases/tag/v1.9.5.y.220.3"
 support: Community
 support_link: "https://github.com/yugabyte/debezium-connector-yugabytedb"
