@@ -17,6 +17,7 @@ support_link: "https://github.com/mongodb/mongo-kafka"
 support_img: ""
 owner_name: "MongoDB"
 owner_img: ""
+sn_available: true
 dockerfile: 
 id: "kafka-connect-mongodb-sink"
 powered_by: "Kafka Connect"

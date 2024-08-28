@@ -7,7 +7,7 @@ document: "https://github.com/confluentinc/kafka-connect-datagen/blob/v0.6.5/REA
 source: "https://github.com/confluentinc/kafka-connect-datagen/tree/v0.6.5"
 license: Apache License 2.0
 tags: ["Kafka Connect", "Source"]
-alias: Kafka Connect Datagen
+alias: Kafka Connect Datagen Source
 features: ["Generating mock data for testing on Kafka protocol"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
 icon: "/images/connectors/kafka-connect.png"
@@ -17,8 +17,9 @@ support_link: "https://github.com/confluentinc/kafka-connect-datagen"
 support_img: ""
 owner_name: "Confluent"
 owner_img: ""
+sn_available: true
 dockerfile: 
-id: "kafka-connect-datagen"
+id: "kafka-connect-datagen-source"
 powered_by: "Kafka Connect"
 ---
 

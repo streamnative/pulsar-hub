@@ -17,6 +17,7 @@ support_link: "https://github.com/tabular-io/iceberg-kafka-connect"
 support_img: ""
 owner_name: "Tabular"
 owner_img: ""
+sn_available: true
 dockerfile: 
 id: "kafka-connect-iceberg-sink"
 powered_by: "Kafka Connect"

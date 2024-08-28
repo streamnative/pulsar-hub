@@ -17,6 +17,7 @@ support_link: "https://github.com/zilliztech/kafka-connect-milvus"
 support_img: ""
 owner_name: "Zilliz"
 owner_img: ""
+sn_available: true
 dockerfile: 
 id: "kafka-connect-milvus-sink"
 powered_by: "Kafka Connect"

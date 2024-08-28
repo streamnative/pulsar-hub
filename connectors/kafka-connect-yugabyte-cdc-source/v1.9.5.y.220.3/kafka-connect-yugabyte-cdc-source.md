@@ -17,6 +17,7 @@ support_link: "https://github.com/yugabyte/debezium-connector-yugabytedb"
 support_img: ""
 owner_name: "YugaByte"
 owner_img: ""
+sn_available: true
 dockerfile: 
 id: "kafka-connect-yugabyte-cdc-source"
 powered_by: "Kafka Connect"
