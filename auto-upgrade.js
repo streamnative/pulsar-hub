@@ -8,6 +8,9 @@ const __dirname = path.dirname(__filename);
 
 const needSyncYamlPatterns = ["connectors/**/*.yaml"];
 const allDocYamlPatterns = ["connectors/**/*.md"];
+ // SYNC_EXTERNAL is a file that indicates the connector is maintained externally
+ // we use this for Kafka Connect connectors, which are maintained in streamnative/kafka-connect-mesh
+const syncExternalPatterns = ["connectors/**/SYNC_EXTERNAL"];
 // Based on this, generate the version number of the manually maintained connectors
 const specimenConnectorPath = "connectors/aws-eventbridge-sink";
 
@@ -125,9 +128,12 @@ async function removeOldVersions(dir) {
 async function autoUpgradeDocs() {
     const needSyncYamlFiles = await globby(needSyncYamlPatterns);
     const allDocMdFiles = await globby(allDocYamlPatterns);
+    const syncExternalFiles = await globby(syncExternalPatterns);
     const needSyncYamlDirs = new Set(needSyncYamlFiles.map(file => path.dirname(file).split(path.sep).slice(0, 2).join(path.sep)));
     const allDocMdDirs = new Set(allDocMdFiles.map(file => path.dirname(file).split(path.sep).slice(0, 2).join(path.sep)));
-    const manuallyMaintainedConnectors = new Set([...allDocMdDirs].filter(dir => !needSyncYamlDirs.has(dir)));
+    const syncExternalDirs = new Set(syncExternalFiles.map(file => path.dirname(file).split(path.sep).slice(0, 2).join(path.sep)));
+    const manuallyMaintainedConnectors = new Set([...allDocMdDirs].filter(dir => !needSyncYamlDirs.has(dir) || !syncExternalDirs.has(dir)));
+
     let specimenVersions = getConnectorVersions(specimenConnectorPath);
     // Cut the version to three digits
     specimenVersions = specimenVersions.map(version => version.slice(0, version.lastIndexOf('.')));  
