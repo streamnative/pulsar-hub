@@ -11,7 +11,7 @@ tags: apache-pulsar,pulsar-io,source-connector,sink-connector,apache-activemq
 alias: ActiveMQ source connector
 features: ["ActiveMQ Connector integrates Apache Pulsar with Apache ActiveMQ. "]
 icon: "/images/connectors/activemq_logo_white_vertical.jpg"
-download: https://api.github.com/repos/streamnative/pulsar-io-activemq/tarball/refs/tags/v3.3.1.8
+download: https://api.github.com/repos/streamnative/pulsar-io-activemq/tarball/refs/tags/v3.3.1.9
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-activemq
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
