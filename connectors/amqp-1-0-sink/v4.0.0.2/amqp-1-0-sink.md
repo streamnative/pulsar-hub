@@ -11,7 +11,7 @@ tags:
 alias: AMQP 1.0 Sink Connector
 features: ["support sink/source for AMQP version 1.0.0"]
 icon: "/images/connectors/amqp-logo.png"
-download: https://api.github.com/repos/streamnative/pulsar-io-amqp-1-0/tarball/refs/tags/v4.0.0.1
+download: https://api.github.com/repos/streamnative/pulsar-io-amqp-1-0/tarball/refs/tags/v4.0.0.2
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-amqp-1-0
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
@@ -27,7 +27,7 @@ id: "amqp-1-0-sink"
 
 The AMQP 1.0 sink connector pulls messages from Pulsar topics and persists messages to [AMQP 1.0](https://www.amqp.org/).
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-amqp-1-0/v4.0.0.1/docs/amqp-1-0-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-io-amqp-1-0/v4.0.0.2/docs/amqp-1-0-sink.png)
 
 ## Quick start
 
