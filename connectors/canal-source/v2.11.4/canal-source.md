@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Canal", "Source", "MySQL"]
 alias: Canal Source
 features: ["Use Canal source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/pulsar-hub.svg"
+icon: "/images/connectors/canal-logo.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.11.4/connectors/pulsar-io-canal-2.11.4.nar"
 support: StreamNative
 support_link: https://streamnative.io

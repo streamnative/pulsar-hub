@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "RabbitMQ", "Source"]
 alias: RabbitMQ source
 features: ["Use RabbitMQ source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/rabbitmq.jpg"
+icon: "/images/connectors/rabbitmq.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-3.3.1/connectors/pulsar-io-rabbitmq-3.3.1.nar"
 support: StreamNative
 support_link: https://streamnative.io

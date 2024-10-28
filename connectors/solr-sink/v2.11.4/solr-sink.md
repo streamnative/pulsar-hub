@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Solr", "Sink"]
 alias: Solr Sink
 features: ["Use Solr sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/pulsar-hub.svg"
+icon: "/images/connectors/solr.jpg"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.11.4/connectors/pulsar-io-solr-2.11.4.nar"
 support: StreamNative
 support_link: https://streamnative.io

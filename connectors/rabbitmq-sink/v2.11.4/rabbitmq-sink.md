@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "RabbitMQ", "Sink"]
 alias: RabbitMQ Sink
 features: ["Use RabbitMQ sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/rabbitmq.jpg"
+icon: "/images/connectors/rabbitmq.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.11.4/connectors/pulsar-io-rabbitmq-2.11.4.nar"
 support: StreamNative
 support_link: https://streamnative.io

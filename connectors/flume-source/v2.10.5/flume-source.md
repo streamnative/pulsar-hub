@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Flume", "Source"]
 alias: Flume Source
 features: ["Use Flume source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/flume.jpg"
+icon: "/images/connectors/flume.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-2.10.5/connectors/pulsar-io-flume-2.10.5.nar"
 support: StreamNative
 support_link: https://streamnative.io

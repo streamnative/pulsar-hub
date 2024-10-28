@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Cassandra", "Sink"]
 alias: Cassandra Sink
 features: ["Use Cassandra sink connector to sync data from Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/cassandra-sink.jpg"
+icon: "/images/connectors/cassandra-sink.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-3.0.6/connectors/pulsar-io-cassandra-3.0.6.nar"
 support: StreamNative
 support_link: https://streamnative.io
