@@ -361,7 +361,7 @@ async function fetchDocs() {
     const pathPrefix = filePath.slice(0, 2).join("/");
     const project = yaml.load(fs.readFileSync(yamlFile, "utf8"));
     if (!project.repository) {
-      return;
+      continue;
     }
     const host = project.repository.split("://")[1];
     const orgRepository = host.split("/");
