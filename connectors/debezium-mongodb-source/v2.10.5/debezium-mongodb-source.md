@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Debezium", "Source"]
 alias: Debezium MongoDB Source
 features: ["Use Debezium MongoDB source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/debezium.jpg"
+icon: "/images/connectors/debezium.png"
 download: "https://github.com/streamnative/pulsar/releases/download/v2.10.5.15/pulsar-io-debezium-mongodb-2.10.5.15.nar"
 support: StreamNative
 support_link: https://streamnative.io

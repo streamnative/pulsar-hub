@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Debezium", "PostgreSQL", "Postgres", "Source"]
 alias: Debezium PostgreSQL Source
 features: ["Use Debezium PostgreSQL source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/debezium.jpg"
+icon: "/images/connectors/debezium.png"
 download: "https://github.com/streamnative/pulsar/releases/download/v3.3.1.2/pulsar-io-debezium-postgres-3.3.1.2.nar"
 support: StreamNative
 support_link: https://streamnative.io

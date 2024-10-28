@@ -10,7 +10,7 @@ tags: ["Pulsar IO", "Netty", "Source"]
 alias: Netty Source
 features: ["Use Netty source connector to sync data to Pulsar"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/netty.jpg"
+icon: "/images/connectors/netty.png"
 download: "https://archive.apache.org/dist/pulsar/pulsar-3.1.2/connectors/pulsar-io-netty-3.1.2.nar"
 support: StreamNative
 support_link: https://streamnative.io
