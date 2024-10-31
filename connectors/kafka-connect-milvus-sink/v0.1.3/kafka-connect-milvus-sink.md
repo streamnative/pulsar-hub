@@ -43,3 +43,13 @@ Parameter | Description
 
 For more information about the configuration properties, see the [offical Milvus Kafka Connect Sink Connector documentation](https://github.com/zilliztech/kafka-connect-milvus/blob/v0.1.3/README_OSS.md).
 
+### Known Issues
+
+1. The Milvus Kafka Connect Sink connector does not support the dynamic fields feature yet, and when the dynamic fields feature enabled on the Milvus server, or enabled on the Zilliz Cloud instance, the connector will not work properly and throw below error:
+
+```shell
+2024-09-23T21:21:24,441+0000 [task-thread-mysink13-0] ERROR org.apache.kafka.connect.runtime.WorkerSinkTask - WorkerSinkTask{id=mysink13-0} Task threw an uncaught and unrecoverable exception. Task is being killed and will not recover until manually restarted. Error: 'com.google.protobuf.Internal$ProtobufList io.milvus.grpc.JSONArray.emptyList(java.lang.Class)'
+java.lang.NoSuchMethodError: 'com.google.protobuf.Internal$ProtobufList io.milvus.grpc.JSONArray.emptyList(java.lang.Class)'
+```
+
+When you encounter this issue, please disable the dynamic fields feature on the Milvus server or Zilliz Cloud instance.
