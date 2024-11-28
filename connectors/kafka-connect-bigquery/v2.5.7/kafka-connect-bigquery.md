@@ -10,7 +10,7 @@ tags: ["Kafka Connect", "Sink"]
 alias: Kafka Connect BigQuery Sink
 features: ["Sink data from Kafka to Google BigQuery"]
 license_link: "https://www.apache.org/licenses/LICENSE-2.0"
-icon: "/images/connectors/kafka-connect.png"
+icon: "/images/connectors/google-bigquery-logo.png"
 download: "https://github.com/confluentinc/kafka-connect-bigquery/releases/tag/v2.5.7"
 support: Community
 support_link: "https://github.com/confluentinc/kafka-connect-bigquery"
