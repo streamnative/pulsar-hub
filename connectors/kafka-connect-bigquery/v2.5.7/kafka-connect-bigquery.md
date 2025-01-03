@@ -45,6 +45,38 @@ The following prerequisites are required before setting up the BigQuery connecto
    bigquery.tables.updateData
 ```
 
+### Quick Start
+
+1. Setup the kcctl client: [doc](https://docs.streamnative.io/docs/kafka-connect-setup)
+2. Create a GSA(google service account) in Google Cloud, and get the private key of it
+3. Create a secret in StreamNative Console, and save the GSA private key's content , please refer to: [doc](https://docs.streamnative.io/docs/kafka-connect-create#create-kafka-connect-with-secret), let's say the secret name is `gcp`, and key is `auth`
+4. Create a dataset in Google Cloud
+5. Create a json file like below:
+
+    ```json
+    {
+        "name": "test-bq",
+        "config": {
+            "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
+            "topics": "${INPUT_TOPIC}",
+            "project": "${GCP_PROJECT_NAME}",
+            "defaultDataset": "${DATA_SET_NAME}",
+            "key.converter": " org.apache.kafka.connect.storage.StringConverter",
+            "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+            "autoCreateTables": "false",
+            "keySource": "JSON",
+            "keyfile": "${snsecret:gcp:auth}",
+            "value.converter.schemas.enable": false
+        }
+    }
+    ```
+
+6. Run the following command to create the connector:
+
+    ```shell
+    kcctl apply -f <your-json-file>
+    ```
+
 ### Configuration
 
 The `kafka-connect-bigquery` connector is configured using the following properties:

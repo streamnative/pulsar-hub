@@ -29,6 +29,35 @@ The ElasticSearch Kafka Connect Sink connector is a Kafka Connect connector that
 
 - A running ElasticSearch cluster
 
+### Quick Start
+
+1. Setup the kcctl client: [doc](https://docs.streamnative.io/docs/kafka-connect-setup)
+2. Set up a ElasticSearch cluster
+3. Create a JSON file like the following:
+
+    ```json
+    {
+        "name": "elasticsearch-sink",
+        "config": {
+            "connector.class": "io.aiven.connect.elasticsearch.ElasticsearchSinkConnector",
+            "tasks.max": "1",
+            "topics": "kafka-elastic-input",
+            "connection.url": "http://elastic:9200",
+            "type.name": "kafka-connect",
+            "key.ignore": "true",
+            "schema.ignore": "true",
+            "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+            "value.converter.schemas.enable": "false"
+        }
+    }
+    ```
+4. Run the following command to create the connector:
+
+    ```bash
+    kcctl create -f <filename>.json
+    ```
+   
+
 ### Configuration
 
 The ElasticSearch Kafka Connect Sink connector is configured using the following properties:
