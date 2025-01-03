@@ -25,6 +25,31 @@ powered_by: "Kafka Connect"
 
 `kafka-connect-datagen` is a Kafka Connect connector for generating mock data for testing and is not suitable for production scenarios. It is available in the StreamNative Cloud.
 
+### Quick Start
+
+1. Setup the kcctl client: [doc](https://docs.streamnative.io/docs/kafka-connect-setup)
+2. Create a json file like below:
+    ```
+    {
+        "name": "datagen",
+        "config": {
+            "connector.class": "io.confluent.kafka.connect.datagen.DatagenConnector",
+            "kafka.topic": "users",
+            "quickstart": "users",
+            "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+            "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+            "value.converter.schemas.enable": "false",
+            "max.interval": 1000,
+            "iterations": 10000000,
+            "tasks.max": "1"
+        }
+    }
+   ```
+3. Run the following command to create the connector:
+    ```
+    kcctl create -f <filename>.json
+    ```
+
 ### Configuration
 
 The `kafka-connect-datagen` connector is configured using the following properties:
