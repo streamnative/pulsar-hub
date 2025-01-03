@@ -290,15 +290,17 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
     const imageDir = path.join("images", "connectors", "sync");
 
     for (let line of md.content.split("\n")) {
-      const imagePattern = /!\[]\((\/?docs\/.+?)\)/g;
+      const imagePattern = /!\[]\((.+?)\)/g; // Match any image path
       let match;
       while ((match = imagePattern.exec(line)) !== null) {
-        const imagePath = match[1].replace(/^\/?docs/, "");
-        const imageName = path.basename(imagePath);
+        const imagePath = match[1];
+        const isAbsolutePath = imagePath.startsWith('/'); // Check if the path is absolute
+        const adjustedPath = isAbsolutePath ? imagePath : `/docs/${imagePath}`;
+        const imageUrl = `https://raw.githubusercontent.com/${organization}/${name}/${version}${adjustedPath}`;
+        const imageName = path.basename(adjustedPath);
         const prefix = name.replace('pulsar-io-', ''); // Extract 'xxx' from 'pulsar-io-xxx'
         const newImageName = `${prefix}-${imageName}`;
         const newImagePath = path.join(imageDir, newImageName);
-        const imageUrl = `https://raw.githubusercontent.com/${organization}/${name}/${tag.name}/docs${imagePath}`;
 
         if (!fs.existsSync(newImagePath)) {
           await downloadImage(imageUrl, newImagePath);
