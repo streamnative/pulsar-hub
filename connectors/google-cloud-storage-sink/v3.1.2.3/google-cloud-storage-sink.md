@@ -1,6 +1,6 @@
 ---
 description: Cloud Storage Connector integrates Apache Pulsar with cloud storage.
-author: freeznet,jianyun8023,shibd,RobertIndie
+author: StreamNative
 contributors: freeznet,jianyun8023,shibd,RobertIndie
 language: Java,Shell,Dockerfile
 document:
@@ -10,7 +10,7 @@ license_link: https://github.com/streamnative/pulsar-io-cloud-storage/blob/maste
 tags: 
 alias: Google Cloud Storage Sink Connector
 features: ["Cloud Storage Connector integrates Apache Pulsar with cloud storage."]
-icon: "/images/pulsar-hub.svg"
+icon: "/images/connectors/gcloud-storage-logo.svg"
 download: https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v3.1.2.3
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-cloud-storage
@@ -25,7 +25,7 @@ id: "google-cloud-storage-sink"
 
 The [Google Cloud Storage](https://cloud.google.com/storage/docs) sink connector pulls data from Pulsar topics and persists data to Google Cloud Storage buckets.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-cloud-storage/v3.1.2.3/docs/google-cloud-storage-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/cloud-storage-google-cloud-storage-sink.png)
 
 ## Quick start
 

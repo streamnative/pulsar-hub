@@ -1,23 +1,23 @@
 ---
 description: support sink/source for AMQP version 1.0.0
-author: gaoran10,Anonymitaet,dependabot[bot],freeznet
-contributors: gaoran10,Anonymitaet,dependabot[bot],freeznet
+author: StreamNative
+contributors: gaoran10,Anonymitaet,shibd,dependabot[bot]
 language: Java,Shell,Dockerfile,Python
 document:
-source: "https://github.com/streamnative/pulsar-io-amqp-1-0"
+source: https://github.com/streamnative/pulsar-io-amqp-1-0
 license: Apache License 2.0
-license_link: "https://github.com/streamnative/pulsar-io-amqp-1-0/blob/master/LICENSE"
+license_link: https://github.com/streamnative/pulsar-io-amqp-1-0/blob/master/LICENSE
 tags: 
 alias: AMQP1_0 Sink Connector
 features: ["support sink/source for AMQP version 1.0.0"]
 icon: "/images/connectors/amqp-logo.png"
-download: "https://api.github.com/repos/streamnative/pulsar-io-amqp-1-0/tarball/refs/tags/v2.9.5.4"
+download: https://api.github.com/repos/streamnative/pulsar-io-amqp-1-0/tarball/refs/tags/v2.9.5.4
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-amqp-1-0
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: "https://hub.docker.com/r/streamnative/pulsar-io-amqp-1-0"
+dockerfile: https://hub.docker.com/r/streamnative/pulsar-io-amqp-1-0
 sn_available: "true"
 id: "amqp-1-0-sink"
 ---
@@ -27,7 +27,7 @@ id: "amqp-1-0-sink"
 
 The AMQP1_0 sink connector pulls messages from Pulsar topics and persists messages to [AMQP 1.0](https://www.amqp.org/).
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-amqp-1-0/v2.9.5.4/docs/amqp-1-0-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/amqp-1-0-amqp-1-0-sink.png)
 
 # How to get 
 

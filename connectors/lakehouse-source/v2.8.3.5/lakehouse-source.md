@@ -1,30 +1,31 @@
 ---
 description: pulsar lakehouse connector
-author: hangc0276,zymap,Huanli-Meng,horizonzy
-contributors: hangc0276,zymap,Huanli-Meng,horizonzy
-language: Java,Shell,Python
+author: StreamNative
+contributors: zymap,hangc0276,Huanli-Meng,horizonzy
+language: Java,Shell,Dockerfile,Python
 document:
-source: "https://github.com/streamnative/pulsar-io-lakehouse"
+source: https://github.com/streamnative/pulsar-io-lakehouse
 license: Apache License 2.0
-license_link: "https://github.com/streamnative/pulsar-io-lakehouse/blob/master/LICENSE"
+license_link: https://github.com/streamnative/pulsar-io-lakehouse/blob/master/LICENSE
 tags: 
 alias: Lakehouse Source Connector
 features: ["pulsar lakehouse connector"]
-icon: /images/pulsar-hub.svg
-download: "https://api.github.com/repos/streamnative/pulsar-io-lakehouse/tarball/refs/tags/v2.8.3.5"
+icon: "/images/streamnative.png"
+download: https://api.github.com/repos/streamnative/pulsar-io-lakehouse/tarball/refs/tags/v2.8.3.5
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-lakehouse
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: ""
+dockerfile: 
+sn_available: ""
 id: "lakehouse-source"
 ---
 
 
 The Lakehouse source connector (currently only including the [Delta Lake](https://delta.io/) source connector) fetches the Lakehouse table's changelog and saves changelogs into a Pulsar topic.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-lakehouse/v2.8.3.5/docs/lakehouse-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/lakehouse-lakehouse-source.png)
 
 # How to get
 
@@ -68,9 +69,9 @@ To build the Lakehouse source connector from the source code, follow these steps
 
 Before using the Lakehouse source connector, you need to configure it. This table lists the properties and the descriptions.
 
-{% tabs %}
+::: tabs
 
-{% tab label="Delta Lake" %}
+@@@ Delta Lake
 
 | Name                                 | Type     | Required | Default | Description
 |--------------------------------------|----------|----------|---|-------------------------------------------------------------|
@@ -85,20 +86,21 @@ Before using the Lakehouse source connector, you need to configure it. This tabl
 | `maxReadBytesSizeOneRound` | long | false | Total memory * 0.2	| The maximum read bytes size from Parquet files in one fetch round. By default, it is set to 20% of the heap memory. |
 | `maxReadRowCountOneRound` | int | false | 100_000 | The maximum read number of rows processed in one round. By default, it is set to `1_000_000`. |
 
-{% /tab %}
-{% /tabs %}
+@@@
 
-{% callout title="Note" type="note" %}
-The Lakehouse source connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
-{% /callout %}
+:::
+
+> **Note**
+>
+> The Lakehouse source connector uses the Hadoop file system to read and write data to and from cloud objects, such as AWS, GCS, and Azure. If you want to configure Hadoop related properties, you should use the prefix `hadoop.`.
 
 You can create a configuration file (JSON or YAML) to set the properties if you use [Pulsar Function Worker](https://pulsar.apache.org/docs/en/functions-worker/) to run connectors in a cluster.
 
 **Example**
 
-{% tabs %}
+::: tabs
 
-{% tab label="Delta Lake" %}
+@@@ Delta Lake
 
 - The Delta table that is stored in the file system
 
@@ -151,8 +153,9 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
 }
 ```
 
-{% /tab %}
-{% /tabs %}
+@@@
+
+:::
 
 ## Data format types
 
@@ -163,9 +166,9 @@ Currently, The Lakehouse source connector only supports reading Delta table chan
 
 You can use the Lakehouse source connector with Function Worker. You can use the Lakehouse source connector as a non built-in connector or a built-in connector.
 
-{% tabs %}
+::: tabs
 
-{% tab label="Use it as a non built-in connector" %}
+@@@ Use it as a non built-in connector
 
 If you already have a Pulsar cluster, you can use the Lakehouse source connector as a non built-in connector directly.
 
@@ -176,8 +179,9 @@ PULSAR_HOME/bin/pulsar-admin sources create \
 --source-config-file <lakehouse-source-config.yaml>
 ```
 
-{% /tab %}
-{% tab label="Use it as a built-in connector" %}
+@@@
+
+@@@ Use it as a built-in connector
 
 You can make the Lakehouse source connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
@@ -247,8 +251,9 @@ This example explains how to create a Lakehouse source connector in an on-premis
     --source-config-file <lakehouse-source-config.yaml>
     ```
 
-{% /tab %}
-{% /tabs %}
+@@@
+
+:::
 
 
 

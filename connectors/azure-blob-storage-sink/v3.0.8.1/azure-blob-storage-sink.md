@@ -25,7 +25,7 @@ id: "azure-blob-storage-sink"
 
 The [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview) sink connector pulls data from Pulsar topics and persists data to Azure Blob Storage containers.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-cloud-storage/v3.0.8.1/docs/azure-blob-storage-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/cloud-storage-azure-blob-storage-sink.png)
 
 ## Quick start
 

@@ -26,7 +26,7 @@ id: "aws-eventbridge-sink"
 The [Amazon EventBridge](https://aws.amazon.com/eventbridge/) sink connector pulls data from Pulsar topics and persists
 data to Amazon EventBridge.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-aws-eventbridge/v4.0.1.1/docs/aws-eventbridge-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/aws-eventbridge-aws-eventbridge-sink.png)
 
 ## Quick start
 

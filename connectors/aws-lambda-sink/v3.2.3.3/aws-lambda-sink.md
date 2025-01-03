@@ -1,7 +1,7 @@
 ---
-description: 
-author: freeznet,RobertIndie,nlu90,shibd
-contributors: freeznet,RobertIndie,nlu90,shibd
+description: The AWS Lambda sink connector allows you to send messages from Apache Pulsar to AWS Lambda.
+author: StreamNative
+contributors: freeznet,RobertIndie,shibd,nlu90
 language: Java,Shell,Python,Dockerfile
 document:
 source: Private source
@@ -9,7 +9,7 @@ license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: AWS Lambda Sink
-features: [""]
+features: ["The AWS Lambda sink connector allows you to send messages from Apache Pulsar to AWS Lambda."]
 icon: "/images/connectors/lambda-logo.png"
 download: 
 support: streamnative
@@ -27,7 +27,7 @@ The [AWS Lambda](https://aws.amazon.com/lambda/) sink connector is
 a [Pulsar IO connector](http://pulsar.apache.org/docs/en/next/io-overview/) for pulling messages from Pulsar topics to
 AWS Lambda to invoke Lambda functions.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-aws-lambda/v3.2.3.3/docs/lambda-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/aws-lambda-lambda-sink.png)
 
 ## Quick start
 

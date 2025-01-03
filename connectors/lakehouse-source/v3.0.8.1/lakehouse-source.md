@@ -25,7 +25,7 @@ id: "lakehouse-source"
 
 The Lakehouse source connector (currently only including the [Delta Lake](https://delta.io/) source connector) fetches the Lakehouse table's changelog and saves changelogs into a Pulsar topic.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-lakehouse/v3.0.8.1/docs/lakehouse-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/lakehouse-lakehouse-source.png)
 
 # How to get
 

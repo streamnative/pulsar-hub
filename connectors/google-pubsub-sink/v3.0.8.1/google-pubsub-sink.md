@@ -25,7 +25,7 @@ id: "google-pubsub-sink"
 
 The [Google Cloud PubSub](https://cloud.google.com/pubsub) sink connector pulls data from Pulsar topics and persists data to Google Cloud PubSub tables.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-google-pubsub/v3.0.8.1/docs/google-pubsub-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/google-pubsub-google-pubsub-sink.png)
 
 ## Quick start
 

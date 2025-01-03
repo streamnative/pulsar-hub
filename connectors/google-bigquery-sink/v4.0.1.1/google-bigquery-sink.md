@@ -25,7 +25,7 @@ id: "google-bigquery-sink"
 
 The [Google Cloud BigQuery](https://cloud.google.com/bigquery) sink connector pulls data from Pulsar topics and persists data to Google Cloud BigQuery tables.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-bigquery/v4.0.1.1/docs/google-bigquery-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/bigquery-google-bigquery-sink.png)
 
 ## Quick start
 

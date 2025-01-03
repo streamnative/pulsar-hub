@@ -25,7 +25,7 @@ id: "google-cloud-storage-sink"
 
 The [Google Cloud Storage](https://cloud.google.com/storage/docs) sink connector pulls data from Pulsar topics and persists data to Google Cloud Storage buckets.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-cloud-storage/v4.0.1.1/docs/google-cloud-storage-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/cloud-storage-google-cloud-storage-sink.png)
 
 ## Quick start
 

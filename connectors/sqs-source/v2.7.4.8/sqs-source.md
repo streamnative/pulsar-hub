@@ -1,30 +1,30 @@
 ---
-description: 
-author: freeznet,Anonymitaet,nlu90,danpi
-contributors: freeznet,Anonymitaet,nlu90,danpi
+description: The SQS source connector is used to consume messages from Amazon SQS and publish them to Pulsar.
+author: StreamNative
+contributors: freeznet,shibd,Anonymitaet,nlu90
 language: Java,Shell,Python,Dockerfile
 document:
 source: Private source
-license: Business License
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
-alias: AWS SQS Source Connector
-features: [""]
-icon: /images/connectors/sqs-logo.png
-download:
+alias: pulsar-io-sqs
+features: ["The SQS source connector is used to consume messages from Amazon SQS and publish them to Pulsar."]
+icon: "/images/connectors/sqs-logo.png"
+download: 
 support: streamnative
-support_link:
+support_link: https://streamnative.io
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile:
-sn_available: true
+dockerfile: 
+sn_available: "true"
 id: "sqs-source"
 ---
 
 The [AWS Simple Queue Service (SQS)](https://aws.amazon.com/sqs/?nc1=h_ls) source connector feeds data from Amazon AWS SQS and writes data to Pulsar topics.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-sqs/v2.7.4.8/docs/sqs-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/sqs-sqs-source.png)
 
 # How to get 
 
@@ -229,9 +229,9 @@ This example demonstrates how to create an SQS source connector on a K8S cluster
         -f pulsar.yaml
     ```
 
-    {% callout title="Tip" type="tip" %}
-        For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
-  {% /callout %}
+    > **Tip**
+    >
+    > For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
 
 5. Create an SQS source connector on a Pulsar cluster using the [`pulsar-admin sources create`](http://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--14) command.
 

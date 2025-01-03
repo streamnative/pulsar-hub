@@ -1,6 +1,6 @@
 ---
-description: 
-author: freeznet,shibd,Anonymitaet,nlu90
+description: The SQS source connector is used to consume messages from Pulsar topics and publish them to AWS SQS.
+author: StreamNative
 contributors: freeznet,shibd,Anonymitaet,nlu90
 language: Java,Shell,Python,Dockerfile
 document:
@@ -9,7 +9,7 @@ license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: AWS SQS Sink Connector
-features: [""]
+features: ["The SQS source connector is used to consume messages from Pulsar topics and publish them to AWS SQS."]
 icon: "/images/connectors/sqs-logo.png"
 download: 
 support: streamnative
@@ -25,7 +25,7 @@ id: "sqs-sink"
 
 The [AWS Simple Queue Service (SQS)](https://aws.amazon.com/sqs/?nc1=h_ls) sink connector pulls data from Pulsar topics and persists data to AWS SQS.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-sqs/v3.2.3.3/docs/sqs-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/sqs-sqs-sink.png)
 
 ## Quick start
 

@@ -1,6 +1,6 @@
 ---
 description: A connector to pinecone.io
-author: illegalnumbers,dependabot[bot],shibd,streamnativebot
+author: StreamNative
 contributors: illegalnumbers,dependabot[bot],shibd,streamnativebot
 language: Java,Shell,Dockerfile
 document:

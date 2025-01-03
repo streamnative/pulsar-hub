@@ -1,6 +1,6 @@
 ---
 description: pulsar lakehouse connector
-author: zymap,hangc0276,Huanli-Meng,horizonzy
+author: StreamNative
 contributors: zymap,hangc0276,Huanli-Meng,horizonzy
 language: Java,Shell,Dockerfile,Python
 document:
@@ -10,7 +10,7 @@ license_link: https://github.com/streamnative/pulsar-io-lakehouse/blob/master/LI
 tags: 
 alias: Lakehouse Sink Connector
 features: ["pulsar lakehouse connector"]
-icon: "/images/pulsar-hub.svg"
+icon: "/images/streamnative.png"
 download: https://api.github.com/repos/streamnative/pulsar-io-lakehouse/tarball/refs/tags/v3.2.3.3
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-lakehouse
@@ -25,7 +25,7 @@ id: "lakehouse-sink"
 
 The Lakehouse sink connector (including the [Hudi](https://hudi.apache.org), [Iceberg](https://iceberg.apache.org/), and [Delta Lake](https://delta.io/) sink connectors) fetches data from a Pulsar topic and saves data to the Lakehouse tables.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-lakehouse/v3.2.3.3/docs/lakehouse-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/lakehouse-lakehouse-sink.png)
 
 # How to get
 

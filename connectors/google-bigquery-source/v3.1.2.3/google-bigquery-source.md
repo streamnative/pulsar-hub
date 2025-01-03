@@ -1,11 +1,11 @@
 ---
 description: BigQuery Connector integrates Apache Pulsar with Google BigQuery.
-author: shibd,danpi,codelipenghui,Huanli-Meng
-contributors: shibd,danpi,codelipenghui,Huanli-Meng
+author: StreamNative
+contributors: shibd,danpi,codelipenghui,nlu90
 language: Java,Shell,Dockerfile
 document:
 source: Private source
-license: Business License
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: Google Cloud BigQuery Source Connector
@@ -25,7 +25,7 @@ id: "google-bigquery-source"
 
 The [Google Cloud BigQuery](https://cloud.google.com/bigquery) Source Connector feeds data from Google Cloud BigQuery tables and writes data to Pulsar topics.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-bigquery/v3.1.2.3/docs/google-bigquery-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/bigquery-google-bigquery-source.png)
 
 ## Quick start
 

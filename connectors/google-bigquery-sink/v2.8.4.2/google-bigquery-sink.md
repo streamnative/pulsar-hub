@@ -1,31 +1,31 @@
 ---
 description: BigQuery Connector integrates Apache Pulsar with Google BigQuery.
-author: shibd,danpi,codelipenghui,streamnativebot
-contributors: shibd,danpi,codelipenghui,streamnativebot
+author: StreamNative
+contributors: shibd,danpi,codelipenghui,nlu90
 language: Java,Shell,Dockerfile
 document:
 source: Private source
-license: Business License
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: Google Cloud BigQuery Sink Connector
 features: ["BigQuery Connector integrates Apache Pulsar with Google BigQuery."]
-icon: /images/connectors/google-bigquery-logo.png
-download:
+icon: "/images/connectors/google-bigquery-logo.png"
+download: 
 support: streamnative
-support_link:
+support_link: https://streamnative.io
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile:
-sn_available: true
+dockerfile: 
+sn_available: "true"
 id: "google-bigquery-sink"
 ---
 
 
 The [Google Cloud BigQuery](https://cloud.google.com/bigquery) sink connector pulls data from Pulsar topics and persists data to Google Cloud BigQuery tables.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-bigquery/v2.8.4.2/docs/google-bigquery-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/bigquery-google-bigquery-sink.png)
 
 # Features
 This section describes features of the Google Cloud BigQuery sink connector. For details about how to configure these features, see [how to configure](#how-to-configure).
@@ -59,9 +59,9 @@ defaultSystemField = __event_time__,__message_id__
 
 
 
-{% callout title="Note" type="note" %}
-The Google Cloud BigQuery sink connector does not delete any fields. If you change a field name in a Pulsar topic, the Google Cloud BigQuery sink connector will preserve both fields.
-{% /callout %}
+> **Note**
+>
+> The Google Cloud BigQuery sink connector does not delete any fields. If you change a field name in a Pulsar topic, the Google Cloud BigQuery sink connector will preserve both fields.
 
 
 This table lists the schema types that currently are supported to be converted.
@@ -76,9 +76,9 @@ This table lists the schema types that currently are supported to be converted.
 | PROTOBUF_NATIVE | No        |
 
 ## Partitioned tables
-{% callout title="Note" type="note" %}
-This feature is only available when `autoCreateTable` is set to `true`. If you create a table manually, you need to manually specify the partition key.
-{% /callout %}
+> **Note**
+>
+> This feature is only available when `autoCreateTable` is set to `true`. If you create a table manually, you need to manually specify the partition key.
 
 BigQuery supports [partitioned tables](​​https://cloud.google.com/bigquery/docs/partitioned-tables). Partitioned tables can improve query and control costs by reducing the data read from the table.
 The Google Cloud BigQuery sink connector provides an option to create a partitioned table. The partitioned tables use the __event_time__ as the partition key.
@@ -87,9 +87,9 @@ partitioned-tables = true
 ```
 
 ## Clustered tables
-{% callout title="Note" type="note" %}
-This feature is only available when `autoCreateTable` is set to `true`. If you create a table manually, you need to manually specify the cluster key.
-{% /callout %}
+> **Note**
+>
+> This feature is only available when `autoCreateTable` is set to `true`. If you create a table manually, you need to manually specify the cluster key.
 
 [Clustered tables](https://cloud.google.com/bigquery/docs/clustered-tables) can improve the performance of certain queries, such as queries that use filter clauses and queries that aggregate data. The Google Cloud BigQuery sink connector provides an option to create a clustered table. The clustered tables use the __message_id__ as the cluster key.
 ```
@@ -104,9 +104,9 @@ multiple sink instances to run on different Function worker nodes. These sink in
 parallelism = 4
 ```
 
-{% callout title="Note" type="note" %}
-It is an effective way to increase parallelism when you encounter write bottlenecks. In addition, you need to pay attention to whether the write rate is greater than [BigQuery Rate Limits](https://cloud.google.com/bigquery/quotas#streaming_inserts)
-{% /callout %}
+> **Note**
+>
+> It is an effective way to increase parallelism when you encounter write bottlenecks. In addition, you need to pay attention to whether the write rate is greater than [BigQuery Rate Limits](https://cloud.google.com/bigquery/quotas#streaming_inserts)
 
 ## Batch progress
 
@@ -175,17 +175,19 @@ Before using the Google Cloud BigQuery sink connector, you need to configure it.
 | `clusteredTables`             | boolean | No       | true              | Create a clustered table when the table is automatically created. It will use the `__message_id__` as the cluster key.                                                                                                                                                                                                                                                  |
 | `defaultSystemField`          | String  | No       | "" (empty string) | Create the system fields when the table is automatically created. You can use commas to separate multiple fields. The supported system fields are: `__schema_version__` , `__partition__` , `__event_time__`, `__publish_time__` , `__message_id__` , `__sequence_id__` , and `__producer_name__`.                                                                      |
 
-{% callout title="Note" type="note" %}
-The provided Google Cloud credentials must have permission to access Google Cloud resources. To use the Google Cloud BigQuery sink connector, ensure the Google Cloud credentials have the following permissions to the Google BigQuery API:
-- bigquery.jobs.create
-- bigquery.tables.create
-- bigquery.tables.get
-- bigquery.tables.getData
-- bigquery.tables.list
-- bigquery.tables.update
-- bigquery.tables.updateData
-For more information about Google BigQuery API permissions, see [Google Cloud BigQuery API permissions: Access control](https://cloud.google.com/bigquery/docs/access-control).
-{% /callout %}
+> **Note**
+>
+> The provided Google Cloud credentials must have permission to access Google Cloud resources. To use the Google Cloud BigQuery sink connector, ensure the Google Cloud credentials have the following permissions to the Google BigQuery API:
+>
+> - bigquery.jobs.create
+> - bigquery.tables.create
+> - bigquery.tables.get
+> - bigquery.tables.getData
+> - bigquery.tables.list
+> - bigquery.tables.update
+> - bigquery.tables.updateData
+>
+> For more information about Google BigQuery API permissions, see [Google Cloud BigQuery API permissions: Access control](https://cloud.google.com/bigquery/docs/access-control).
 
 
 ## Work with Function Worker
@@ -278,9 +280,9 @@ You can use the Google Cloud BigQuery sink connector with Function Worker or Fun
 
 ## Work with Function Worker
 
-{% callout title="Note" type="note" %}
-Currently, the Google Cloud BigQuery sink connector cannot run as a built-in connector as it uses the JAR package.
-{% /callout %}
+> **Note**
+>
+> Currently, the Google Cloud BigQuery sink connector cannot run as a built-in connector as it uses the JAR package.
 
 1. Start a Pulsar cluster in standalone mode.
     ```
