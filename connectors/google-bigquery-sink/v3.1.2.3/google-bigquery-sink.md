@@ -1,11 +1,11 @@
 ---
 description: BigQuery Connector integrates Apache Pulsar with Google BigQuery.
-author: shibd,danpi,codelipenghui,Huanli-Meng
-contributors: shibd,danpi,codelipenghui,Huanli-Meng
+author: StreamNative
+contributors: shibd,danpi,codelipenghui,nlu90
 language: Java,Shell,Dockerfile
 document:
 source: Private source
-license: Business License
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: Google Cloud BigQuery Sink Connector
@@ -25,7 +25,7 @@ id: "google-bigquery-sink"
 
 The [Google Cloud BigQuery](https://cloud.google.com/bigquery) sink connector pulls data from Pulsar topics and persists data to Google Cloud BigQuery tables.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-bigquery/v3.1.2.3/docs/google-bigquery-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/bigquery-google-bigquery-sink.png)
 
 ## Quick start
 

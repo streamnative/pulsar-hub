@@ -1,31 +1,31 @@
 ---
-description: 
-author: freeznet,Anonymitaet,nlu90,danpi
-contributors: freeznet,Anonymitaet,nlu90,danpi
+description: The SQS source connector is used to consume messages from Amazon SQS and publish them to Pulsar.
+author: StreamNative
+contributors: freeznet,shibd,Anonymitaet,nlu90
 language: Java,Shell,Python,Dockerfile
 document:
 source: Private source
-license: Business License
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: AWS SQS Source Connector
-features: [""]
-icon: /images/connectors/sqs-logo.png
-download:
+features: ["The SQS source connector is used to consume messages from Amazon SQS and publish them to Pulsar."]
+icon: "/images/connectors/sqs-logo.png"
+download: 
 support: streamnative
-support_link:
+support_link: https://streamnative.io
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile:
-sn_available: true
+dockerfile: 
+sn_available: "true"
 id: "sqs-source"
 ---
 
 
 The [AWS Simple Queue Service (SQS)](https://aws.amazon.com/sqs/?nc1=h_ls) source connector feeds data from Amazon AWS SQS and writes data to Pulsar topics.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-sqs/v2.8.4.2/docs/sqs-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/sqs-sqs-source.png)
 
 # How to get 
 

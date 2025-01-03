@@ -1,15 +1,15 @@
 ---
-description: 
-author: danpi,RobertIndie,streamnativebot,yaalsn
-contributors: danpi,RobertIndie,streamnativebot,yaalsn
+description: The Snowflake sink connector is used to write messages from Apache Pulsar topics to Snowflake tables.
+author: StreamNative
+contributors: RobertIndie,danpi,dependabot[bot],streamnativebot
 language: Java,Shell,Dockerfile
 document:
 source: Private source
-license: Business License
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: Snowflake Sink Connector
-features: [""]
+features: ["The Snowflake sink connector is used to write messages from Apache Pulsar topics to Snowflake tables."]
 icon: "/images/connectors/snowflake-logo.png"
 download: 
 support: streamnative

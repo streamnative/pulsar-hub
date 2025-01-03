@@ -1,30 +1,31 @@
 ---
-description: 
-author: nodece,Huanli-Meng,nicoloboschi,urfreespace
-contributors: nodece,Huanli-Meng,nicoloboschi,urfreespace
-language: Java,Shell,Python,Dockerfile
+description: The Google Pub/Sub sink connector is used to write messages from Apache Pulsar topics to Google Cloud Pub/Sub.
+author: StreamNative
+contributors: shibd,nodece,Huanli-Meng,nlu90
+language: Java,Shell,Dockerfile
 document:
 source: Private source
-license: Business License
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: Google Cloud Pub/Sub Sink Connector
-features: [""]
-icon: /images/connectors/google-pubsub.svg
-download:
+features: ["The Google Pub/Sub sink connector is used to write messages from Apache Pulsar topics to Google Cloud Pub/Sub."]
+icon: "/images/connectors/google-pubsub.svg"
+download: 
 support: streamnative
-support_link:
-support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
+support_link: https://streamnative.io
+support_img: "/images/connectors/streamnative.png"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile:
+dockerfile: 
+sn_available: ""
 id: "google-pubsub-sink"
 ---
 
 
 The [Google Cloud Pub/Sub](https://cloud.google.com/pubsub) sink connector pulls data from Pulsar topics and persists data to Google Cloud Pub/Sub topics.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-google-pubsub/v2.8.4.2/docs/google-pubsub-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/google-pubsub-google-pubsub-sink.png)
 
 # How to get
 
@@ -78,13 +79,15 @@ Before using the Google Cloud Pub/Sub sink connector, you need to configure it. 
 | `pubsubSchemaEncoding` | String | false | "" (empty string) | The encoding of the schema. You must set the schema encoding when creating a schema for Google Cloud Pub/Sub topics. Currently, only the JSON format is supported. |
 | `pubsubSchemaDefinition` | String | false | "" (empty string) |  The definition of the schema. It is used to create a schema to or parse messages from Google Cloud Pub/Sub topics. |
 
-{% callout title="Note" type="note" %}
-The provided Google Cloud credentials must have permissions to access Google Cloud resources. To use the Google Cloud Pub/Sub sink connector, ensure the Google Cloud credentials have the following permissions to Google Cloud Pub/Sub API:
-- projects.topics.create
-- projects.topics.get
-- projects.topics.publish
-For more information about Google Cloud Pub/Sub API permissions, see [Google Cloud Pub/Sub API permissions: Access control](https://cloud.google.com/pubsub/docs/access-control).
-{% /callout %}
+> **Note**
+>
+> The provided Google Cloud credentials must have permissions to access Google Cloud resources. To use the Google Cloud Pub/Sub sink connector, ensure the Google Cloud credentials have the following permissions to Google Cloud Pub/Sub API:
+>
+> - projects.topics.create
+> - projects.topics.get
+> - projects.topics.publish
+>
+> For more information about Google Cloud Pub/Sub API permissions, see [Google Cloud Pub/Sub API permissions: Access control](https://cloud.google.com/pubsub/docs/access-control).
 
 ## Work with Function Worker
 
@@ -174,9 +177,9 @@ You can use the Google Cloud Pub/Sub sink connector with Function Worker or Func
 
 You can use the Google Cloud Pub/Sub sink connector as a non built-in connector or a built-in connector.
 
-{% tabs %}
+::: tabs
 
-{% tab label="Use it as non built-in connector" %}
+@@@ Use it as non built-in connector
 
 If you already have a Pulsar cluster, you can use the Google Cloud Pub/Sub sink connector as a non built-in connector directly.
 
@@ -187,8 +190,9 @@ PULSAR_HOME/bin/pulsar-admin sinks create \
 --sink-config-file <google-pubsub-sink-config.yaml>
 ```
 
-{% /tab %}
-{% tab label="Use it as built-in connector" %}
+@@@
+
+@@@ Use it as built-in connector
 
 You can make the Google Cloud Pub/Sub sink connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
@@ -271,8 +275,9 @@ This example explains how to create a Google Cloud Pub/Sub sink connector in an 
     --sink-config-file <google-pubsub-sink-config.yaml>
     ```
 
-{% /tab %}
-{% /tabs %}
+@@@
+
+:::
 
 ## Work with Function Mesh
 

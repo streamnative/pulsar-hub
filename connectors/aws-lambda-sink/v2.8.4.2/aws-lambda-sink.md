@@ -1,31 +1,31 @@
 ---
-description: 
-author: freeznet,timmyyuan,Anonymitaet,Technoboy-
-contributors: freeznet,timmyyuan,Anonymitaet,Technoboy-
+description: The AWS Lambda sink connector allows you to send messages from Apache Pulsar to AWS Lambda.
+author: StreamNative
+contributors: freeznet,RobertIndie,shibd,nlu90
 language: Java,Shell,Python,Dockerfile
 document:
 source: Private source
-license: Business License  
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: AWS Lambda Sink
-features: [""]
-icon: /images/connectors/lambda-logo.png
+features: ["The AWS Lambda sink connector allows you to send messages from Apache Pulsar to AWS Lambda."]
+icon: "/images/connectors/lambda-logo.png"
 download: 
 support: streamnative
-support_link: 
+support_link: https://streamnative.io
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: ""
-sn_available: true
+dockerfile: 
+sn_available: "true"
 id: "aws-lambda-sink"
 ---
 
 
 The [AWS Lambda](https://aws.amazon.com/lambda/) sink connector is a [Pulsar IO connector](http://pulsar.apache.org/docs/en/next/io-overview/) for pulling messages from Pulsar topics to AWS Lambda to invoke Lambda functions. 
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-aws-lambda/v2.8.4.2/docs/lambda-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/aws-lambda-lambda-sink.png)
 
 # How to get
 
@@ -176,9 +176,9 @@ You can use the AWS Lambda sink connector with Function Worker or Function Mesh.
 
 You can use the AWS Lambda sink connector as a non built-in connector or a built-in connector.
 
-{% tabs %}
+::: tabs
 
-{% tab label="Use it as non built-in connector" %}
+@@@ Use it as non built-in connector
 
 If you already have a Pulsar cluster, you can use the AWS Lambda sink connector as a non built-in connector directly.
 
@@ -192,8 +192,9 @@ PULSAR_HOME/bin/pulsar-admin sinks create \
 --name aws-lambda-sink
 ```
 
-{% /tab %}
-{% tab label="Use it as built-in connector" %}
+@@@
+
+@@@ Use it as built-in connector
 
 You can make the AWS Lambda sink connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 
@@ -268,8 +269,9 @@ This example explains how to create an AWS Lambda sink connector in an on-premis
     --name aws-lambda-sink
     ```
 
-{% /tab %}
-{% /tabs %}
+@@@
+
+:::
 
 ## Work with Function Mesh
 

@@ -25,7 +25,7 @@ id: "aws-s3-sink"
 
 The [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) sink connector pulls data from Pulsar topics and persists data to AWS S3 buckets.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-cloud-storage/v3.3.2.6/docs/aws-s3-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/cloud-storage-aws-s3-sink.png)
 
 ## Quick start
 

@@ -27,7 +27,7 @@ id: "amqp-1-0-source"
 
 The AMQP 1.0 source connector receives messages from [AMQP 1.0](https://www.amqp.org/) and writes messages to Pulsar topics.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-amqp-1-0/v4.0.1.1/docs/amqp-1-0-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/amqp-1-0-amqp-1-0-source.png)
 
 ## Quick start
 

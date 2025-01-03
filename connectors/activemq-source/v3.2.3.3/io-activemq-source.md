@@ -1,6 +1,6 @@
 ---
 description: ActiveMQ Connector integrates Apache Pulsar with Apache ActiveMQ. 
-author: gaoran10,shibd,dependabot[bot],sijie
+author: StreamNative
 contributors: gaoran10,shibd,dependabot[bot],sijie
 language: Java,Shell,Dockerfile
 document:

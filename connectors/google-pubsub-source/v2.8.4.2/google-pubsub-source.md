@@ -1,30 +1,31 @@
 ---
-description: 
-author: nodece,Huanli-Meng,nicoloboschi,urfreespace
-contributors: nodece,Huanli-Meng,nicoloboschi,urfreespace
-language: Java,Shell,Python,Dockerfile
+description: The Google Pub/Sub sink connector allows you to write messages from Google Pub/Sub to Apache Pulsar.
+author: StreamNative
+contributors: shibd,nodece,Huanli-Meng,nlu90
+language: Java,Shell,Dockerfile
 document:
 source: Private source
-license: Business License
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: Google Cloud Pub/Sub Source Connector
-features: [""]
-icon: /images/connectors/google-pubsub.svg
-download:
+features: ["The Google Pub/Sub sink connector allows you to write messages from Google Pub/Sub to Apache Pulsar."]
+icon: "/images/connectors/google-pubsub.svg"
+download: 
 support: streamnative
-support_link:
+support_link: https://streamnative.io
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile:
+dockerfile: 
+sn_available: ""
 id: "google-pubsub-source"
 ---
 
 
 The [Google Cloud Pub/Sub](https://cloud.google.com/pubsub) source connector feeds data from Google Cloud Pub/Sub topics and writes data to Pulsar topics.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-google-pubsub/v2.8.4.2/docs/google-pubsub-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/google-pubsub-google-pubsub-source.png)
 
 # How to get
 
@@ -78,16 +79,16 @@ Before using the Google Cloud Pub/Sub source connector, you need to configure it
 | `pubsubSchemaEncoding` | String | false | "" (empty string) | The encoding of the schema. You must set the schema encoding when creating a schema for Google Cloud Pub/Sub topics. Currently, only the JSON format is supported.|
 | `pubsubSchemaDefinition` | String | false | "" (empty string) |  The definition of the schema. It is used to create a schema to or parse messages from Google Cloud Pub/Sub topics. |
 
-{% callout title="Note" type="note" %}
-The provided Google Cloud credentials must have permissions to access Google Cloud resources. To use the Google Cloud Pub/Sub source connector, ensure the Google Cloud credentials have the following permissions to Google Cloud Pub/Sub API:
-
-- projects.subscriptions.get
-- projects.subscriptions.create
-- projects.subscriptions.pull
-- projects.subscriptions.acknowledge
-
-For more information about Google Cloud Pub/Sub API permissions, see [Google Cloud Pub/Sub API permissions: Access control](https://cloud.google.com/pubsub/docs/access-control).
-{% /callout %}
+> **Note**
+>
+> The provided Google Cloud credentials must have permissions to access Google Cloud resources. To use the Google Cloud Pub/Sub source connector, ensure the Google Cloud credentials have the following permissions to Google Cloud Pub/Sub API:
+> 
+> - projects.subscriptions.get
+> - projects.subscriptions.create
+> - projects.subscriptions.pull
+> - projects.subscriptions.acknowledge
+> 
+> For more information about Google Cloud Pub/Sub API permissions, see [Google Cloud Pub/Sub API permissions: Access control](https://cloud.google.com/pubsub/docs/access-control).
 
 ## Work with Function Worker
 
@@ -172,9 +173,9 @@ You can use the Google Cloud Pub/Sub source connector with Function Worker or Fu
 
 You can use the Google Cloud Pub/Sub source connector as a non built-in connector or a built-in connector as below.
 
-{% tabs %}
+::: tabs
 
-{% tab label="Use it as non built-in connector" %}
+@@@ Use it as non built-in connector
 
 If you already have a Pulsar cluster, you can use the Google Cloud Pub/Sub source connector as a non built-in connector directly.
 
@@ -185,8 +186,9 @@ PULSAR_HOME/bin/pulsar-admin sources create \
 --source-config-file <google-pubsub-source-config.yaml >
 ```
 
-{% /tab %}
-{% tab label="Use it as built-in connector" %}
+@@@
+
+@@@ Use it as built-in connector
 
 You can make the Google Cloud Pub/Sub source connector as a built-in connector and use it on a standalone cluster or an on-premises cluster.
 

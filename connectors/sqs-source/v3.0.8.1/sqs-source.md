@@ -25,7 +25,7 @@ id: "sqs-source"
 
 The [AWS Simple Queue Service (SQS)](https://aws.amazon.com/sqs/?nc1=h_ls) source connector feeds data from Amazon AWS SQS and writes data to Pulsar topics.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-sqs/v3.0.8.1/docs/sqs-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/sqs-sqs-source.png)
 
 ## Quick start
 

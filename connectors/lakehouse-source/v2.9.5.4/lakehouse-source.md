@@ -1,23 +1,23 @@
 ---
 description: pulsar lakehouse connector
-author: hangc0276,zymap,Huanli-Meng,horizonzy
-contributors: hangc0276,zymap,Huanli-Meng,horizonzy
-language: Java,Shell,Python
+author: StreamNative
+contributors: zymap,hangc0276,Huanli-Meng,horizonzy
+language: Java,Shell,Dockerfile,Python
 document:
-source: "https://github.com/streamnative/pulsar-io-lakehouse"
+source: https://github.com/streamnative/pulsar-io-lakehouse
 license: Apache License 2.0
-license_link: "https://github.com/streamnative/pulsar-io-lakehouse/blob/master/LICENSE"
+license_link: https://github.com/streamnative/pulsar-io-lakehouse/blob/master/LICENSE
 tags: 
 alias: Lakehouse Source Connector
 features: ["pulsar lakehouse connector"]
-icon: "/images/pulsar-hub.svg"
-download: "https://api.github.com/repos/streamnative/pulsar-io-lakehouse/tarball/refs/tags/v2.9.5.4"
+icon: "/images/streamnative.png"
+download: https://api.github.com/repos/streamnative/pulsar-io-lakehouse/tarball/refs/tags/v2.9.5.4
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-lakehouse
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: ""
+dockerfile: 
 sn_available: ""
 id: "lakehouse-source"
 ---
@@ -25,7 +25,7 @@ id: "lakehouse-source"
 
 The Lakehouse source connector (currently only including the [Delta Lake](https://delta.io/) source connector) fetches the Lakehouse table's changelog and saves changelogs into a Pulsar topic.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-lakehouse/v2.9.5.4/docs/lakehouse-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/lakehouse-lakehouse-source.png)
 
 # How to get
 

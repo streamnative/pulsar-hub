@@ -25,7 +25,7 @@ id: "google-pubsub-source"
 
 The [Google Cloud Pub/Sub](https://cloud.google.com/pubsub) source connector feeds data from Google Cloud Pub/Sub topics and writes data to Pulsar topics.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-google-pubsub/v3.0.8.1/docs/google-pubsub-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/google-pubsub-google-pubsub-source.png)
 
 ## Quick start
 

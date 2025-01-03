@@ -1,24 +1,24 @@
 ---
 description: support sink/source for AMQP version 1.0.0
-author: gaoran10,Anonymitaet,dependabot[bot],timmyyuan
-contributors: gaoran10,Anonymitaet,dependabot[bot],timmyyuan
-language: Java,Shell,Python,Dockerfile
+author: StreamNative
+contributors: gaoran10,Anonymitaet,shibd,dependabot[bot]
+language: Java,Shell,Dockerfile,Python
 document:
-source: "https://github.com/streamnative/pulsar-io-amqp-1-0"
+source: https://github.com/streamnative/pulsar-io-amqp-1-0
 license: Apache License 2.0
-license_link: "https://github.com/streamnative/pulsar-io-amqp-1-0/blob/master/LICENSE"
+license_link: https://github.com/streamnative/pulsar-io-amqp-1-0/blob/master/LICENSE
 tags: 
-alias: AMQP1_0 Sink Connector
+alias: pulsar-io-amqp-1-0
 features: ["support sink/source for AMQP version 1.0.0"]
-icon: /images/connectors/amqp-logo.png
-download: "https://api.github.com/repos/streamnative/pulsar-io-amqp-1-0/tarball/refs/tags/v2.7.4.8"
+icon: "/images/connectors/amqp-logo.png"
+download: https://api.github.com/repos/streamnative/pulsar-io-amqp-1-0/tarball/refs/tags/v2.7.4.8
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-amqp-1-0
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: ""
-sn_available: true
+dockerfile: 
+sn_available: "true"
 id: "amqp-1-0-sink"
 ---
 
@@ -26,7 +26,7 @@ id: "amqp-1-0-sink"
 
 The AMQP1_0 sink connector pulls messages from Pulsar topics and persists messages to [AMQP 1.0](https://www.amqp.org/).
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-amqp-1-0/v2.7.4.8/docs/amqp-1-0-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/amqp-1-0-amqp-1-0-sink.png)
 
 # How to get 
 
@@ -374,9 +374,9 @@ This example demonstrates how to create an AMQP1_0 sink connector on a K8S clust
         -f pulsar.yaml
     ```
 
-    {% callout title="Tip" type="tip" %}
-        For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
-  {% /callout %}
+    > **Tip**
+    >
+    > For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
 
 5. Create an AMQP1_0 sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](http://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--24) command.
 

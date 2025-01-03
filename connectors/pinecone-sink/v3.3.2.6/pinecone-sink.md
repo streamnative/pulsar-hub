@@ -29,7 +29,7 @@ This connector allows access to pinecone.io with a pulsar topic. The sink connec
 takes in messages and writes them if they are in a proper format to a Pinecone
 index.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-pinecone/v3.3.2.6/docs/pinecone.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/pinecone-pinecone.png)
 
 ## Quick start
 

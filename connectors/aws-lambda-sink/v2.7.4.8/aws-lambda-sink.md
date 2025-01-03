@@ -1,31 +1,31 @@
 ---
-description: 
-author: freeznet,timmyyuan,Anonymitaet,Technoboy-
-contributors: freeznet,timmyyuan,Anonymitaet,Technoboy-
+description: The AWS Lambda sink connector allows you to send messages from Apache Pulsar to AWS Lambda.
+author: StreamNative
+contributors: freeznet,RobertIndie,shibd,nlu90
 language: Java,Shell,Python,Dockerfile
 document:
 source: Private source
-license: Business License  
+license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: AWS Lambda Sink
-features: [""]
-icon: /images/connectors/lambda-logo.png
+features: ["The AWS Lambda sink connector allows you to send messages from Apache Pulsar to AWS Lambda."]
+icon: "/images/connectors/lambda-logo.png"
 download: 
 support: streamnative
-support_link: 
+support_link: https://streamnative.io
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
-dockerfile: ""
-sn_available: true
+dockerfile: 
+sn_available: "true"
 id: "aws-lambda-sink"
 ---
 
 
 The [AWS Lambda](https://aws.amazon.com/lambda/) sink connector is a [Pulsar IO connector](http://pulsar.apache.org/docs/en/next/io-overview/) for pulling messages from Pulsar topics to AWS Lambda to invoke Lambda functions. 
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-aws-lambda/v2.7.4.8/docs/lambda-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/aws-lambda-lambda-sink.png)
 
 # How to get 
 
@@ -232,9 +232,9 @@ This example explains how to create an AWS Lambda sink connector in an on-premis
         -f pulsar.yaml
     ```
 
-    {% callout title="Tip" type="tip" %}
-        For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
-  {% /callout %}
+    > **Tip**
+    >
+    > For more information about how to upgrade a Pulsar cluster with Helm, see [Upgrade Guide](https://docs.streamnative.io/platform/latest/install-and-upgrade/helm/install/upgrade).
 
 
 5. Create a AWS Lambda sink connector on a Pulsar cluster using the [`pulsar-admin sinks create`](http://pulsar.apache.org/tools/pulsar-admin/2.8.0-SNAPSHOT/#-em-create-em--24) command.

@@ -1,7 +1,7 @@
 ---
-description: 
-author: shibd,sijie,Anonymitaet,RobertIndie
-contributors: shibd,sijie,Anonymitaet,RobertIndie
+description: This connector allows you to make sink connections from Pulsar to AWS EventBridge.
+author: StreamNative
+contributors: shibd,sijie,Anonymitaet,nlu90
 language: Java,Shell,Dockerfile
 document:
 source: Private source
@@ -9,7 +9,7 @@ license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: AWS EventBridge Sink Connector
-features: [""]
+features: ["This connector allows you to make sink connections from Pulsar to AWS EventBridge."]
 icon: "/images/connectors/aws-eventbridge.png"
 download: 
 support: streamnative
@@ -26,7 +26,7 @@ id: "aws-eventbridge-sink"
 The [Amazon EventBridge](https://aws.amazon.com/eventbridge/) sink connector pulls data from Pulsar topics and persists
 data to Amazon EventBridge.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-aws-eventbridge/v2.10.5.17/docs/aws-eventbridge-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/aws-eventbridge-aws-eventbridge-sink.png)
 
 ## Quick start
 

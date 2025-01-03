@@ -1,7 +1,7 @@
 ---
-description: 
-author: nodece,shibd,Huanli-Meng,nicoloboschi
-contributors: nodece,shibd,Huanli-Meng,nicoloboschi
+description: The Google Pub/Sub sink connector allows you to write messages from Google Pub/Sub to Apache Pulsar.
+author: StreamNative
+contributors: shibd,nodece,Huanli-Meng,nlu90
 language: Java,Shell,Dockerfile
 document:
 source: Private source
@@ -9,7 +9,7 @@ license: StreamNative, Inc.. All Rights Reserved
 license_link: 
 tags: 
 alias: Google Cloud Pub/Sub Source Connector
-features: [""]
+features: ["The Google Pub/Sub sink connector allows you to write messages from Google Pub/Sub to Apache Pulsar."]
 icon: "/images/connectors/google-pubsub.svg"
 download: 
 support: streamnative
@@ -25,7 +25,7 @@ id: "google-pubsub-source"
 
 The [Google Cloud Pub/Sub](https://cloud.google.com/pubsub) source connector feeds data from Google Cloud Pub/Sub topics and writes data to Pulsar topics.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-google-pubsub/v3.2.3.3/docs/google-pubsub-source.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/google-pubsub-google-pubsub-source.png)
 
 ## Quick start
 

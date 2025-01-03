@@ -212,6 +212,25 @@ function getLocalMaxVersion(dir) {
   return maxVersions;
 }
 
+async function downloadImage(url, filepath) {
+  const writer = fs.createWriteStream(filepath);
+  const response = await axios({
+    url,
+    method: 'GET',
+    responseType: 'stream',
+    headers: {
+      Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+    },
+  });
+
+  response.data.pipe(writer);
+
+  return new Promise((resolve, reject) => {
+    writer.on('finish', resolve);
+    writer.on('error', reject);
+  });
+}
+
 async function syncDoc(tag, pathPrefix, fileName, organization, repository, project) {
   const version = tag.name;
   const download = tag.tarball_url;
@@ -220,6 +239,13 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
   if (!fs.existsSync(_dir)) {
     fs.mkdirSync(_dir);
   }
+
+  // If need sync old version, please remove the comment
+  // if (fs.existsSync(_file_path)) {
+  //   fs.unlinkSync(_file_path);
+  //   console.log(`Deleted existing file: ${_file_path}`);
+  // }
+
   if (!fs.existsSync(_file_path)) {
     const repo = await getRepository(organization, repository);
     const description = repo["description"];
@@ -260,33 +286,29 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
     const dockerfile = md.data.dockerfile;
     const alias = md.data.alias || name;
     let content = "";
-    md.content.split("\n").forEach(function (line) {
-      if (line.indexOf("![](/docs") >= 0) {
-        line = line.replace(
-            "/docs",
-            "https://raw.githubusercontent.com/" +
-            organization +
-            "/" +
-            name +
-            "/" +
-            tag.name +
-            "/docs"
-        );
-      }
-      if (line.indexOf("![](docs") >= 0) {
-        line = line.replace(
-            "docs",
-            "https://raw.githubusercontent.com/" +
-            organization +
-            "/" +
-            name +
-            "/" +
-            tag.name +
-            "/docs"
-        );
+
+    const imageDir = path.join("images", "connectors", "sync");
+
+    for (let line of md.content.split("\n")) {
+      const imagePattern = /!\[]\((\/?docs\/.+?)\)/g;
+      let match;
+      while ((match = imagePattern.exec(line)) !== null) {
+        const imagePath = match[1].replace(/^\/?docs/, "");
+        const imageName = path.basename(imagePath);
+        const prefix = name.replace('pulsar-io-', ''); // Extract 'xxx' from 'pulsar-io-xxx'
+        const newImageName = `${prefix}-${imageName}`;
+        const newImagePath = path.join(imageDir, newImageName);
+        const imageUrl = `https://raw.githubusercontent.com/${organization}/${name}/${tag.name}/docs${imagePath}`;
+
+        if (!fs.existsSync(newImagePath)) {
+          await downloadImage(imageUrl, newImagePath);
+        }
+
+        const newImageLink = `https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/${newImageName}`;
+        line = line.replace(match[0], `![](${newImageLink})`);
       }
       content += line + "\n";
-    });
+    }
 
     const result = {
       description: project.description || description,
@@ -370,6 +392,7 @@ async function fetchDocs() {
 
     console.log(`Initiating synchronization for ${repository} documents...`);
     // 1. Get the maximum versions locally.
+    // If you wan sync old version, please change maxVersions to empty array
     const maxVersions = getLocalMaxVersion(path.dirname(yamlFile));
     // 2. Get the tags (versions) that need to be synchronized.
     const tags = await getTagsToSync(organization, repository, maxVersions);

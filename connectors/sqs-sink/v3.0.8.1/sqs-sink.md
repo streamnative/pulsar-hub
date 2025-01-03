@@ -25,7 +25,7 @@ id: "sqs-sink"
 
 The [AWS Simple Queue Service (SQS)](https://aws.amazon.com/sqs/?nc1=h_ls) sink connector pulls data from Pulsar topics and persists data to AWS SQS.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-io-sqs/v3.0.8.1/docs/sqs-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/sqs-sqs-sink.png)
 
 ## Quick start
 
