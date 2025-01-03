@@ -240,10 +240,11 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
     fs.mkdirSync(_dir);
   }
 
-  if (fs.existsSync(_file_path)) {
-    fs.unlinkSync(_file_path);
-    console.log(`Deleted existing file: ${_file_path}`);
-  }
+  // If need sync old version, please remove the comment
+  // if (fs.existsSync(_file_path)) {
+  //   fs.unlinkSync(_file_path);
+  //   console.log(`Deleted existing file: ${_file_path}`);
+  // }
 
   if (!fs.existsSync(_file_path)) {
     const repo = await getRepository(organization, repository);
@@ -394,7 +395,7 @@ async function fetchDocs() {
     // If you wan sync old version, please change maxVersions to empty array
     const maxVersions = getLocalMaxVersion(path.dirname(yamlFile));
     // 2. Get the tags (versions) that need to be synchronized.
-    const tags = await getTagsToSync(organization, repository, []);
+    const tags = await getTagsToSync(organization, repository, maxVersions);
     // 3. Synchronize the documentation.
     for (let tag of tags) {
       await syncDoc(tag, pathPrefix, fileName, organization, repository, project);
