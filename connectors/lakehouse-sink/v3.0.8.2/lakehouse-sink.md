@@ -11,7 +11,7 @@ tags:
 alias: Lakehouse Sink Connector
 features: ["pulsar lakehouse connector"]
 icon: "/images/streamnative.png"
-download: https://api.github.com/repos/streamnative/pulsar-io-lakehouse/tarball/refs/tags/v3.0.8.1
+download: https://api.github.com/repos/streamnative/pulsar-io-lakehouse/tarball/refs/tags/v3.0.8.2
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-lakehouse
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
@@ -62,7 +62,7 @@ To build the Lakehouse sink connector from the source code, follow these steps.
 
    ```bash
    ls target
-   pulsar-io-lakehouse-3.0.8.1.nar
+   pulsar-io-lakehouse-3.0.8.2.nar
    ```
 
 # How to configure
@@ -147,7 +147,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "inputs": [
           "test-hudi-pulsar"
         ],
-        "archive": "connectors/pulsar-io-hudi-3.0.8.1.nar",
+        "archive": "connectors/pulsar-io-hudi-3.0.8.2.nar",
         "processingGuarantees": "EFFECTIVELY_ONCE",
         "parallelism": 1,
         "configs":   {
@@ -171,7 +171,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "inputs": [
           "test-hudi-pulsar"
         ],
-        "archive": "connectors/pulsar-io-hudi-3.0.8.1-cloud.nar",
+        "archive": "connectors/pulsar-io-hudi-3.0.8.2-cloud.nar",
         "parallelism": 1,
         "processingGuarantees": "EFFECTIVELY_ONCE",
         "configs":   {
@@ -199,7 +199,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "inputs": [
           "test-iceberg-pulsar"
         ],
-        "archive": "connectors/pulsar-io-lakehouse-3.0.8.1.nar",
+        "archive": "connectors/pulsar-io-lakehouse-3.0.8.2.nar",
         "processingGuarantees":"EFFECTIVELY_ONCE",
         "configs":{
             "type":"iceberg",
@@ -227,7 +227,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "inputs": [
           "test-iceberg-pulsar"
         ],
-        "archive": "connectors/pulsar-io-lakehouse-3.0.8.1-cloud.nar",
+        "archive": "connectors/pulsar-io-lakehouse-3.0.8.2-cloud.nar",
         "processingGuarantees":"EFFECTIVELY_ONCE",
         "configs":{
             "type":"iceberg",
@@ -258,7 +258,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "inputs": [
           "test-delta-pulsar"
         ],
-        "archive": "connectors/pulsar-io-lakehouse-3.0.8.1.nar",
+        "archive": "connectors/pulsar-io-lakehouse-3.0.8.2.nar",
         "processingGuarantees":"EFFECTIVELY_ONCE",
         "configs":{
             "type":"delta",
@@ -280,7 +280,7 @@ You can create a configuration file (JSON or YAML) to set the properties if you 
         "inputs": [
           "test-delta-pulsar"
         ],
-        "archive": "connectors/pulsar-io-lakehouse-3.0.8.1-cloud.nar",
+        "archive": "connectors/pulsar-io-lakehouse-3.0.8.2-cloud.nar",
         "processingGuarantees":"EFFECTIVELY_ONCE",
         "configs":{
             "type":"delta",
@@ -350,7 +350,7 @@ This example describes how to use the Lakehouse sink connector to fetch data fro
 1. Copy the NAR package to the Pulsar connectors directory.
 
     ```
-    cp pulsar-io-lakehouse-3.0.8.1.nar PULSAR_HOME/connectors/pulsar-io-lakehouse-3.0.8.1.nar
+    cp pulsar-io-lakehouse-3.0.8.2.nar PULSAR_HOME/connectors/pulsar-io-lakehouse-3.0.8.2.nar
     ```
 
 2. Start Pulsar in standalone mode.
@@ -383,7 +383,7 @@ This example explains how to create a Lakehouse sink connector in an on-premises
 1. Copy the NAR package of the Lakehouse sink connector to the Pulsar connectors directory.
 
     ```bash
-    cp pulsar-io-lakehouse-3.0.8.1.nar $PULSAR_HOME/connectors/pulsar-io-lakehouse-3.0.8.1.nar
+    cp pulsar-io-lakehouse-3.0.8.2.nar $PULSAR_HOME/connectors/pulsar-io-lakehouse-3.0.8.2.nar
     ```
 
 2. Reload all [built-in connectors](https://pulsar.apache.org/docs/en/next/io-connectors/).
