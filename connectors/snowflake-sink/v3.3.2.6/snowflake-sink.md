@@ -27,7 +27,7 @@ The [Snowflake](https://www.snowflake.com/) sink connector pulls data from Pulsa
 
 This document introduces how to get started with creating a Snowflake sink connector and get it up and running.
 
-![](images/snowflake-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/snowflake-snowflake-sink.png)
 
 ## Quick start
 

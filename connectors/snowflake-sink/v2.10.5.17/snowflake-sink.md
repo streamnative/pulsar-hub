@@ -25,7 +25,7 @@ id: "snowflake-sink"
 
 The [Snowflake](https://www.snowflake.com/) sink connector pulls data from Pulsar topics and persists data to Snowflake.
 
-![](images/snowflake-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/snowflake-snowflake-sink.png)
 
 # Features
 This section describes the features of the Snowflake sink connector. For details about how to configure these features, see [how to configure](#how-to-configure).
