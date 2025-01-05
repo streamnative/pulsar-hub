@@ -290,6 +290,9 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
     const imageDir = path.join("images", "connectors", "sync");
 
     for (let line of md.content.split("\n")) {
+      if (line.trimStart().startsWith("{% /callout %}")) {
+        line = line.trimStart();
+      }
       const imagePattern = /!\[.*?\]\((.+?)\)/g; // Match any image with optional alt text
       let match;
       while ((match = imagePattern.exec(line)) !== null) {
