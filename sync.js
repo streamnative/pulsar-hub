@@ -290,7 +290,7 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
     const imageDir = path.join("images", "connectors", "sync");
 
     for (let line of md.content.split("\n")) {
-      const imagePattern = /!\[]\((.+?)\)/g; // Match any image path
+      const imagePattern = /!\[.*?\]\((.+?)\)/g; // Match any image with optional alt text
       let match;
       while ((match = imagePattern.exec(line)) !== null) {
         const imagePath = match[1];
@@ -307,7 +307,7 @@ async function syncDoc(tag, pathPrefix, fileName, organization, repository, proj
         }
 
         const newImageLink = `https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/${newImageName}`;
-        line = line.replace(match[0], `![](${newImageLink})`);
+        line = line.replace(imagePath, `${newImageLink}`);
       }
       content += line + "\n";
     }

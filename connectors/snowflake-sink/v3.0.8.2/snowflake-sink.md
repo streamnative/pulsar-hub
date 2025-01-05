@@ -179,7 +179,7 @@ GRANT ROLE SNROLE TO USER ${account_name};
 
 Then, switch the role to `SNROLE`, under `Data - Database - ST_TUTS - DEMO - Tables` you will find table `PERSISTENT___PUBLIC_DEFAULT_INPUT_SNOWFLAKE_1118738946` is created and records the messages produced above.
 
-![Data Sample](images/data-sample.jpg)
+![Data Sample](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/snowflake-data-sample.jpg)
 
 ## Configuration Properties
 

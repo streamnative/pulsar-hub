@@ -27,7 +27,7 @@ The [Snowflake](https://www.snowflake.com/) streaming sink connector pulls data 
 Snowflake based on the SnowPipe Streaming feature. For more information about connectors,
 see [Connector Overview](https://docs.streamnative.io/docs/connector-overview).
 
-![Sink workflow](images/sink-workflow.png)
+![Sink workflow](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/snowflake-streaming-sink-workflow.png)
 
 - For a quick start on setting up and using the connector, refer to the [Quick Start](#quick-start) section. It provides
   a step-by-step guide to get you up and running quickly.
@@ -374,7 +374,7 @@ There are two configuration parameters determining the ingestion latency of the 
 
 The diagram below illustrates the data sink flow for the Pulsar Snowflake Streaming connector:
 
-![Sink workflow](images/sink-workflow.png)
+![Sink workflow](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/snowflake-streaming-sink-workflow.png)
 
 1. The connector subscribes to multiple user-specified topics and consumes messages from them.
 2. It filters messages by topic-partition and forwards them to the corresponding TopicPartitionChannel. Each
