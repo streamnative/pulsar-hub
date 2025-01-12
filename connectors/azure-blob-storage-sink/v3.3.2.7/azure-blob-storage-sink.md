@@ -8,10 +8,10 @@ source: https://github.com/streamnative/pulsar-io-cloud-storage
 license: Apache License 2.0
 license_link: https://github.com/streamnative/pulsar-io-cloud-storage/blob/master/LICENSE
 tags: 
-alias: Google Cloud Storage Sink Connector
+alias: Azure Blob Storage Sink Connector
 features: ["Cloud Storage Connector integrates Apache Pulsar with cloud storage."]
-icon: "/images/connectors/gcloud-storage-logo.svg"
-download: https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v3.3.2.6
+icon: "/images/connectors/azure-blob-storage-logo.png"
+download: https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v3.3.2.7
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-cloud-storage
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
@@ -19,35 +19,28 @@ owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 dockerfile: https://hub.docker.com/r/streamnative/pulsar-io-cloud-storage
 sn_available: "true"
-id: "google-cloud-storage-sink"
+id: "azure-blob-storage-sink"
 ---
 
 
-The [Google Cloud Storage](https://cloud.google.com/storage/docs) sink connector pulls data from Pulsar topics and persists data to Google Cloud Storage buckets.
+The [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview) sink connector pulls data from Pulsar topics and persists data to Azure Blob Storage containers.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/cloud-storage-google-cloud-storage-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/cloud-storage-azure-blob-storage-sink.png)
 
 ## Quick start
 
 ### Prerequisites
 
-The prerequisites for connecting an Google Cloud Storage sink connector to external systems include:
+The prerequisites for connecting an Azure Blob Storage sink connector to external systems include:
 
-1. Create Cloud Storage buckets in Google Cloud.
-2. Create the [Google cloud ServiceAccount](https://cloud.google.com/iam/docs/service-accounts-create) and create a public key certificate.
-3. Create the [Google cloud Role](https://cloud.google.com/iam/docs/creating-custom-roles), ensure the Google Cloud role have the following permissions:
-```text
-- storage.buckets.get
-- storage.buckets.list
-- storage.objects.create
-```
-4. Grant the `ServiceAccount` the above `Role`.
+1. Create Blob Storage container in Azure Cloud.
+2. Get Storage account `Connection string`.
 
 
 ### 1. Create a connector
 
 The following command shows how to use [pulsarctl](https://github.com/streamnative/pulsarctl) to create a `builtin` connector. If you want to create a `non-builtin` connector,
-you need to replace `--sink-type cloud-storage-gcloud` with `--archive /path/to/pulsar-io-cloud-storage.nar`. You can find the button to download the `nar` package at the beginning of the document.
+you need to replace `--sink-type cloud-storage-azure-blob` with `--archive /path/to/pulsar-io-cloud-storage.nar`. You can find the button to download the `nar` package at the beginning of the document.
 
 {% callout title="For StreamNative Cloud User" type="note" %}
 If you are a StreamNative Cloud user, you need [set up your environment](https://docs.streamnative.io/docs/connector-setup) first.
@@ -55,17 +48,17 @@ If you are a StreamNative Cloud user, you need [set up your environment](https:/
 
 ```bash
 pulsarctl sinks create \
-  --sink-type cloud-storage-gcloud \
-  --name gcloud-storage-sink \
+  --sink-type cloud-storage-azure-blob \
+  --name azure-blob-sink \
   --tenant public \
   --namespace default \
   --inputs "Your topic name" \
   --parallelism 1 \
   --sink-config \
   '{
-    "gcsServiceAccountKeyFileContent": "Public key certificate you created above", 
-    "provider": "google-cloud-storage",
-    "bucket": "Your bucket name",
+    "azureStorageAccountConnectionString": "Your azure blob storage account connection string",
+    "provider": "azure-blob-storage",
+    "bucket": "Your container name",
     "formatType": "json",
     "partitioner": "topic"
   }'
@@ -110,9 +103,9 @@ If your connector is created on StreamNative Cloud, you need to authenticate you
     }
 ```
 
-### 3. Display data on Google Cloud Storage console
+### 3. Display data on Azure Blob Storage console
 
-You can see the object at public/default/{{Your topic name}}-partition-0/xxxx.json on the Google Cloud Storage console. Download and open it, the content is:
+You can see the object at public/default/{{Your topic name}}-partition-0/xxxx.json on the Azure Blob Storage console. Download and open it, the content is:
 
 ```text
 {"test-message":"test-value"}
@@ -129,16 +122,19 @@ You can see the object at public/default/{{Your topic name}}-partition-0/xxxx.js
 
 ## Configuration Properties
 
-Before using the Google Cloud Storage sink connector, you need to configure it. This table outlines the properties and the descriptions.
+Before using the Azure Blob Storage sink connector, you need to configure it. This table outlines the properties and the descriptions.
 
 | Name                            | Type    | Required | Sensitive | Default      | Description                                                                                                                                                                                                                                                                                                                                                                           |
 |---------------------------------|---------|----------|-----------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `provider`                      | String  | True     | false     | null         | The Cloud Storage type, google cloud storage only supports the `google-cloud-storage` provider.                                                                                                                                                                                                                                                                                       |
-| `bucket`                        | String  | True     | false     | null         | The Cloud Storage bucket.                                                                                                                                                                                                                                                                                                                                                             |
+| `provider`                      | String  | True     | false     | null         | The Cloud Storage type, Azure Blob Storage only supports the `azure-blob-storage` provider.                                                                                                                                                                                                                                                                                           |
+| `bucket`                        | String  | True     | false     | null         | The Azure Blob Storage container name.                                                                                                                                                                                                                                                                                                                                                |
 | `formatType`                    | String  | True     | false     | "json"       | The data format type. Available options are `json`, `avro`, `bytes`, or `parquet`. By default, it is set to `json`.                                                                                                                                                                                                                                                                   |
 | `partitioner`                   | String  | False    | false     | null         | The partitioner for partitioning the resulting files. Available options are `topic`, `time` or `legacy`. By default, it's set to `legacy`. Please see [Partitioner](#partitioner) for more details.                                                                                                                                                                                   |
-| `partitionerType`               | String  | False    | false     | null         | The legacy partitioning type. It can be configured by topic partitions or by time. By default, the partition type is configured by topic partitions. It only works when the partitioner is set to `legacy`.                                                                                                                                                                           || `gcsServiceAccountKeyFileContent` | String  | False    | true      | ""           | The contents of the JSON service key file. If empty, credentials are read from `gcsServiceAccountKeyFilePath` file.                                                                                                                                                                                                                                                                   |
-| `gcsServiceAccountKeyFilePath`  | String  | False    | true      | ""           | Path to the GCS credentials file. If empty, the credentials file will be read from the `GOOGLE_APPLICATION_CREDENTIALS` environment variable.                                                                                                                                                                                                                                         |
+| `partitionerType`               | String  | False    | false     | null         | The legacy partitioning type. It can be configured by topic partitions or by time. By default, the partition type is configured by topic partitions. It only works when the partitioner is set to `legacy`.                                                                                                                                                                           || `azureStorageAccountConnectionString` | String  | False    | true      | ""           | The Azure Blob Storage connection string. Required when authenticating via connection string.                                                                                                                                                                                                                                                                                         |
+| `azureStorageAccountSASToken`   | String  | False    | true      | ""           | The Azure Blob Storage account SAS token. Required when authenticating via SAS token.                                                                                                                                                                                                                                                                                                 |
+| `azureStorageAccountName`       | String  | False    | true      | ""           | The Azure Blob Storage account name. Required when authenticating via account name and account key.                                                                                                                                                                                                                                                                                   |
+| `azureStorageAccountKey`        | String  | False    | true      | ""           | The Azure Blob Storage account key. Required when authenticating via account name and account key.                                                                                                                                                                                                                                                                                    |
+| `endpoint`                      | String  | False    | false     | null         | The Azure Blob Storage endpoint. Required when authenticating via account name or SAS token.                                                                                                                                                                                                                                                                                          |
 | `timePartitionPattern`          | String  | False    | false     | "yyyy-MM-dd" | The format pattern of the time-based partitioning. For details, refer to the Java date and time format.                                                                                                                                                                                                                                                                               |
 | `timePartitionDuration`         | String  | False    | false     | "86400000"   | The time interval for time-based partitioning. Support formatted interval string, such as `30d`, `24h`, `30m`, `10s`, and also support number in milliseconds precision, such as `86400000` refers to `24h` or `1d`.                                                                                                                                                                  |
 | `partitionerUseIndexAsOffset`   | Boolean | False    | false     | false        | Whether to use the Pulsar's message index as offset or the record sequence. It's recommended if the incoming messages may be batched. The brokers may or not expose the index metadata and, if it's not present on the record, the sequence will be used. See [PIP-70](https://github.com/apache/pulsar/wiki/PIP-70%3A-Introduce-lightweight-broker-entry-metadata) for more details. |
@@ -159,11 +155,17 @@ Before using the Google Cloud Storage sink connector, you need to configure it. 
 | `jsonAllowNaN`                  | Boolean | False    | false     | false        | Recognize 'NaN', 'INF', '-INF' as legal floating number values when formatType=`json`. Since JSON specification does not allow such values this is a non-standard feature and disabled by default.                                                                                                                                                                                    |
 | `includeTopicToMetadata`        | Boolean | False    | false     | false        | Include the topic name to the metadata.                                                                                                                                                                                                                                                                                                                                               |
 
+There are three methods to authenticate with Azure Blob Storage:
+1. `azureStorageAccountConnectionString`: This method involves using the Azure Blob Storage connection string for authentication. It's the simplest method as it only requires the connection string.
+2. `azureStorageAccountSASToken`: This method uses a Shared Access Signature (SAS) token for the Azure Blob Storage account. When using this method, you must also set the `endpoint`.
+3. `azureStorageAccountName` and `azureStorageAccountKey`: This method uses the Azure Blob Storage account name and account key for authentication. Similar to the SAS token method, you must also set the `endpoint` when using this method.
+
+
 ## Advanced features
 
 ### Data format types
 
-Cloud Storage Sink Connector provides multiple output format options, including JSON, Avro, Bytes, or Parquet. The default format is JSON.
+Azure Blob Storage Sink Connector provides multiple output format options, including JSON, Avro, Bytes, or Parquet. The default format is JSON.
 With current implementation, there are some limitations for different formats:
 
 This table lists the Pulsar Schema types supported by the writers.
@@ -222,12 +224,12 @@ This table lists the support of `withMetadata` configurations for different writ
 ### Dead-letter topics
 
 To use a dead-letter topic, you need to set `skipFailedMessages` to `false`, and set `--max-redeliver-count` and `--dead-letter-topic` when submit the connector with the `pulsar-admin` CLI tool. For more info about dead-letter topics, see the [Pulsar documentation](https://pulsar.apache.org/docs/en/concepts-messaging/#dead-letter-topic).
-If a message fails to be sent to the Cloud Storage and there is a dead-letter topic, the connector will send the message to the dead-letter topic.
+If a message fails to be sent to the Azure Blob Storage and there is a dead-letter topic, the connector will send the message to the dead-letter topic.
 
 ### Sink flushing only after batchTimeMs elapses
 
 There is a scenario where the sink is only flushing whenever the `batchTimeMs` has elapsed, even though there are many messages waiting to be processed.
-The reason for this is that the sink will only acknowledge messages after they are flushed to cloud storage but the broker stops sending messages when it reaches a certain limit of unacknowledged messages.
+The reason for this is that the sink will only acknowledge messages after they are flushed to the Azure Blob Storage but the broker stops sending messages when it reaches a certain limit of unacknowledged messages.
 If this limit is lower or close to `batchSize`, the sink never receives enough messages to trigger a flush based on the amount of messages.
 In this case please ensure the `maxUnackedMessagesPerConsumer` set in the broker configuration is sufficiently larger than the `batchSize` setting of the sink.
 
