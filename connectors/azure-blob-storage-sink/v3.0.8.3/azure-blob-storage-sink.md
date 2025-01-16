@@ -11,7 +11,7 @@ tags:
 alias: Azure Blob Storage Sink Connector
 features: ["Cloud Storage Connector integrates Apache Pulsar with cloud storage."]
 icon: "/images/connectors/azure-blob-storage-logo.png"
-download: https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v3.0.8.2
+download: https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v3.0.8.3
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-cloud-storage
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"

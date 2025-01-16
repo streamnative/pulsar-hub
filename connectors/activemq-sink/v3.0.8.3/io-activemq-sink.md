@@ -8,10 +8,10 @@ source: https://github.com/streamnative/pulsar-io-activemq
 license: Apache License 2.0
 license_link: https://github.com/streamnative/pulsar-io-activemq/blob/master/LICENSE
 tags: apache-pulsar,pulsar-io,source-connector,sink-connector,apache-activemq
-alias: ActiveMQ source connector
+alias: ActiveMQ sink connector
 features: ["ActiveMQ Connector integrates Apache Pulsar with Apache ActiveMQ. "]
 icon: "/images/connectors/activemq_logo_white_vertical.jpg"
-download: https://api.github.com/repos/streamnative/pulsar-io-activemq/tarball/refs/tags/v3.0.8.2
+download: https://api.github.com/repos/streamnative/pulsar-io-activemq/tarball/refs/tags/v3.0.8.3
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-activemq
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
@@ -19,11 +19,11 @@ owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 dockerfile: https://hub.docker.com/r/streamnative/pulsar-io-activemq
 sn_available: ""
-id: "io-activemq-source"
+id: "io-activemq-sink"
 ---
 
 
-The ActiveMQ source connector receives messages from ActiveMQ clusters and writes messages to Pulsar topics.
+The ActiveMQ sink connector pulls messages from Pulsar topics and persist messages to ActiveMQ.
 
 # Installation
 
@@ -36,9 +36,9 @@ cp target/pulsar-io-activemq-0.0.1.nar $PULSAR_HOME/pulsar-io-activemq-0.0.1.nar
 
 # Configuration 
 
-The configuration of the ActiveMQ source connector has the following properties.
+The configuration of the ActiveMQ sink connector has the following properties.
 
-## ActiveMQ source connector configuration
+## ActiveMQ sink connector configuration
 
 | Name | Type|Required | Default | Description 
 |------|----------|----------|---------|-------------|
@@ -49,10 +49,11 @@ The configuration of the ActiveMQ source connector has the following properties.
 | `password` | String|false | " " (empty string) | The password used to authenticate to ActiveMQ. |
 | `queueName` | String|false | " " (empty string) | The ActiveMQ queue name that messages should be read from or written to. |
 | `topicName` | String|false | " " (empty string) | The ActiveMQ topic name that messages should be read from or written to. |
+| `activeMessageType` | String|false |0 | The ActiveMQ message simple class name. |
 
-## Configure ActiveMQ source connector
+## Configure ActiveMQ sink connector
 
-Before using the ActiveMQ source connector, you need to create a configuration file through one of the following methods.
+Before using the ActiveMQ sink connector, you need to create a configuration file through one of the following methods.
 
 * JSON 
 
@@ -60,17 +61,18 @@ Before using the ActiveMQ source connector, you need to create a configuration f
     {
         "tenant": "public",
         "namespace": "default",
-        "name": "activemq-source",
-        "topicName": "user-op-queue-topic",
+        "name": "activemq-sink",
+        "inputs": ["user-op-queue-topic"],
         "archive": "connectors/pulsar-io-activemq-2.5.1.nar",
         "parallelism": 1,
-        "configs": {
+        "configs":
+        {
             "protocol": "tcp",
             "host": "localhost",
             "port": "61616",
             "username": "admin",
             "password": "admin",
-            "queueName": "user-op-queue"
+            "queueName": "user-op-queue-pulsar"
         }
     }
     ```
@@ -80,8 +82,9 @@ Before using the ActiveMQ source connector, you need to create a configuration f
     ```yaml
     tenant: "public"
     namespace: "default"
-    name: "activemq-source"
-    topicName: "user-op-queue-topic"
+    name: "activemq-sink"
+    inputs: 
+      - "user-op-queue-topic"
     archive: "connectors/pulsar-io-activemq-2.5.1.nar"
     parallelism: 1
     
@@ -91,8 +94,10 @@ Before using the ActiveMQ source connector, you need to create a configuration f
         port: "61616"
         username: "admin"
         password: "admin"
-        queueName: "user-op-queue"
+        queueName: "user-op-queue-pulsar"
     ```
+
+# Usage
 
 1. Prepare ActiveMQ service.
 
@@ -113,26 +118,26 @@ Before using the ActiveMQ source connector, you need to create a configuration f
     $PULSAR_HOME/bin/pulsar standalone
     ```
 
-4. Run ActiveMQ source locally.
+4. Run ActiveMQ sink locally.
 
     ```
-    $PULSAR_HOME/bin/pulsar-admin source localrun --source-config-file activemq-source-config.yaml
+    $PULSAR_HOME/bin/pulsar-admin sink localrun --sink-config-file activemq-sink-config.yaml
     ```
 
-5. Consume Pulsar messages.
+5. Send Pulsar messages.
 
     ```
-    bin/pulsar-client consume -s "sub-products" public/default/user-op-queue-topic -n 0
+    $PULSAR_HOME/bin/pulsar-client produce public/default/user-op-queue-topic --messages hello -n 10
     ```
 
-6. Send ActiveMQ messages.
+6. Consume ActiveMQ messages.
 
-    Use the test method `sendMessage` of the `class org.apache.pulsar.ecosystem.io.activemq.ActiveMQDemo` 
-to send ActiveMQ messages.
+    Use the test method `receiveMessage` of the class `org.apache.pulsar.ecosystem.io.activemq.ActiveMQDemo` 
+to consume ActiveMQ messages.
 
     ```
     @Test
-    private void sendMessage() throws JMSException {
+    private void receiveMessage() throws JMSException, InterruptedException {
     
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
     
@@ -141,20 +146,26 @@ to send ActiveMQ messages.
         connection.start();
     
         @Cleanup
-        Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     
-        Destination destination = session.createQueue("user-op-queue");
+        Destination destination = session.createQueue("user-op-queue-pulsar");
     
         @Cleanup
-        MessageProducer producer = session.createProducer(destination);
-        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+        MessageConsumer consumer = session.createConsumer(destination);
     
-        for (int i = 0; i < 10; i++) {
-            String msgContent = "Hello ActiveMQ - " + i;
-            ActiveMQTextMessage message = new ActiveMQTextMessage();
-            message.setText(msgContent);
-            producer.send(message);
-        }
+        consumer.setMessageListener(new MessageListener() {
+            @Override
+            public void onMessage(Message message) {
+                if (message instanceof ActiveMQTextMessage) {
+                    try {
+                        System.out.println("get message ----------------- ");
+                        System.out.println("receive: " + ((ActiveMQTextMessage) message).getText());
+                    } catch (JMSException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
     ```
 
