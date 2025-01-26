@@ -8,10 +8,10 @@ source: https://github.com/streamnative/pulsar-io-cloud-storage
 license: Apache License 2.0
 license_link: https://github.com/streamnative/pulsar-io-cloud-storage/blob/master/LICENSE
 tags: 
-alias: AWS S3 Sink Connector
+alias: Google Cloud Storage Sink Connector
 features: ["Cloud Storage Connector integrates Apache Pulsar with cloud storage."]
-icon: "/images/connectors/aws-s3-logo.png"
-download: https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v3.3.3.1
+icon: "/images/connectors/gcloud-storage-logo.svg"
+download: https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v3.3.3.2
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-cloud-storage
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
@@ -19,44 +19,35 @@ owner_name: "streamnative"
 owner_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
 dockerfile: https://hub.docker.com/r/streamnative/pulsar-io-cloud-storage
 sn_available: "true"
-id: "aws-s3-sink"
+id: "google-cloud-storage-sink"
 ---
 
 
-The [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) sink connector pulls data from Pulsar topics and persists data to AWS S3 buckets.
+The [Google Cloud Storage](https://cloud.google.com/storage/docs) sink connector pulls data from Pulsar topics and persists data to Google Cloud Storage buckets.
 
-![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/cloud-storage-aws-s3-sink.png)
+![](https://raw.githubusercontent.com/streamnative/pulsar-hub/refs/heads/master/images/connectors/sync/cloud-storage-google-cloud-storage-sink.png)
 
 ## Quick start
 
 ### Prerequisites
 
-The prerequisites for connecting an AWS S3 sink connector to external systems include:
+The prerequisites for connecting an Google Cloud Storage sink connector to external systems include:
 
-1. Create S3 buckets in AWS.
-2. Create the [AWS User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) and create `AccessKey`(Please record `AccessKey` and `SecretAccessKey`).
-3. Assign permissions to AWS User, and ensure they have the following permissions to the AWS S3. 
-```json
-{
-	"Version": "2012-10-17",
-	"Statement": [
-		{
-			"Sid": "VisualEditor0",
-			"Effect": "Allow",
-			"Action": [
-				"s3:PutObject",
-				"s3:AbortMultipartUpload"
-			],
-			"Resource": "{Your bucket arn}/*"
-		}
-	]
-}
+1. Create Cloud Storage buckets in Google Cloud.
+2. Create the [Google cloud ServiceAccount](https://cloud.google.com/iam/docs/service-accounts-create) and create a public key certificate.
+3. Create the [Google cloud Role](https://cloud.google.com/iam/docs/creating-custom-roles), ensure the Google Cloud role have the following permissions:
+```text
+- storage.buckets.get
+- storage.buckets.list
+- storage.objects.create
 ```
+4. Grant the `ServiceAccount` the above `Role`.
+
 
 ### 1. Create a connector
 
 The following command shows how to use [pulsarctl](https://github.com/streamnative/pulsarctl) to create a `builtin` connector. If you want to create a `non-builtin` connector,
-you need to replace `--sink-type cloud-storage-s3` with `--archive /path/to/pulsar-io-cloud-storage.nar`. You can find the button to download the `nar` package at the beginning of the document.
+you need to replace `--sink-type cloud-storage-gcloud` with `--archive /path/to/pulsar-io-cloud-storage.nar`. You can find the button to download the `nar` package at the beginning of the document.
 
 {% callout title="For StreamNative Cloud User" type="note" %}
 If you are a StreamNative Cloud user, you need [set up your environment](https://docs.streamnative.io/docs/connector-setup) first.
@@ -64,19 +55,17 @@ If you are a StreamNative Cloud user, you need [set up your environment](https:/
 
 ```bash
 pulsarctl sinks create \
-  --sink-type cloud-storage-s3 \
-  --name aws-s3-sink \
+  --sink-type cloud-storage-gcloud \
+  --name gcloud-storage-sink \
   --tenant public \
   --namespace default \
   --inputs "Your topic name" \
   --parallelism 1 \
   --sink-config \
   '{
-    "accessKeyId": "Your AWS access key", 
-    "secretAccessKey": "Your AWS secret access key",
-    "provider": "s3v2",
+    "gcsServiceAccountKeyFileContent": "Public key certificate you created above", 
+    "provider": "google-cloud-storage",
     "bucket": "Your bucket name",
-    "region": "Your AWS S3 region",
     "formatType": "json",
     "partitioner": "topic"
   }'
@@ -121,9 +110,9 @@ If your connector is created on StreamNative Cloud, you need to authenticate you
     }
 ```
 
-### 3. Display data on AWS S3 console
+### 3. Display data on Google Cloud Storage console
 
-You can see the object at public/default/{{Your topic name}}-partition-0/xxxx.json on the AWS S3 console. Download and open it, the content is:
+You can see the object at public/default/{{Your topic name}}-partition-0/xxxx.json on the Google Cloud Storage console. Download and open it, the content is:
 
 ```text
 {"test-message":"test-value"}
@@ -140,21 +129,16 @@ You can see the object at public/default/{{Your topic name}}-partition-0/xxxx.js
 
 ## Configuration Properties
 
-Before using the AWS S3 sink connector, you need to configure it. This table outlines the properties and the descriptions.
+Before using the Google Cloud Storage sink connector, you need to configure it. This table outlines the properties and the descriptions.
 
 | Name                            | Type    | Required | Sensitive | Default      | Description                                                                                                                                                                                                                                                                                                                                                                           |
 |---------------------------------|---------|----------|-----------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `provider`                      | String  | True     | false     | null         | The AWS S3 client type, such as `aws-s3`,`s3v2`(`s3v2` uses the AWS client but not the JCloud client).                                                                                                                                                                                                                                                                                |
-| `accessKeyId`                   | String  | True     | true      | null         | The AWS access key ID. It requires permission to write objects.                                                                                                                                                                                                                                                                                                                       |
-| `secretAccessKey`               | String  | True     | true      | null         | The AWS secret access key.                                                                                                                                                                                                                                                                                                                                                            |
-| `bucket`                        | String  | True     | false     | null         | The AWS S3 bucket.                                                                                                                                                                                                                                                                                                                                                                    |
+| `provider`                      | String  | True     | false     | null         | The Cloud Storage type, google cloud storage only supports the `google-cloud-storage` provider.                                                                                                                                                                                                                                                                                       |
+| `bucket`                        | String  | True     | false     | null         | The Cloud Storage bucket.                                                                                                                                                                                                                                                                                                                                                             |
 | `formatType`                    | String  | True     | false     | "json"       | The data format type. Available options are `json`, `avro`, `bytes`, or `parquet`. By default, it is set to `json`.                                                                                                                                                                                                                                                                   |
 | `partitioner`                   | String  | False    | false     | null         | The partitioner for partitioning the resulting files. Available options are `topic`, `time` or `legacy`. By default, it's set to `legacy`. Please see [Partitioner](#partitioner) for more details.                                                                                                                                                                                   |
-| `partitionerType`               | String  | False    | false     | null         | The legacy partitioning type. It can be configured by topic partitions or by time. By default, the partition type is configured by topic partitions. It only works when the partitioner is set to `legacy`.                                                                                                                                                                           |
-| `region`                        | String  | False    | false     | null         | The AWS S3 region. Either the endpoint or region must be set.                                                                                                                                                                                                                                                                                                                         |
-| `endpoint`                      | String  | False    | false     | null         | The AWS S3 endpoint. Either the endpoint or region must be set.                                                                                                                                                                                                                                                                                                                       |
-| `role`                          | String  | False    | false     | null         | The AWS role.                                                                                                                                                                                                                                                                                                                                                                         |
-| `roleSessionName`               | String  | False    | false     | null         | The AWS role session name.                                                                                                                                                                                                                                                                                                                                                            |
+| `partitionerType`               | String  | False    | false     | null         | The legacy partitioning type. It can be configured by topic partitions or by time. By default, the partition type is configured by topic partitions. It only works when the partitioner is set to `legacy`.                                                                                                                                                                           || `gcsServiceAccountKeyFileContent` | String  | False    | true      | ""           | The contents of the JSON service key file. If empty, credentials are read from `gcsServiceAccountKeyFilePath` file.                                                                                                                                                                                                                                                                   |
+| `gcsServiceAccountKeyFilePath`  | String  | False    | true      | ""           | Path to the GCS credentials file. If empty, the credentials file will be read from the `GOOGLE_APPLICATION_CREDENTIALS` environment variable.                                                                                                                                                                                                                                         |
 | `timePartitionPattern`          | String  | False    | false     | "yyyy-MM-dd" | The format pattern of the time-based partitioning. For details, refer to the Java date and time format.                                                                                                                                                                                                                                                                               |
 | `timePartitionDuration`         | String  | False    | false     | "86400000"   | The time interval for time-based partitioning. Support formatted interval string, such as `30d`, `24h`, `30m`, `10s`, and also support number in milliseconds precision, such as `86400000` refers to `24h` or `1d`.                                                                                                                                                                  |
 | `partitionerUseIndexAsOffset`   | Boolean | False    | false     | false        | Whether to use the Pulsar's message index as offset or the record sequence. It's recommended if the incoming messages may be batched. The brokers may or not expose the index metadata and, if it's not present on the record, the sequence will be used. See [PIP-70](https://github.com/apache/pulsar/wiki/PIP-70%3A-Introduce-lightweight-broker-entry-metadata) for more details. |
@@ -179,7 +163,7 @@ Before using the AWS S3 sink connector, you need to configure it. This table out
 
 ### Data format types
 
-AWS S3 Sink Connector provides multiple output format options, including JSON, Avro, Bytes, or Parquet. The default format is JSON.
+Cloud Storage Sink Connector provides multiple output format options, including JSON, Avro, Bytes, or Parquet. The default format is JSON.
 With current implementation, there are some limitations for different formats:
 
 This table lists the Pulsar Schema types supported by the writers.
@@ -238,19 +222,19 @@ This table lists the support of `withMetadata` configurations for different writ
 ### Dead-letter topics
 
 To use a dead-letter topic, you need to set `skipFailedMessages` to `false`, and set `--max-redeliver-count` and `--dead-letter-topic` when submit the connector with the `pulsar-admin` CLI tool. For more info about dead-letter topics, see the [Pulsar documentation](https://pulsar.apache.org/docs/en/concepts-messaging/#dead-letter-topic).
-If a message fails to be sent to the AWS S3 and there is a dead-letter topic, the connector will send the message to the dead-letter topic.
+If a message fails to be sent to the Cloud Storage and there is a dead-letter topic, the connector will send the message to the dead-letter topic.
 
 ### Sink flushing only after batchTimeMs elapses
 
 There is a scenario where the sink is only flushing whenever the `batchTimeMs` has elapsed, even though there are many messages waiting to be processed.
-The reason for this is that the sink will only acknowledge messages after they are flushed to AWS S3 but the broker stops sending messages when it reaches a certain limit of unacknowledged messages.
+The reason for this is that the sink will only acknowledge messages after they are flushed to cloud storage but the broker stops sending messages when it reaches a certain limit of unacknowledged messages.
 If this limit is lower or close to `batchSize`, the sink never receives enough messages to trigger a flush based on the amount of messages.
 In this case please ensure the `maxUnackedMessagesPerConsumer` set in the broker configuration is sufficiently larger than the `batchSize` setting of the sink.
 
 ### Partitioner
 
 The partitioner is used for partitioning the data into different files in the cloud storage.
-There are three types of partitioner: 
+There are three types of partitioner:
 
 - **Topic Partitioner**: Messages are partitioned according to the pre-existing partitions in the Pulsar topics. For
   instance, a message for the topic `public/default/my-topic-partition-0` would be directed to the
@@ -273,5 +257,4 @@ There are two types of legacy partitioner:
   example, if it was received on 2023-12-20, it would be directed
   to `public/default/my-topic-partition-0/2023-12-20/xxx.json`, where `xxx` also denotes the earliest message offset in
   this file.
-
 
