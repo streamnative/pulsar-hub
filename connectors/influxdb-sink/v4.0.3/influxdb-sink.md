@@ -1,0 +1,123 @@
+---
+description: The InfluxDB sink connector pulls messages from Pulsar topics and persists the messages to InfluxDB.
+author: ["ASF"]
+contributors: ["ASF"]
+language: Java
+document:
+source: "https://github.com/apache/pulsar/tree/v4.0.3/pulsar-io/influxdb"
+license: Apache License 2.0
+tags: ["Pulsar IO", "InfluxDB", "Sink"]
+alias: InfluxDB Sink
+features: ["Use InfluxDB sink connector to sync data from Pulsar"]
+license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+icon: "/images/connectors/influxdb.png"
+download: "https://archive.apache.org/dist/pulsar/pulsar-4.0.3/connectors/pulsar-io-influxdb-4.0.3.nar"
+support: StreamNative
+support_link: https://streamnative.io
+support_img: "/images/streamnative.png"
+owner_name: ""
+owner_img: ""
+dockerfile: 
+id: "influxdb-sink"
+---
+
+The InfluxDB sink connector pulls messages from Pulsar topics and persists the messages to InfluxDB.
+
+The InfluxDB sink provides different configurations for InfluxDBv1 and v2 respectively.
+
+# Configuration
+
+The configuration of the InfluxDB sink connector has the following properties.
+
+## Property
+### InfluxDBv2
+| Name           | Type    | Required | Sensitive | Default            | Description                                                                                                                               |
+|----------------|---------|----------|-----------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| `influxdbUrl`  | String  | true     | false     | " " (empty string) | The URL of the InfluxDB instance.                                                                                                         |
+| `token`        | String  | true     | true      | " " (empty string) | The authentication token used to authenticate to InfluxDB.                                                                                |
+| `organization` | String  | true     | false     | " " (empty string) | The InfluxDB organization to write to.                                                                                                    |
+| `bucket`       | String  | true     | false     | " " (empty string) | The InfluxDB bucket to write to.                                                                                                          |
+| `precision`    | String  | false    | false     | ns                 | The timestamp precision for writing data to InfluxDB. <br><br>Below are the available options:<li>ns<br><li>us<br><li>ms<br><li>s         |
+| `logLevel`     | String  | false    | false     | NONE               | The log level for InfluxDB request and response. <br><br>Below are the available options:<li>NONE<br><li>BASIC<br><li>HEADERS<br><li>FULL |
+| `gzipEnable`   | boolean | false    | false     | false              | Whether to enable gzip or not.                                                                                                            |
+| `batchTimeMs`  | long    | false    | false     | 1000L              | The InfluxDB operation time in milliseconds.                                                                                              |
+| `batchSize`    | int     | false    | false     | 200                | The batch size of writing to InfluxDB.                                                                                                    |
+
+### InfluxDBv1
+| Name               | Type    | Required | Sensitive | Default            | Description                                                                                                                               |
+|--------------------|---------|----------|-----------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| `influxdbUrl`      | String  | true     | false     | " " (empty string) | The URL of the InfluxDB instance.                                                                                                         |
+| `username`         | String  | false    | true      | " " (empty string) | The username used to authenticate to InfluxDB.                                                                                            |
+| `password`         | String  | false    | true      | " " (empty string) | The password used to authenticate to InfluxDB.                                                                                            |
+| `database`         | String  | true     | false     | " " (empty string) | The InfluxDB to which write messages.                                                                                                     |
+| `consistencyLevel` | String  | false    | false     | ONE                | The consistency level for writing data to InfluxDB. <br><br>Below are the available options:<li>ALL<br><li> ANY<br><li>ONE<br><li>QUORUM  |
+| `logLevel`         | String  | false    | false     | NONE               | The log level for InfluxDB request and response. <br><br>Below are the available options:<li>NONE<br><li>BASIC<br><li>HEADERS<br><li>FULL |
+| `retentionPolicy`  | String  | false    | false     | autogen            | The retention policy for InfluxDB.                                                                                                        |
+| `gzipEnable`       | boolean | false    | false     | false              | Whether to enable gzip or not.                                                                                                            |
+| `batchTimeMs`      | long    | false    | false     | 1000L              | The InfluxDB operation time in milliseconds.                                                                                              |
+| `batchSize`        | int     | false    | false     | 200                | The batch size of writing to InfluxDB.                                                                                                    |
+
+## Example
+Before using the InfluxDB sink connector, you need to create a configuration file through one of the following methods.
+### InfluxDBv2
+* JSON
+    ```json
+    {
+        "influxdbUrl": "http://localhost:9999",
+        "organization": "example-org",
+        "bucket": "example-bucket",
+        "token": "xxxx",
+        "precision": "ns",
+        "logLevel": "NONE",
+        "gzipEnable": false,
+        "batchTimeMs": 1000,
+        "batchSize": 100
+    }
+    ```
+  
+* YAML
+    ```yaml
+    {
+        influxdbUrl: "http://localhost:9999"
+        organization: "example-org"
+        bucket: "example-bucket"
+        token: "xxxx"
+        precision: "ns"
+        logLevel: "NONE"
+        gzipEnable: false
+        batchTimeMs: 1000
+        batchSize: 100
+    }
+    ```
+  
+### InfluxDBv1
+
+* JSON 
+
+    ```json
+    {
+        "influxdbUrl": "http://localhost:8086",
+        "database": "test_db",
+        "consistencyLevel": "ONE",
+        "logLevel": "NONE",
+        "retentionPolicy": "autogen",
+        "gzipEnable": false,
+        "batchTimeMs": 1000,
+        "batchSize": 100
+    }
+    ```
+
+* YAML
+
+    ```yaml
+    {
+        influxdbUrl: "http://localhost:8086"
+        database: "test_db"
+        consistencyLevel: "ONE"
+        logLevel: "NONE"
+        retentionPolicy: "autogen"
+        gzipEnable: false
+        batchTimeMs: 1000
+        batchSize: 100
+    }
+    ```
