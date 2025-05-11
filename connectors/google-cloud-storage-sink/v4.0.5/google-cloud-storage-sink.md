@@ -11,7 +11,7 @@ tags:
 alias: Google Cloud Storage Sink Connector
 features: ["Cloud Storage Connector integrates Apache Pulsar with cloud storage."]
 icon: "/images/connectors/gcloud-storage-logo.svg"
-download: https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v4.0.4
+download: https://api.github.com/repos/streamnative/pulsar-io-cloud-storage/tarball/refs/tags/v4.0.5
 support: streamnative
 support_link: https://github.com/streamnative/pulsar-io-cloud-storage
 support_img: "https://avatars.githubusercontent.com/u/44651383?v=4"
