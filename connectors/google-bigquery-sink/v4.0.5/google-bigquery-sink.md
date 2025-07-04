@@ -98,7 +98,7 @@ If your connector is created on StreamNative Cloud, you need to authenticate you
 @ToString
 public class TestMessage {
     private String testString;
-    private String testInt;
+    private int testInt;
  
     public static void main(String[] args) {
         PulsarClient client = PulsarClient.builder()
@@ -109,7 +109,7 @@ public class TestMessage {
             .topic("{{Your topic name}}")
             .create();
 
-        AvroDataConvertTestIntegration testMessage = new AvroDataConvertTestIntegration();
+        TestMessage testMessage = new TestMessage();
         testMessage.setTestString("test string");
         testMessage.setTestInt(123);
         MessageId msgID = producer.send(testMessage);
