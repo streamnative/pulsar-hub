@@ -34,6 +34,7 @@ The prerequisites for connecting a Debezium MongoDB source connector to external
 
 1. Create a MongoDB service: This connector uses the debezium v1.9, Please refer to this [document](https://debezium.io/releases/1.9/) to see the compatible MongoDB versions.
 2. Prepare MongoDB Database: Please refer to this [document](https://debezium.io/documentation/reference/1.9/connectors/mongodb.html#setting-up-mongodb) to complete the prepare steps on MongoDB.
+3. Configure topic retention policies: Before running the connector, you must ensure that you have set an infinite retention policy for both the `offset.storage.topic` and `database.history.pulsar.topic`. Refer to the [Used Topic On Pulsar](#used-topic-on-pulsar) section for more details.
 
 
 ### 1. Prepare MongoDB service
@@ -81,6 +82,11 @@ pulsarctl sources create \
   }'
 ```
 
+{% callout title="Note" type="note" %}
+1. The `--parallelism` must be set to **1**. Debezium connectors do not support parallel consumption within a single instance. If you need to process tables in parallel, you can deploy multiple connector instances, each configured for different database schemas or tables.
+2. You can set multiple tables for "table.whitelist", and the connector will send data from each table to a different topic of pulsar. The topic naming rule is: "{{database.server.name}}.{{table.name}}". For examples: "public/default/mydbserver.public.io-test".
+{% /callout %}
+
 The `--source-config` is the minimum necessary configuration for starting this connector, and it is a JSON string. You need to substitute the relevant parameters with your own.
 
 If you want to configure more parameters, see [Configuration Properties](#configuration-properties) for reference.
@@ -127,7 +133,8 @@ The configuration of Debezium Mongodb source connector has the following propert
 | `mongodb.user`                        | false    | true      | null    | Name of the database user to be used when connecting to MongoDB. This is required only when MongoDB is configured to use authentication.                                                                                                                                                                                                                                                                                                                                                                                            |
 | `mongodb.password`                    | false    | true      | null    | Password to be used when connecting to MongoDB. This is required only when MongoDB is configured to use authentication.                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `mongodb.task.id`                     | true     | false     | null    | The taskId of the MongoDB connector that attempts to use a separate task for each replica set.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `database.whitelist`                  | false    | false     | null    | A list of all databases hosted by this server which is monitored by the  connector.<br/><br/> By default, all databases are monitored.                                                                                                                                                                                                                                                                                                                                                                                              |
+| `database.whitelist`                  | false    | false     | null    | A list of all databases hosted by this server which is monitored by the  connector.<br/><br/> This is optional, and there are other properties for listing databases and tables to include or exclude from monitoring.                                                                                                                                                                                                                                                                                                              |
+| `table.whitelist`                     | false    | false     | null    | A list of all tables hosted by this server which is monitored by the  connector.<br/><br/> This is optional, and there are other properties for listing tables and tables to include or exclude from monitoring.                                                                                                                                                                                                                                                                                                                    |
 | `key.converter`                       | false    | false     | null    | The converter provided by Kafka Connect to convert record key.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `value.converter`                     | false    | false     | null    | The converter provided by Kafka Connect to convert record value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `database.history.pulsar.topic`       | false    | false     | null    | The name of the database history topic where the connector writes and recovers DDL statements. <br/><br/>**Note: this topic is for internal use only and should not be used by consumers.**                                                                                                                                                                                                                                                                                                                                         |
@@ -156,6 +163,19 @@ Currently, the destination topic (specified by the `destination-topic-name` opti
 
 - One topic for storing the database metadata messages. It is named with the database server name ( `database.server.name`), like `public/default/database.server.name`.
 - One topic (`offset.storage.topic`) for storing the offset metadata messages. The connector saves the last successfully-committed offsets on this topic.
-- (Option) One topic (`database.history.pulsar.topic`) for storing the database history information. The connector writes and recovers DDL statements on this topic.
-- One per-table topic. The connector writes change events for all operations that occur in a table to a single Pulsar topic that is specific to that table. For examples: "public/default/mydbserver.public.io-test"
-        If automatic topic creation is disabled on the Pulsar broker, you need to manually create these 4 types of topics and the destination topic.
+- One topic (`database.history.pulsar.topic`) for storing the database history information. The connector writes and recovers DDL statements on this topic.
+- One per-table topic. You can set multiple tables for "table.whitelist", and the connector will send data from each table to a different topic of pulsar. The topic naming rule is: "{{database.server.name}}.{{table.name}}". For examples: "public/default/mydbserver.public.io-test".
+
+If automatic topic creation is disabled on the Pulsar broker, you need to manually create these 4 types of topics and the destination topic.
+
+For `offset.storage.topic` and `database.history.pulsar.topic`, If they are not specified in your connector's configuration, they will be created automatically using the following default naming convention:
+- `database.history.pulsar.topic`: "{tenant}/{namespace}/{connector-name}-debezium-history-topic"
+- `offset.storage.topic`: "{tenant}/{namespace}/{connector-name}-offset-storage-topic"
+
+Here, {tenant} and {namespace} refer to the tenant and namespace where the connector is running.
+
+Both the history and offset topics require their data to be retained indefinitely to ensure fault-tolerance and prevent data loss. Before running the connector, you must configure an infinite retention policy for both topics. Use the pulsar-admin CLI to set the retention policy:
+
+```shell
+pulsar-admin topicPolicies set-retention -s -1 -t -1 ${topic_name}
+```
