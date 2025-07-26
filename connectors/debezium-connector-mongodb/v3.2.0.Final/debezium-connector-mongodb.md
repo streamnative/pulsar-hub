@@ -1,5 +1,5 @@
 ---
-description: "Debezium MongoDB Source connector"
+description: "Kafka Connect Debezium MongoDB Source connector"
 author: ["Debezium"]
 contributors: ["Debezium"]
 language: Java
@@ -19,7 +19,7 @@ owner_name: "Debezium"
 owner_img: ""
 sn_available: true
 dockerfile:
-id: "debezium-connector-mongodb"
+id: "kafka-connect-debezium-mongodb"
 powered_by: "Debezium"
 ---
 
